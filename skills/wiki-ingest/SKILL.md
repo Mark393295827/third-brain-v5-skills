@@ -1,0 +1,117 @@
+---
+name: wiki-ingest
+description: Ingest sources (articles, PDFs, videos, notes) into a persistent interlinked knowledge wiki. Creates source notes, entity pages, concept pages, and updates navigation. Based on the STOW (Source → Think → Organize → Write) pattern.
+---
+
+# Wiki Ingest
+
+Ingest a source document into the knowledge wiki — creating structured, interlinked pages that compound over time.
+
+## When to Use
+
+- User drops a file and says "ingest this"
+- User shares a link/article/video/PDF to be processed
+- User says "add this to the wiki" or "save this to my knowledge base"
+- User mentions a source that should be captured
+
+## Workflow
+
+### Step 1: Capture
+
+Create an immutable source note in `sources/`:
+
+```markdown
+---
+source_id: "src-YYYYMMDD-short-slug"
+title: "Original Source Title"
+author: ""
+url: ""
+created_at: "YYYY-MM-DD"
+captured_at: "YYYY-MM-DDTHH:MM:SS"
+source_type: "article | book | video-transcript | paper | conversation"
+trust_level: "1-unverified | 2-expert-source"
+hash: "sha256-16char"
+status: "raw | ingested"
+---
+```
+
+**Rules:**
+- Never modify source files after creation
+- Extract 3-7 Key Insights with block refs (`^ki-short-name`)
+- Flag single-source claims with `> [!warning] Single source`
+
+### Step 2: Auto-create Entity Pages
+
+For every person, company, product, or project mentioned in the source:
+
+```markdown
+---
+tags:
+  - domain/strategy
+  - type/entity
+type: entity
+status: seed
+created: "YYYY-MM-DD"
+knowledge_stage: single-source
+evidence_level: single-source
+---
+
+# Entity Name
+```
+
+- Check if entity page already exists → update if needed
+- Use consistent naming (English for global entities, Chinese for local)
+
+### Step 3: Create/Update Concept Pages
+
+For every key concept, framework, or methodology:
+
+- Check if concept page already exists
+- If exists: add new source reference, flag contradictions
+- If new: create with `status: seed`, ≥2 `[[wikilinks]]`, `knowledge_stage: single-source`
+
+### Step 4: Update Navigation
+
+1. Update the wiki overview / living synthesis
+2. Update the central index
+3. Update relevant MOC (map of content) pages
+
+### Step 5: Log
+
+Append to `system/log.md` with:
+- Source ingested
+- Entity pages created/updated
+- Concept pages created/updated
+- Maps updated
+
+## Quality Gates
+
+- [ ] Source note created with frontmatter
+- [ ] ≥2 entity pages created or updated
+- [ ] ≥1 concept page created or updated
+- [ ] Every wiki page has ≥2 `[[wikilinks]]`
+- [ ] Navigation (overview + index + maps) updated
+- [ ] Log appended
+
+## Page Format
+
+Every wiki page uses this frontmatter:
+
+```yaml
+---
+tags: [domain/xxx, type/concept|entity|sop]
+type: concept | entity | sop
+status: seed | growing | evergreen | stale
+created: YYYY-MM-DD
+knowledge_stage: captured | stored | cross-checked | applied
+evidence_level: single-source | multi-source | curated-map
+---
+```
+
+## Key Principles
+
+- **Immutable sources**: raw/inbox files are never modified after ingest
+- **Compound**: every new source makes the wiki richer
+- **Linked**: every page ≥2 outbound `[[wikilinks]]`
+- **Sourced**: every claim cites `(Source: [[source-file#^ref]])`
+- **Contradictions flagged**: `> [!warning] Contradiction` when sources disagree
