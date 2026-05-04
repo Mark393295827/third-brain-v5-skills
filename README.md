@@ -3,6 +3,12 @@
 **A curated set of Agent Skills for knowledge compounding, behavior design, and creativity â€” turning AI agents into a persistent cognitive operating system.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-8A2BE2)](https://claude.ai/code)
+[![Codex CLI](https://img.shields.io/badge/Codex%20CLI-Compatible-000000)](https://github.com/openai/codex)
+[![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Compatible-4285F4)](https://github.com/google-gemini/gemini-cli)
+[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Format-2ea44f)](https://agentskills.io)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
+![Skills](https://img.shields.io/badge/skills-8-FF6B6B)
 
 ---
 
@@ -71,14 +77,34 @@ Inspired by the [Third Brain V5.0](https://github.com/your-repo) architecture â€
 
 ## Quick Start
 
+### One-line Install
+
+```bash
+# Clone and install all skills
+git clone https://github.com/Mark393295827/third-brain-v5-skills.git
+cp -r third-brain-v5-skills/skills/* ~/.claude/skills/
+```
+
 ### With Claude Code
 
 ```bash
-# Copy skills to your Claude Code skills directory
+# Personal skills (available across all projects)
 cp -r skills/* ~/.claude/skills/
 
-# Or use a project-specific setup
+# Project skills (shared with team)
 cp -r skills/* .claude/skills/
+```
+
+### With Codex CLI
+
+```bash
+cp -r skills/* ~/.agents/skills/
+```
+
+### With Gemini CLI
+
+```bash
+cp -r skills/* ~/.gemini/skills/
 ```
 
 Then use in conversation:
