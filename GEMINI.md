@@ -23,6 +23,7 @@ skill-name/
 | [session-learn](skills/session-learn/SKILL.md) | Extract knowledge patterns from sessions |
 | [verify-before-claim](skills/verify-before-claim/SKILL.md) | Evidence before completion claims |
 | [wiki-lint](skills/wiki-lint/SKILL.md) | 8-dimension wiki health check |
+| [harness-engineering](skills/harness-engineering/SKILL.md) | AI agent runtime infrastructure design |
 
 ## Key Principles
 
