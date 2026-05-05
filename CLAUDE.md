@@ -24,7 +24,7 @@ description: One-line description of what this skill does and when to use it.
 - **Knowledge operations**: wiki-ingest, cognitive-compile, session-learn, wiki-lint
 - **Daily workflow**: daily-okr
 - **Behavior & creativity**: behavior-design, creativity-engine
-- **Quality**: verify-before-claim
+- **Quality**: verify-before-claim, harness-engineering
 
 ## Key Principles
 

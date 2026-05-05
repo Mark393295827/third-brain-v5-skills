@@ -8,7 +8,7 @@
 [![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Compatible-4285F4)](https://github.com/google-gemini/gemini-cli)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Format-2ea44f)](https://agentskills.io)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
-![Skills](https://img.shields.io/badge/skills-11-FF6B6B)
+![Skills](https://img.shields.io/badge/skills-12-FF6B6B)
 
 ---
 
@@ -38,6 +38,7 @@ Inspired by the [Third Brain V5.0](https://github.com/your-repo) architecture �
 | [knowledge-ops](skills/knowledge-ops/SKILL.md) | Multi-layer knowledge management — classify, deduplicate, sync, retrieve. |
 | [deep-research](skills/deep-research/SKILL.md) | Multi-source deep research with confidence-based evidence standards. |
 | [project-flow-ops](skills/project-flow-ops/SKILL.md) | Execution flow — triage, plan, track, review across projects. |
+| [harness-engineering](skills/harness-engineering/SKILL.md) | Design the runtime infrastructure around AI agents — permissions, tools, feedback loops, observability, constraints. |
 
 ## Architecture
 
@@ -75,6 +76,7 @@ Inspired by the [Third Brain V5.0](https://github.com/your-repo) architecture �
            │ verify-before-claim ← quality │
            │ wiki-lint       ← health      │
            │ deep-research   ← synthesis   │
+           │ harness-engineering ← safety  │
            └───────────────────────────────┘
 ```
 

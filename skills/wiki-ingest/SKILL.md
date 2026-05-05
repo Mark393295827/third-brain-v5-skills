@@ -76,7 +76,25 @@ For every key concept, framework, or methodology:
 2. Update the central index
 3. Update relevant MOC (map of content) pages
 
-### Step 5: Log
+### Step 5: Append Timeline
+
+After updating or creating any wiki page, append a timeline entry at the bottom (below a `---` separator):
+
+```markdown
+---
+
+## 演化时间线
+
+- **YYYY-MM-DD**：创建初始版本。
+- **YYYY-MM-DD**：更新了关于 X 的理解（来源：[[source]]）。旧观点 Y，新证据表明 Z。
+```
+
+**Rules:**
+- Content above `---` is **compiled truth** — current best understanding, rewritable
+- Content below `---` is the **timeline** — append-only, never edited or deleted
+- Add an entry on creation, and every time a core claim changes
+
+### Step 6: Log
 
 Append to `system/log.md` with:
 - Source ingested
