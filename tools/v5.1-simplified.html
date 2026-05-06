@@ -82,8 +82,16 @@
 </style>
 </head>
 <body>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;max-width:1400px;margin-left:auto;margin-right:auto;">
+  <a href="index.html" style="color:var(--text-muted);font-size:9px;font-family:'JetBrains Mono';text-decoration:none;padding:4px 10px;border:1px solid var(--border);border-radius:4px;">← BACK</a>
+  <button onclick="setLang('en')" id="l-en" style="background:var(--surface2);border:1px solid var(--cyan);border-radius:4px;padding:4px 12px;cursor:pointer;font-family:'JetBrains Mono';font-size:9px;color:var(--cyan);">EN</button>
+  <button onclick="setLang('zh')" id="l-zh" style="background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:4px 12px;cursor:pointer;font-family:'JetBrains Mono';font-size:9px;color:var(--text-muted);">中文</button>
+</div>
+<script>
+function setLang(l){if(l==='zh'){document.getElementById('l-en').style.borderColor='var(--border)';document.getElementById('l-en').style.color='var(--text-muted)';document.getElementById('l-zh').style.borderColor='var(--cyan)';document.getElementById('l-zh').style.color='var(--cyan)';}else{document.getElementById('l-zh').style.borderColor='var(--border)';document.getElementById('l-zh').style.color='var(--text-muted)';document.getElementById('l-en').style.borderColor='var(--cyan)';document.getElementById('l-en').style.color='var(--cyan)';}}
+</script>
 <div class="header">
-  <h1>V5.1 精简化方案：Python优先，LLM最后</h1>
+  <h1><span lang="en">V5.1 Simplified: Python First, LLM Last</span><span lang="zh">V5.1 精简化方案：Python优先，LLM最后</span></h1>
   <p>AUTOMATE EVERYTHING DETERMINISTIC · LLM ONLY FOR GENUINE INTELLIGENCE</p>
 </div>
 <div class="layout">
