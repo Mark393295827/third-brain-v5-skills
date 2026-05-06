@@ -21,10 +21,11 @@ description: One-line description of what this skill does and when to use it.
 
 ## Skill Organization
 
-- **Knowledge operations**: wiki-ingest, cognitive-compile, session-learn, wiki-lint
+- **Knowledge operations**: wiki-ingest, cognitive-compile, session-learn, wiki-lint, knowledge-ops
 - **Daily workflow**: daily-okr
 - **Behavior & creativity**: behavior-design, creativity-engine
 - **Quality**: verify-before-claim, harness-engineering
+- **Context & cost**: context-manager (token budget), token-cost-tracker (usage log)
 
 ## Key Principles
 
