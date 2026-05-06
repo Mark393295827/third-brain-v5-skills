@@ -70,6 +70,50 @@ For every key concept, framework, or methodology:
 - If exists: add new source reference, flag contradictions
 - If new: create with `status: seed`, ≥2 `[[wikilinks]]`, `knowledge_stage: single-source`
 
+**Standardized page structure** (all concept pages should follow this pattern):
+
+```markdown
+# Title
+
+> Core thesis in one line — what is the single most important thing to know?
+> (Source: [[source]])
+
+---
+
+## Core Mechanism
+
+ASCII diagram showing causal relationships.
+
+## Classifications / Comparisons
+
+Tables comparing with related frameworks.
+
+## Key Data (if applicable)
+
+Bulleted list of critical numbers.
+
+## Implications / Applications
+
+What this means for decision-making.
+
+## Connections
+
+- Related concepts with brief explanation of relationship
+- Source references
+
+---
+
+## Evolution Timeline
+
+- **YYYY-MM-DD**：Created.
+```
+
+**Rules:**
+- Start every page with a **quote block** that captures the core thesis
+- Use **ASCII diagrams** for mechanisms (causal chains)
+- Use **tables** for comparisons (frameworks, classifications, data)
+- End with **connections** (grouped wikilinks) + **evolution timeline** (separated by `---`)
+
 ### Step 4: Update Navigation
 
 1. Update the wiki overview / living synthesis

@@ -47,13 +47,22 @@ Scan every wiki page for:
 
 - [ ] Pages with `evidence_level: single-source` that have accumulated multiple sources
 
-## Check 7: Statistical Drift
+## Check 7: Page Structure Standards ⭐
+
+- [ ] Concept pages missing leading quote block (core thesis)
+- [ ] Concept pages missing `---` separator before timeline
+- [ ] Concept pages missing `## 演化时间线` section
+- [ ] Concept pages missing `## 关联` or `## Connections` section
+- [ ] Pages with no ASCII diagram or comparison table for framework-type content
+- [ ] New pages without ≥2 outgoing `[[wikilinks]]`
+
+## Check 8: Statistical Drift
 
 - [ ] Compare actual file counts vs overview.md claims
 - [ ] Verify central index includes all pages
 - [ ] Verify all new pages appear in the correct index section
 
-## Check 8: Permissions
+## Check 9: Permissions
 
 - [ ] No unintended modifications to `sources/` files
 - [ ] Review-queue items addressed
