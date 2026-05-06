@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全栈智能认知与资产转化系统架构 V4.0</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --surface2: #1a2236;
+    --border: #1e3a5f;
+    --cyan: #00d4ff;
+    --cyan-dim: rgba(0,212,255,0.15);
+    --green: #00ff94;
+    --green-dim: rgba(0,255,148,0.12);
+    --amber: #ffb800;
+    --amber-dim: rgba(255,184,0,0.12);
+    --red: #ff4757;
+    --red-dim: rgba(255,71,87,0.12);
+    --purple: #a855f7;
+    --purple-dim: rgba(168,85,247,0.12);
+    --text: #e2e8f0;
+    --text-muted: #64748b;
+    --text-dim: #94a3b8;
+    --new: #00ff94;
+    --new-badge: rgba(0,255,148,0.2);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Noto Sans SC', 'JetBrains Mono', monospace;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 24px;
+  }
+
+  .diagram-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .title-block {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .title-block::after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    margin: 12px auto 0;
+  }
+  .title-main {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--cyan), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .title-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 4px;
+    margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .badge-new {
+    display: inline-block;
+    background: var(--new-badge);
+    color: var(--new);
+    border: 1px solid var(--new);
+    font-size: 8px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 1px;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .layers-col { display: flex; flex-direction: column; gap: 10px; }
+
+  .layer {
+    border-radius: 8px;
+    border: 1px solid;
+    overflow: hidden;
+  }
+  .layer-header {
+    padding: 7px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .layer-body { padding: 12px 14px; }
+
+  .layer-1 { border-color: #1e4a6e; background: rgba(14,30,52,0.6); }
+  .layer-1 .layer-header { background: rgba(0,212,255,0.08); color: var(--cyan); }
+  .layer-2 { border-color: #1a3d2e; background: rgba(10,28,22,0.6); }
+  .layer-2 .layer-header { background: rgba(0,255,148,0.08); color: var(--green); }
+  .layer-3 { border-color: #3d3000; background: rgba(28,22,0,0.6); }
+  .layer-3 .layer-header { background: rgba(255,184,0,0.08); color: var(--amber); }
+  .layer-4 { border-color: #2a1a3e; background: rgba(20,12,32,0.6); }
+  .layer-4 .layer-header { background: rgba(168,85,247,0.08); color: var(--purple); }
+
+  .layer-num {
+    width: 20px; height: 20px;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .layer-1 .layer-num { background: var(--cyan); color: #000; }
+  .layer-2 .layer-num { background: var(--green); color: #000; }
+  .layer-3 .layer-num { background: var(--amber); color: #000; }
+  .layer-4 .layer-num { background: var(--purple); color: #000; }
+
+  .l1-flow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .flow-node {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 10px;
+    text-align: center;
+    min-width: 80px;
+  }
+  .flow-node .node-title { font-weight: 600; color: var(--text); font-size: 10px; }
+  .flow-node .node-sub { color: var(--text-muted); font-size: 9px; margin-top: 2px; }
+  .flow-arrow { color: var(--text-muted); font-size: 14px; flex-shrink: 0; }
+
+  .pii-node { background: var(--red-dim); border-color: var(--red) !important; }
+  .pii-node .node-title { color: var(--red); }
+  .raw-node { background: var(--cyan-dim); border-color: var(--cyan) !important; }
+  .raw-node .node-title { color: var(--cyan); }
+
+  .l2-grid {
+    display: grid;
+    grid-template-columns: 160px 180px 1fr 130px;
+    gap: 10px;
+    align-items: start;
+  }
+
+  .module {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px;
+  }
+  .module-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .module-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    color: var(--text-dim);
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(30,58,95,0.3);
+  }
+  .module-item:last-child { border-bottom: none; }
+  .module-item .dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+
+  .ctx-module {
+    background: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(168,85,247,0.05));
+    border: 1px solid rgba(0,212,255,0.3);
+    border-radius: 6px;
+    padding: 10px;
+  }
+  .ctx-module .module-title { color: var(--cyan); border-color: rgba(0,212,255,0.2); }
+  .ctx-bar {
+    background: var(--surface2);
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin: 4px 0;
+    font-size: 9px;
+  }
+  .ctx-bar-label { color: var(--text-muted); font-size: 8px; margin-bottom: 3px; font-family: 'JetBrains Mono'; }
+  .ctx-bar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 2px;
+    height: 6px;
+    overflow: hidden;
+  }
+  .ctx-bar-fill { height: 100%; border-radius: 2px; }
+
+  .token-policy {
+    margin-top: 6px;
+    background: var(--surface2);
+    border-radius: 4px;
+    padding: 5px 7px;
+  }
+  .token-policy-title { font-size: 8px; color: var(--text-muted); margin-bottom: 3px; font-family: 'JetBrains Mono'; }
+  .token-rule {
+    font-size: 8px; color: var(--text-dim); padding: 2px 0; display: flex; gap: 4px; }
+  .token-rule::before { content: '›'; color: var(--cyan); flex-shrink: 0; }
+
+  .obs-module {
+    background: linear-gradient(135deg, rgba(168,85,247,0.05), rgba(0,212,255,0.03));
+    border: 1px solid rgba(168,85,247,0.25);
+    border-radius: 6px;
+    padding: 10px;
+  }
+  .obs-module .module-title { color: var(--purple); border-color: rgba(168,85,247,0.2); }
+  .obs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 6px; }
+  .obs-node {
+    background: var(--surface2); border: 1px solid rgba(168,85,247,0.2);
+    border-radius: 4px; padding: 5px 7px; font-size: 9px; text-align: center;
+  }
+  .obs-node-name { font-weight: 600; color: var(--purple); font-size: 9px; }
+  .obs-node-desc { color: var(--text-muted); font-size: 8px; margin-top: 1px; }
+
+  .index-maintenance {
+    background: var(--new-badge); border: 1px solid var(--new);
+    border-radius: 4px; padding: 6px 8px; margin-top: 6px;
+  }
+  .index-maintenance-title { font-size: 8px; font-weight: 700; color: var(--new); margin-bottom: 4px; font-family: 'JetBrains Mono'; letter-spacing: 1px; }
+  .index-rule { font-size: 8px; color: var(--text-dim); padding: 1px 0; display: flex; gap: 4px; }
+  .index-rule::before { content: '⟳'; color: var(--new); font-size: 8px; }
+
+  .vector-db {
+    background: linear-gradient(135deg, rgba(0,255,148,0.05), rgba(0,212,255,0.05));
+    border: 1px solid rgba(0,255,148,0.25); border-radius: 4px; padding: 6px 8px; margin-top: 6px;
+  }
+  .vector-db-title { font-size: 8px; font-weight: 700; color: var(--green); font-family: 'JetBrains Mono'; letter-spacing: 1px; margin-bottom: 3px; }
+  .vector-item { font-size: 8px; color: var(--text-muted); display: flex; gap: 4px; padding: 1px 0; }
+  .vector-item::before { content: '⊕'; color: var(--green); }
+
+  .mature-col {
+    background: var(--surface); border: 1px solid rgba(0,255,148,0.2);
+    border-radius: 6px; padding: 10px;
+  }
+  .mature-col .module-title { color: var(--green); font-size: 10px; }
+  .flow-badge {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 5px 7px; font-size: 9px;
+    color: var(--text-dim); margin: 3px 0; text-align: center;
+  }
+  .flow-badge.active { border-color: var(--green); color: var(--green); background: var(--green-dim); }
+
+  .l3-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .research-module {
+    background: linear-gradient(135deg, rgba(0,212,255,0.04), rgba(168,85,247,0.04));
+    border: 1px solid rgba(0,212,255,0.2); border-radius: 6px; padding: 10px;
+  }
+  .research-module .module-title { color: var(--cyan); }
+
+  .output-module {
+    background: linear-gradient(135deg, rgba(255,184,0,0.05), rgba(0,255,148,0.03));
+    border: 1px solid rgba(255,184,0,0.25); border-radius: 6px; padding: 10px;
+  }
+  .output-module .module-title { color: var(--amber); }
+  .output-types { display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+  .output-type {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 4px 8px; font-size: 9px; color: var(--text-dim); text-align: center;
+  }
+
+  .closure-protocol {
+    background: linear-gradient(135deg, rgba(255,184,0,0.06), rgba(0,255,148,0.04));
+    border: 1px solid var(--amber); border-radius: 6px; padding: 10px; margin-top: 10px;
+  }
+  .closure-title { font-size: 10px; font-weight: 700; color: var(--amber); font-family: 'JetBrains Mono'; letter-spacing: 1px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .closure-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .closure-block {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 7px 8px;
+  }
+  .closure-block-title { font-size: 8px; font-weight: 700; color: var(--amber); font-family: 'JetBrains Mono'; margin-bottom: 4px; }
+  .closure-rule { font-size: 8px; color: var(--text-muted); padding: 2px 0; display: flex; gap: 3px; line-height: 1.3; }
+  .closure-rule::before { content: '→'; color: var(--amber); flex-shrink: 0; }
+
+  .l4-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .gov-node {
+    background: var(--surface); border: 1px solid rgba(168,85,247,0.2);
+    border-radius: 6px; padding: 8px 10px;
+  }
+  .gov-node-title { font-size: 9px; font-weight: 700; color: var(--purple); font-family: 'JetBrains Mono'; margin-bottom: 5px; }
+  .gov-item { font-size: 8px; color: var(--text-muted); padding: 1px 0; display: flex; gap: 3px; }
+  .gov-item::before { content: '·'; color: var(--purple); }
+  .gov-node.token-gov { border-color: var(--amber); }
+  .gov-node.token-gov .gov-node-title { color: var(--amber); }
+  .gov-node.token-gov .gov-item::before { color: var(--amber); }
+  .gov-node.pii-gov { border-color: var(--red); }
+  .gov-node.pii-gov .gov-node-title { color: var(--red); }
+  .gov-node.pii-gov .gov-item::before { color: var(--red); }
+
+  .sidebar { display: flex; flex-direction: column; gap: 10px; }
+
+  .stow-card {
+    border-radius: 8px; border: 1px solid var(--border); overflow: hidden;
+  }
+  .stow-header {
+    background: rgba(255,255,255,0.03); padding: 7px 12px;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    font-family: 'JetBrains Mono', monospace; color: var(--text-muted);
+  }
+  .stow-body { padding: 10px 12px; }
+
+  .stow-item {
+    border-radius: 5px; padding: 8px 10px; margin-bottom: 6px;
+    border: 1px solid; font-size: 9px;
+  }
+  .stow-item:last-child { margin-bottom: 0; }
+  .stow-label { font-weight: 700; font-family: 'JetBrains Mono'; font-size: 8px; letter-spacing: 1px; margin-bottom: 3px; }
+  .stow-text { color: var(--text-dim); line-height: 1.4; }
+  .stow-solution { font-size: 8px; margin-top: 4px; padding: 3px 6px; border-radius: 3px; font-family: 'JetBrains Mono'; }
+
+  .stow-s { background: var(--cyan-dim); border-color: rgba(0,212,255,0.3); }
+  .stow-s .stow-label { color: var(--cyan); }
+  .stow-s .stow-solution { background: rgba(0,212,255,0.1); color: var(--cyan); }
+  .stow-t { background: rgba(255,71,87,0.06); border-color: rgba(255,71,87,0.3); }
+  .stow-t .stow-label { color: var(--red); }
+  .stow-t .stow-solution { background: rgba(255,71,87,0.1); color: var(--red); }
+  .stow-o { background: var(--green-dim); border-color: rgba(0,255,148,0.3); }
+  .stow-o .stow-label { color: var(--green); }
+  .stow-o .stow-solution { background: rgba(0,255,148,0.1); color: var(--green); }
+  .stow-w { background: var(--amber-dim); border-color: rgba(255,184,0,0.3); }
+  .stow-w .stow-label { color: var(--amber); }
+  .stow-w .stow-solution { background: rgba(255,184,0,0.1); color: var(--amber); }
+
+  .score-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--cyan), var(--green));
+    color: #000; font-weight: 700; font-family: 'JetBrains Mono';
+    font-size: 13px; padding: 4px 12px; border-radius: 4px; letter-spacing: 1px;
+  }
+
+  .footer {
+    text-align: center; margin-top: 14px; padding-top: 10px;
+    border-top: 1px solid rgba(30,58,95,0.5);
+    font-size: 9px; color: var(--text-muted);
+    font-family: 'JetBrains Mono'; letter-spacing: 3px;
+    display: flex; justify-content: center; align-items: center; gap: 20px;
+  }
+
+  .llm-icons { display: flex; gap: 4px; margin-bottom: 6px; flex-wrap: wrap; }
+  .llm-chip {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 3px; padding: 2px 6px; font-size: 8px;
+    color: var(--text-dim); font-family: 'JetBrains Mono';
+  }
+  .llm-chip.primary { border-color: var(--cyan); color: var(--cyan); }
+</style>
+</head>
+<body>
+<div class="diagram-wrapper">
+  <div class="title-block">
+    <div class="title-main">全栈智能认知与资产转化系统架构 V4.0</div>
+    <div class="title-sub">FULL-STACK COGNITIVE & ASSET CONVERSION SYSTEM · KARPATHY LLM OS COMPLIANT</div>
+  </div>
+
+  <div class="main-grid">
+    <div class="layers-col">
+
+      <!-- LAYER 1 -->
+      <div class="layer layer-1">
+        <div class="layer-header"><div class="layer-num">1</div>摄取层：多维信号捕获 (Omni-Signal Ingestion)</div>
+        <div class="layer-body">
+          <div class="l1-flow">
+            <div class="flow-node"><div class="node-title">Global Horizon</div><div class="node-sub">宏观/政经/科技</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="node-title">宏观滤镜</div><div class="node-sub">P/E/F/S/Ins Bottleneck/Opp</div></div>
+            <div class="flow-arrow">→</div>
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <div class="flow-node"><div class="node-title">Web Clipper</div><div class="node-sub">Obsidian插件</div></div>
+              <div class="flow-node"><div class="node-title">YouTube Trans.</div><div class="node-sub">视频→文本</div></div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node pii-node"><div class="node-title">PII Scrub</div><div class="node-sub" style="color:var(--red)">匿名化处理 正则+NER</div><div style="margin-top:3px;"><span class="badge-new">NEW</span></div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node raw-node"><div class="node-title">RAW 素材库</div><div class="node-sub">Immutable SHA-256校验</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAYER 2 -->
+      <div class="layer layer-2">
+        <div class="layer-header"><div class="layer-num">2</div>编译层：增量复利中枢 (Incremental Compounding Engine)</div>
+        <div class="layer-body">
+          <div class="l2-grid">
+            <div class="module">
+              <div class="module-title" style="color:var(--green)">LLM 簿记员</div>
+              <div class="llm-icons"><span class="llm-chip primary">Claude</span><span class="llm-chip">GPT-4</span></div>
+              <div class="module-item"><span class="dot" style="background:var(--green)"></span>增量构建 Incr.</div>
+              <div class="module-item"><span class="dot" style="background:var(--cyan)"></span>结构化关联 Link</div>
+              <div class="module-item"><span class="dot" style="background:var(--amber)"></span>系统体检 Lint</div>
+              <div class="module-item"><span class="dot" style="background:var(--purple)"></span>Claude Code</div>
+            </div>
+
+            <div class="ctx-module">
+              <div class="module-title">Context Window Mgr <span class="badge-new">NEW</span></div>
+              <div style="font-size:8px;color:var(--text-muted);margin-bottom:4px;font-family:'JetBrains Mono'">TOKEN BUDGET ALLOCATOR</div>
+              <div class="ctx-bar"><div class="ctx-bar-label">Schema (P0) · 25%</div><div class="ctx-bar-track"><div class="ctx-bar-fill" style="width:25%;background:var(--purple)"></div></div></div>
+              <div class="ctx-bar"><div class="ctx-bar-label">RAG结果 (P1) · 40%</div><div class="ctx-bar-track"><div class="ctx-bar-fill" style="width:40%;background:var(--cyan)"></div></div></div>
+              <div class="ctx-bar"><div class="ctx-bar-label">Log.md (P2) · 20%</div><div class="ctx-bar-track"><div class="ctx-bar-fill" style="width:20%;background:var(--green)"></div></div></div>
+              <div class="ctx-bar"><div class="ctx-bar-label">System Prompt · 15%</div><div class="ctx-bar-track"><div class="ctx-bar-fill" style="width:15%;background:var(--amber)"></div></div></div>
+              <div class="token-policy">
+                <div class="token-policy-title">TRUNCATION POLICY</div>
+                <div class="token-rule">P0满载时压缩Log至摘要</div>
+                <div class="token-rule">RAG召回≤5节点，按相似度降序</div>
+                <div class="token-rule">超限触发滑动窗口裁切</div>
+              </div>
+            </div>
+
+            <div class="obs-module">
+              <div class="module-title">Obsidian 知识网络 + RAG层</div>
+              <div class="obs-grid">
+                <div class="obs-node"><div class="obs-node-name">Index.md</div><div class="obs-node-desc">动态目录</div></div>
+                <div class="obs-node"><div class="obs-node-name">Log.md</div><div class="obs-node-desc">时间语境</div></div>
+                <div class="obs-node"><div class="obs-node-name">MOCs</div><div class="obs-node-desc">知识地图</div></div>
+                <div class="obs-node"><div class="obs-node-name">Schema</div><div class="obs-node-desc">结构规范</div></div>
+              </div>
+              <div class="index-maintenance">
+                <div class="index-maintenance-title">INDEX.MD 自动维护协议 <span class="badge-new">NEW</span></div>
+                <div class="index-rule">触发器：新MD写入 / 链接变更</div>
+                <div class="index-rule">Claude Code重扫目录结构</div>
+                <div class="index-rule">Schema验证格式一致性</div>
+                <div class="index-rule">冲突时保留旧版+标记CONFLICT</div>
+              </div>
+              <div class="vector-db">
+                <div class="vector-db-title">Vector DB (语义检索层) <span class="badge-new">NEW</span></div>
+                <div class="vector-item">Obsidian内容→自动嵌入 (每次写入触发)</div>
+                <div class="vector-item">检索接口供Context Mgr调用</div>
+                <div class="vector-item">本地方案：ChromaDB / LanceDB</div>
+              </div>
+            </div>
+
+            <div class="mature-col">
+              <div class="module-title" style="color:var(--green);font-size:10px;">成熟知识库</div>
+              <div class="flow-badge active">↑ 增量写入</div>
+              <div class="flow-badge">In-Weights</div>
+              <div class="flow-badge">In-Context</div>
+              <div class="flow-badge active">External RAG</div>
+              <div class="flow-badge">KV Cache</div>
+              <div style="margin-top:6px;font-size:8px;color:var(--text-muted);font-family:'JetBrains Mono'">KARPATHY 4-LAYER MEMORY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAYER 3 -->
+      <div class="layer layer-3">
+        <div class="layer-header"><div class="layer-num">3</div>行动层：价值锚点与输出 (Value Anchoring & Output)</div>
+        <div class="layer-body">
+          <div class="l3-grid">
+            <div class="research-module">
+              <div class="module-title">A. 深层研究</div>
+              <div class="module-item"><span class="dot" style="background:var(--cyan)"></span>协同 NotebookLM</div>
+              <div class="module-item"><span class="dot" style="background:var(--purple)"></span>横向对比分析</div>
+              <div class="module-item"><span class="dot" style="background:var(--green)"></span>RAG驱动检索</div>
+            </div>
+            <div class="output-module">
+              <div class="module-title">B. 标准化产出结果</div>
+              <div class="output-types">
+                <div class="output-type">代码实现</div>
+                <div class="output-type">商业计划</div>
+                <div class="output-type">投资模型</div>
+              </div>
+              <div class="module-item"><span class="dot" style="background:var(--amber)"></span>效率 + 价值双维度</div>
+              <div class="module-item"><span class="dot" style="background:var(--green)"></span>西班牙地产 / Alpha</div>
+            </div>
+          </div>
+          <div class="closure-protocol">
+            <div class="closure-title">价值回流协议 (Closure Protocol) <span class="badge-new">NEW</span></div>
+            <div class="closure-grid">
+              <div class="closure-block">
+                <div class="closure-block-title">触发条件</div>
+                <div class="closure-rule">产出通过人工验证</div>
+                <div class="closure-rule">代码测试覆盖率≥80%</div>
+                <div class="closure-rule">投资决策ROI>阈值</div>
+                <div class="closure-rule">研究结论有外部引用</div>
+              </div>
+              <div class="closure-block">
+                <div class="closure-block-title">格式转换</div>
+                <div class="closure-rule">代码→Obsidian技术笔记</div>
+                <div class="closure-rule">商业计划→MOC节点</div>
+                <div class="closure-rule">投资模型→Schema更新</div>
+                <div class="closure-rule">统一YAML frontmatter</div>
+              </div>
+              <div class="closure-block">
+                <div class="closure-block-title">冲突解决</div>
+                <div class="closure-rule">版本冲突→Git分支隔离</div>
+                <div class="closure-rule">语义冲突→人工裁决标记</div>
+                <div class="closure-rule">Schema冲突→Schema优先</div>
+                <div class="closure-rule">回流后触发Vector重索引</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAYER 4 -->
+      <div class="layer layer-4">
+        <div class="layer-header"><div class="layer-num">4</div>治理层：底层支撑与安全 (Governance & Infrastructure)</div>
+        <div class="layer-body">
+          <div class="l4-grid">
+            <div class="gov-node">
+              <div class="gov-node-title">Agent 协作</div>
+              <div class="gov-item">Initializer代理</div>
+              <div class="gov-item">Coding代理</div>
+              <div class="gov-item">Operator代理</div>
+            </div>
+            <div class="gov-node">
+              <div class="gov-node-title">安全防御</div>
+              <div class="gov-item">AgentShield Hook</div>
+              <div class="gov-item">审计日志</div>
+              <div class="gov-item">注入防护</div>
+            </div>
+            <div class="gov-node">
+              <div class="gov-node-title">Git 溯源</div>
+              <div class="gov-item">分支管理</div>
+              <div class="gov-item">提交=智力证明</div>
+              <div class="gov-item">变更追踪</div>
+            </div>
+            <div class="gov-node token-gov">
+              <div class="gov-node-title">Token 成本控制 <span class="badge-new">NEW</span></div>
+              <div class="gov-item">每次调用成本记录</div>
+              <div class="gov-item">月预算告警阈值</div>
+              <div class="gov-item">缓存命中率追踪</div>
+              <div class="gov-item">批处理优先策略</div>
+            </div>
+            <div class="gov-node pii-gov">
+              <div class="gov-node-title">PII 隐私防护 <span class="badge-new">NEW</span></div>
+              <div class="gov-item">NER实体识别屏蔽</div>
+              <div class="gov-item">正则规则库（姓名/手机/身份证）</div>
+              <div class="gov-item">LLM调用前强制过滤</div>
+              <div class="gov-item">脱敏日志审计</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="stow-card">
+        <div class="stow-header">STOW · V4.0</div>
+        <div class="stow-body">
+          <div class="stow-item stow-s"><div class="stow-label">STRENGTH</div><div class="stow-text">观察→决策自动化，认知复利闭环</div><div class="stow-solution">↑ Closure Protocol使回流有协议保障</div></div>
+          <div class="stow-item stow-t"><div class="stow-label">THREAT</div><div class="stow-text">PII隐私泄露风险</div><div class="stow-solution">✓ 摄取层PII Scrub + 治理层双重防护</div></div>
+          <div class="stow-item stow-o"><div class="stow-label">OPPORTUNITY</div><div class="stow-text">西班牙地产 / Alpha收益</div><div class="stow-solution">↑ Vector DB支持大规模语义检索</div></div>
+          <div class="stow-item stow-w"><div class="stow-label">WEAKNESS</div><div class="stow-text">Token成本失控</div><div class="stow-solution">✓ Context Mgr预算分配 + 治理层追踪</div></div>
+        </div>
+      </div>
+
+      <div class="stow-card">
+        <div class="stow-header">KARPATHY SCORE</div>
+        <div class="stow-body">
+          <div style="text-align:center;padding:8px 0;">
+            <div style="font-size:9px;color:var(--text-muted);font-family:'JetBrains Mono';margin-bottom:6px;">V4.0 综合评分</div>
+            <div class="score-badge">87 / 100</div>
+            <div style="font-size:8px;color:var(--green);margin-top:6px;font-family:'JetBrains Mono'">V1.0: 42 → V3.0: 74 → V4.0: 87</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stow-card">
+        <div class="stow-header">V4.0 DELTA</div>
+        <div class="stow-body" style="font-size:8px;font-family:'JetBrains Mono';">
+          <div style="color:var(--green);padding:2px 0;">+ Context Window Mgr</div>
+          <div style="color:var(--green);padding:2px 0;">+ Token Budget Allocator</div>
+          <div style="color:var(--green);padding:2px 0;">+ Truncation Policy</div>
+          <div style="color:var(--green);padding:2px 0;">+ Vector DB (RAG层)</div>
+          <div style="color:var(--green);padding:2px 0;">+ Index.md自动维护协议</div>
+          <div style="color:var(--green);padding:2px 0;">+ Closure Protocol (3步骤)</div>
+          <div style="color:var(--green);padding:2px 0;">+ PII Scrub (摄取层)</div>
+          <div style="color:var(--green);padding:2px 0;">+ Token成本治理节点</div>
+          <div style="color:var(--green);padding:2px 0;">+ PII治理节点</div>
+          <div style="color:var(--green);padding:2px 0;">+ Karpathy 4层内存对齐</div>
+          <div style="margin-top:6px;color:var(--text-muted);padding:2px 0;">Δ STOW挑战→架构解决方案闭合</div>
+          <div style="color:var(--text-muted);padding:2px 0;">Δ 迭代箭头→明确触发条件</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>AI驱动的信息处理与价值转化系统</span>
+    <span>·</span>
+    <span>KARPATHY LLM OS COMPLIANT V4.0</span>
+    <span>·</span>
+    <span>全栈智能认知与资产转化系统架构</span>
+  </div>
+</div>
+</body>
+</html>

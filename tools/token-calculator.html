@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V5.0 Token成本计算器</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --bg: #080c14;
+    --surface: #0f1623;
+    --surface2: #161f30;
+    --surface3: #1c2840;
+    --border: #1e3a5f;
+    --cyan: #00d4ff;
+    --green: #00ff94;
+    --amber: #ffb800;
+    --red: #ff4757;
+    --purple: #a855f7;
+    --pink: #ff6eb4;
+    --orange: #ff8c42;
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --text-muted: #4a5568;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0,212,255,0.2);
+  }
+  .header h1 {
+    font-size: 20px; font-weight: 700; letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--cyan), var(--green));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header p {
+    font-size: 10px; color: var(--text-muted);
+    font-family: 'JetBrains Mono'; letter-spacing: 3px; margin-top: 4px;
+  }
+
+  /* LAYOUT */
+  .layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  /* PANEL */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .panel-header {
+    padding: 8px 14px;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    font-family: 'JetBrains Mono';
+    border-bottom: 1px solid var(--border);
+  }
+  .panel-body { padding: 14px; }
+
+  /* SECTION LABELS */
+  .section-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 2px;
+    font-family: 'JetBrains Mono'; color: var(--text-muted);
+    margin: 12px 0 8px; padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label:first-child { margin-top: 0; }
+
+  /* SLIDER ROW */
+  .slider-row {
+    margin-bottom: 10px;
+  }
+  .slider-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 4px;
+  }
+  .slider-name { font-size: 10px; color: var(--text-dim); }
+  .slider-val {
+    font-size: 11px; font-weight: 700; font-family: 'JetBrains Mono';
+    color: var(--cyan); min-width: 60px; text-align: right;
+  }
+  input[type=range] {
+    width: 100%; height: 4px;
+    -webkit-appearance: none; background: var(--surface3);
+    border-radius: 2px; outline: none; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--cyan); cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,212,255,0.5);
+  }
+  input[type=range].amber::-webkit-slider-thumb { background: var(--amber); box-shadow: 0 0 8px rgba(255,184,0,0.5); }
+  input[type=range].green::-webkit-slider-thumb { background: var(--green); box-shadow: 0 0 8px rgba(0,255,148,0.5); }
+  input[type=range].purple::-webkit-slider-thumb { background: var(--purple); box-shadow: 0 0 8px rgba(168,85,247,0.5); }
+
+  /* MODEL SELECT */
+  .model-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6px; margin-top: 4px;
+  }
+  .model-btn {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 5px; padding: 7px 8px;
+    cursor: pointer; text-align: center;
+    transition: all 0.15s;
+  }
+  .model-btn:hover { border-color: var(--cyan); }
+  .model-btn.active { border-color: var(--cyan); background: rgba(0,212,255,0.08); }
+  .model-btn .m-name { font-size: 9px; font-weight: 700; font-family: 'JetBrains Mono'; color: var(--text); }
+  .model-btn .m-price { font-size: 8px; color: var(--text-muted); margin-top: 2px; }
+  .model-btn.active .m-name { color: var(--cyan); }
+
+  /* COST DISPLAY AREA */
+  .cost-col { display: flex; flex-direction: column; gap: 12px; }
+
+  /* STAGE BREAKDOWN */
+  .stage-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden;
+  }
+  .stage-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .stage-title {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10px; font-weight: 700; font-family: 'JetBrains Mono';
+  }
+  .stage-num {
+    width: 20px; height: 20px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700; flex-shrink: 0;
+  }
+  .stage-cost-badge {
+    font-size: 11px; font-weight: 700; font-family: 'JetBrains Mono';
+    padding: 3px 10px; border-radius: 4px;
+  }
+  .stage-body { padding: 10px 14px; }
+
+  /* TOKEN ROW */
+  .token-row {
+    display: grid; grid-template-columns: 1fr 80px 80px 80px;
+    gap: 4px; align-items: center;
+    padding: 5px 0; border-bottom: 1px solid rgba(30,58,95,0.3);
+    font-size: 9px;
+  }
+  .token-row:last-child { border-bottom: none; }
+  .token-row .t-name { color: var(--text-dim); }
+  .token-row .t-val { font-family: 'JetBrains Mono'; text-align: right; color: var(--text-dim); font-size: 8px; }
+  .token-row .t-cost { font-family: 'JetBrains Mono'; text-align: right; font-weight: 600; font-size: 9px; }
+  .token-row-header {
+    display: grid; grid-template-columns: 1fr 80px 80px 80px;
+    gap: 4px; padding-bottom: 5px; margin-bottom: 3px;
+    border-bottom: 1px solid var(--border);
+    font-size: 8px; color: var(--text-muted);
+    font-family: 'JetBrains Mono'; letter-spacing: 1px;
+  }
+  .token-row-header span { text-align: right; }
+  .token-row-header span:first-child { text-align: left; }
+
+  /* PROGRESS BAR IN STAGE */
+  .token-bar {
+    margin-top: 8px; background: var(--surface2);
+    border-radius: 3px; height: 6px; overflow: hidden;
+    display: flex;
+  }
+  .token-bar-seg { height: 100%; transition: width 0.3s; }
+
+  /* SUMMARY TOTALS */
+  .summary-card {
+    background: linear-gradient(135deg, rgba(0,212,255,0.04), rgba(0,255,148,0.04));
+    border: 1px solid rgba(0,212,255,0.3);
+    border-radius: 8px; padding: 14px;
+  }
+  .summary-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    font-family: 'JetBrains Mono'; color: var(--cyan); margin-bottom: 12px;
+  }
+  .summary-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    margin-bottom: 12px;
+  }
+  .summary-stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px; padding: 10px;
+    text-align: center;
+  }
+  .summary-stat-num {
+    font-size: 16px; font-weight: 700; font-family: 'JetBrains Mono';
+    margin-bottom: 3px;
+  }
+  .summary-stat-label {
+    font-size: 8px; color: var(--text-muted); font-family: 'JetBrains Mono'; letter-spacing: 1px;
+  }
+  .optimization-tips {
+    background: var(--surface2); border-radius: 5px; padding: 10px;
+  }
+  .opt-title { font-size: 9px; font-weight: 700; color: var(--green); font-family: 'JetBrains Mono'; margin-bottom: 6px; }
+  .opt-item { font-size: 9px; color: var(--text-dim); padding: 2px 0; display: flex; gap: 6px; }
+  .opt-item::before { content: '→'; color: var(--green); flex-shrink: 0; }
+  .opt-saving { font-family: 'JetBrains Mono'; color: var(--green); font-weight: 600; }
+
+  /* FUNNEL VISUAL IN COST */
+  .funnel-cost {
+    display: flex; gap: 6px; align-items: center; margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .funnel-step {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 4px 8px; font-size: 8px;
+    font-family: 'JetBrains Mono'; color: var(--text-dim); text-align: center;
+  }
+  .funnel-step .fs-num { font-size: 10px; font-weight: 700; color: var(--orange); }
+  .funnel-arrow { color: var(--text-muted); font-size: 10px; }
+
+  /* COLOR HELPERS */
+  .c-cyan { color: var(--cyan); }
+  .c-green { color: var(--green); }
+  .c-amber { color: var(--amber); }
+  .c-red { color: var(--red); }
+  .c-purple { color: var(--purple); }
+  .c-pink { color: var(--pink); }
+  .c-orange { color: var(--orange); }
+  .bg-cyan { background: var(--cyan); }
+  .bg-green { background: var(--green); }
+  .bg-amber { background: var(--amber); }
+  .bg-purple { background: var(--purple); }
+  .bg-pink { background: var(--pink); }
+  .bg-orange { background: var(--orange); }
+
+  .note { font-size: 8px; color: var(--text-muted); font-family: 'JetBrains Mono'; margin-top: 6px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>V5.0 Pipeline Token成本计算器</h1>
+  <p>PER-STAGE TOKEN COST BREAKDOWN · FULL PIPELINE SIMULATION</p>
+</div>
+
+<div class="layout">
+  <!-- LEFT: CONTROLS -->
+  <div>
+    <!-- INPUT VOLUME -->
+    <div class="panel" style="margin-bottom:12px;">
+      <div class="panel-header" style="color:var(--cyan)">① 每日输入量</div>
+      <div class="panel-body">
+        <div class="section-label">摄取层</div>
+        <div class="slider-row">
+          <div class="slider-top">
+            <span class="slider-name">文章/网页数量</span>
+            <span class="slider-val" id="v-articles">20</span>
+          </div>
+          <input type="range" id="s-articles" min="1" max="100" value="20" oninput="update()">
+        </div>
+        <div class="slider-row">
+          <div class="slider-top">
+            <span class="slider-name">平均文章长度 (tokens)</span>
+            <span class="slider-val" id="v-article-len">1,500</span>
+          </div>
+          <input type="range" class="amber" id="s-article-len" min="300" max="5000" step="100" value="1500" oninput="update()">
+        </div>
+        <div class="slider-row">
+          <div class="slider-top">
+            <span class="slider-name">视频转录数量</span>
+            <span class="slider-val" id="v-videos">3</span>
+          </div>
+          <input type="range" class="green" id="s-videos" min="0" max="20" value="3" oninput="update()">
+        </div>
+        <div class="slider-row">
+          <div class="slider-top">
+            <span class="slider-name">平均转录长度 (tokens)</span>
+            <span class="slider-val" id="v-video-len">4,000</span>
+          </div>
+          <input type="range" class="green" id="s-video-len" min="1000" max="12000" step="500" value="4000" oninput="update()">
+        </div>
+
+        <div class="section-label">Layer 2 处理</div>
+        <div class="slider-row">
+          <div class="slider-top">
+            <span class="slider-name">每日主动LLM调用次数</span>
+            <span class="slider-val" id="v-calls">10</span>
+          </div>
+          <input type="range" class="purple" id="s-calls" min="1" max="50" value="10" oninput="update()">
+        </div>
+        <div class="slider-row">
+          <div class="slider-top">
+            <span class="slider-name">平均输出长度 (tokens)</span>
+            <span class="slider-val" id="v-output-len">800</span>
+          </div>
+          <input type="range" class="purple" id="s-output-len" min="100" max="4000" step="100" value="800" oninput="update()">
+        </div>
+
+        <div class="section-label">Layer 3 行动层</div>
+        <div class="slider-row">
+          <div class="slider-top">
+            <span class="slider-name">深度研究/产出任务数</span>
+            <span class="slider-val" id="v-research">2</span>
+          </div>
+          <input type="range" id="s-research" min="0" max="10" value="2" oninput="update()">
+        </div>
+        <div class="slider-row">
+          <div class="slider-top">
+            <span class="slider-name">产出平均长度 (tokens)</span>
+            <span class="slider-val" id="v-research-out">3,000</span>
+          </div>
+          <input type="range" class="amber" id="s-research-out" min="500" max="10000" step="500" value="3000" oninput="update()">
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL SELECTION -->
+    <div class="panel">
+      <div class="panel-header" style="color:var(--amber)">② 主模型选择</div>
+      <div class="panel-body">
+        <div style="font-size:9px;color:var(--text-muted);font-family:'JetBrains Mono';margin-bottom:6px;">Layer 2/3 主要调用模型（per M tokens）</div>
+        <div class="model-grid" id="model-grid">
+          <div class="model-btn active" onclick="selectModel('haiku', this)">
+            <div class="m-name">Claude Haiku</div>
+            <div class="m-price">$0.80 / $4.00</div>
+          </div>
+          <div class="model-btn" onclick="selectModel('sonnet', this)">
+            <div class="m-name">Claude Sonnet</div>
+            <div class="m-price">$3.00 / $15.00</div>
+          </div>
+          <div class="model-btn" onclick="selectModel('opus', this)">
+            <div class="m-name">Claude Opus</div>
+            <div class="m-price">$15.00 / $75.00</div>
+          </div>
+          <div class="model-btn" onclick="selectModel('gpt4o', this)">
+            <div class="m-name">GPT-4o</div>
+            <div class="m-price">$2.50 / $10.00</div>
+          </div>
+          <div class="model-btn" onclick="selectModel('gpt4mini', this)">
+            <div class="m-name">GPT-4o mini</div>
+            <div class="m-price">$0.15 / $0.60</div>
+          </div>
+          <div class="model-btn" onclick="selectModel('gemini', this)">
+            <div class="m-name">Gemini 1.5 Pro</div>
+            <div class="m-price">$1.25 / $5.00</div>
+          </div>
+        </div>
+        <div class="note">* 价格仅供估算参考，请以官方文档为准。漏斗过滤和嵌入使用轻量模型/本地方案。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: COST BREAKDOWN -->
+  <div class="cost-col">
+
+    <!-- STAGE 1: FUNNEL FILTERING -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title">
+          <div class="stage-num bg-orange" style="color:#000">F</div>
+          <span class="c-orange">知识漏斗：内容分类过滤</span>
+          <span style="font-size:8px;color:var(--text-muted);font-weight:400">(轻量模型 Haiku)</span>
+        </div>
+        <div class="stage-cost-badge" id="stage-funnel-badge" style="background:rgba(255,140,66,0.15);color:var(--orange)">$0.00</div>
+      </div>
+      <div class="stage-body">
+        <div class="token-row-header">
+          <span>步骤</span><span>输入Tokens</span><span>输出Tokens</span><span>成本/天</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">F1 稀缺性分类 (100%素材)</span>
+          <span class="t-val" id="f1-in">-</span>
+          <span class="t-val" id="f1-out">-</span>
+          <span class="t-cost c-orange" id="f1-cost">-</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">F2 价值度评分 (60%通过)</span>
+          <span class="t-val" id="f2-in">-</span>
+          <span class="t-val" id="f2-out">-</span>
+          <span class="t-cost c-orange" id="f2-cost">-</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">F3 时效性裁切 (40%→24%)</span>
+          <span class="t-val" id="f3-in">-</span>
+          <span class="t-val" id="f3-out">-</span>
+          <span class="t-cost c-orange" id="f3-cost">-</span>
+        </div>
+        <div class="funnel-cost">
+          <div class="funnel-step">全量素材<br><span class="fs-num" id="fc-total">0</span><br><span>件</span></div>
+          <div class="funnel-arrow">→F1→</div>
+          <div class="funnel-step">稀缺信号<br><span class="fs-num" id="fc-f1">0</span><br><span>件 60%</span></div>
+          <div class="funnel-arrow">→F2→</div>
+          <div class="funnel-step">高价值<br><span class="fs-num" id="fc-f2">0</span><br><span>件 40%</span></div>
+          <div class="funnel-arrow">→F3→</div>
+          <div class="funnel-step" style="border-color:var(--amber);color:var(--amber)">进行动<br><span class="fs-num" id="fc-f3">0</span><br><span>件 ~12%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 2: CONTEXT ASSEMBLY + LLM PROCESSING -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title">
+          <div class="stage-num" style="background:var(--green);color:#000">2</div>
+          <span class="c-green">Layer 2：Context组装 + LLM处理</span>
+        </div>
+        <div class="stage-cost-badge" id="stage-l2-badge" style="background:rgba(0,255,148,0.1);color:var(--green)">$0.00</div>
+      </div>
+      <div class="stage-body">
+        <div class="token-row-header">
+          <span>组件</span><span>输入Tokens</span><span>输出Tokens</span><span>成本/天</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">Schema (P0 · 25% ctx)</span>
+          <span class="t-val" id="l2-schema-in">-</span>
+          <span class="t-val">—</span>
+          <span class="t-cost c-purple" id="l2-schema-cost">-</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">RAG结果 (P1 · 40% ctx)</span>
+          <span class="t-val" id="l2-rag-in">-</span>
+          <span class="t-val">—</span>
+          <span class="t-cost c-cyan" id="l2-rag-cost">-</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">Log.md (P2 · 20% ctx)</span>
+          <span class="t-val" id="l2-log-in">-</span>
+          <span class="t-val">—</span>
+          <span class="t-cost c-green" id="l2-log-cost">-</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">System Prompt (15% ctx)</span>
+          <span class="t-val" id="l2-sys-in">-</span>
+          <span class="t-val">—</span>
+          <span class="t-cost c-amber" id="l2-sys-cost">-</span>
+        </div>
+        <div class="token-row" style="border-top:1px solid var(--border);margin-top:4px;padding-top:8px;">
+          <span class="t-name" style="font-weight:600;color:var(--text)">LLM输出 (×调用次数)</span>
+          <span class="t-val">—</span>
+          <span class="t-val" id="l2-output-val">-</span>
+          <span class="t-cost c-green" id="l2-output-cost">-</span>
+        </div>
+        <div class="token-bar" id="ctx-bar">
+          <div class="token-bar-seg" style="background:var(--purple)" id="bar-schema"></div>
+          <div class="token-bar-seg" style="background:var(--cyan)" id="bar-rag"></div>
+          <div class="token-bar-seg" style="background:var(--green)" id="bar-log"></div>
+          <div class="token-bar-seg" style="background:var(--amber)" id="bar-sys"></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:4px;font-size:8px;font-family:'JetBrains Mono';color:var(--text-muted);">
+          <span><span style="color:var(--purple)">■</span> Schema</span>
+          <span><span style="color:var(--cyan)">■</span> RAG</span>
+          <span><span style="color:var(--green)">■</span> Log</span>
+          <span><span style="color:var(--amber)">■</span> System</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 3: ACTION LAYER -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title">
+          <div class="stage-num bg-amber" style="color:#000">3</div>
+          <span class="c-amber">Layer 3：深度研究 + 产出生成</span>
+        </div>
+        <div class="stage-cost-badge" id="stage-l3-badge" style="background:rgba(255,184,0,0.1);color:var(--amber)">$0.00</div>
+      </div>
+      <div class="stage-body">
+        <div class="token-row-header">
+          <span>步骤</span><span>输入Tokens</span><span>输出Tokens</span><span>成本/天</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">研究Context (RAG+Schema)</span>
+          <span class="t-val" id="l3-ctx-in">-</span>
+          <span class="t-val">—</span>
+          <span class="t-cost c-amber" id="l3-ctx-cost">-</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">产出生成 (商业计划/代码/模型)</span>
+          <span class="t-val">—</span>
+          <span class="t-val" id="l3-out-val">-</span>
+          <span class="t-cost c-amber" id="l3-out-cost">-</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">Closure回流 (摘要压缩写入)</span>
+          <span class="t-val" id="l3-closure-in">-</span>
+          <span class="t-val" id="l3-closure-out">-</span>
+          <span class="t-cost c-amber" id="l3-closure-cost">-</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE E: EMBEDDING -->
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-title">
+          <div class="stage-num bg-pink" style="color:#000">E</div>
+          <span class="c-pink">向量嵌入：Vector DB写入</span>
+          <span style="font-size:8px;color:var(--text-muted);font-weight:400">(text-embedding-3-small)</span>
+        </div>
+        <div class="stage-cost-badge" id="stage-embed-badge" style="background:rgba(255,110,180,0.1);color:var(--pink)">$0.00</div>
+      </div>
+      <div class="stage-body">
+        <div class="token-row-header">
+          <span>内容</span><span>Tokens量</span><span>—</span><span>成本/天</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">漏斗通过素材嵌入 (~12%)</span>
+          <span class="t-val" id="emb-content">-</span>
+          <span class="t-val">—</span>
+          <span class="t-cost c-pink" id="emb-content-cost">-</span>
+        </div>
+        <div class="token-row">
+          <span class="t-name">Closure产出回流嵌入</span>
+          <span class="t-val" id="emb-closure">-</span>
+          <span class="t-val">—</span>
+          <span class="t-cost c-pink" id="emb-closure-cost">-</span>
+        </div>
+        <div class="note">* 本地方案(ChromaDB+nomic-embed)成本≈$0，但需GPU或接受较慢速度</div>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary-card">
+      <div class="summary-title">⊕ 总成本汇总</div>
+      <div class="summary-grid">
+        <div class="summary-stat">
+          <div class="summary-stat-num c-cyan" id="total-daily">$0.00</div>
+          <div class="summary-stat-label">每日</div>
+        </div>
+        <div class="summary-stat">
+          <div class="summary-stat-num c-green" id="total-weekly">$0.00</div>
+          <div class="summary-stat-label">每周</div>
+        </div>
+        <div class="summary-stat">
+          <div class="summary-stat-num c-amber" id="total-monthly">$0.00</div>
+          <div class="summary-stat-label">每月</div>
+        </div>
+        <div class="summary-stat">
+          <div class="summary-stat-num c-red" id="total-yearly">$0.00</div>
+          <div class="summary-stat-label">每年</div>
+        </div>
+      </div>
+      <div class="optimization-tips">
+        <div class="opt-title">⚡ 优化建议（当前参数）</div>
+        <div class="opt-item" id="tip-funnel">漏斗节省: 计算中...</div>
+        <div class="opt-item" id="tip-model">模型选择: 计算中...</div>
+        <div class="opt-item" id="tip-cache">缓存策略: Schema+System Prompt启用缓存可节省约 <span class="opt-saving" id="tip-cache-val">$0</span>/月</div>
+        <div class="opt-item" id="tip-embed">嵌入优化: 本地部署可节省 <span class="opt-saving" id="tip-embed-val">$0</span>/月</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // PRICING TABLE (per 1M tokens: [input, output])
+  const MODELS = {
+    haiku:   { name: 'Claude Haiku',    input: 0.80,  output: 4.00  },
+    sonnet:  { name: 'Claude Sonnet',   input: 3.00,  output: 15.00 },
+    opus:    { name: 'Claude Opus',     input: 15.00, output: 75.00 },
+    gpt4o:   { name: 'GPT-4o',          input: 2.50,  output: 10.00 },
+    gpt4mini:{ name: 'GPT-4o mini',     input: 0.15,  output: 0.60  },
+    gemini:  { name: 'Gemini 1.5 Pro',  input: 1.25,  output: 5.00  },
+  };
+  const EMBED_PRICE = 0.02; // per 1M tokens (text-embedding-3-small)
+  const HAIKU = MODELS.haiku; // Always use Haiku for filtering
+
+  let selectedModel = 'haiku';
+
+  function selectModel(key, el) {
+    selectedModel = key;
+    document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    update();
+  }
+
+  function fmt(n) {
+    if (n === 0) return '$0.000';
+    if (n < 0.001) return '$<0.001';
+    if (n < 1) return '$' + n.toFixed(4);
+    if (n < 100) return '$' + n.toFixed(3);
+    return '$' + n.toFixed(2);
+  }
+
+  function fmtTok(n) {
+    if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
+    if (n >= 1000) return (n/1000).toFixed(1) + 'K';
+    return n.toString();
+  }
+
+  function cost(inputTok, outputTok, model) {
+    const m = MODELS[model];
+    return (inputTok / 1e6) * m.input + (outputTok / 1e6) * m.output;
+  }
+
+  function update() {
+    // READ INPUTS
+    const articles = +document.getElementById('s-articles').value;
+    const artLen   = +document.getElementById('s-article-len').value;
+    const videos   = +document.getElementById('s-videos').value;
+    const vidLen   = +document.getElementById('s-video-len').value;
+    const calls    = +document.getElementById('s-calls').value;
+    const outLen   = +document.getElementById('s-output-len').value;
+    const research = +document.getElementById('s-research').value;
+    const resOut   = +document.getElementById('s-research-out').value;
+
+    // UPDATE DISPLAY VALUES
+    document.getElementById('v-articles').textContent    = articles;
+    document.getElementById('v-article-len').textContent = artLen.toLocaleString();
+    document.getElementById('v-videos').textContent      = videos;
+    document.getElementById('v-video-len').textContent   = vidLen.toLocaleString();
+    document.getElementById('v-calls').textContent       = calls;
+    document.getElementById('v-output-len').textContent  = outLen.toLocaleString();
+    document.getElementById('v-research').textContent    = research;
+    document.getElementById('v-research-out').textContent = resOut.toLocaleString();
+
+    const totalItems = articles + videos;
+    const totalRawTokens = articles * artLen + videos * vidLen;
+
+    // FUNNEL PASS-THROUGH
+    const f1Pass = Math.round(totalItems * 0.60);
+    const f2Pass = Math.round(f1Pass * 0.40 / 0.60); // of remaining after F1 applying 40% overall = ~24%
+    const f3Pass = Math.round(totalItems * 0.12);
+
+    // Actually let's do it linearly:
+    // F1: 60% of all items pass
+    // F2: of those, ~67% pass (so overall 40%)  
+    // F3: of those, ~30% pass (so overall ~12%)
+    const after_f1 = Math.round(totalItems * 0.60);
+    const after_f2 = Math.round(totalItems * 0.40);
+    const after_f3 = Math.round(totalItems * 0.12);
+
+    document.getElementById('fc-total').textContent = totalItems;
+    document.getElementById('fc-f1').textContent    = after_f1;
+    document.getElementById('fc-f2').textContent    = after_f2;
+    document.getElementById('fc-f3').textContent    = after_f3;
+
+    // FUNNEL COST (all use Haiku for classification)
+    // Each item: ~200 token system prompt + summary of content (~300 tokens) → 20 token output
+    const funnelPromptPer = 250; // classifier prompt
+    const funnelInputPer  = 300; // content summary
+    const funnelOutputPer = 20;  // yes/no + score
+
+    const f1In  = totalItems * (funnelPromptPer + funnelInputPer);
+    const f1Out = totalItems * funnelOutputPer;
+    const f2In  = after_f1  * (funnelPromptPer + funnelInputPer);
+    const f2Out = after_f1  * funnelOutputPer;
+    const f3In  = after_f2  * (funnelPromptPer + 100); // shorter check
+    const f3Out = after_f2  * funnelOutputPer;
+
+    const f1c = cost(f1In, f1Out, 'haiku');
+    const f2c = cost(f2In, f2Out, 'haiku');
+    const f3c = cost(f3In, f3Out, 'haiku');
+    const funnelTotal = f1c + f2c + f3c;
+
+    document.getElementById('f1-in').textContent   = fmtTok(f1In);
+    document.getElementById('f1-out').textContent  = fmtTok(f1Out);
+    document.getElementById('f1-cost').textContent = fmt(f1c);
+    document.getElementById('f2-in').textContent   = fmtTok(f2In);
+    document.getElementById('f2-out').textContent  = fmtTok(f2Out);
+    document.getElementById('f2-cost').textContent = fmt(f2c);
+    document.getElementById('f3-in').textContent   = fmtTok(f3In);
+    document.getElementById('f3-out').textContent  = fmtTok(f3Out);
+    document.getElementById('f3-cost').textContent = fmt(f3c);
+    document.getElementById('stage-funnel-badge').textContent = fmt(funnelTotal);
+
+    // LAYER 2: CONTEXT ASSEMBLY
+    // Context Window: Schema 25%, RAG 40%, Log 20%, System 15% of total ctx window
+    // Assume 8000 token context window per call
+    const ctxWindow = 8000;
+    const schemaTokens = ctxWindow * 0.25;
+    const ragTokens    = ctxWindow * 0.40;
+    const logTokens    = ctxWindow * 0.20;
+    const sysTokens    = ctxWindow * 0.15;
+
+    const l2SchemaTok = schemaTokens * calls;
+    const l2RagTok    = ragTokens    * calls;
+    const l2LogTok    = logTokens    * calls;
+    const l2SysTok    = sysTokens    * calls;
+    const l2TotalIn   = ctxWindow    * calls;
+    const l2TotalOut  = outLen       * calls;
+
+    const l2SchemaC = cost(l2SchemaTok, 0, selectedModel);
+    const l2RagC    = cost(l2RagTok,    0, selectedModel);
+    const l2LogC    = cost(l2LogTok,    0, selectedModel);
+    const l2SysC    = cost(l2SysTok,    0, selectedModel);
+    const l2OutC    = cost(0, l2TotalOut, selectedModel);
+    const l2Total   = cost(l2TotalIn, l2TotalOut, selectedModel);
+
+    document.getElementById('l2-schema-in').textContent   = fmtTok(l2SchemaTok);
+    document.getElementById('l2-schema-cost').textContent = fmt(l2SchemaC);
+    document.getElementById('l2-rag-in').textContent      = fmtTok(l2RagTok);
+    document.getElementById('l2-rag-cost').textContent    = fmt(l2RagC);
+    document.getElementById('l2-log-in').textContent      = fmtTok(l2LogTok);
+    document.getElementById('l2-log-cost').textContent    = fmt(l2LogC);
+    document.getElementById('l2-sys-in').textContent      = fmtTok(l2SysTok);
+    document.getElementById('l2-sys-cost').textContent    = fmt(l2SysC);
+    document.getElementById('l2-output-val').textContent  = fmtTok(l2TotalOut);
+    document.getElementById('l2-output-cost').textContent = fmt(l2OutC);
+    document.getElementById('stage-l2-badge').textContent = fmt(l2Total);
+
+    // Context bar widths
+    document.getElementById('bar-schema').style.width = '25%';
+    document.getElementById('bar-rag').style.width    = '40%';
+    document.getElementById('bar-log').style.width    = '20%';
+    document.getElementById('bar-sys').style.width    = '15%';
+
+    // LAYER 3: RESEARCH + OUTPUT
+    const l3CtxIn   = 12000 * research; // larger context for research
+    const l3OutTok  = resOut * research;
+    const closureIn = Math.round(resOut * 0.3) * research; // closure summary ~30% of output
+    const closureOut= Math.round(resOut * 0.1) * research;
+
+    const l3CtxC    = cost(l3CtxIn, 0, selectedModel);
+    const l3OutC    = cost(0, l3OutTok, selectedModel);
+    const l3ClosureC= cost(closureIn, closureOut, selectedModel);
+    const l3Total   = l3CtxC + l3OutC + l3ClosureC;
+
+    document.getElementById('l3-ctx-in').textContent      = fmtTok(l3CtxIn);
+    document.getElementById('l3-ctx-cost').textContent    = fmt(l3CtxC);
+    document.getElementById('l3-out-val').textContent     = fmtTok(l3OutTok);
+    document.getElementById('l3-out-cost').textContent    = fmt(l3OutC);
+    document.getElementById('l3-closure-in').textContent  = fmtTok(closureIn);
+    document.getElementById('l3-closure-out').textContent = fmtTok(closureOut);
+    document.getElementById('l3-closure-cost').textContent= fmt(l3ClosureC);
+    document.getElementById('stage-l3-badge').textContent = fmt(l3Total);
+
+    // EMBEDDINGS
+    const embContentTok  = after_f3 * 600; // avg content chunk for passed items
+    const embClosureTok  = resOut * research;
+    const embContentCost = (embContentTok / 1e6) * EMBED_PRICE;
+    const embClosureCost = (embClosureTok / 1e6) * EMBED_PRICE;
+    const embedTotal     = embContentCost + embClosureCost;
+
+    document.getElementById('emb-content').textContent      = fmtTok(embContentTok);
+    document.getElementById('emb-content-cost').textContent = fmt(embContentCost);
+    document.getElementById('emb-closure').textContent      = fmtTok(embClosureTok);
+    document.getElementById('emb-closure-cost').textContent = fmt(embClosureCost);
+    document.getElementById('stage-embed-badge').textContent= fmt(embedTotal);
+
+    // GRAND TOTAL
+    const daily  = funnelTotal + l2Total + l3Total + embedTotal;
+    const weekly = daily * 7;
+    const monthly= daily * 30;
+    const yearly = daily * 365;
+
+    document.getElementById('total-daily').textContent  = fmt(daily);
+    document.getElementById('total-weekly').textContent = fmt(weekly);
+    document.getElementById('total-monthly').textContent= fmt(monthly);
+    document.getElementById('total-yearly').textContent = fmt(yearly);
+
+    // OPTIMIZATION TIPS
+    const withoutFunnel = cost(totalRawTokens, 0, selectedModel) * calls / after_f3; // rough estimate
+    const funnelSaving  = (l2Total / 0.12 * 0.88); // what would cost without funnel
+    document.getElementById('tip-funnel').textContent =
+      `漏斗节省: ~${Math.round(88)}%素材被过滤，估计节省 ${fmt(funnelSaving)}/天 的无效处理成本`;
+
+    const haikuCost  = cost(l2TotalIn, l2TotalOut, 'haiku') + cost(l3CtxIn, l3OutTok, 'haiku');
+    const opusCost   = cost(l2TotalIn, l2TotalOut, 'opus')  + cost(l3CtxIn, l3OutTok,  'opus');
+    const curCost    = l2Total + l3Total;
+    if (selectedModel === 'haiku' || selectedModel === 'gpt4mini') {
+      document.getElementById('tip-model').textContent = `模型选择: 已选最低成本方案，Opus将 ${fmt((opusCost - curCost)*30)}/月 更贵`;
+    } else {
+      document.getElementById('tip-model').textContent = `模型选择: 换用Haiku可节省 ${fmt((curCost - haikuCost)*30)}/月，适合简单分类任务`;
+    }
+
+    // Cache savings: Schema + System Prompt are reusable (Anthropic prompt caching 90% discount on cached tokens)
+    const cacheableTok = (l2SchemaTok + l2SysTok) * 30;
+    const cacheSaving  = (cacheableTok / 1e6) * MODELS[selectedModel].input * 0.90;
+    document.getElementById('tip-cache-val').textContent = fmt(cacheSaving);
+
+    const localEmbedSaving = embedTotal * 30;
+    document.getElementById('tip-embed-val').textContent = fmt(localEmbedSaving);
+  }
+
+  // INIT
+  update();
+</script>
+</body>
+</html>

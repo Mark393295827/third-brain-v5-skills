@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V5.1 精简化方案</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --bg: #080c14;
+    --surface: #0f1623;
+    --surface2: #161f30;
+    --border: #1e3a5f;
+    --cyan: #00d4ff;
+    --green: #00ff94;
+    --amber: #ffb800;
+    --red: #ff4757;
+    --purple: #a855f7;
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --text-muted: #4a5568;
+    --py: #3b82f6;
+    --py-dim: rgba(59,130,246,0.12);
+    --llm: #a855f7;
+    --llm-dim: rgba(168,85,247,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); font-family: 'Noto Sans SC', sans-serif; color: var(--text); padding: 20px; }
+  .header { text-align: center; margin-bottom: 20px; }
+  .header h1 { font-size: 20px; font-weight: 700; background: linear-gradient(135deg, var(--py), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header p { font-size: 10px; color: var(--text-muted); font-family: 'JetBrains Mono'; letter-spacing: 3px; }
+  .layout { display: grid; grid-template-columns: 1fr 280px; gap: 14px; }
+  .main-col { display: flex; flex-direction: column; gap: 10px; }
+  .step { border-radius: 8px; border: 1px solid var(--border); background: var(--surface); overflow: hidden; }
+  .step-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  .step-title { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; font-family: 'JetBrains Mono'; }
+  .step-body { padding: 10px 14px; }
+  .comp-grid { display: grid; grid-template-columns: 1fr 20px 1fr; gap: 6px; align-items: start; }
+  .comp-old { background: rgba(255,71,87,0.06); border: 1px solid rgba(255,71,87,0.2); border-radius: 5px; padding: 8px 10px; }
+  .comp-old-title { font-size: 8px; font-weight: 700; color: var(--red); font-family: 'JetBrains Mono'; }
+  .comp-new { background: var(--py-dim); border: 1px solid rgba(59,130,246,0.3); border-radius: 5px; padding: 8px 10px; }
+  .comp-new-title { font-size: 8px; font-weight: 700; color: var(--py); font-family: 'JetBrains Mono'; }
+  .comp-llm { background: var(--llm-dim); border: 1px solid rgba(168,85,247,0.3); border-radius: 5px; padding: 8px 10px; }
+  .comp-llm-title { font-size: 8px; font-weight: 700; color: var(--llm); font-family: 'JetBrains Mono'; }
+  .comp-item { font-size: 9px; color: var(--text-dim); padding: 2px 0; }
+  .comp-arrow { display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px; }
+  .code-block { background: #0a0e1a; border: 1px solid rgba(59,130,246,0.2); border-radius: 5px; padding: 8px 10px; margin-top: 6px; font-family: 'JetBrains Mono'; font-size: 8.5px; line-height: 1.6; overflow-x: auto; white-space: pre; }
+  .c-cm { color: #6a9955; } .c-kw { color: #569cd6; } .c-fn { color: #dcdcaa; } .c-str { color: #ce9178; } .c-num { color: #b5cea8; } .c-cls { color: #4ec9b0; }
+  .tool-tag { display: inline-block; font-size: 8px; font-family: 'JetBrains Mono'; padding: 1px 6px; border-radius: 3px; margin: 2px 2px 0 0; }
+  .tag-py { background: var(--py-dim); border: 1px solid rgba(59,130,246,0.4); color: var(--py); }
+  .tag-free { background: rgba(0,255,148,0.1); border: 1px solid rgba(0,255,148,0.3); color: var(--green); }
+  .tag-llm { background: var(--llm-dim); border: 1px solid rgba(168,85,247,0.4); color: var(--llm); }
+  .tag-kill { background: rgba(255,71,87,0.1); border: 1px solid rgba(255,71,87,0.3); color: var(--red); text-decoration: line-through; }
+  .snum { width: 22px; height: 22px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+  .sidebar { display: flex; flex-direction: column; gap: 10px; }
+  .sidebar-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .sidebar-header { padding: 8px 12px; font-size: 10px; font-weight: 700; font-family: 'JetBrains Mono'; border-bottom: 1px solid var(--border); }
+  .sidebar-body { padding: 12px; }
+  .section-sep { font-size: 9px; font-weight: 700; font-family: 'JetBrains Mono'; color: var(--text-muted); margin: 4px 0 2px; padding-bottom: 4px; border-bottom: 1px dashed var(--border); }
+  .cost-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(30,58,95,0.3); font-size: 9px; }
+  .cost-name { color: var(--text-dim); }
+  .cost-before { font-family: 'JetBrains Mono'; color: var(--red); text-decoration: line-through; font-size: 8px; }
+  .cost-after { font-family: 'JetBrains Mono'; color: var(--green); font-weight: 700; font-size: 9px; }
+  .savings-total { background: linear-gradient(135deg, rgba(0,255,148,0.08), rgba(59,130,246,0.06)); border: 1px solid rgba(0,255,148,0.3); border-radius: 6px; padding: 10px; text-align: center; margin-top: 6px; }
+  .savings-num { font-size: 22px; font-weight: 700; font-family: 'JetBrains Mono'; color: var(--green); }
+  .savings-label { font-size: 9px; color: var(--text-muted); font-family: 'JetBrains Mono'; }
+  .note { font-size: 8px; color: var(--text-muted); font-family: 'JetBrains Mono'; line-height: 1.5; margin-top: 6px; }
+  .badge { display: inline-block; font-size: 8px; font-family: 'JetBrains Mono'; padding: 1px 5px; border-radius: 3px; font-weight: 700; }
+  .badge-py { background: var(--py-dim); color: var(--py); }
+  .badge-llm { background: var(--llm-dim); color: var(--llm); }
+  .badge-free { background: rgba(0,255,148,0.1); color: var(--green); }
+  .badge-kill { background: rgba(255,71,87,0.1); color: var(--red); }
+  .matrix-row { display: grid; grid-template-columns: 1fr 60px 60px; gap: 4px; padding: 4px 0; border-bottom: 1px solid rgba(30,58,95,0.3); font-size: 8px; align-items: center; }
+  .matrix-val { text-align: center; font-family: 'JetBrains Mono'; font-weight: 700; }
+  .pipeline { display: flex; flex-direction: column; gap: 4px; }
+  .pipe-step { display: flex; align-items: center; gap: 8px; background: var(--surface2); border-radius: 4px; padding: 6px 8px; border-left: 3px solid; }
+  .pipe-step-name { font-size: 9px; font-weight: 600; flex: 1; }
+  .pipe-step-mode { font-size: 8px; font-family: 'JetBrains Mono'; }
+  .pipe-arrow { text-align: center; color: var(--text-muted); font-size: 10px; padding: 0 8px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>V5.1 精简化方案：Python优先，LLM最后</h1>
+  <p>AUTOMATE EVERYTHING DETERMINISTIC · LLM ONLY FOR GENUINE INTELLIGENCE</p>
+</div>
+<div class="layout">
+<div class="main-col">
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-title"><div class="snum" style="background:var(--cyan);color:#000">1</div>摄取层：Web抓取 / 视频转录 <span class="tool-tag tag-free">100% 自动化</span></div>
+      <div style="font-size:9px;color:var(--green);font-family:'JetBrains Mono'">LLM成本 → $0</div>
+    </div>
+    <div class="step-body">
+      <div class="comp-grid">
+        <div class="comp-old"><div class="comp-old-title">✕ V5.0 手动/插件</div><div class="comp-item">手动触发Web Clipper</div><div class="comp-item">手动启动YouTube Transcriber</div></div>
+        <div class="comp-arrow">→</div>
+        <div class="comp-new"><div class="comp-new-title">✓ Python自动化</div><div class="comp-item"><span class="tool-tag tag-py">requests+BS4</span> 定时抓取RSS/网页</div><div class="comp-item"><span class="tool-tag tag-free">yt-dlp+Whisper</span> 本地视频转录</div><div class="comp-item"><span class="tool-tag tag-py">watchdog</span> 文件变更监听</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-title"><div class="snum" style="background:var(--red);color:#000">P</div>PII脱敏：纯规则引擎 <span class="tool-tag tag-free">Microsoft Presidio</span></div>
+      <div style="font-size:9px;color:var(--green);font-family:'JetBrains Mono'">LLM成本 → $0</div>
+    </div>
+    <div class="step-body">
+      <div class="code-block"><span class="c-cm"># pii_scrub.py — 无LLM调用</span>
+<span class="c-kw">from</span> presidio_analyzer <span class="c-kw">import</span> <span class="c-cls">AnalyzerEngine</span>
+<span class="c-kw">from</span> presidio_anonymizer <span class="c-kw">import</span> <span class="c-cls">AnonymizerEngine</span>
+analyzer, anonymizer = <span class="c-cls">AnalyzerEngine</span>(), <span class="c-cls">AnonymizerEngine</span>()
+<span class="c-kw">def</span> <span class="c-fn">scrub_pii</span>(text):
+    results = analyzer.<span class="c-fn">analyze</span>(text=text, language=<span class="c-str">"zh"</span>,
+        entities=[<span class="c-str">"PHONE_NUMBER"</span>, <span class="c-str">"EMAIL"</span>, <span class="c-str">"PERSON"</span>, <span class="c-str">"ID_NUMBER"</span>])
+    <span class="c-kw">return</span> anonymizer.<span class="c-fn">anonymize</span>(text=text, analyzer_results=results).text</div>
+    </div>
+  </div>
+
+  <!-- STEP 3: KEY CHANGE -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-title"><div class="snum" style="background:var(--orange);color:#000">▽</div>知识漏斗：F1+F2用向量替代LLM分类 <span class="tool-tag tag-kill">消除LLM调用</span></div>
+      <div style="font-size:9px;color:var(--green);font-family:'JetBrains Mono'">节省 ~60% 总成本</div>
+    </div>
+    <div class="step-body">
+      <div class="code-block"><span class="c-cm"># funnel.py — 无LLM，纯向量数学</span>
+<span class="c-kw">from</span> sentence_transformers <span class="c-kw">import</span> <span class="c-cls">SentenceTransformer</span>
+<span class="c-kw">from</span> sklearn.metrics.pairwise <span class="c-kw">import</span> cosine_similarity
+model = <span class="c-cls">SentenceTransformer</span>(<span class="c-str">"nomic-ai/nomic-embed-text-v1"</span>)
+<span class="c-cm"># 三条主线向量（一次生成，永久复用）</span>
+GOAL_VECTORS = model.<span class="c-fn">encode</span>([
+    <span class="c-str">"property maintenance B2B SaaS Hasiki"</span>,
+    <span class="c-str">"Spain Barcelona real estate investment"</span>,
+    <span class="c-str">"financial alpha investment edge market signal"</span>,
+])
+<span class="c-kw">def</span> <span class="c-fn">score_item</span>(item):
+    <span class="c-cm"># F3时效性: datetime比较 — 纯Python</span>
+    age = (datetime.<span class="c-fn">now</span>() - item[<span class="c-str">"ts"</span>]).days
+    <span class="c-kw">if</span> age > <span class="c-num">7</span>: <span class="c-kw">return</span> <span class="c-num">0.0</span>
+    <span class="c-cm"># F1+F2向量相似度 — 0 LLM调用</span>
+    vec = model.<span class="c-fn">encode</span>([item[<span class="c-str">"title"</span>] + <span class="c-str">" "</span> + item[<span class="c-str">"text"</span>][:<span class="c-num">500</span>]])
+    <span class="c-kw">return</span> <span class="c-fn">float</span>(cosine_similarity(vec, GOAL_VECTORS).<span class="c-fn">max</span>())</div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-title"><div class="snum" style="background:var(--purple);color:#fff">⟳</div>Index自动维护 + Vector DB <span class="tool-tag tag-py">watchdog</span><span class="tool-tag tag-free">ChromaDB</span></div>
+      <div style="font-size:9px;color:var(--green);font-family:'JetBrains Mono'">LLM成本 → $0</div>
+    </div>
+    <div class="step-body">
+      <div class="code-block"><span class="c-cm"># vault_watcher.py — 监听Obsidian变更</span>
+<span class="c-kw">from</span> watchdog.observers <span class="c-kw">import</span> <span class="c-cls">Observer</span>
+<span class="c-kw">class</span> <span class="c-cls">VaultHandler</span>(<span class="c-cls">FileSystemEventHandler</span>):
+    <span class="c-kw">def</span> <span class="c-fn">on_modified</span>(self, event):
+        <span class="c-kw">if</span> event.src_path.<span class="c-fn">endswith</span>(<span class="c-str">".md"</span>):
+            coll.<span class="c-fn">upsert</span>(ids=[path], documents=[text])  <span class="c-cm"># 向量化</span>
+            <span class="c-fn">rebuild_index</span>()                            <span class="c-cm"># 重建Index</span></div>
+    </div>
+  </div>
+
+  <!-- STEP 5: STAYS LLM -->
+  <div class="step" style="border-color:rgba(168,85,247,0.4);">
+    <div class="step-header" style="border-color:rgba(168,85,247,0.2);">
+      <div class="step-title"><div class="snum" style="background:var(--llm);color:#fff">🧠</div><span style="color:var(--llm)">保留LLM的三件事（无法替代）</span></div>
+      <div style="font-size:9px;color:var(--llm);font-family:'JetBrains Mono'">精准调用，不浪费</div>
+    </div>
+    <div class="step-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+        <div class="comp-llm"><div class="comp-llm-title">① 增量构建</div><div class="comp-item">漏斗通过的~12%内容提炼</div><div class="comp-item">每日批量 1次，Haiku</div></div>
+        <div class="comp-llm"><div class="comp-llm-title">② 深度研究产出</div><div class="comp-item">商业计划/投资模型/决策</div><div class="comp-item">按需，Sonnet/Opus</div></div>
+        <div class="comp-llm"><div class="comp-llm-title">③ 结构化关联</div><div class="comp-item">跨笔记语义连接</div><div class="comp-item">每周批处理 1次</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-title"><div class="snum" style="background:var(--amber);color:#000">$</div>Token成本追踪 <span class="tool-tag tag-py">Python装饰器</span></div>
+      <div style="font-size:9px;color:var(--green);font-family:'JetBrains Mono'">自动记录，无额外成本</div>
+    </div>
+    <div class="step-body">
+      <div class="code-block"><span class="c-cm"># cost_tracker.py — 每次LLM调用自动记录</span>
+MONTHLY_BUDGET = <span class="c-num">20.0</span>
+<span class="c-kw">def</span> <span class="c-fn">track_cost</span>(model):              <span class="c-cm"># Python装饰器</span>
+    <span class="c-kw">def</span> <span class="c-fn">decorator</span>(fn):
+        <span class="c-kw">def</span> <span class="c-fn">wrapper</span>(*args, **kwargs):
+            resp = <span class="c-fn">fn</span>(*args, **kwargs)
+            usd  = (resp.usage.input_tokens/1e6)*PRICE[model][<span class="c-num">0</span>]
+            csv.<span class="c-cls">writer</span>(<span class="c-fn">open</span>(<span class="c-str">"cost_log.csv"</span>,<span class="c-str">"a"</span>)).<span class="c-fn">writerow</span>([...])
+            <span class="c-kw">if</span> <span class="c-fn">sum_monthly_cost</span>() > MONTHLY_BUDGET * <span class="c-num">0.8</span>:
+                <span class="c-fn">print</span>(<span class="c-str">f"⚠ 月成本已达上限{MONTHLY_BUDGET}"</span>)
+            <span class="c-kw">return</span> resp
+        <span class="c-kw">return</span> wrapper
+    <span class="c-kw">return</span> decorator</div>
+    </div>
+  </div>
+
+</div>
+<div class="sidebar">
+
+  <!-- DECISION MATRIX -->
+  <div class="sidebar-card">
+    <div class="sidebar-header" style="color:var(--cyan)">替换判断矩阵</div>
+    <div class="sidebar-body">
+      <div class="matrix-row" style="font-size:8px;color:var(--text-muted);border-bottom:2px solid var(--border);"><span>步骤</span><span style="text-align:center">V5.0</span><span style="text-align:center">V5.1</span></div>
+      <div class="matrix-row"><span style="font-size:9px">RSS/Web抓取</span><span class="matrix-val badge badge-kill">LLM</span><span class="matrix-val badge badge-py">Python</span></div>
+      <div class="matrix-row"><span style="font-size:9px">视频转录</span><span class="matrix-val badge badge-kill">插件</span><span class="matrix-val badge badge-free">Whisper</span></div>
+      <div class="matrix-row"><span style="font-size:9px">PII脱敏</span><span class="matrix-val badge badge-kill">LLM</span><span class="matrix-val badge badge-py">Presidio</span></div>
+      <div class="matrix-row"><span style="font-size:9px">F1+F2漏斗</span><span class="matrix-val badge badge-kill">Haiku</span><span class="matrix-val badge badge-free">余弦</span></div>
+      <div class="matrix-row"><span style="font-size:9px">F3时效性</span><span class="matrix-val badge badge-kill">Haiku</span><span class="matrix-val badge badge-py">datetime</span></div>
+      <div class="matrix-row"><span style="font-size:9px">向量嵌入</span><span class="matrix-val badge badge-kill">OpenAI</span><span class="matrix-val badge badge-free">nomic</span></div>
+      <div class="matrix-row"><span style="font-size:9px">Index.md</span><span class="matrix-val badge badge-kill">手动</span><span class="matrix-val badge badge-py">watchdog</span></div>
+      <div class="matrix-row"><span style="font-size:9px">SHA-256</span><span class="matrix-val badge badge-kill">手动</span><span class="matrix-val badge badge-py">hashlib</span></div>
+      <div class="matrix-row"><span style="font-size:9px">成本追踪</span><span class="matrix-val badge badge-kill">手动</span><span class="matrix-val badge badge-py">装饰器</span></div>
+      <div class="matrix-row"><span style="font-size:9px">增量构建</span><span class="matrix-val badge badge-llm">LLM</span><span class="matrix-val badge badge-llm">LLM ✓</span></div>
+      <div class="matrix-row"><span style="font-size:9px">深度研究</span><span class="matrix-val badge badge-llm">LLM</span><span class="matrix-val badge badge-llm">LLM ✓</span></div>
+    </div>
+  </div>
+
+  <!-- COST -->
+  <div class="sidebar-card">
+    <div class="sidebar-header" style="color:var(--green)">成本对比（月）</div>
+    <div class="sidebar-body">
+      <div class="section-sep">已消除</div>
+      <div class="cost-row"><span class="cost-name">漏斗LLM分类</span><span class="cost-before">~$9</span><span class="cost-after">$0</span></div>
+      <div class="cost-row"><span class="cost-name">嵌入(OpenAI)</span><span class="cost-before">~$1.5</span><span class="cost-after">$0</span></div>
+      <div class="cost-row"><span class="cost-name">PII LLM</span><span class="cost-before">~$2</span><span class="cost-after">$0</span></div>
+      <div class="section-sep">保留</div>
+      <div class="cost-row"><span class="cost-name">增量构建</span><span class="cost-before">~$6</span><span class="cost-after" style="color:var(--amber)">~$3</span></div>
+      <div class="cost-row"><span class="cost-name">深度研究</span><span class="cost-before">~$8</span><span class="cost-after" style="color:var(--amber)">~$5</span></div>
+      <div class="savings-total"><div class="savings-num">-70%</div><div class="savings-label">$27/月 → $8/月</div></div>
+    </div>
+  </div>
+
+  <!-- PIPELINE -->
+  <div class="sidebar-card">
+    <div class="sidebar-header" style="color:var(--amber)">V5.1简化管道</div>
+    <div class="sidebar-body">
+      <div class="pipeline">
+        <div class="pipe-step" style="border-color:var(--py)"><span class="pipe-step-name" style="color:var(--py)">RSS+yt-dlp</span><span class="pipe-step-mode badge badge-py">Python</span></div>
+        <div class="pipe-arrow">↓</div>
+        <div class="pipe-step" style="border-color:var(--green)"><span class="pipe-step-name" style="color:var(--green)">nomic-embed + cosine</span><span class="pipe-step-mode badge badge-free">Free</span></div>
+        <div class="pipe-arrow">↓ 12%通过</div>
+        <div class="pipe-step" style="border-color:var(--llm)"><span class="pipe-step-name" style="color:var(--llm)">Haiku 增量构建</span><span class="pipe-step-mode badge badge-llm">LLM</span></div>
+        <div class="pipe-arrow">↓</div>
+        <div class="pipe-step" style="border-color:var(--green)"><span class="pipe-step-name" style="color:var(--green)">ChromaDB+watchdog</span><span class="pipe-step-mode badge badge-free">Free</span></div>
+        <div class="pipe-arrow">↓ 按需</div>
+        <div class="pipe-step" style="border-color:var(--llm)"><span class="pipe-step-name" style="color:var(--llm)">Sonnet 深度研究</span><span class="pipe-step-mode badge badge-llm">LLM</span></div>
+      </div>
+      <div class="note">原则：确定性逻辑 → Python<br>不确定性判断 → LLM</div>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
