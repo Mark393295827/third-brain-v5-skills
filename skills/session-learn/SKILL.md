@@ -1,157 +1,108 @@
 ---
 name: session-learn
-description: Extract reusable knowledge patterns from the current agent session. Scans for new concepts, entities, corrections, patterns, ideas, decisions, and knowledge gaps — then saves them to the wiki. Use at session end or when the user says "extract knowledge from this session".
+description: Extract reusable knowledge from sessions. Scans for new concepts, entities, corrections, patterns, ideas, decisions, gaps — saves to wiki. Use at session end or "extract knowledge".
 ---
 
-# Session Learn — Continuous Knowledge Extraction
+# Session Learn
 
-Automatically extract knowledge signals from the current session and persist them to the wiki. Inspired by ECC continuous-learning but outputs structured wiki pages instead of atomic instincts.
+Extract knowledge signals from current session and persist to wiki.
 
 ## When to Use
 
-- User says "extract this session" or "save what we learned"
-- After completing substantive work (≥5 tool calls)
-- As part of a session-end review routine
-- User corrects the agent's understanding of a topic
-- **Auto-trigger** after completing a cognitive-compile, wiki-ingest, or deep-research task
+- "Extract this session" or "save what we learned"
+- After substantive work (≥5 tool calls)
+- Session-end review routine
+- User corrects agent's understanding
+- **Auto-trigger** after cognitive-compile, wiki-ingest, deep-research
 
 ---
 
-## The 7 Knowledge Signals
+## 7 Knowledge Signals
 
-### 1. New Concept
-**Signal:** Session discussed a concept/framework/methodology not in the wiki.
-
-**Action:** Create `wiki/concepts/[name].md` with `status: seed`.
-
-### 2. New Entity
-**Signal:** Session mentioned a person, company, or product not in the wiki.
-
-**Action:** Create `wiki/entities/[name].md` with `type: entity`.
-
-### 3. Knowledge Correction
-**Signal:** User corrected the agent's understanding of existing wiki content.
-
-**Action:**
-1. Update the relevant wiki page
-2. Annotate with the correction note
-3. Log the correction
-
-### 4. Reusable Pattern
-**Signal:** Session executed a repeatable workflow.
-
-**Action:** Create/update an SOP page.
-
-### 5. New Idea
-**Signal:** Session produced a creative insight worth saving.
-
-**Action:** Save to creativity/ideas/ or wiki/outputs/.
-
-### 6. Major Decision
-**Signal:** Session made an architecture, strategy, or direction decision.
-
-**Action:** Record to decisions/ with rationale.
-
-### 7. Knowledge Gap
-**Signal:** Discovered that an existing concept lacks sources or has contradictions.
-
-**Action:** Append to the review queue.
+| # | Signal | Action |
+|:--|--------|--------|
+| 1 | **New Concept** | Create `wiki/concepts/[name].md` status:seed |
+| 2 | **New Entity** | Create `wiki/entities/[name].md` type:entity |
+| 3 | **Correction** | Update page + annotate + log |
+| 4 | **Reusable Pattern** | Create/update SOP page |
+| 5 | **New Idea** | Save to creativity/ideas/ or wiki/outputs/ |
+| 6 | **Major Decision** | Record to decisions/ with rationale |
+| 7 | **Knowledge Gap** | Append to review queue |
 
 ---
 
 ## Closure Protocol ⭐
 
-> **Problem:** Actions produce outputs (code, research, decisions) but the feedback path back to knowledge is absent — value leakage.
->
-> **Solution:** Every significant output must trigger a closure cycle.
+> Every significant output must trigger a closure cycle to prevent value leakage.
 
-### The 3-Step Closure Cycle
+### 3-Step Cycle
 
 ```
-            ┌────────────────────────────────────┐
-            │  Step 1: FORMAT                    │
-            │  Convert action output to wiki form │
-            └──────────────┬─────────────────────┘
-                           ▼
-            ┌────────────────────────────────────┐
-            │  Step 2: LINK                      │
-            │  Cross-reference with existing      │
-            │  concepts + entities + decisions    │
-            └──────────────┬─────────────────────┘
-                           ▼
-            ┌────────────────────────────────────┐
-            │  Step 3: LOG                       │
-            │  Record the closure to log.md      │
-            │  with [closure] tag + source        │
-            └────────────────────────────────────┘
+FORMAT → LINK → LOG
+Convert to wiki form → Cross-reference → Record to log.md
 ```
 
-### Trigger Conditions
+### Triggers
 
-| Source | Trigger | Closure Action |
-|--------|---------|----------------|
-| **Cognitive compile** | Compile complete | Extract 3 key judgments → save to wiki/outputs/ + update entity pages |
-| **Wiki ingest** | Source ingested | Auto-create entity pages + update overview + central index |
-| **Deep research** | Report delivered | Save key findings to relevant concept pages + update sources |
-| **Behavior design** | SOP created | Link SOP to relevant goals + habits in behaviors/ |
-| **Code project** | Feature complete | Save architecture decisions + lessons to decisions/ |
-| **User correction** | Knowledge corrected | Log correction + propagate to all related pages |
+| Source | Trigger | Action |
+|--------|---------|--------|
+| Cognitive compile | Complete | Extract 3 judgments → wiki/outputs/ + update entities |
+| Wiki ingest | Source ingested | Auto-create entities + update overview + central index |
+| Deep research | Report delivered | Save findings to concept pages + update sources |
+| Behavior design | SOP created | Link SOP to goals + habits |
+| Code project | Feature complete | Save decisions + lessons |
+| User correction | Corrected | Log + propagate to related pages |
 
-### Conflict Resolution Strategy
+### Conflict Resolution
 
-When closure detects a conflict between new knowledge and existing wiki:
-
-| Conflict Type | Resolution |
-|---------------|------------|
-| **Direct contradiction** | Keep both, mark with `> [!conflict] YYYY-MM-DD` banner. Do not delete old content. |
-| **Outdated information** | Add `> [!updated] YYYY-MM-DD` note. Move old content to timeline section. |
-| **Different perspective** | Add as alternative view, link to the source that holds the alternative. |
-| **Low confidence new info** | Add with `status: seed` and `evidence_level: single-source`. Never overwrite `growing`+ pages. |
+| Type | Resolution |
+|------|------------|
+| **Direct contradiction** | Keep both, mark `> [!conflict] YYYY-MM-DD` |
+| **Outdated** | Add `> [!updated] YYYY-MM-DD`, move old to timeline |
+| **Different perspective** | Add as alternative view with source |
+| **Low confidence** | `status: seed`, `evidence_level: single-source` |
 
 ---
 
-## Knowledge Gap Detection
-
-After extraction, check for actionable gaps:
+## Knowledge Gaps
 
 | Gap | Action |
 |-----|--------|
-| Concept has no sources | Add to review queue: "needs sources" |
-| Entity has only 1 source | Mark as `knowledge_stage: single-source` |
-| Contradictory claims exist | Add conflict banner |
-| Key concept mentioned but not defined | Create stub page with `status: seed` |
+| No sources | Add to review queue |
+| Only 1 source | Mark `knowledge_stage: single-source` |
+| Contradictions | Add conflict banner |
+| Undefined concept | Create stub with `status: seed` |
 
 ---
 
 ## Quality Rules
 
-- **Don't over-extract**: trivial sessions (<5 tool calls) skip learning
-- **Deduplicate first**: search wiki before creating
+- **Don't over-extract**: <5 tool calls → skip
+- **Deduplicate first**: search before creating
 - **Closure always**: every output → format → link → log
-- **Confidence markers**: new pages get `status: seed`, `knowledge_stage: captured`
+- **Confidence markers**: new pages get `status: seed`
 - **Conflict honesty**: never overwrite without annotation
-- **Log everything**: append to system/log.md with `[session-learn]` or `[closure]` tag
+- **Log everything**: append to system/log.md
 
 ## Execution
 
 ```
-1. Check session depth (≥5 tool calls?)
-2. Scan conversation + tool calls for 7 signal types
-3. For each signal: search wiki → update or create
-4. Check for closure triggers → execute closure cycle
-5. Check for knowledge gaps → append to review queue
+1. Check depth (≥5 tool calls?)
+2. Scan for 7 signal types
+3. For each: search wiki → update/create
+4. Execute closure cycle
+5. Check gaps → append to review queue
 6. Batch write (parallel)
-7. Update wiki overview + central index if new pages created
-8. Append to system/log.md with [session-learn][closure] tags
+7. Update overview + central index
+8. Append to system/log.md
 ```
 
 ## Quality Gates
 
 - [ ] Session qualified (≥5 tool calls or user-initiated)
-- [ ] No duplicate pages created
-- [ ] New pages have `status: seed` and ≥2 wikilinks
-- [ ] Corrections annotated with `> [!note]` date stamp
-- [ ] **Closure cycle executed** for all outputs (format → link → log)
-- [ ] Conflicts detected and annotated (not silently overwritten)
-- [ ] Knowledge gaps recorded in review queue
-- [ ] Log updated with [session-learn] tag
+- [ ] No duplicates created
+- [ ] New pages: `status: seed` + ≥2 wikilinks
+- [ ] Closure cycle executed for all outputs
+- [ ] Conflicts annotated (not silently overwritten)
+- [ ] Gaps recorded in review queue
+- [ ] Log updated
