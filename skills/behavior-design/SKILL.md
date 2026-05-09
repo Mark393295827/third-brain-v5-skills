@@ -13,6 +13,7 @@ Transform goals into actionable behavior systems through decomposition, habit de
 - User has a goal but hasn't broken it into actions
 - User wants to change a behavior pattern
 - User is reviewing why a habit didn't stick
+- User wants to understand their relationship with AI tools
 
 ## Core Architecture
 
@@ -21,6 +22,28 @@ Goal → Habits  → Cues → SOPs → Review → Reward
            ↓
      Identity narrative: "I am the kind of person who..."
 ```
+
+## Human Agency Scale (HAS) — Stanford Framework
+
+When designing behavior systems involving AI tools, use the HAS framework to determine the right level of human involvement:
+
+| Level | Description | When to Use | Example |
+|:-----:|-------------|-------------|---------|
+| **H1** | AI handles entirely, no human | Routine, low-stakes tasks | Auto-lint, auto-format |
+| **H2** | AI needs minimal input | Tasks with clear success criteria | Code review, data entry |
+| **H3** | Equal partnership | Creative/analytical work | Research synthesis, design |
+| **H4** | Human drives, AI assists | High-stakes decisions | Investment analysis, strategy |
+| **H5** | Human essential, AI supports | Relationship/empathy tasks | Coaching, conflict resolution |
+
+**Key insight from Stanford research:**
+- 45.2% of occupations prefer H3 (equal partnership) as the dominant level
+- Workers generally prefer higher human agency than experts deem necessary
+- Skills shift: from information processing → interpersonal competence
+
+**Apply to behavior design:**
+- For habits involving AI: Choose the appropriate HAS level
+- For skill development: Focus on H4/H5 skills (interpersonal, strategic)
+- For automation: Start with H1/H2 tasks, gradually expand
 
 ## Workflow
 

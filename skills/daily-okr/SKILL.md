@@ -27,6 +27,24 @@ KR7 反馈    → 3 行复盘 + 验证证据              [3 min]
 
 > Minimum bar: **1 input + 1 insight + 1 action + 1 review.**
 
+### The Stop Doing List (段永平)
+
+> "比 To Do List 更重要的是 Stop Doing List。"
+
+每天 KR7 反馈时，除了复盘"做了什么"，还要问：
+
+| 问题 | 目的 |
+|------|------|
+| 今天有什么事不该做？ | 识别浪费时间的活动 |
+| 有什么习惯应该停止？ | 打破坏习惯 |
+| 有什么承诺应该拒绝？ | 保护时间和精力 |
+| 有什么投资应该止损？ | 避免沉没成本谬误 |
+
+**Stop Doing List 的价值：**
+- 减法比加法更难，但更有效
+- 知道什么不该做，才能专注于该做的事
+- "不懂不做" — 段永平的投资原则
+
 ### KR1 — Input
 - Record 1-3 high-quality information items
 - At least 1 from external world (article/report/video/data)

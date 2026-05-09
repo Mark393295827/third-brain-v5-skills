@@ -48,6 +48,41 @@ BEFORE claiming any status:
 - About to commit/push/PR without verification
 - Trusting agent success reports without independent check
 - Relying on partial verification
+
+## Expected Value Thinking (From Poker Psychology)
+
+> "The biggest bluff is convincing yourself you have control when you don't." — Maria Konnikova
+
+**Apply to verification:**
+
+| Poker Concept | Verification Application |
+|---------------|-------------------------|
+| **Expected Value (EV)** | Don't just check if it works now; check if it will work reliably |
+| **Controllable vs Uncontrollable** | Focus on what you can verify; acknowledge what you can't |
+| **Tilt Control** | Don't let excitement about "it works!" skip verification |
+| **Process over Results** | Good verification process > lucky outcome |
+
+**The verification mindset:**
+
+```
+1. Separate what you CAN verify from what you CAN'T
+   - CAN: Code compiles, tests pass, output matches expected
+   - CAN'T: Edge cases, production behavior, user experience
+
+2. Focus on EXPECTED VALUE, not single results
+   - "Tests pass once" ≠ "Tests will pass reliably"
+   - "Works in my environment" ≠ "Works in all environments"
+
+3. Be skeptical of success
+   - Good decisions can have bad outcomes
+   - Bad decisions can have good outcomes
+   - KEY: Evaluate the PROCESS, not just the result
+```
+
+**The Biggest Lesson from Poker:**
+> "Knowing when to fold is more important than knowing when to play."
+
+In verification: Knowing when to say "I'm not sure" is better than claiming "it works" without evidence.
 - **ANY wording implying success without having run verification**
 
 ## Rationalization Prevention

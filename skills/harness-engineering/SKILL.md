@@ -147,6 +147,44 @@ The most effective pattern for complex tasks: **separate the generator from the 
 | **Competitive** | Multiple agents try the same task, best result wins | Creative work, optimization problems |
 | **Pipeline** | Agents pass work sequentially in a chain | Document processing, data pipelines |
 | **Zonal** | Each agent owns a domain/zone, orchestrator routes | Enterprise systems with clear boundaries |
+| **Closed-Loop** | Feedback from output shapes next input | Continuous improvement systems |
+
+---
+
+## Closed-Loop System Design (From Aladdin)
+
+> "Aladdin's moat is not any single component, but the integrated closed-loop system where each component feeds back to others."
+
+**The 7-Module Closed Loop:**
+
+```
+Data Lake → Risk Engine → Optimizer → Stress Test → OMS → Compliance → Feedback Loop
+     ↑                                                              ↓
+     └──────────────────── 反馈闭环 ────────────────────────────────┘
+```
+
+**Apply to Agent Harness:**
+
+| Aladdin Module | Agent Harness Equivalent |
+|----------------|-------------------------|
+| **Data Lake** | Session log, knowledge base |
+| **Risk Engine** | Risk assessment, threat detection |
+| **Optimizer** | Task decomposition, resource allocation |
+| **Stress Test** | Edge-case testing, failure simulation |
+| **OMS** | Order execution, tool calls |
+| **Compliance** | Guardrails, policy enforcement |
+| **Feedback Loop** | Results → learning → improvement |
+
+**Key insight:**
+- The closed loop is the moat — not any single component
+- Each iteration makes the system more precise (data accumulation + model learning)
+- **MECE principle**: Mutually Exclusive (no overlap), Collectively Exhaustive (full coverage)
+
+**Implementation:**
+1. Design each module with clear inputs/outputs
+2. Ensure feedback flows from output back to input
+3. Log everything for continuous learning
+4. Iterate: each cycle should be better than the last
 | **Generator+Evaluator** | Separate builder from critic (GAN-inspired) | Long-running builds, design, full-stack apps |
 
 ---

@@ -14,10 +14,26 @@ Manage the scarcest resource in the LLM OS: the **context window (RAM)**. Every 
 - When designing prompt templates that include variable-length content
 - User asks "optimize my prompts" or "reduce token cost"
 - Before ingesting large documents into a session
+- When designing agentic workflows that need to stay within budget
 
 ---
 
 ## Core Principles
+
+### 0. Concrete Ideas Buy Speed (Andrew Ng)
+
+> "Vague ideas tend to get a lot of kudos. But when you're vague, you're almost always right. When you're concrete, you may be right or wrong. Either way is fine — we can discover that much more fast."
+
+**Apply to context management:**
+- Concrete prompts → fewer tokens wasted on ambiguity
+- Concrete tool calls → fewer retries and corrections
+- Concrete success criteria → faster evaluation
+
+| Vague Prompt | Concrete Prompt | Token Savings |
+|-------------|-----------------|:------------:|
+| "Analyze this document" | "Extract the 3 key metrics from this earnings report and compare to last quarter" | ~60% |
+| "Help me with this code" | "Fix the TypeScript error in line 42: 'Property id does not exist on type User'" | ~70% |
+| "Research this topic" | "Find 5 sources about Claude Code's auto-mode security architecture, focus on the classifier design" | ~50% |
 
 ### 1. Token Budgeting
 
@@ -111,6 +127,42 @@ Is the task simple (1-2 steps)?
         ├─ YES → Use Sonnet. Context: moderate (~20-50K)
         └─ NO → Use Sonnet default
 ```
+
+---
+
+## Tokenmaxxing vs. Token Efficiency
+
+> "Token maxing is actually the coolest thing you can do now." — Gary Tan
+
+**Two complementary strategies:**
+
+| Strategy | When | Approach |
+|----------|------|----------|
+| **Tokenmaxxing** | Research, deep analysis, creative work | Spend more tokens for better quality. Use 20 sources instead of 1. Cross-reference everything. |
+| **Token Efficiency** | Production, repetitive tasks, cost-sensitive | Minimize tokens through concrete prompts, caching, truncation. |
+
+**The Thin Harness, Fat Skills principle applies to context:**
+- **Thin Harness**: Minimal system prompt, let the model figure it out
+- **Fat Skills**: Rich, detailed markdown instructions for complex workflows
+- **Balance**: Simple tasks → thin prompt. Complex tasks → fat prompt with examples.
+
+### When to Tokenmax
+
+| Scenario | Tokenmax Approach | Expected Quality Gain |
+|----------|-------------------|:---------------------:|
+| Research synthesis | Read 20 sources, cross-reference | 3-5x better |
+| Code review | Full repo analysis, not just changed files | 2-3x fewer bugs |
+| Creative writing | Multiple drafts, self-critique loops | Significantly better |
+| Debugging | Full stack trace + context + history | Faster resolution |
+
+### When to Be Efficient
+
+| Scenario | Efficiency Approach | Token Savings |
+|----------|---------------------|:------------:|
+| Routine linting | Use Haiku, minimal context | ~80% |
+| Simple edits | Concrete prompt, no CoT | ~60% |
+| Status checks | One-liner, no explanation | ~90% |
+| Index updates | Template-based, no creativity | ~70% |
 
 ## Quality Gates
 

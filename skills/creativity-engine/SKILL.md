@@ -16,7 +16,26 @@ Generate novel ideas by combining existing knowledge across domains, then valida
 
 ## Workflow
 
-### C1: Combinatorial Ideation
+### C1: Combinatorial Ideation — The Lego Building Blocks Method
+
+> "If you own one building block, you can build some cool stuff. If you get a second building block, you can build something more interesting. Get more building blocks, and very rapidly the number of things you can combine them into grows combinatorially or exponentially." — Andrew Ng
+
+**The AI Building Blocks you should know:**
+
+| Block | What It Does | Combine With |
+|-------|--------------|--------------|
+| **Prompting** | Basic LLM interaction | Any other block |
+| **RAG** | Retrieve and inject context | Knowledge bases, docs |
+| **Evals** | Measure quality | Any output task |
+| **Guardrails** | Safety constraints | Production systems |
+| **Fine-tuning** | Custom behavior | Domain-specific tasks |
+| **Voice** | Speech I/O | Accessibility, hands-free |
+| **Agentic workflows** | Multi-step autonomous | Complex tasks |
+| **Tool use** | External API calls | Real-world actions |
+| **Embeddings** | Semantic similarity | Search, clustering |
+| **Vector DB** | Store/retrieve embeddings | Knowledge management |
+
+**Combinatorial ideation process:**
 
 Scan the wiki for relevant concepts/entities, then combine them systematically:
 
@@ -32,6 +51,8 @@ Generate 10-20 ideas across these categories:
 - **Content** — something people learn from
 - **Automation tools** — something that saves time
 - **Business models** — a new way to capture value
+
+**The more building blocks you know, the more combinations are possible.**
 
 ### C2: Cross-Domain Analogy
 

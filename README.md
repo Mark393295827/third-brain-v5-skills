@@ -8,10 +8,11 @@
 [![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Compatible-4285F4)](https://github.com/google-gemini/gemini-cli)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Format-2ea44f)](https://agentskills.io)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
-![Skills](https://img.shields.io/badge/skills-13-FF6B6B)
+![Skills](https://img.shields.io/badge/skills-14-FF6B6B)
 ![Karpathy LLM OS](https://img.shields.io/badge/Karpathy%20LLM%20OS-Compatible-8A2BE2)
 ![Context Management](https://img.shields.io/badge/context--manager-F0DB4F)
 ![Token Tracking](https://img.shields.io/badge/token--tracking-00D1B2)
+![Startup Evaluation](https://img.shields.io/badge/startup--evaluation-FF9900)
 
 ---
 
@@ -45,6 +46,7 @@ Inspired by the [Third Brain V5.0](https://github.com/your-repo) architecture �
 | [project-flow-ops](skills/project-flow-ops/SKILL.md) | Execution flow — triage, plan, track, review across projects. |
 | [harness-engineering](skills/harness-engineering/SKILL.md) | Design the runtime infrastructure around AI agents — permissions, tools, feedback loops, observability, constraints. |
 | [context-manager](skills/context-manager/SKILL.md) | Manage the LLM's context window — token budgeting, prompt assembly, truncation strategies, cache optimization. |
+| [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startups using the 24-step disciplined entrepreneurship framework. Market identification, customer understanding, business model analysis. |
 
 ## Architecture
 
@@ -93,6 +95,7 @@ Inspired by the [Third Brain V5.0](https://github.com/your-repo) architecture �
            │ wiki-lint                         ← health check         │
            │ deep-research                     ← synthesis            │
            │ harness-engineering (+GAN pattern) ← safety + multi-agent│
+           │ startup-evaluation (24-step)      ← VC evaluation        │
            └──────────────────────────────────────────────────────────┘
 ```
 
