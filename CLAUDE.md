@@ -34,6 +34,8 @@ description: One-line description of what this skill does and when to use it.
 3. **TDD for SOPs** — define failure mode before writing the SOP
 4. **Progressive disclosure** — SKILL.md loads on demand, not at startup
 5. **≥2 links per page** — every wiki page needs at least 2 outgoing `[[wikilinks]]`
+6. **Schema §5.3 structure** — concept pages follow: quote → mechanism → tables → data → connections → timeline
+7. **Karpathy LLM OS mapping** — LLM=CPU, Context=RAM, Wiki=Disk, Tools=System Calls, Loop=Process Scheduler
 
 ## Tags Reference
 

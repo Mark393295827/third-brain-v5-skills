@@ -22,6 +22,8 @@ These skills transform any AI coding agent (Claude Code, Codex, Gemini CLI) into
 Inspired by the [Third Brain V5.0](https://github.com/your-repo) architecture — a synthesis of:
 
 - **STOW pattern** (Source → Think → Organize → Write) — Karpathy's LLM wiki approach
+- **Schema §5.3** — standardized page structure: quote → mechanism → tables → connections → timeline
+- **Karpathy LLM OS framework** — LLM=CPU, Context=RAM, Storage=Disk, Tools=System Calls
 - **Andreessen Horowitz** AI capital-to-labor thesis — software that replaces labor
 - **ECC continuous-learning v2.1** — automatic knowledge extraction from sessions
 - **Superpowers verification** — evidence-before-claims discipline
