@@ -153,6 +153,8 @@ These skills transform any AI coding agent into a **persistent knowledge compoun
 
 ## Quick Start
 
+For detailed installation, usage, and 5 complete workflow scenarios, see the **[Full Guide](GUIDE.md)**.
+
 ### One-line Install
 
 ```bash

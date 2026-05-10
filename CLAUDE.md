@@ -1,5 +1,7 @@
 # Third Brain V5 Skills — Claude Code
 
+For detailed installation, usage, and workflow scenarios, see **[GUIDE.md](GUIDE.md)**.
+
 You have access to the following Agent Skills. Each skill is a markdown file in `~/.claude/skills/` that defines a specific capability.
 
 ## Skill Categories
