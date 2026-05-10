@@ -48,7 +48,7 @@ These skills transform any AI coding agent into a **persistent knowledge compoun
 
 | Skill | Description |
 |-------|-------------|
-| [daily-okr](skills/daily-okr/SKILL.md) | Daily knowledge compound closed loop — 7 Key Results from input to feedback, with scoring. Includes Stop Doing List (段永平). |
+| [daily-okr](skills/daily-okr/SKILL.md) | Daily knowledge compound closed loop — 7 Key Results from input to feedback, with scoring. Includes Stop Doing List (Buffett/Munger). |
 | [cognitive-compile](skills/cognitive-compile/SKILL.md) | Deep learning 7-step framework: Question → Facts → Concepts → Patterns → Conflicts → Judgment → Action. |
 
 ### 🎨 Behavior & Creativity

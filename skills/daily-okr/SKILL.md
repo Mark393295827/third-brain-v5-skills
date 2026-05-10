@@ -27,23 +27,25 @@ KR7 反馈    → 3 行复盘 + 验证证据              [3 min]
 
 > Minimum bar: **1 input + 1 insight + 1 action + 1 review.**
 
-### The Stop Doing List (段永平)
+### The Stop Doing List (Warren Buffett & Charlie Munger)
 
-> "比 To Do List 更重要的是 Stop Doing List。"
+> "The difference between successful people and very successful people is that very successful people say 'no' to almost everything." — Warren Buffett
 
-每天 KR7 反馈时，除了复盘"做了什么"，还要问：
+> "It is remarkable how much long-term advantage people have gotten by trying to be consistently not stupid, instead of trying to be very intelligent." — Charlie Munger
 
-| 问题 | 目的 |
-|------|------|
-| 今天有什么事不该做？ | 识别浪费时间的活动 |
-| 有什么习惯应该停止？ | 打破坏习惯 |
-| 有什么承诺应该拒绝？ | 保护时间和精力 |
-| 有什么投资应该止损？ | 避免沉没成本谬误 |
+During KR7, in addition to reviewing what was done, ask:
 
-**Stop Doing List 的价值：**
-- 减法比加法更难，但更有效
-- 知道什么不该做，才能专注于该做的事
-- "不懂不做" — 段永平的投资原则
+| Question | Purpose | Master Who Used It |
+|----------|---------|-------------------|
+| What should I NOT have done today? | Identify time-wasting activities | Buffett: "Avoiding stupidity is easier than seeking brilliance" |
+| What habit should I stop? | Break bad patterns | Munger: "Invert, always invert" |
+| What commitment should I decline? | Protect time and energy | Peter Drucker: "The most important decision is what not to do" |
+| What investment should I cut losses on? | Avoid sunk cost fallacy | Graham: "The intelligent investor sells when a stock reaches its intrinsic value" |
+
+**The Wisdom of Not Doing:**
+- Saying no is harder than saying yes, but far more effective
+- Knowing what to ignore lets you focus on what matters
+- "The stock market is a device for transferring money from the impatient to the patient." — Buffett
 
 ### KR1 — Input
 - Record 1-3 high-quality information items
