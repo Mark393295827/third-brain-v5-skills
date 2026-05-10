@@ -1,6 +1,6 @@
 # Third Brain V5 Skills
 
-**A curated set of Agent Skills for knowledge compounding, behavior design, and creativity — turning AI agents into a persistent cognitive operating system.**
+**16 Agent Skills for knowledge compounding, behavior design, creativity, and strategic execution — turning AI agents into a persistent cognitive operating system.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-8A2BE2)](https://claude.ai/code)
@@ -10,179 +10,229 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 ![Skills](https://img.shields.io/badge/skills-16-FF6B6B)
 ![Karpathy LLM OS](https://img.shields.io/badge/Karpathy%20LLM%20OS-Compatible-8A2BE2)
-![Context Management](https://img.shields.io/badge/context--manager-F0DB4F)
 ![Token Tracking](https://img.shields.io/badge/token--tracking-00D1B2)
-![Startup Evaluation](https://img.shields.io/badge/startup--evaluation-FF9900)
-![Anthropic OS](https://img.shields.io/badge/anthropic--os-8A2BE2)
+![Ender's Game](https://img.shields.io/badge/Ender's%20Game-Command-8A2BE2)
 
 ---
 
 ## Overview
 
-These skills transform any AI coding agent (Claude Code, Codex, Gemini CLI) into a **personal knowledge compounding system**. Instead of treating each conversation as a one-off chat, these skills create a persistent, interlinked knowledge base that grows richer with every session.
+These skills transform any AI coding agent into a **persistent knowledge compounding system**. Instead of treating each conversation as a one-off chat, these skills create an interlinked knowledge base that grows richer with every session — while also providing strategic execution frameworks inspired by Anthropic's work methods and Karpathy's Agentic Engineering.
 
-Inspired by the [Third Brain V5.0](https://github.com/your-repo) architecture — a synthesis of:
+### Design Philosophy
 
-- **STOW pattern** (Source → Think → Organize → Write) — Karpathy's LLM wiki approach
-- **Schema §5.3** — standardized page structure: quote → mechanism → tables → connections → timeline
-- **Karpathy LLM OS framework** — LLM=CPU, Context=RAM, Storage=Disk, Tools=System Calls
-- **Andreessen Horowitz** AI capital-to-labor thesis — software that replaces labor
-- **ECC continuous-learning v2.1** — automatic knowledge extraction from sessions
-- **Superpowers verification** — evidence-before-claims discipline
+| Layer | Principle | Skills |
+|-------|-----------|--------|
+| **🧠 Knowledge** | Capture, structure, and compound knowledge over time | wiki-ingest, knowledge-ops, wiki-lint |
+| **⚡ Daily Loop** | Close the knowledge-to-action cycle every day | daily-okr, cognitive-compile |
+| **🎯 Behavior & Creativity** | Turn knowledge into habits and novel ideas | behavior-design, creativity-engine |
+| **🔬 Research & Quality** | Verify before claiming, research with rigor | deep-research, verify-before-claim |
+| **🔄 Continuous Learning** | Extract patterns from every session | session-learn, project-flow-ops |
+| **📊 Context & Cost** | Manage the LLM's scarcest resource | context-manager, token-cost-tracker |
+| **🏗️ Engineering** | Design agent infrastructure and multi-agent teams | harness-engineering, agent-teams-command |
+| **💼 Strategy** | Evaluate startups, adopt Anthropic-level methods | startup-evaluation, anthropic-os |
+
+---
 
 ## Skills
 
+### 📥 Ingestion & Knowledge
+
 | Skill | Description |
 |-------|-------------|
-| [wiki-ingest](skills/wiki-ingest/SKILL.md) | Ingest sources into a persistent interlinked wiki. Creates source notes, entity pages, concept pages, updates navigation. |
-| [daily-okr](skills/daily-okr/SKILL.md) | Daily knowledge compound closed loop — 7 Key Results from input to feedback, with scoring. |
-| [cognitive-compile](skills/cognitive-compile/SKILL.md) | Deep learning 7-step framework: Question → Facts → Concepts → Patterns → Conflicts → Judgment → Action. |
-| [behavior-design](skills/behavior-design/SKILL.md) | Transform goals into behavior systems: decompose → minimum habits → triggers → SOPs → review → identity. |
-| [creativity-engine](skills/creativity-engine/SKILL.md) | Generate novel ideas by combining knowledge across domains. Combinatorial ideation + minimum experiments. |
-| [session-learn](skills/session-learn/SKILL.md) | Extract knowledge patterns from sessions — new concepts, entities, corrections, decisions, gaps. |
-| [verify-before-claim](skills/verify-before-claim/SKILL.md) | Iron rule: No completion claims without fresh verification evidence. |
+| [wiki-ingest](skills/wiki-ingest/SKILL.md) | Ingest sources (articles, PDFs, videos) into a persistent interlinked wiki. Creates source notes, entity pages, concept pages, updates navigation. STOW pipeline. |
+| [knowledge-ops](skills/knowledge-ops/SKILL.md) | Multi-layer knowledge management — classify, deduplicate, vectorize with ChromaDB, sync across stores. |
 | [wiki-lint](skills/wiki-lint/SKILL.md) | Health-check the wiki across 8 dimensions: frontmatter, links, orphans, stale content, contradictions, drift. |
-| [knowledge-ops](skills/knowledge-ops/SKILL.md) | Multi-layer knowledge management — classify, deduplicate, sync, retrieve. |
+
+### 🔄 Daily Workflow
+
+| Skill | Description |
+|-------|-------------|
+| [daily-okr](skills/daily-okr/SKILL.md) | Daily knowledge compound closed loop — 7 Key Results from input to feedback, with scoring. Includes Stop Doing List (段永平). |
+| [cognitive-compile](skills/cognitive-compile/SKILL.md) | Deep learning 7-step framework: Question → Facts → Concepts → Patterns → Conflicts → Judgment → Action. |
+
+### 🎨 Behavior & Creativity
+
+| Skill | Description |
+|-------|-------------|
+| [behavior-design](skills/behavior-design/SKILL.md) | Transform goals into behavior systems. Decompose → minimum habits → triggers → SOPs → review. Includes HAS (Human Agency Scale) from Stanford research. |
+| [creativity-engine](skills/creativity-engine/SKILL.md) | Generate novel ideas via combinatorial creativity. Lego Building Blocks method (Andrew Ng), cross-domain analogies, minimum experiments. |
+
+### 🔬 Research & Quality
+
+| Skill | Description |
+|-------|-------------|
 | [deep-research](skills/deep-research/SKILL.md) | Multi-source deep research with confidence-based evidence standards. |
+| [verify-before-claim](skills/verify-before-claim/SKILL.md) | Iron rule: No completion claims without fresh verification evidence. Includes expected value thinking from poker psychology. |
+
+### 🔄 Learning & Flow
+
+| Skill | Description |
+|-------|-------------|
+| [session-learn](skills/session-learn/SKILL.md) | Extract knowledge patterns from sessions — 7 signal types (concepts, entities, corrections, patterns, ideas, decisions, gaps). Closure Protocol included. |
 | [project-flow-ops](skills/project-flow-ops/SKILL.md) | Execution flow — triage, plan, track, review across projects. |
-| [harness-engineering](skills/harness-engineering/SKILL.md) | Design the runtime infrastructure around AI agents — permissions, tools, feedback loops, observability, constraints. |
-| [context-manager](skills/context-manager/SKILL.md) | Manage the LLM's context window — token budgeting, prompt assembly, truncation strategies, cache optimization. |
-| [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startups using the 24-step disciplined entrepreneurship framework. Market identification, customer understanding, business model analysis. |
-| [anthropic-os](skills/anthropic-os/SKILL.md) | Anthropic OS — Self-Evolving Work Method Engine. CASH growth, 70/30, two-week rule, hive mind, working backwards. Built-in self-evolution mechanism. |
+
+### 📊 Context & Cost
+
+| Skill | Description |
+|-------|-------------|
+| [context-manager](skills/context-manager/SKILL.md) | Manage the LLM's context window — token budgeting, prompt assembly, truncation strategies. Concrete Ideas framework (Andrew Ng) + Tokenmaxxing vs Efficiency (Gary Tan). |
+| [token-cost-tracker](commands/token-cost-tracker.md) | Estimate, log, and report token usage. Built-in Python logger script. |
+
+### 🏗️ Engineering
+
+| Skill | Description |
+|-------|-------------|
+| [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — three-tier permissions, GAN-inspired multi-agent patterns, closed-loop system design (Aladdin). |
 | [agent-teams-command](skills/agent-teams-command/SKILL.md) | Ender's Game approach to commanding Claude Code Agent Teams. Karpathy Agentic Engineering — Plan→Act→Observe→Iterate. L1-L5 commander progression. |
+
+### 💼 Strategy
+
+| Skill | Description |
+|-------|-------------|
+| [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startups using MIT's 24-step disciplined entrepreneurship framework. Market identification, customer understanding, business model analysis. |
+| [anthropic-os](skills/anthropic-os/SKILL.md) | Anthropic OS — Self-Evolving Work Method Engine. CASH growth system, 70/30 rule, two-week rule, hive mind, working backwards. Built-in self-evolution mechanism. |
+
+---
 
 ## Architecture
 
 ```
-  ┌────────────────────────────────────────────────────────────────────┐
-  │                Karpathy LLM OS Layer                                │
-  │  LLM=CPU │ Context=RAM │ Storage=Disk │ Tools=System Calls         │
-  │  ┌────────────────────────────────────────────────────────────┐    │
-  │  │ context-manager: Token Budget → Prompt Assembly→ Truncation │    │
-  │  │ token-cost-tracker: Estimate → Log → Report (weekly burn)   │    │
-  │  └────────────────────────────────────────────────────────────┘    │
-  └────────────────────────────────────────────────────────────────────┘
-                                   │
-                    ┌──────────────────┐
-                    │   External       │
-                    │   Sources        │
-                    └────────┬─────────┘
-                             ▼
-             ┌──────────────────────────────┐
-             │   wiki-ingest                │
-             │   knowledge-ops (+VectorDB) │
-             │ (STOW pipeline + RAG sync)  │
-             └──────┬──────────┬───────────┘
-                    │          │
-             ┌──────▼          └─────────────┐
-             │  Knowledge Layers              │
-             │  ├ Active (GitHub/Linear)      │
-             │  ├ Memory (quick access)       │
-             │  ├ Wiki (durable, interlinked) │
-             │  ├ Vector (ChromaDB, semantic)⭐│
-             │  └ External (DBs, APIs)        │
-             └────────────────────────────────┘
-                    │
-        ┌───────────┼──────────┬──────────────┬──────────────┐
-        ▼           ▼          ▼              ▼              ▼
-┌────────────┐ ┌─────────┐ ┌──────────┐ ┌───────────┐ ┌──────────────┐
-│ daily-okr  │ │cognitive│ │ behavior │ │ creativity│ │ project-flow │
-│ (7 KR loop)│ │-compile │ │ -design  │ │ -engine   │ │ -ops         │
-└────────────┘ └─────────┘ └──────────┘ └───────────┘ └──────────────┘
-        │           │          │              │              │
-        └───────────┼──────────┼──────────────┼──────────────┘
-                    ▼
-           ┌──────────────────────────────────────────────────────────┐
-           │ session-learn (+Closure Protocol) ← continuous + feedback│
-           │ verify-before-claim               ← quality gate         │
-           │ wiki-lint                         ← health check         │
-           │ deep-research                     ← synthesis            │
-           │ harness-engineering (+GAN pattern) ← safety + multi-agent│
-           │ startup-evaluation (24-step)      ← VC evaluation        │
-           └──────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────┐
+│                      Karpathy LLM OS Layer                                │
+│  LLM=CPU │ Context=RAM │ Storage=Disk │ Tools=System Calls                │
+│  ┌──────────────────────────────────────────────────────────────────┐    │
+│  │ context-manager: Token Budget → Prompt Assembly → Truncation     │    │
+│  │ token-cost-tracker: Estimate → Log → Report                     │    │
+│  └──────────────────────────────────────────────────────────────────┘    │
+└──────────────────────────────────────────────────────────────────────────┘
+                                    │
+                         ┌──────────┴──────────┐
+                         ▼                     ▼
+              ┌──────────────────┐   ┌──────────────────────┐
+              │   External       │   │   Agent Teams        │
+              │   Sources        │   │   (Parallel Fleet)    │
+              └────────┬─────────┘   └──────────────────────┘
+                       ▼
+         ┌──────────────────────────────┐
+         │   wiki-ingest + knowledge-ops│
+         │   (STOW pipeline + RAG sync) │
+         └──────┬──────────┬────────────┘
+                │          │
+         ┌──────▼          └──────────────┐
+         │  Knowledge Layers               │
+         │  ├ Active (GitHub/Linear)       │
+         │  ├ Memory (quick access)        │
+         │  ├ Wiki (durable, interlinked)  │
+         │  ├ Vector (ChromaDB, semantic)  │
+         │  └ External (DBs, APIs)         │
+         └────────────────────────────────┘
+                │
+    ┌───────────┼──────────┬──────────────┬──────────────┐
+    ▼           ▼          ▼              ▼              ▼
+┌─────────┐ ┌─────────┐ ┌──────────┐ ┌───────────┐ ┌──────────┐
+│ daily   │ │cognitive│ │ behavior │ │ creativity│ │ project  │
+│ -okr    │ │-compile │ │ -design  │ │ -engine   │ │ -flow-ops│
+└─────────┘ └─────────┘ └──────────┘ └───────────┘ └──────────┘
+    │           │          │              │              │
+    └───────────┼──────────┼──────────────┼──────────────┘
+                ▼
+    ┌─────────────────────────────────────────────────────────────┐
+    │ session-learn (+Closure Protocol)  ← feedback loop          │
+    │ verify-before-claim               ← quality gate            │
+    │ wiki-lint                         ← health check            │
+    │ deep-research                     ← synthesis               │
+    │ harness-engineering               ← safety + multi-agent    │
+    │ agent-teams-command               ← fleet command           │
+    │ startup-evaluation                ← VC evaluation           │
+    │ anthropic-os                      ← work method engine      │
+    └─────────────────────────────────────────────────────────────┘
 ```
+
+---
 
 ## Quick Start
 
 ### One-line Install
 
 ```bash
-# Clone and install all skills
 git clone https://github.com/Mark393295827/third-brain-v5-skills.git
-cp -r third-brain-v5-skills/skills/* ~/.claude/skills/
 ```
 
-### With Claude Code
+### Claude Code
 
 ```bash
 # Personal skills (available across all projects)
-cp -r skills/* ~/.claude/skills/
+cp -r third-brain-v5-skills/skills/* ~/.claude/skills/
 
 # Project skills (shared with team)
-cp -r skills/* .claude/skills/
+cp -r third-brain-v5-skills/skills/* .claude/skills/
 ```
 
-### With Codex CLI
+### Codex CLI
 
 ```bash
-cp -r skills/* ~/.agents/skills/
+cp -r third-brain-v5-skills/skills/* ~/.agents/skills/
 ```
 
-### With Gemini CLI
+### Gemini CLI
 
 ```bash
-cp -r skills/* ~/.gemini/skills/
+cp -r third-brain-v5-skills/skills/* ~/.gemini/skills/
 ```
 
-Then use in conversation:
+### Try It
 
 ```
-"I just read an interesting article about X. Ingest it into my wiki."
+"I just read an interesting article — ingest it into my wiki."
 "Run my daily OKR."
-"Help me think deeply about Y — run a cognitive compile."
-"I want to build a habit of Z."
-"Generate 10 new ideas about W."
-"Extract what we learned from this session."
-"Verify before I claim this is done."
+"Cognitive compile on AI Agent safety."
+"Design a reading habit."
+"Generate 10 business ideas from my wiki."
+"Extract what we learned this session."
+"Verify before I ship."
 "Lint my wiki."
+"Create an agent team to build a full-stack app."
+"Launch Anthropic OS for my team's growth."
 ```
 
-### With Other Agents
+---
 
-These skills follow the [Agent Skills](https://agentskills.io) open format. Compatible agents include:
-- **Claude Code** — reads `CLAUDE.md`
-- **Codex CLI** — reads `AGENTS.md`
-- **Gemini CLI** — reads `GEMINI.md`
+## Command Reference
+
+| Command | File | Usage |
+|---------|------|-------|
+| `token-cost-tracker estimate` | [token-cost-tracker.md](commands/token-cost-tracker.md) | Estimate token cost before a task |
+| `token-cost-tracker log` | [token-cost-tracker.md](commands/token-cost-tracker.md) | Log actual token usage |
+| `token-cost-tracker report` | [token-cost-tracker.md](commands/token-cost-tracker.md) | Weekly/monthly cost report |
+
+---
 
 ## Wiki Structure
 
-These skills assume the following wiki layout:
+These skills assume the following vault layout:
 
 ```
-sources/          ← Immutable source notes (READ ONLY)
+sources/          ← Immutable source notes (articles, books, reports)
 wiki/
 ├── concepts/     ← Ideas, frameworks, methods
 ├── entities/     ← People, companies, products
 ├── atomic-notes/ ← Single knowledge atoms
-├── outputs/      ← Reusable outputs (reports, analyses)
+├── outputs/      ← Reusable outputs (reports, analyses, evaluations)
 ├── decisions/    ← Architecture and strategy decisions
 └── sops/         ← Standard operating procedures
 maps/             ← Navigation / Maps of Content
-system/
-├── schema.md     ← Constitution
-├── log.md        ← Evolution log
-├── review-queue.md ← Human review queue
-├── lint-report.md  ← Health check reports
-└── templates/    ← Templates
-08_behaviors/     ← Behavior system (goals/habits/SOPs/reviews)
-09_creativity/    ← Creativity system (ideas/experiments/prototypes/analogies)
+system/           ← Schema, log, templates, lint reports
+08_behaviors/     ← Behavior system (goals, habits, SOPs, reviews)
+09_creativity/    ← Creativity system (ideas, experiments, prototypes)
 ```
+
+---
 
 ## Related Projects
 
-- [llm-wiki-agent](https://github.com/SamurAIGPT/llm-wiki-agent) — Original STOW pattern implementation
-- [Superpowers](https://github.com/your-link) — TDD-for-skills and verification-first development
 - [Agent Skills](https://agentskills.io) — Open format specification
+- [llm-wiki-agent](https://github.com/SamurAIGPT/llm-wiki-agent) — Original STOW pattern implementation
 
 ## License
 

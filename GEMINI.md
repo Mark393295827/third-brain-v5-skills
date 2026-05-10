@@ -1,32 +1,42 @@
-# Third Brain V5 Skills — Agent Guidelines
+# Third Brain V5 Skills — Gemini CLI
 
-This repository contains Agent Skills for knowledge compounding, behavior design, and creativity. Compatible with Gemini CLI.
+This repository contains Agent Skills for the Gemini CLI environment. Place skills in `~/.gemini/skills/`.
 
-## Skill Format
+## Skills
 
-All skills follow the [Agent Skills specification](https://agentskills.io):
+### 📥 Knowledge Pipeline
+- **wiki-ingest** — STOW pipeline for ingesting sources into an interlinked wiki.
+- **knowledge-ops** — Multi-layer knowledge management with vector storage.
+- **wiki-lint** — 8-dimension wiki health check.
 
-```
-skill-name/
-├── SKILL.md       # Required: YAML frontmatter + Markdown instructions
-```
+### 🔄 Daily Loop
+- **daily-okr** — 7 Key Results daily knowledge compound cycle.
+- **cognitive-compile** — 7-step deep learning framework.
 
-## Available Skills
+### 🎨 Behavior & Creativity
+- **behavior-design** — Behavior change system with HAS framework.
+- **creativity-engine** — Combinatorial ideation + minimum experiments.
 
-| Skill | Description |
-|-------|-------------|
-| [wiki-ingest](skills/wiki-ingest/SKILL.md) | Ingest sources into a persistent interlinked wiki |
-| [daily-okr](skills/daily-okr/SKILL.md) | Daily 7 KR knowledge compound closed loop |
-| [cognitive-compile](skills/cognitive-compile/SKILL.md) | 7-step deep learning framework |
-| [behavior-design](skills/behavior-design/SKILL.md) | Goals → Habits → SOPs → Review |
-| [creativity-engine](skills/creativity-engine/SKILL.md) | Combinatorial ideation + experiments |
-| [session-learn](skills/session-learn/SKILL.md) | Extract knowledge patterns from sessions |
-| [verify-before-claim](skills/verify-before-claim/SKILL.md) | Evidence before completion claims |
-| [wiki-lint](skills/wiki-lint/SKILL.md) | 8-dimension wiki health check |
-| [harness-engineering](skills/harness-engineering/SKILL.md) | AI agent runtime infrastructure design |
+### 🔬 Research & Quality
+- **deep-research** — Multi-source research with evidence standards.
+- **verify-before-claim** — Verification-first quality gate.
 
-## Key Principles
+### 🔄 Learning
+- **session-learn** — Knowledge extraction with Closure Protocol.
+- **project-flow-ops** — Project triage and tracking.
 
-1. Knowledge compounds — every operation should make the wiki richer
-2. Evidence before claims — never assert completion without verification
-3. TDD for SOPs — define failure mode before writing the SOP
+### 📊 Cost
+- **context-manager** — Context window and token budget management.
+- **token-cost-tracker** — Token usage estimation and tracking.
+
+### 🏗️ Engineering
+- **harness-engineering** — AI agent runtime infrastructure design.
+- **agent-teams-command** — Multi-agent team orchestration.
+
+### 💼 Strategy
+- **startup-evaluation** — MIT 24-step startup evaluation framework.
+- **anthropic-os** — Self-evolving work method engine.
+
+## Compatibility
+
+All skills follow the [Agent Skills](https://agentskills.io) open format. Skills are model-agnostic markdown files compatible with Gemini CLI.
