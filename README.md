@@ -8,7 +8,7 @@
 [![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Compatible-4285F4)](https://github.com/google-gemini/gemini-cli)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Format-2ea44f)](https://agentskills.io)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
-![Skills](https://img.shields.io/badge/skills-15-FF6B6B)
+![Skills](https://img.shields.io/badge/skills-16-FF6B6B)
 ![Karpathy LLM OS](https://img.shields.io/badge/Karpathy%20LLM%20OS-Compatible-8A2BE2)
 ![Context Management](https://img.shields.io/badge/context--manager-F0DB4F)
 ![Token Tracking](https://img.shields.io/badge/token--tracking-00D1B2)
@@ -49,6 +49,7 @@ Inspired by the [Third Brain V5.0](https://github.com/your-repo) architecture �
 | [context-manager](skills/context-manager/SKILL.md) | Manage the LLM's context window — token budgeting, prompt assembly, truncation strategies, cache optimization. |
 | [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startups using the 24-step disciplined entrepreneurship framework. Market identification, customer understanding, business model analysis. |
 | [anthropic-os](skills/anthropic-os/SKILL.md) | Anthropic OS — Self-Evolving Work Method Engine. CASH growth, 70/30, two-week rule, hive mind, working backwards. Built-in self-evolution mechanism. |
+| [agent-teams-command](skills/agent-teams-command/SKILL.md) | Ender's Game approach to commanding Claude Code Agent Teams. Karpathy Agentic Engineering — Plan→Act→Observe→Iterate. L1-L5 commander progression. |
 
 ## Architecture
 
