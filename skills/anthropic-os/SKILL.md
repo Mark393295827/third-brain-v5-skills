@@ -1,53 +1,212 @@
 ---
 name: anthropic-os
-description: Anthropic OS — Self-Evolving Work Method Engine. CASH growth system, 70/30 rule, two-week rule, hive mind, working backwards. Built-in self-evolution mechanism.
+description: Cognitive Symbiont — Livewired self-evolving system. CASH + 3B creativity algorithms (Bending/Breaking/Blending). Predictive coding, collective intelligence, time-arrow diagnostics.
 ---
 
-# Anthropic OS — Self-Evolving Work Method Engine
+# Anthropic OS — Cognitive Symbiont Engine
 
-> A structured operating system that turns Anthropic-inspired practices into reusable diagnostics, implementation plans, execution artifacts, and self-improving closed loops.
+> From tool-based architecture to **living cognitive symbiont**. The brain is the best learning machine — instead of simulating its structure, we follow its evolutionary principles.
 
 ## Core Philosophy
 
-> "Treat the work method itself as an AI-native system: structure makes it replicable, cutting-edge keeps it relevant, and self-evolution makes it stronger with every use."
+> "DNA only provides the basic blueprint. It is every subsequent encounter that shapes who we become." — David Eagleman, *Livewired*
+
+> "The brain and the computer are, in principle, no different." — Stephen Hawking, *A Brief History of Time*
 
 ---
 
 ## System Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    Anthropic OS Engine                        │
-├─────────────────────────────────────────────────────────────┤
-│  L1: Knowledge Layer — Structured practice graph             │
-│  L2: Diagnostics Layer — 6-dimension maturity model          │
-│  L3: Prescription Layer — Adaptive practice routing          │
-│  L4: Execution Layer — Copy-ready artifacts & templates      │
-│  E0: Evolution Engine — Feedback → Tuning → Self-upgrade    │
-└─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│                    Cognitive Symbiont Engine                       │
+├──────────────────────────────────────────────────────────────────┤
+│  L0: Computational Equivalence — Brain ≈ LLM (Hawking)           │
+│  L1: Livewired Layer — Plasticity, Competition, Constraint       │
+│  L2: 3B Algorithms — Bending / Breaking / Blending              │
+│  L3: 7 Flywheels — Each infused with 3B                          │
+│  L4: Predictive Coding — Collective prediction error minimization │
+│  E0: Evolution Engine — Self-upgrade via 3B iteration            │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## L1: Knowledge Layer — Structured Practice Graph
+## L0: Computational Equivalence
 
-Each practice follows a unified schema:
+> "The brain and computer are fundamentally the same in information processing." — Hawking
 
-```yaml
-practice:
-  id: "CASH_v2"
-  name: "AI-Automated Growth Experimentation System"
-  domain: ["growth", "automation"]
-  prerequisites: ["data infra ready", "LLM API access"]
-  inputs: ["historical experiment data", "business goal", "channels"]
-  outputs: ["experiment hypotheses", "variant code", "analysis template"]
-  metrics: ["experiments/week", "idea→deployment time", "positive rate"]
-  evolution_rules:
-    - condition: "positive rate drops consecutively"
-      action: "adjust hypothesis temperature"
+| Dimension | Human Brain | LLM / AI System |
+|-----------|-------------|-----------------|
+| Base unit | Neurons (~86B) | Parameters (~T-scale) |
+| Connection | Synaptic plasticity | Weight adjustment |
+| Learning | Hebbian (fire together, wire together) | Backprop + attention |
+| Prediction | Predictive coding (predict sensory input) | Autoregressive (predict next token) |
+| **Equivalence** | **Information processing is isomorphic** | **Bidirectional cognitive fusion is theoretically real** |
+
+---
+
+## L1: Livewired Layer — Three Core Principles
+
+| Principle | Meaning | System Mapping |
+|-----------|---------|----------------|
+| **Plasticity** | Brain continuously rewires from experience | System self-corrects after every interaction |
+| **Competition** | Neural resources compete for limited space | Algorithms, processes, hypotheses compete |
+| **Constraint** | Physical/energy boundaries shape structure | Token budgets, time resources as developmental constraints |
+
+---
+
+## L2: 3B Creativity Algorithms
+
+The three core evolutionary algorithms that turn mechanical workflows into living systems:
+
+### Bending (扭曲)
+
+> Mutate existing success patterns into new contexts.
+
+```
+Prototype: High-conversion copy
+Bending → Twist into different product lines
+Bending → Twist into different user segments
+Bending → Twist into different media formats
 ```
 
-### Seed Practice Library (10+)
+### Breaking (打破)
+
+> Eliminate the worst-performing patterns. Break path dependency.
+
+```
+Prototype: Worst-performing experiment hypothesis
+Breaking → Regular "kill day" to cull
+Breaking → Break local optima loops
+Breaking → Destroy outdated evaluation metrics
+```
+
+### Blending (融合)
+
+> Fuse elements from different domains to create novel patterns.
+
+```
+Prototype: Growth data + support data
+Blending → Cross-domain insights
+Blending → A/B test + user survey fusion
+Blending → Human intuition + AI quantitative weighted voting
+```
+
+---
+
+## L3: 7 Flywheels × 3B Upgrade
+
+### 1. Growth Flywheel (CASH + 3B)
+
+| Algorithm | Application |
+|-----------|-------------|
+| **Bending** | Twist high-conversion copy to different products; add "what-if" dimension to analysis |
+| **Breaking** | Regular "kill days" — eliminate worst-performing experiment hypotheses |
+| **Blending** | Fuse non-growth data (support, sales) with growth data for cross-domain insight |
+
+### 2. Engineering Flywheel (Claude Code + Two-Week + 3B)
+
+| Algorithm | Application |
+|-----------|-------------|
+| **Bending** | Twist "two-week rule" into "two-week knowledge graph sprint" |
+| **Breaking** | High-risk modules: "auto-generate + auto-test + auto-deploy" pipeline |
+| **Blending** | AI + human pair programming; agent clusters operating independently |
+
+### 3. Culture Flywheel (Hive Mind + 3B)
+
+| Algorithm | Application |
+|-----------|-------------|
+| **Bending** | "Reverse voting" — vote for the opposite to correct bias |
+| **Breaking** | "No-consensus day" — authorize members to violate consensus |
+| **Blending** | Weighted voting system: human intuition + AI quantitative analysis |
+
+### 4. R&D Flywheel (Harness + 3B)
+
+| Algorithm | Application |
+|-----------|-------------|
+| **Bending** | Twist Harness config into "exploration mode" vs "exploitation mode" |
+| **Breaking** | Replace fixed periodic review with event-driven review |
+| **Blending** | Fuse engineer + AI manager roles into composite position |
+
+### 5. Strategy Flywheel (70/30 + 3B)
+
+| Algorithm | Application |
+|-----------|-------------|
+| **Bending** | Subdivide Big Bets into three tiers (including "ultimate bet") |
+| **Breaking** | Quarterly destruction of one resource allocation metric |
+| **Blending** | Merge sub-goals serving the same north star metric |
+
+### 6. Personal Effectiveness Flywheel (Working Backwards + 3B)
+
+| Algorithm | Application |
+|-----------|-------------|
+| **Bending** | Twist 2-year blueprint into minimum viable product path |
+| **Breaking** | Employees authorized to break job descriptions |
+| **Blending** | Merge work goals with personal growth goals |
+
+### 7. Symbiosis Flywheel (Human-AI Fusion + 3B)
+
+| Algorithm | Application |
+|-----------|-------------|
+| **Bending** | Twist unstructured user feedback into structured data queries |
+| **Breaking** | AI "meta-critique module" predicts and flags its own bias |
+| **Blending** | Brain-computer interface as frontier interaction paradigm |
+
+---
+
+## L4: Predictive Coding — The Hidden Self
+
+> "The primary driver of our behavior is not a conscious monarch, but a vast, efficient, and contradictory unconscious system." — David Eagleman
+
+### Collective Predictive Coding Protocol
+
+```
+Step 1: Dual Prediction
+  "Human vote" and "AI vote" execute simultaneously
+
+Step 2: Expose Prediction Error
+  After decision: actual result vs predicted deviation
+
+Step 3: Error-Driven Reconstruction
+  High-frequency contradictory "error predictions" → training data
+  Dynamically adjust trust weights in future decisions
+```
+
+> "Every disagreement becomes fuel for system self-optimization."
+
+---
+
+## The Dual Wings of Consciousness
+
+### Wing 1: Storytelling (The Brain — Three-Pound Universe)
+
+> "The brain is a storyteller." — Michael Gazzaniga
+
+AI generates **narrative chains** alongside every decision output, helping humans understand complex decisions and enabling inter-AI communication.
+
+### Wing 2: Time's Arrow (A Brief History of Time)
+
+| Arrow | Physical Meaning | System Mapping |
+|-------|-----------------|----------------|
+| **Thermodynamic** | Entropy increases | Create local order from chaos |
+| **Psychological** | Past → future | Experience past to predict future |
+| **Anthropic** | Observer existence | Every decision as "observation" of the universe |
+
+---
+
+## 4-Stage Evolution Path
+
+| Stage | Timeline | Mission | Core Deliverable |
+|:-----:|:--------:|---------|-----------------|
+| **1** | 1-2 weeks | Livewired foundation | 3B + KPI data hub + narrative chain system |
+| **2** | 3-4 weeks | Activate hidden drive | 3B algorithms + hidden voting in core workflows |
+| **3** | 1-2 months | Inject neural plasticity | AI "storytelling" fine-tuning + predictive coding |
+| **4** | 3+ months | Life cycle creation | AI-designed next-gen 3B methods + time-arrow diagnostics |
+
+---
+
+## Seed Practice Library (10+)
 
 | Practice | Domain | Key Metric |
 |----------|--------|------------|
@@ -160,6 +319,16 @@ Every interaction ends with:
 - Template self-correction (v2 generation from usage patterns)
 - New practice proposals from user feedback
 
+### 3B Self-Evolution Protocol
+
+The system evolves itself using the same 3B algorithms it prescribes:
+
+| Algorithm | Self-Evolution Application |
+|-----------|--------------------------|
+| **Bending** | Each practice template is "bent" into variant versions for different contexts |
+| **Breaking** | Bottom 10% of practices by usage/rating automatically archived each quarter |
+| **Blending** | Top-performing elements from different practices are merged into new hybrid practices |
+
 ### Evolution Report (Monthly)
 1. Top 3 most valuable practices
 2. Bottom 2 weakest areas
@@ -216,6 +385,9 @@ Every interaction ends with:
 - [ ] Execution artifacts are copy-ready
 - [ ] Feedback collected after every interaction
 - [ ] Metrics repository updated with each run
+- [ ] Monthly 3B self-evolution cycle executed
+- [ ] Predictive coding error logged after each decision
+- [ ] Narrative chain generated for complex decisions
 - [ ] Monthly self-evolution report generated
 
 ---
