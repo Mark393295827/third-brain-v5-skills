@@ -1,135 +1,229 @@
 ---
 name: anthropic-os
-description: Anthropic 系统性工作法实施引擎 — CASH 增长系统、70/30 法则、两周规则、蜂巢思维、逆向工作法。内置自进化机制，越用越强。
+description: Anthropic OS — Self-Evolving Work Method Engine. CASH growth system, 70/30 rule, two-week rule, hive mind, working backwards. Built-in self-evolution mechanism.
 ---
 
-# Anthropic OS — 自进化工作法引擎
+# Anthropic OS — Self-Evolving Work Method Engine
 
-将 Anthropic 的系统性工作法（CASH、70/30、两周规则、Harness、蜂巢思维、逆向工作法）封装为可执行的技能包。内置反馈回路和自动调优协议。
+> A structured operating system that turns Anthropic-inspired practices into reusable diagnostics, implementation plans, execution artifacts, and self-improving closed loops.
 
-## 核心哲学
+## Core Philosophy
 
-> "将工作法本身当作一个 AI 原生系统来构建：结构化使之可复制，自进化使之越用越强。"
-
----
-
-## 核心心智模型
-
-| 模型 | 核心原则 | 决策捷径 |
-|------|---------|----------|
-| **逆向工作** | 从 2 年后的蓝图反向推导今天 | "两年后的我会希望今天做什么决定？" |
-| **70/30 法则** | 70% Big Bets + 30% BAU | "这是高杠杆赌注还是常规优化？" |
-| **两周规则** | ≤2 周 → 工程师即 PM | "一个人能在 10 个工作日内完成吗？" |
-| **CASH 实验** | 自动化假设→实验→分析 | "能否设计成自动运行的实验？" |
-| **蜂巢决策** | 公开投票、快速共识 | "发一个 24 小时投票就够了吗？" |
-| **对数尺度** | 用对数而非线性评估 | "哪个选项能带来 10x 而非 10% 的提升？" |
+> "Treat the work method itself as an AI-native system: structure makes it replicable, cutting-edge keeps it relevant, and self-evolution makes it stronger with every use."
 
 ---
 
-## 5 步快速决策协议
+## System Architecture
 
-### Step 1: 逆向框架 (30s)
 ```
-"如果这个决策是对的，2 年后会是什么状态？
- 哪个指标会发生量级变化？"
-```
-
-### Step 2: 70/30 过滤 (20s)
-```
-"这是一个 Big Bet (70%) 还是常规优化 (30%)？
- 如果 70% → 投入更多注意力
- 如果 30% → 快速决策，默认答案"
-```
-
-### Step 3: 两周阈值检查 (15s)
-```
-"一个人能在 ≤2 周内无交接完成这个任务吗？
- 如果可以 → 独自决定，无正式审查
- 如果不行 → 升级到快速共识"
-```
-
-### Step 4: CASH 模拟 (45s)
-```
-"我能把这个决策变成自动化实验吗？
- 假设是什么？成功指标是什么？"
-```
-
-### Step 5: 蜂巢投票 (2min)
-```
-"提案：[一句话]
- 投票：赞成 :bee: / 反对 :x: (附理由)
- 通过条件：2h 内 ≥5 票赞成且 <2 票反对"
+┌─────────────────────────────────────────────────────────────┐
+│                    Anthropic OS Engine                        │
+├─────────────────────────────────────────────────────────────┤
+│  L1: Knowledge Layer — Structured practice graph             │
+│  L2: Diagnostics Layer — 6-dimension maturity model          │
+│  L3: Prescription Layer — Adaptive practice routing          │
+│  L4: Execution Layer — Copy-ready artifacts & templates      │
+│  E0: Evolution Engine — Feedback → Tuning → Self-upgrade    │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 决策分诊矩阵
+## L1: Knowledge Layer — Structured Practice Graph
 
-| | 高影响 (>10x) | 低影响 (增量) |
-|:-|:------------:|:------------:|
-| **高不确定性** | CASH 实验（快速测试） | 两周规则（直接做） |
-| **低不确定性** | Big Bet（投入资源） | 默认答案（不犹豫） |
+Each practice follows a unified schema:
+
+```yaml
+practice:
+  id: "CASH_v2"
+  name: "AI-Automated Growth Experimentation System"
+  domain: ["growth", "automation"]
+  prerequisites: ["data infra ready", "LLM API access"]
+  inputs: ["historical experiment data", "business goal", "channels"]
+  outputs: ["experiment hypotheses", "variant code", "analysis template"]
+  metrics: ["experiments/week", "idea→deployment time", "positive rate"]
+  evolution_rules:
+    - condition: "positive rate drops consecutively"
+      action: "adjust hypothesis temperature"
+```
+
+### Seed Practice Library (10+)
+
+| Practice | Domain | Key Metric |
+|----------|--------|------------|
+| **CASH Full** | Growth | Automated experiment throughput |
+| **CASH Lite** | Growth | Quick hypothesis-to-deploy |
+| **70/30 Allocation** | Strategy | Big Bet vs BAU ratio |
+| **Two-Week Rule** | Engineering | Engineer-as-PM tasks |
+| **Harness Engineering** | Engineering | Agent stability |
+| **Hive Mind Protocol** | Culture | Decision speed |
+| **Working Backwards** | Strategy | 2-year blueprint alignment |
+| **Log-Scale Metrics** | Strategy | 10x vs 10% improvements |
+| **Success Disaster Prevention** | Risk | Failure mode coverage |
+| **Constraint-as-Focus** | Strategy | "One thing" discipline |
 
 ---
 
-## 执行层：可复用模板
+## L2: Diagnostics Layer — 6-Dimension Maturity Model
 
-### CASH 实验 Prompt
-```
-[SYSTEM] 你是一个增长实验 AI。根据以下 JSON 输入生成 3 个 A/B 测试假设。
-[INPUT] {历史实验数据、目标、可用通道}
-[OUTPUT] 每个假设包含【变量】【预期效应】【最小样本量】【风险等级】
+### Readiness Scorecard (1-5)
+
+| Dimension | Score 1 | Score 3 | Score 5 |
+|-----------|---------|---------|---------|
+| **Data & Experiment Maturity** | No systematic experiments | Manual A/B testing | Full CASH automation |
+| **AI-Native Development** | AI for search only | 30-50% AI code | >90% AI code + agent clusters |
+| **Decision Speed** | Weeks | Days | Hours (two-week rule) |
+| **Cultural Transparency** | Hierarchical | Partially open | Radical transparency + hive mind |
+| **Strategic Focus** | Multiple parallel | Annual OKRs | Working backwards + log-scale |
+| **Tool Flywheel** | External only | Some internal tools | Self-reinforcing AI tools |
+
+### Probe Questions
+
+1. "In the last two weeks, how many structured growth experiments did your team complete?" (0 / 1-2 / 3-5 / >5)
+2. "What's the longest task an engineer can drive without a PM?" (<1 day / 1-5 days / 2 weeks / >1 month)
+3. "Describe an instance where AI agents independently completed a full dev task."
+4. "What percentage of your code was AI-generated last month?"
+5. "How fast do you go from idea to production experiment?"
+
+---
+
+## L3: Prescription Layer — Adaptive Routing
+
+```python
+if maturity_growth < 3:
+    practices = ["CASH_lite", "Weekly experiment sprint", "Simple dashboard"]
+elif maturity_ai_dev < 3:
+    practices = ["Two-week rule", "Harness basics", "AI code review"]
+else:
+    practices = ["Full CASH", "Agent-cluster programming", "Hive-mind protocol"]
 ```
 
-### 蜂巢投票模板
+Each practice includes: step-by-step guide + success disaster warnings + example KRs.
+
+---
+
+## L4: Execution Layer — Copy-Ready Artifacts
+
+### CASH Experiment Prompt
 ```
-:honeybee: 决策提案：[标题]
-投票：赞成 :bee: 反对 :x: (附理由)
-截止：2 小时
-通过条件：≥5 票赞成且反对票 < 2
+[SYSTEM] You are a growth experiment AI. Generate 3 A/B test hypotheses.
+[INPUT] {experiment_data, goal, channels}
+[OUTPUT] Each hypothesis: [variable][predicted effect][sample size][risk]
 ```
 
-### 逆向工作法画布
+### Hive Mind Voting Template
 ```
-1. 2 年后的理想状态：____
-2. 关键指标的变化：____
-3. 要达到该状态需解决的 3 个问题：
-4. 本周可以启动的 1 件事：
+:honeybee: Proposal: [one line]
+Vote: :bee: (yes) | :x: (no) + reason
+Deadline: 2 hours
+Pass: ≥5 :bee: and <2 :x:
+```
+
+### Working Backwards Canvas
+```
+1. 2-year future state: _____
+2. Key metric shift: _____
+3. 3 problems to solve: _____
+4. 1 thing to start this week: _____
+```
+
+### Success Disaster Checklist
+```
+Before any "go" decision, ask:
+[ ] What breaks if this works too well?
+[ ] What's our load spike plan?
+[ ] Can we roll back in 5 minutes?
+[ ] Who needs to be paged?
 ```
 
 ---
 
-## 自进化机制
+## E0: Evolution Engine — Self-Improvement Loop
 
-每次交互后，自动收集反馈并更新内部效果指标库：
+### Feedback Collector
+Every interaction ends with:
+- How many days to implement? (integer)
+- What was least clear? (multi-choice)
+- Outcome notes (open text)
 
-```
-practice_id | 使用次数 | 平均评分 | 平均实现天数 | 演化操作
-CASH_v2     | 342      | 4.7/5   | 12           | 推荐权重 +0.2
-two_week    | 189      | 3.9/5   | 3            | 增加敏捷适配版
-```
+### Metrics Repository
 
-每月自动输出《Anthropic OS 演化报告》：
-1. 过去 3 个最有价值的实践
-2. 最需要改进的 2 个薄弱点
-3. 1 处架构调整建议
-4. 一键应用的自我升级脚本
+| Practice | Uses | Rating | TTV | Evolution Action |
+|----------|:----:|:------:|:---:|------------------|
+| CASH_v2 | 342 | 4.7 | 12d | Weight +0.2 |
+| two_week_rule | 189 | 3.9 | 3d | Create agile variant |
+| hive_mind | 124 | 4.4 | 9d | Promote for high-transparency orgs |
+
+### Automatic Tuning
+- Monthly meta-learning update
+- Practice weight adjustment based on rating/time-to-value
+- Template self-correction (v2 generation from usage patterns)
+- New practice proposals from user feedback
+
+### Evolution Report (Monthly)
+1. Top 3 most valuable practices
+2. Bottom 2 weakest areas
+3. 1 architecture adjustment suggestion
+4. Self-upgrade script snippet (one-click apply)
+
+---
+
+## 5-Step Rapid Decision Protocol
+
+| Step | Time | Method |
+|:----:|:----:|--------|
+| 1 | 30s | Reverse-engineer from 2-year future state |
+| 2 | 20s | Apply 70/30 filter: Big Bet or BAU? |
+| 3 | 15s | Two-week threshold: can one person ship it? |
+| 4 | 45s | CASH simulation: automated experiment? |
+| 5 | 2min | Hive vote: public poll, fast consensus |
+
+### Decision Triage Matrix
+
+| | High Impact (>10x) | Low Impact (incremental) |
+|:-|:------------------:|:------------------------:|
+| **High Uncertainty** | CASH experiment | Two-week rule (just do it) |
+| **Low Uncertainty** | Big Bet (commit resources) | Default answer (don't deliberate) |
+
+---
+
+## Universal Skill Stack
+
+| Skill | Function | Section |
+|-------|----------|---------|
+| **Anthropic OS Core Orchestrator** | Coordinates all layers | L1-L4 |
+| **Knowledge Graph Maintainer** | Stores & retrieves practices | L1 |
+| **Maturity Diagnostic Coach** | Assesses readiness | L2 |
+| **Practice Pack Composer** | Routes implementations | L3 |
+| **Execution Artifact Builder** | Generates copy-ready outputs | L4 |
+| **Evolution Report Generator** | Self-upgrade & tuning | E0 |
 
 ---
 
 ## When to Use
 
-- 团队想学习 Anthropic 的增长与工程方法
-- 需要快速做出系统化决策
-- 想建立 AI 原生开发流程
-- 需要设计自动化增长实验系统
-- 想引入极端透明和蜂巢思维文化
+- Team wants to adopt Anthropic-style growth and engineering methods
+- Need rapid, structured decision-making under uncertainty
+- Designing automated growth experimentation systems
+- Building AI-native development workflows
+- Introducing radical transparency and collective decision culture
 
 ## Quality Gates
 
-- [ ] 每次使用后收集结构化反馈
-- [ ] 决策遵循 5 步协议之一
-- [ ] 实践对应 -70/30 分类明确
-- [ ] 两周阈值已检查
-- [ ] 高风险决策有 CASH 实验设计
-- [ ] 小组决策经过蜂巢投票
+- [ ] Practice stored in unified YAML schema
+- [ ] Diagnostic covers all 6 maturity dimensions
+- [ ] Prescription follows adaptive routing rules
+- [ ] Execution artifacts are copy-ready
+- [ ] Feedback collected after every interaction
+- [ ] Metrics repository updated with each run
+- [ ] Monthly self-evolution report generated
+
+---
+
+## Connections
+
+- [[wiki/concepts/AI Agent Harness]] — Agent runtime governance
+- [[wiki/concepts/MAD 框架]] — Diffusion gap vs org change
+- [[wiki/entities/Anthropic]] — Company entity page
+- [[wiki/entities/Claude Code]] — Core growth product
+- [[sources/2026-05-10-anthropic-work-methods]] — Source synthesis

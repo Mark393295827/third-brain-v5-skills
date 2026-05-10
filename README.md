@@ -48,7 +48,7 @@ Inspired by the [Third Brain V5.0](https://github.com/your-repo) architecture �
 | [harness-engineering](skills/harness-engineering/SKILL.md) | Design the runtime infrastructure around AI agents — permissions, tools, feedback loops, observability, constraints. |
 | [context-manager](skills/context-manager/SKILL.md) | Manage the LLM's context window — token budgeting, prompt assembly, truncation strategies, cache optimization. |
 | [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startups using the 24-step disciplined entrepreneurship framework. Market identification, customer understanding, business model analysis. |
-| [anthropic-os](skills/anthropic-os/SKILL.md) | Anthropic 系统性工作法引擎 — CASH 增长、70/30 法则、两周规则、蜂巢思维、逆向工作法。内置自进化机制。 |
+| [anthropic-os](skills/anthropic-os/SKILL.md) | Anthropic OS — Self-Evolving Work Method Engine. CASH growth, 70/30, two-week rule, hive mind, working backwards. Built-in self-evolution mechanism. |
 
 ## Architecture
 
