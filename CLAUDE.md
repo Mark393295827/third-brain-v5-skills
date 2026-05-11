@@ -37,7 +37,7 @@ You have access to the following Agent Skills. Each skill is a markdown file in 
 
 ### 💼 Strategy
 - **startup-evaluation** — MIT 24-step startup evaluation framework.
-- **anthropic-os** — Self-Evolving Work Method Engine. CASH, 70/30, two-week rule, hive mind, working backwards.
+- **anthropic-os** — Cognitive Symbiont Engine. Livewired + 3B creativity algorithms (Bending/Breaking/Blending). Predictive coding, time-arrow diagnostics.
 
 ## Usage
 
@@ -45,10 +45,27 @@ Invoke any skill naturally:
 - "Ingest this article into my wiki"
 - "Run a cognitive compile on X"
 - "Create an agent team to build Y"
-- "Launch Anthropic OS for my team"
+- "Launch Anthropic OS for my team" — includes 3B creativity algorithms
+- "Apply 3B to our growth strategy" — Bending/Breaking/Blending
+- "Bias to yes on this decision" — Costolo operator mode
 - "Estimate token cost for this task"
 
-## Agent Teams Note
+## Grounding Principles
+
+### Karpathy LLM OS
+LLM=CPU · Context=RAM · Storage=Disk · Tools=System Calls · Agent Teams=Parallel Processes
+
+### 3B Creativity Algorithms
+- **Bending**: Mutate existing success patterns into new contexts
+- **Breaking**: Eliminate worst-performing patterns; break path dependency
+- **Blending**: Fuse elements from different domains for novel patterns
+
+### Operator Mode (Costolo)
+- **Bias to Yes**: Only direct manager can say no
+- **DRI**: Directly Responsible Individual over group consensus
+- **Speed**: "If this takes 6 weeks, what would make it 2 weeks?"
+
+### Agent Teams
 
 Agent Teams are experimental. Enable via `settings.local.json`:
 ```json
@@ -58,3 +75,4 @@ Agent Teams are experimental. Enable via `settings.local.json`:
 }
 ```
 Requires Claude Code v2.1.32+.
+Use `agent-teams-command` skill for multi-agent orchestration (Ender's Game approach).
