@@ -7,6 +7,22 @@ description: Manage the LLM's context window — token budgeting, prompt assembl
 
 Manage the scarcest resource in the LLM OS: **context window (RAM)**.
 
+## Usage Template
+
+**Prompt**
+```text
+Use context-manager for this task. Estimate token budget, choose what to keep, what to summarize, and what to drop.
+```
+
+**Use Case**
+- Preparing a long task, large document set, or multi-step agent workflow without overrunning context.
+
+**Expected Result**
+- The agent produces a context budget, priority order, truncation plan, and cost-aware prompt assembly.
+
+**Verification Case**
+- The final context plan names included sources, excluded sources, and the reason for each exclusion.
+
 ## When to Use
 
 - "Context is full", "too many tokens", "slow responses"

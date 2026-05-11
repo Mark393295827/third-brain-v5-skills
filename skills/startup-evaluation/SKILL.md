@@ -7,6 +7,22 @@ description: Evaluate startups using the 24-step disciplined entrepreneurship fr
 
 Evaluate startups systematically using MIT's Disciplined Entrepreneurship framework by Bill Aulet.
 
+## Usage Template
+
+**Prompt**
+```text
+Use startup-evaluation on this idea. Assess customer, market, beachhead, value proposition, business model, risks, and next validation step.
+```
+
+**Use Case**
+- Evaluating a startup idea, company, or product direction before investing more time or money.
+
+**Expected Result**
+- The agent returns a structured assessment with assumptions, evidence, risks, and validation experiments.
+
+**Verification Case**
+- The output distinguishes known facts from assumptions and names the next cheapest test.
+
 ## When to Use
 
 - User wants to evaluate a startup idea

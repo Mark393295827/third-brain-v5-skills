@@ -7,6 +7,22 @@ description: Execute a daily knowledge compound closed loop — 7 Key Results fr
 
 Run a complete 7-KR cycle: Input → Cognition → Wiki → Behavior → Creativity → Output → Feedback.
 
+## Usage Template
+
+**Prompt**
+```text
+Run daily-okr in compact mode. Produce one insight, one wiki update, one action under 15 minutes, one reusable output, and a final score.
+```
+
+**Use Case**
+- Starting or closing a knowledge-work day with a repeatable compounding loop.
+
+**Expected Result**
+- The agent addresses all 7 KRs and leaves a concise daily artifact.
+
+**Verification Case**
+- KR3 has a wiki update, KR4 has a concrete action, KR7 includes evidence for completed claims, and the score is calculated.
+
 ## When to Use
 
 - User says "start my daily OKR", "daily review", "today's workflow"

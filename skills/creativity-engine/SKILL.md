@@ -7,6 +7,22 @@ description: Generate, validate, and output new ideas based on existing knowledg
 
 Generate novel ideas by combining existing knowledge across domains, then validate them through minimum experiments.
 
+## Usage Template
+
+**Prompt**
+```text
+Use creativity-engine on this challenge. Generate cross-domain combinations, rank them, and design the smallest test for the best idea.
+```
+
+**Use Case**
+- Producing new product ideas, content angles, experiments, or strategic options from existing knowledge.
+
+**Expected Result**
+- The agent returns a ranked idea set plus one minimum experiment.
+
+**Verification Case**
+- Each finalist idea states the source ingredients, target user, expected value, and a testable next step.
+
 ## When to Use
 
 - User wants "new ideas about X"

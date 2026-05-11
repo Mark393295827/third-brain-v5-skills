@@ -7,6 +7,22 @@ description: Extract reusable knowledge from sessions. Scans for new concepts, e
 
 Extract knowledge signals from current session and persist to wiki.
 
+## Usage Template
+
+**Prompt**
+```text
+Use session-learn on this conversation. Extract reusable concepts, decisions, corrections, patterns, ideas, and gaps into my wiki.
+```
+
+**Use Case**
+- Ending a substantive work session without losing reusable learning to chat history.
+
+**Expected Result**
+- The agent creates or updates notes for concepts, decisions, corrections, and reusable patterns.
+
+**Verification Case**
+- The output lists saved files and separates confirmed learning from open questions.
+
 ## When to Use
 
 - "Extract this session" or "save what we learned"

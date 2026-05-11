@@ -7,6 +7,22 @@ description: Ender's Game approach to commanding Claude Code Agent Teams. Strate
 
 > This is not a "feature" — this is a **command system**. Based on Karpathy's Agentic Engineering framework for systematic problem-solving, transforming Claude Code Agent Teams from ad-hoc tools into a complete operational architecture.
 
+## Usage Template
+
+**Prompt**
+```text
+Use agent-teams-command for this project. Split work into roles, define ownership, coordinate progress, and verify the integrated result.
+```
+
+**Use Case**
+- Coordinating multi-agent work when a task is too large for one linear agent pass.
+
+**Expected Result**
+- The agent produces a team plan with roles, responsibilities, communication cadence, integration points, and verification gates.
+
+**Verification Case**
+- Each delegated task has a bounded scope, clear owner, expected output, and integration check.
+
 ---
 
 ## Karpathy Agentic Engineering Mapping

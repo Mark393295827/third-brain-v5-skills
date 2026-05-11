@@ -1,0 +1,56 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Third Brain V5 Skills pipeline</title>
+  <desc id="desc">A simplified hero diagram showing sources flowing into agent skills, an interlinked wiki, verification, and reusable output.</desc>
+  <rect width="1200" height="520" rx="24" fill="#0B1020"/>
+  <rect x="40" y="40" width="1120" height="440" rx="18" fill="#111827" stroke="#26364F" stroke-width="2"/>
+  <text x="80" y="92" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">Third Brain V5 Skills</text>
+  <text x="80" y="126" fill="#94A3B8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18">Knowledge compounding workflow for Codex CLI, Claude Code, and Gemini CLI</text>
+
+  <g transform="translate(80 188)">
+    <rect width="180" height="106" rx="12" fill="#172033" stroke="#38BDF8" stroke-opacity="0.55"/>
+    <text x="24" y="38" fill="#E0F2FE" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Sources</text>
+    <text x="24" y="68" fill="#94A3B8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">PDFs, links, notes</text>
+  </g>
+
+  <path d="M275 241H343" stroke="#64748B" stroke-width="3"/>
+  <path d="M340 231L356 241L340 251" stroke="#64748B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(370 162)">
+    <rect width="250" height="158" rx="14" fill="#13251F" stroke="#34D399" stroke-opacity="0.65"/>
+    <text x="24" y="38" fill="#D1FAE5" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Agent Skills</text>
+    <text x="24" y="70" fill="#A7F3D0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">wiki-ingest</text>
+    <text x="24" y="96" fill="#A7F3D0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">cognitive-compile</text>
+    <text x="24" y="122" fill="#A7F3D0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">verify-before-claim</text>
+  </g>
+
+  <path d="M640 241H708" stroke="#64748B" stroke-width="3"/>
+  <path d="M705 231L721 241L705 251" stroke="#64748B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(735 162)">
+    <rect width="190" height="158" rx="14" fill="#1C1B33" stroke="#A78BFA" stroke-opacity="0.7"/>
+    <text x="24" y="38" fill="#EDE9FE" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Wiki</text>
+    <text x="24" y="70" fill="#C4B5FD" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">source notes</text>
+    <text x="24" y="96" fill="#C4B5FD" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">concept pages</text>
+    <text x="24" y="122" fill="#C4B5FD" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">entity links</text>
+  </g>
+
+  <path d="M945 241H1013" stroke="#64748B" stroke-width="3"/>
+  <path d="M1010 231L1026 241L1010 251" stroke="#64748B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(1040 188)">
+    <rect width="80" height="106" rx="12" fill="#2A1D14" stroke="#F59E0B" stroke-opacity="0.8"/>
+    <text x="20" y="42" fill="#FEF3C7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">Output</text>
+    <text x="20" y="72" fill="#FCD34D" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">reuse</text>
+  </g>
+
+  <g transform="translate(215 372)">
+    <rect width="770" height="56" rx="28" fill="#0F172A" stroke="#334155"/>
+    <text x="38" y="36" fill="#CBD5E1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">STOW pipeline</text>
+    <circle cx="210" cy="28" r="5" fill="#38BDF8"/>
+    <text x="230" y="36" fill="#CBD5E1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">daily loop</text>
+    <circle cx="365" cy="28" r="5" fill="#34D399"/>
+    <text x="385" y="36" fill="#CBD5E1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">verification gate</text>
+    <circle cx="590" cy="28" r="5" fill="#A78BFA"/>
+    <text x="610" y="36" fill="#CBD5E1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">compounding memory</text>
+  </g>
+</svg>

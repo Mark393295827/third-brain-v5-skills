@@ -7,6 +7,22 @@ description: Design a behavior change system — decompose a goal into minimum h
 
 Transform goals into actionable behavior systems through decomposition, habit design, and review.
 
+## Usage Template
+
+**Prompt**
+```text
+Use behavior-design for this goal. Decompose it into minimum habits, triggers, SOPs, review cadence, and failure handling.
+```
+
+**Use Case**
+- Converting a goal or intention into a behavior system the user can actually repeat.
+
+**Expected Result**
+- The agent creates a habit plan with trigger, minimum action, environment design, review metric, and fallback.
+
+**Verification Case**
+- The first action takes 15 minutes or less and has a concrete time, place, trigger, and success criterion.
+
 ## When to Use
 
 - User says "I want to build a habit of X"

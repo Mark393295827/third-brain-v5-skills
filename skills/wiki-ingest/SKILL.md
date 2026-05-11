@@ -7,6 +7,22 @@ description: Ingest sources (articles, PDFs, videos, notes) into a persistent in
 
 Ingest a source document into the knowledge wiki — creating structured, interlinked pages that compound over time.
 
+## Usage Template
+
+**Prompt**
+```text
+Use wiki-ingest on this source. Create source notes, concept pages, entity pages, navigation updates, and a verification summary.
+```
+
+**Use Case**
+- Turning an article, PDF, transcript, or rough note into durable linked knowledge.
+
+**Expected Result**
+- The agent creates an immutable source note, 3-7 key insights, linked wiki pages, and a log entry.
+
+**Verification Case**
+- New wiki pages have frontmatter, source references, at least two `[[wikilinks]]`, and timeline entries.
+
 ## When to Use
 
 - User drops a file and says "ingest this"

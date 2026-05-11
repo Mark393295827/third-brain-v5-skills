@@ -7,6 +7,22 @@ description: Health-check the knowledge wiki — find orphans, broken links, mis
 
 Systematic audit of wiki health across 8 dimensions.
 
+## Usage Template
+
+**Prompt**
+```text
+Use wiki-lint on my vault. Check frontmatter, broken links, orphans, stale pages, contradictions, drift, stats, and index health.
+```
+
+**Use Case**
+- Maintaining a growing Obsidian or markdown wiki before it becomes hard to trust or navigate.
+
+**Expected Result**
+- The agent produces a lint report with ranked issues and concrete repair actions.
+
+**Verification Case**
+- The report includes file paths, issue counts, severity, and at least one recommended fix per high-priority issue.
+
 ## When to Use
 
 - User says "lint the wiki", "health check", "run lint"

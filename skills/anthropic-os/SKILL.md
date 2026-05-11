@@ -7,6 +7,22 @@ description: Cognitive Symbiont — Livewired self-evolving system. CASH + 3B cr
 
 > From tool-based architecture to **living cognitive symbiont**. The brain is the best learning machine — instead of simulating its structure, we follow its evolutionary principles.
 
+## Usage Template
+
+**Prompt**
+```text
+Use anthropic-os on this work system. Diagnose the current loop, identify the big bet, improve feedback, and define the next self-evolution step.
+```
+
+**Use Case**
+- Improving a team or personal operating system, not just completing a single task.
+
+**Expected Result**
+- The agent returns a work-method diagnosis with growth loops, allocation choices, feedback mechanisms, and next experiments.
+
+**Verification Case**
+- The output names one measurable system change and how it will be reviewed after the next cycle.
+
 ## Core Philosophy
 
 > "DNA only provides the basic blueprint. It is every subsequent encounter that shapes who we become." — David Eagleman, *Livewired*

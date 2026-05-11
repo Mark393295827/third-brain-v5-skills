@@ -7,6 +7,22 @@ description: Operate execution flow — triage tasks, manage priorities, keep pr
 
 Keep execution structured and progress visible — triage, plan, track, and review across projects.
 
+## Usage Template
+
+**Prompt**
+```text
+Use project-flow-ops to triage this backlog. Rank priorities, identify blockers, and produce the next execution plan.
+```
+
+**Use Case**
+- Turning scattered tasks or competing projects into a clear action queue.
+
+**Expected Result**
+- The agent returns prioritized work, blockers, next actions, and review cadence.
+
+**Verification Case**
+- Every top-priority item has an owner, next action, status, and reason for priority.
+
 ## When to Use
 
 - User says "what should I work on next?"

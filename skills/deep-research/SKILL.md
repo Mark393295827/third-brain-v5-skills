@@ -7,6 +7,22 @@ description: Multi-source deep research — search, synthesize, and deliver cite
 
 Conduct multi-source research — search across sources, synthesize findings, and produce structured, cited reports.
 
+## Usage Template
+
+**Prompt**
+```text
+Use deep-research on this question. Define scope, gather multiple sources, compare evidence, and produce a cited synthesis with confidence levels.
+```
+
+**Use Case**
+- Answering a decision-relevant question where freshness, evidence quality, or competing claims matter.
+
+**Expected Result**
+- The agent returns a sourced report with key findings, disagreements, confidence ratings, and recommended next steps.
+
+**Verification Case**
+- Claims are tied to sources, dates are explicit when relevant, and uncertainty is separated from conclusions.
+
 ## When to Use
 
 - User says "research X for me" or "deep dive into X"

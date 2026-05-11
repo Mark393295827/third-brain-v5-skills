@@ -7,6 +7,22 @@ description: Manage a multi-layered knowledge system — ingest, organize, dedup
 
 Manage a multi-layered knowledge system for ingesting, organizing, syncing, vectorizing, and retrieving knowledge across multiple stores.
 
+## Usage Template
+
+**Prompt**
+```text
+Use knowledge-ops to organize this knowledge base. Deduplicate, classify, sync, and prepare semantic retrieval.
+```
+
+**Use Case**
+- Scaling from a small wiki to a multi-layer knowledge system with search, memory, and vector storage.
+
+**Expected Result**
+- The agent proposes or runs organization, deduplication, vector sync, and retrieval steps.
+
+**Verification Case**
+- The output reports what was indexed, skipped, merged, or flagged for manual review.
+
 ## When to Use
 
 - User wants to "save this to my knowledge base"

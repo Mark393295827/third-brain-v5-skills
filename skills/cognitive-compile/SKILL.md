@@ -7,6 +7,22 @@ description: Deep learning 7-step framework — transforms raw information into 
 
 Transform raw information into structured understanding and actionable judgment through 7 steps.
 
+## Usage Template
+
+**Prompt**
+```text
+Use cognitive-compile on this topic. Move from question to facts, concepts, patterns, conflicts, judgment, and action.
+```
+
+**Use Case**
+- Understanding a complex topic deeply enough to make a decision or produce a reusable explanation.
+
+**Expected Result**
+- The agent produces a structured reasoning artifact with conflicts, judgment, and next actions.
+
+**Verification Case**
+- The output separates facts from interpretation and names unresolved assumptions or evidence gaps.
+
 ## When to Use
 
 - User wants to "understand X deeply"

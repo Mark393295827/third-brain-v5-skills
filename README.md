@@ -1,6 +1,8 @@
 # Third Brain V5 Skills
 
-**16 Agent Skills for knowledge compounding, behavior design, creativity, and strategic execution — turning AI agents into a persistent cognitive operating system.**
+**Turn Codex CLI, Claude Code, or Gemini CLI into a persistent knowledge compounding system.**
+
+Install 16 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, and orchestrating agent teams.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-8A2BE2)](https://claude.ai/code)
@@ -12,6 +14,89 @@
 ![Karpathy LLM OS](https://img.shields.io/badge/Karpathy%20LLM%20OS-Compatible-8A2BE2)
 ![Token Tracking](https://img.shields.io/badge/token--tracking-00D1B2)
 ![Ender's Game](https://img.shields.io/badge/Ender's%20Game-Command-8A2BE2)
+
+![Third Brain V5 Skills hero](assets/hero.svg)
+
+---
+
+## Quick Install
+
+```bash
+git clone https://github.com/Mark393295827/third-brain-v5-skills.git
+cd third-brain-v5-skills
+bash install.sh
+```
+
+Manual install paths:
+
+```bash
+# Codex CLI
+mkdir -p ~/.agents/skills && cp -r skills/* ~/.agents/skills/
+
+# Claude Code
+mkdir -p ~/.claude/skills && cp -r skills/* ~/.claude/skills/
+
+# Gemini CLI
+mkdir -p ~/.gemini/skills && cp -r skills/* ~/.gemini/skills/
+```
+
+## Try It
+
+Paste one of these into your agent after installing:
+
+```text
+"I just read an interesting article. Ingest it into my wiki."
+"Run my daily OKR."
+"Cognitive compile on AI agent safety."
+"Verify before I ship."
+"Create an agent team to build a full-stack prototype."
+```
+
+## 3-Minute Quick Start
+
+The fastest useful path is `wiki-ingest`: turn one article, PDF, transcript, or rough note into durable wiki knowledge.
+
+```text
+Use wiki-ingest on this source.
+
+Goal: turn it into reusable wiki knowledge, not a loose summary.
+
+Create:
+1. one immutable source note in sources/
+2. 3-7 key insights with source references
+3. at least one concept page in wiki/concepts/
+4. relevant entity pages in wiki/entities/
+5. links from the new pages to existing related pages when possible
+6. a short log entry in system/log.md
+
+After writing files, run a quick verification:
+- list created or updated files
+- check each wiki page has at least two wikilinks
+- state any claims that are single-source only
+```
+
+Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quickstart.md).
+
+## Before → After
+
+| Use Case | Before | After |
+|----------|--------|-------|
+| Research PDF | A long PDF is summarized once and then forgotten. | `wiki-ingest` creates source notes, concept pages, entity pages, links, and a reusable brief. |
+| Coding session | The agent says "fixed" without proof. | `verify-before-claim` requires a fresh command, exit code, and evidence before any completion claim. |
+| Daily knowledge work | Inputs, ideas, and actions stay scattered across chat history. | `daily-okr` produces one insight, one wiki update, one action, one reusable output, and a daily score. |
+
+## Demo & Tools
+
+| Resource | What it shows |
+|----------|---------------|
+| [dashboard.html](dashboard.html) | Visual overview of the Third Brain V5 system |
+| [tools/index.html](tools/index.html) | Local tool hub |
+| [tools/token-calculator.html](tools/token-calculator.html) | Token cost calculator |
+| [tools/pipeline-cost-calculator.html](tools/pipeline-cost-calculator.html) | Pipeline cost estimator |
+| [GUIDE.md](GUIDE.md) | Full installation, workflow, and troubleshooting guide |
+| [examples/](examples/) | Copyable workflows and Obsidian entry note |
+
+If this saves you time, consider starring the repo so others can discover it through GitHub search.
 
 ---
 
@@ -155,10 +240,12 @@ These skills transform any AI coding agent into a **persistent knowledge compoun
 
 For detailed installation, usage, and 5 complete workflow scenarios, see the **[Full Guide](GUIDE.md)**.
 
-### One-line Install
+### Clone
 
 ```bash
 git clone https://github.com/Mark393295827/third-brain-v5-skills.git
+cd third-brain-v5-skills
+bash install.sh
 ```
 
 ### Claude Code
@@ -235,6 +322,10 @@ system/           ← Schema, log, templates, lint reports
 
 - [Agent Skills](https://agentskills.io) — Open format specification
 - [llm-wiki-agent](https://github.com/SamurAIGPT/llm-wiki-agent) — Original STOW pattern implementation
+
+## Contributing
+
+Bug reports, skill requests, and small PRs are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md), [CHANGELOG.md](CHANGELOG.md), and the [release playbook](docs/release-playbook.md) for the weekly feedback loop and release checklist.
 
 ## License
 

@@ -7,6 +7,22 @@ description: Iron rule — no completion claims without fresh verification evide
 
 **NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE.**
 
+## Usage Template
+
+**Prompt**
+```text
+Use verify-before-claim. Before saying this is done, identify the proof command, run it fresh, read the output, and state the actual status with evidence.
+```
+
+**Use Case**
+- Preventing unsupported claims that code, docs, tests, or workflows are fixed, passing, complete, or working.
+
+**Expected Result**
+- The agent reports command output, exit code, pass/fail count, and any remaining unverified risk.
+
+**Verification Case**
+- No completion language appears unless fresh evidence is shown in the same response.
+
 ## When to Use
 
 - Before saying "done", "fixed", "complete", "passing", "working"

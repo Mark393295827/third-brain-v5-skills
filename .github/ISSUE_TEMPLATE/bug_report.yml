@@ -1,0 +1,56 @@
+name: Bug report
+description: Report a broken install, skill behavior, command, or docs issue.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this. Clear reproduction steps help us fix small issues quickly.
+  - type: input
+    id: harness
+    attributes:
+      label: Agent harness
+      description: Codex CLI, Claude Code, Gemini CLI, or another compatible runner.
+      placeholder: "Codex CLI"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Harness version
+      placeholder: "codex --version / claude --version / gemini --version"
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What did you run or paste into the agent?
+      placeholder: |
+        1. Installed with ...
+        2. Ran ...
+        3. Saw ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include the error text or unexpected output if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: OS, shell, repo commit, screenshots, or related files.
+    validations:
+      required: false

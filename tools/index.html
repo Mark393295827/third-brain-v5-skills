@@ -99,7 +99,7 @@
   <div>
     <div class="label">KARPATHY LLM OS</div>
     <div class="score">85 / 100</div>
-    <div class="sub">13 skills · 4 commands · 3 tools</div>
+    <div class="sub">16 skills · 4 commands · 3 tools</div>
   </div>
   <div class="evolution">
     <span class="lang-en">Evolved from V1: <span>42</span> → V3: <span>74</span> → <span style="color:var(--cyan)">V5: 85</span></span>
@@ -125,8 +125,8 @@
 <!-- Skills -->
 <div class="section-title" style="color:var(--cyan);">
   <span>⚙</span>
-  <span class="lang-en">Skills (13)</span>
-  <span class="lang-zh">技能（13 个）</span>
+  <span class="lang-en">Skills (16)</span>
+  <span class="lang-zh">技能（16 个）</span>
 </div>
 <div class="skill-grid" id="skill-grid"></div>
 
@@ -160,6 +160,9 @@ const SKILLS = [
   {name:'deep-research', desc_en:'Multi-source research: scope definition → collection → synthesis → cited report. With confidence levels and evidence standards.', desc_zh:'多源研究：范围定义→收集→综合→含引用的报告。含置信度和证据标准。'},
   {name:'project-flow-ops', desc_en:'Execution flow: triage → plan → track → review. For backlog control, task planning, and cross-project coordination.', desc_zh:'执行流：分类→计划→追踪→复盘。用于待办控制、任务规划和跨项目协调。'},
   {name:'harness-engineering', desc_en:'Agent runtime infrastructure: 3-tier permissions, GAN-inspired Generator/Evaluator pattern, multi-agent orchestration, Deny-and-Continue.', desc_zh:'Agent 运行时基础设施：三层权限、GAN 启发式 Generator/Evaluator 模式、多 Agent 编排、Deny-and-Continue。'},
+  {name:'agent-teams-command', desc_en:'Strategic multi-agent orchestration: split work by role, define ownership, coordinate progress, and verify integrated output.', desc_zh:'战略性多 Agent 编排：按角色拆分工作、定义所有权、协调进展，并验证集成结果。'},
+  {name:'startup-evaluation', desc_en:'MIT 24-step disciplined entrepreneurship framework for assessing ideas, markets, beachheads, value propositions, and validation risks.', desc_zh:'MIT 24 步创业评估框架，用于评估想法、市场、滩头阵地、价值主张和验证风险。'},
+  {name:'anthropic-os', desc_en:'Self-evolving work method engine: diagnose loops, choose big bets, improve feedback, and define the next system experiment.', desc_zh:'自进化工作方法引擎：诊断循环、选择大赌注、改善反馈，并定义下一轮系统实验。'},
 ];
 
 const TOOLS = [

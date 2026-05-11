@@ -1,0 +1,39 @@
+name: Skill request
+description: Suggest a new Agent Skill or an improvement to an existing skill.
+title: "[Skill]: "
+labels: ["skill-request", "needs-triage"]
+body:
+  - type: input
+    id: skill-name
+    attributes:
+      label: Skill name
+      placeholder: "wiki-ingest, daily-okr, or a proposed new skill"
+    validations:
+      required: true
+  - type: textarea
+    id: trigger
+    attributes:
+      label: When should this skill activate?
+      placeholder: "Use this skill when..."
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: What should it do?
+      description: Describe the workflow step by step.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: How should we verify it works?
+      placeholder: "A successful run should produce..."
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example prompts or use cases
+    validations:
+      required: false

@@ -7,6 +7,22 @@ description: Design runtime infrastructure around AI agents — permissions, too
 
 Design the system *around* AI agents for reliable, safe production use.
 
+## Usage Template
+
+**Prompt**
+```text
+Use harness-engineering for this agent workflow. Design permissions, tools, feedback loops, observability, and failure handling.
+```
+
+**Use Case**
+- Moving an agent workflow from ad hoc prompting toward a reliable runtime architecture.
+
+**Expected Result**
+- The agent produces a harness design with permission tiers, tool boundaries, logs, evals, and recovery paths.
+
+**Verification Case**
+- The design names what the agent can do automatically, what needs approval, and what is denied.
+
 ## When to Use
 
 - Deploying agents to production
