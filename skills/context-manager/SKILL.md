@@ -1,6 +1,8 @@
 ---
 name: context-manager
 description: Manage the LLM's context window — token budgeting, prompt assembly, truncation strategies. Use when approaching context limits or optimizing prompt costs.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Context Manager
@@ -19,6 +21,9 @@ Use context-manager for this task. Estimate token budget, choose what to keep, w
 
 **Expected Result**
 - The agent produces a context budget, priority order, truncation plan, and cost-aware prompt assembly.
+
+**Output Example**
+- A table of keep/summarize/drop decisions with estimated tokens and retrieval priority.
 
 **Verification Case**
 - The final context plan names included sources, excluded sources, and the reason for each exclusion.

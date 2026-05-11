@@ -1,6 +1,8 @@
 ---
 name: deep-research
 description: Multi-source deep research — search, synthesize, and deliver cited reports. Use when the user wants thorough research on any topic with evidence and citations.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Deep Research
@@ -19,6 +21,9 @@ Use deep-research on this question. Define scope, gather multiple sources, compa
 
 **Expected Result**
 - The agent returns a sourced report with key findings, disagreements, confidence ratings, and recommended next steps.
+
+**Output Example**
+- An evidence table, synthesis summary, confidence levels, open questions, and action recommendation.
 
 **Verification Case**
 - Claims are tied to sources, dates are explicit when relevant, and uncertainty is separated from conclusions.

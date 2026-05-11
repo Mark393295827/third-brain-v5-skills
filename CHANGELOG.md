@@ -17,10 +17,15 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - Standard skill template reference.
 - Cursor and Windsurf compatibility documentation and adapter templates.
 - Fifth workflow example for startup evaluation.
+- Animated-style install demo SVG and one-click test prompt.
+- Community discovery checklist with recommended repository description, topics, and Awesome-list targets.
 
 ### Changed
 - README first screen now emphasizes value proposition, quick install, try-it prompts, and local demos.
 - Each skill now includes a verified-effect statement in its usage template.
+- Each skill now includes version, update date, and output example metadata.
+- Dashboard now includes visual navigation shortcuts and skill search.
+- `install.sh` now supports explicit `codex`, `claude`, `gemini`, `cursor`, `windsurf`, and `all` targets.
 
 ## Release Template
 

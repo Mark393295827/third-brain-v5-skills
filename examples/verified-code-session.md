@@ -4,6 +4,13 @@
 
 An agent says a bug is fixed based only on edited code or intuition.
 
+## Input
+
+```text
+Source: a bug report, failing test, CI error, or user-reported symptom.
+Goal: make completion claims depend on fresh verification evidence.
+```
+
 ## Prompt
 
 ```text
@@ -27,6 +34,15 @@ The session ends with evidence:
 - exit code
 - pass/fail count
 - remaining risk or unverified edge cases
+
+## Output Example
+
+```text
+Command: npm test
+Exit code: 0
+Result: 42 passed, 0 failed
+Residual risk: browser-specific behavior not covered by unit tests
+```
 
 ## Verification
 

@@ -4,6 +4,13 @@
 
 The user has an exciting startup idea, but the assumptions are mixed together: customer, market, product, pricing, channel, and risk are not separated.
 
+## Input
+
+```text
+Source: one startup idea, product concept, pitch paragraph, or founder note.
+Goal: separate facts from assumptions and design the cheapest validation test.
+```
+
 ## Prompt
 
 ```text
@@ -34,6 +41,16 @@ The idea becomes a decision artifact:
 - why now
 - what must be true
 - what to test next
+
+## Output Example
+
+```text
+Beachhead customer: independent knowledge workers
+Painful use case: turning notes into weekly behavior experiments
+Riskiest assumption: users will run experiments after reading summaries
+Cheapest test: 5 interviews + 7-day concierge workflow
+Decision: learn-more
+```
 
 ## Verification
 

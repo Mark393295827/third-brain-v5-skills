@@ -1,6 +1,8 @@
 ---
 name: cognitive-compile
 description: Deep learning 7-step framework — transforms raw information into actionable judgment. Use when the user wants to deeply understand a topic, not just capture it.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Cognitive Compile — Deep Learning Framework
@@ -19,6 +21,9 @@ Use cognitive-compile on this topic. Move from question to facts, concepts, patt
 
 **Expected Result**
 - The agent produces a structured reasoning artifact with conflicts, judgment, and next actions.
+
+**Output Example**
+- A 7-section compile: question, facts, concepts, patterns, conflicts, judgment, and action.
 
 **Verification Case**
 - The output separates facts from interpretation and names unresolved assumptions or evidence gaps.

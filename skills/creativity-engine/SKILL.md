@@ -1,6 +1,8 @@
 ---
 name: creativity-engine
 description: Generate, validate, and output new ideas based on existing knowledge. Combines combinatorial creativity, cross-domain analogy, and minimum experiments. Use when the user wants fresh ideas, new product concepts, or creative solutions.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Creativity Engine
@@ -19,6 +21,9 @@ Use creativity-engine on this challenge. Generate cross-domain combinations, ran
 
 **Expected Result**
 - The agent returns a ranked idea set plus one minimum experiment.
+
+**Output Example**
+- 10 idea candidates, 3 finalists, 1 selected experiment, and a 7-day validation plan.
 
 **Verification Case**
 - Each finalist idea states the source ingredients, target user, expected value, and a testable next step.

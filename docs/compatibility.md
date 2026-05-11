@@ -21,8 +21,7 @@ Third Brain V5 Skills use the open Agent Skills-style `SKILL.md` format. Compati
 Cursor supports project rules under `.cursor/rules/` and can also use `AGENTS.md` as a simple project instruction file. Use the adapter template in [adapters/cursor/third-brain-skills.mdc](../adapters/cursor/third-brain-skills.mdc).
 
 ```bash
-mkdir -p .cursor/rules
-cp adapters/cursor/third-brain-skills.mdc .cursor/rules/third-brain-skills.mdc
+bash install.sh cursor
 ```
 
 Recommended prompt:
@@ -38,15 +37,7 @@ Windsurf Cascade supports workspace skills in `.windsurf/skills/<skill-name>/SKI
 Workspace skills:
 
 ```bash
-mkdir -p .windsurf/skills
-cp -r skills/* .windsurf/skills/
-```
-
-Optional rule adapter:
-
-```bash
-mkdir -p .windsurf/rules
-cp adapters/windsurf/third-brain-skills.md .windsurf/rules/third-brain-skills.md
+bash install.sh windsurf
 ```
 
 Recommended prompt:

@@ -1,6 +1,8 @@
 ---
 name: startup-evaluation
 description: Evaluate startups using the 24-step disciplined entrepreneurship framework. Use when assessing a startup idea, conducting due diligence, or analyzing a business model.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Startup Evaluation — 24-Step Framework
@@ -19,6 +21,9 @@ Use startup-evaluation on this idea. Assess customer, market, beachhead, value p
 
 **Expected Result**
 - The agent returns a structured assessment with assumptions, evidence, risks, and validation experiments.
+
+**Output Example**
+- A one-page startup memo with beachhead customer, painful use case, assumptions, risks, and cheapest test.
 
 **Verification Case**
 - The output distinguishes known facts from assumptions and names the next cheapest test.

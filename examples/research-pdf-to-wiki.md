@@ -4,6 +4,13 @@
 
 A PDF contains useful ideas, but the knowledge is trapped in one long file. The user wants reusable concepts, not a one-time summary.
 
+## Input
+
+```text
+Source: a PDF, report, paper, book chapter, or long-form article.
+Goal: convert the document into source notes, concept pages, and one reusable brief.
+```
+
 ## Prompt
 
 ```text
@@ -27,6 +34,16 @@ The PDF becomes:
 - several concept/entity notes
 - one output brief
 - a list of open questions for follow-up research
+
+## Output Example
+
+```text
+sources/src-20260512-ai-safety-report.md
+wiki/concepts/agent-evaluation.md
+wiki/entities/anthropic.md
+wiki/outputs/ai-safety-brief.md
+system/log.md
+```
 
 ## Verification
 

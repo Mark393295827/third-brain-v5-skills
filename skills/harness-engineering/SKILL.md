@@ -1,6 +1,8 @@
 ---
 name: harness-engineering
 description: Design runtime infrastructure around AI agents — permissions, tools, feedback loops, observability. Use when deploying agents to production or designing multi-agent systems.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Harness Engineering
@@ -19,6 +21,9 @@ Use harness-engineering for this agent workflow. Design permissions, tools, feed
 
 **Expected Result**
 - The agent produces a harness design with permission tiers, tool boundaries, logs, evals, and recovery paths.
+
+**Output Example**
+- A runtime spec with permission matrix, tool allowlist, approval gates, logs, evals, and incident response.
 
 **Verification Case**
 - The design names what the agent can do automatically, what needs approval, and what is denied.

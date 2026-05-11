@@ -4,13 +4,17 @@ set -euo pipefail
 REPO="Mark393295827/third-brain-v5-skills"
 BRANCH="master"
 SKILLS_DIR="$(dirname "$0")/skills"
+ADAPTERS_DIR="$(dirname "$0")/adapters"
+TARGET_ARG="${1:-auto}"
 
 echo "=== Third Brain V5 Skills Installer ==="
 echo ""
 
 # Detect agent harness
 HARNESS=""
-if [ -n "$CLAUDE_CODE" ] || [ -d "$HOME/.claude" ]; then
+if [ "$TARGET_ARG" != "auto" ]; then
+    HARNESS="$TARGET_ARG"
+elif [ -n "$CLAUDE_CODE" ] || [ -d "$HOME/.claude" ]; then
     HARNESS="claude-code"
 elif command -v codex &>/dev/null; then
     HARNESS="codex"
@@ -20,7 +24,8 @@ fi
 
 # Determine install target
 case "$HARNESS" in
-    claude-code)
+    claude|claude-code)
+        HARNESS="claude-code"
         TARGET="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}"
         echo "Detected: Claude Code"
         ;;
@@ -32,9 +37,30 @@ case "$HARNESS" in
         TARGET="$HOME/.gemini/skills"
         echo "Detected: Gemini CLI"
         ;;
+    cursor)
+        TARGET=".cursor/rules"
+        echo "Target: Cursor rules adapter"
+        ;;
+    windsurf)
+        TARGET=".windsurf/skills"
+        echo "Target: Windsurf workspace skills"
+        ;;
+    all)
+        echo "Installing all supported local targets..."
+        mkdir -p "$HOME/.claude/skills" "$HOME/.agents/skills" "$HOME/.gemini/skills" ".cursor/rules" ".windsurf/skills" ".windsurf/rules"
+        cp -r "$SKILLS_DIR"/* "$HOME/.claude/skills/"
+        cp -r "$SKILLS_DIR"/* "$HOME/.agents/skills/"
+        cp -r "$SKILLS_DIR"/* "$HOME/.gemini/skills/"
+        cp "$ADAPTERS_DIR/cursor/third-brain-skills.mdc" ".cursor/rules/third-brain-skills.mdc"
+        cp -r "$SKILLS_DIR"/* ".windsurf/skills/"
+        cp "$ADAPTERS_DIR/windsurf/third-brain-skills.md" ".windsurf/rules/third-brain-skills.md"
+        echo "Installed all supported targets"
+        exit 0
+        ;;
     *)
         echo "No supported agent harness detected."
         echo "Installing to ~/.claude/skills/ by default..."
+        HARNESS="claude-code"
         TARGET="$HOME/.claude/skills"
         ;;
 esac
@@ -42,9 +68,21 @@ esac
 # Install
 mkdir -p "$TARGET"
 echo "Installing to: $TARGET"
-cp -r "$SKILLS_DIR"/* "$TARGET/"
+if [ "$HARNESS" = "cursor" ]; then
+    cp "$ADAPTERS_DIR/cursor/third-brain-skills.mdc" "$TARGET/third-brain-skills.mdc"
+elif [ "$HARNESS" = "windsurf" ]; then
+    cp -r "$SKILLS_DIR"/* "$TARGET/"
+    mkdir -p ".windsurf/rules"
+    cp "$ADAPTERS_DIR/windsurf/third-brain-skills.md" ".windsurf/rules/third-brain-skills.md"
+else
+    cp -r "$SKILLS_DIR"/* "$TARGET/"
+fi
 echo ""
-echo "✅ Installed $(ls -d "$SKILLS_DIR"/*/ | wc -l) skills"
+if [ "$HARNESS" = "cursor" ]; then
+    echo "✅ Installed Cursor rules adapter"
+else
+    echo "✅ Installed $(ls -d "$SKILLS_DIR"/*/ | wc -l) skills"
+fi
 echo ""
 echo "Available skills:"
 for skill in "$SKILLS_DIR"/*/; do

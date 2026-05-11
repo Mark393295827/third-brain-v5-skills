@@ -1,6 +1,8 @@
 ---
 name: wiki-ingest
 description: Ingest sources (articles, PDFs, videos, notes) into a persistent interlinked knowledge wiki. Creates source notes, entity pages, concept pages, and updates navigation. Based on the STOW (Source → Think → Organize → Write) pattern.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Wiki Ingest
@@ -19,6 +21,9 @@ Use wiki-ingest on this source. Create source notes, concept pages, entity pages
 
 **Expected Result**
 - The agent creates an immutable source note, 3-7 key insights, linked wiki pages, and a log entry.
+
+**Output Example**
+- `sources/src-YYYYMMDD-title.md`, `wiki/concepts/concept-name.md`, `wiki/entities/entity-name.md`, and `system/log.md` update.
 
 **Verification Case**
 - New wiki pages have frontmatter, source references, at least two `[[wikilinks]]`, and timeline entries.

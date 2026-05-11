@@ -1,15 +1,23 @@
 # Third Brain V5 Skills
 
+<p align="center">
+  <img src="assets/hero.svg" alt="AI-Powered Third Brain V5" width="100%">
+</p>
+
 **Turn Codex CLI, Claude Code, Gemini CLI, Cursor, or Windsurf into a persistent knowledge compounding system.**
 
 Install 16 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, and orchestrating agent teams.
 
+[![GitHub stars](https://img.shields.io/github/stars/Mark393295827/third-brain-v5-skills?style=social)](https://github.com/Mark393295827/third-brain-v5-skills/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/Mark393295827/third-brain-v5-skills)](https://github.com/Mark393295827/third-brain-v5-skills/commits/main)
+[![Issues](https://img.shields.io/github/issues/Mark393295827/third-brain-v5-skills)](https://github.com/Mark393295827/third-brain-v5-skills/issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-8A2BE2)](https://claude.ai/code)
 [![Codex CLI](https://img.shields.io/badge/Codex%20CLI-Compatible-000000)](https://github.com/openai/codex)
 [![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Compatible-4285F4)](https://github.com/google-gemini/gemini-cli)
 [![Cursor](https://img.shields.io/badge/Cursor-Rules%20Adapter-111827)](docs/compatibility.md)
 [![Windsurf](https://img.shields.io/badge/Windsurf-Skills%20Compatible-0EA5E9)](docs/compatibility.md)
+[![Supported Models](https://img.shields.io/badge/models-Claude%20%7C%20GPT%20%7C%20Gemini-22C55E)](GUIDE.md)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Format-2ea44f)](https://agentskills.io)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 ![Skills](https://img.shields.io/badge/skills-16-FF6B6B)
@@ -17,11 +25,25 @@ Install 16 ready-to-use Agent Skills for ingesting sources, building an interlin
 ![Token Tracking](https://img.shields.io/badge/token--tracking-00D1B2)
 ![Ender's Game](https://img.shields.io/badge/Ender's%20Game-Command-8A2BE2)
 
-![Third Brain V5 Skills hero](assets/hero.svg)
-
 ---
 
+## Visual Navigation
+
+Open the local dashboard for a searchable skill map, workflow shortcuts, and cost tools:
+
+```bash
+# macOS
+open tools/index.html
+
+# Windows PowerShell
+Start-Process tools/index.html
+```
+
+Quick links: [Visual Dashboard](tools/index.html) · [One-Click Test Prompt](examples/one-click-test-prompt.md) · [3-Minute Quickstart](examples/3-minute-quickstart.md)
+
 ## Quick Install
+
+![Install demo](assets/install-demo.svg)
 
 For Claude Code, Codex CLI, or Gemini CLI:
 
@@ -29,6 +51,17 @@ For Claude Code, Codex CLI, or Gemini CLI:
 git clone https://github.com/Mark393295827/third-brain-v5-skills.git
 cd third-brain-v5-skills
 bash install.sh
+```
+
+Explicit targets:
+
+```bash
+bash install.sh codex
+bash install.sh claude
+bash install.sh gemini
+bash install.sh cursor
+bash install.sh windsurf
+bash install.sh all
 ```
 
 Manual install paths:
@@ -63,6 +96,8 @@ Paste one of these into your agent after installing:
 "Verify before I ship."
 "Create an agent team to build a full-stack prototype."
 ```
+
+One-click test prompt: [examples/one-click-test-prompt.md](examples/one-click-test-prompt.md).
 
 ## 3-Minute Quick Start
 
@@ -101,13 +136,14 @@ Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quic
 
 | Resource | What it shows |
 |----------|---------------|
+| [tools/index.html](tools/index.html) | Visual dashboard and skill navigation |
 | [dashboard.html](dashboard.html) | Visual overview of the Third Brain V5 system |
-| [tools/index.html](tools/index.html) | Local tool hub |
 | [tools/token-calculator.html](tools/token-calculator.html) | Token cost calculator |
 | [tools/pipeline-cost-calculator.html](tools/pipeline-cost-calculator.html) | Pipeline cost estimator |
 | [GUIDE.md](GUIDE.md) | Full installation, workflow, and troubleshooting guide |
 | [examples/](examples/) | Copyable workflows and Obsidian entry note |
 | [docs/compatibility.md](docs/compatibility.md) | Cursor, Windsurf, and other AI IDE setup |
+| [docs/community-discovery.md](docs/community-discovery.md) | GitHub description, topics, and Awesome-list submission notes |
 
 If this saves you time, consider starring the repo so others can discover it through GitHub search.
 

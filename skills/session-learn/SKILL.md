@@ -1,6 +1,8 @@
 ---
 name: session-learn
 description: Extract reusable knowledge from sessions. Scans for new concepts, entities, corrections, patterns, ideas, decisions, gaps — saves to wiki. Use at session end or "extract knowledge".
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Session Learn
@@ -19,6 +21,9 @@ Use session-learn on this conversation. Extract reusable concepts, decisions, co
 
 **Expected Result**
 - The agent creates or updates notes for concepts, decisions, corrections, and reusable patterns.
+
+**Output Example**
+- A session learning note with concepts, decisions, corrections, reusable patterns, and open gaps.
 
 **Verification Case**
 - The output lists saved files and separates confirmed learning from open questions.

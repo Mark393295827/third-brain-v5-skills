@@ -27,6 +27,15 @@
   .header .en { font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono'; letter-spacing: 4px; margin-top: 4px; }
   .header .zh { font-size: 11px; color: var(--text-muted); letter-spacing: 2px; margin-top: 2px; }
 
+  .hero-panel { background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(168,85,247,0.08)); border: 1px solid rgba(0,212,255,0.24); border-radius: 8px; padding: 18px; margin-bottom: 18px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; align-items: center; }
+  .hero-panel h2 { font-size: 18px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0; }
+  .hero-panel p { color: var(--text-dim); font-size: 11px; line-height: 1.6; }
+  .quick-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .quick-actions a { text-decoration: none; color: var(--text); background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 9px 10px; font-size: 10px; font-family: 'JetBrains Mono'; transition: all 0.2s; }
+  .quick-actions a:hover { color: var(--cyan); border-color: var(--cyan); background: rgba(0,212,255,0.06); }
+  .search-box { width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 10px 12px; margin: 0 0 12px; font-size: 11px; font-family: 'JetBrains Mono'; outline: none; }
+  .search-box:focus { border-color: var(--cyan); box-shadow: 0 0 0 2px rgba(0,212,255,0.08); }
+
   /* Karpathy Score */
   .karpathy-banner {
     background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(168,85,247,0.06));
@@ -76,6 +85,7 @@
   body.zh .lang-en { display: none; }
 
   .footer { text-align: center; padding-top: 16px; border-top: 1px solid var(--border); font-size: 9px; color: var(--text-muted); font-family: 'JetBrains Mono'; letter-spacing: 2px; }
+  @media (max-width: 760px) { .hero-panel { grid-template-columns: 1fr; } .quick-actions { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -92,6 +102,21 @@
   <h1>Third Brain V5 Skills</h1>
   <div class="en">KNOWLEDGE COMPOUNDING · BEHAVIOR DESIGN · CREATIVITY ENGINE</div>
   <div class="zh">知识复利 · 行为设计 · 创意引擎</div>
+</div>
+
+<div class="hero-panel">
+  <div>
+    <h2 class="lang-en">Visual Navigation for the Third Brain</h2>
+    <h2 class="lang-zh">第三大脑可视化导航</h2>
+    <p class="lang-en">Jump from a workflow need to the right skill, example, or cost tool. Start with wiki-ingest for the fastest visible result.</p>
+    <p class="lang-zh">从工作流需求快速跳转到对应技能、案例或成本工具。最快上手路径是 wiki-ingest。</p>
+  </div>
+  <div class="quick-actions">
+    <a href="../examples/3-minute-quickstart.md">3-minute quickstart</a>
+    <a href="../examples/one-click-test-prompt.md">test prompt</a>
+    <a href="../docs/compatibility.md">IDE adapters</a>
+    <a href="pipeline-cost-calculator.html">cost calculator</a>
+  </div>
 </div>
 
 <!-- Karpathy Banner -->
@@ -128,6 +153,7 @@
   <span class="lang-en">Skills (16)</span>
   <span class="lang-zh">技能（16 个）</span>
 </div>
+<input class="search-box" id="skill-search" placeholder="Search skills: ingest, verify, daily, startup..." oninput="filterSkills(this.value)">
 <div class="skill-grid" id="skill-grid"></div>
 
 <!-- Tools -->
@@ -182,6 +208,8 @@ function init() {
   SKILLS.forEach(s => {
     const card = document.createElement('div');
     card.className = 'skill-card';
+    card.dataset.name = s.name;
+    card.dataset.search = `${s.name} ${s.desc_en} ${s.desc_zh}`.toLowerCase();
     card.onclick = () => window.open(`../skills/${s.name}/SKILL.md`, '_blank');
     card.innerHTML = `<div class="name">${s.name}</div><div class="desc-en">${s.desc_en}</div><div class="desc-zh">${s.desc_zh}</div>`;
     sg.appendChild(card);
@@ -193,6 +221,13 @@ function init() {
     card.className = 'tool-card';
     card.innerHTML = `<div class="preview">${t.icon}</div><div class="body"><div class="name" style="color:var(--amber)">${t.name}</div><div class="desc-en">${t.desc_en}</div><div class="desc-zh">${t.desc_zh}</div><div class="actions"><a href="${t.name}" class="btn primary">Open</a></div></div>`;
     tg.appendChild(card);
+  });
+}
+
+function filterSkills(query) {
+  const q = query.trim().toLowerCase();
+  document.querySelectorAll('.skill-card').forEach(card => {
+    card.style.display = !q || card.dataset.search.includes(q) ? '' : 'none';
   });
 }
 

@@ -5,6 +5,7 @@ These examples show complete workflows that users can copy into Codex CLI, Claud
 ## Start Here
 
 - [3-minute quickstart](3-minute-quickstart.md) — the fastest path to a useful wiki-ingest result.
+- [One-click test prompt](one-click-test-prompt.md) — a tiny source users can paste directly into an agent.
 - [Research PDF to wiki](research-pdf-to-wiki.md) — turn a source into notes, concepts, and an output brief.
 - [Verified code session](verified-code-session.md) — use verification gates before claiming a fix.
 - [Daily knowledge loop](daily-knowledge-loop.md) — run a compact daily OKR workflow.

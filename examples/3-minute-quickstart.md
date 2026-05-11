@@ -6,6 +6,13 @@ Use this when you want the fastest visible win from Third Brain V5 Skills.
 
 You have a useful article, PDF, transcript, or rough note, but it is not connected to your long-term knowledge base.
 
+## Input
+
+```text
+Source: one article, PDF excerpt, meeting note, transcript, or copied paragraph.
+Goal: preserve source provenance and create reusable wiki pages.
+```
+
 ## Prompt
 
 ```text
@@ -33,6 +40,10 @@ After writing files, run a quick verification:
 - One or more concept/entity notes that can be reused later.
 - A short ingestion log.
 - A verification note showing what changed.
+
+## After
+
+The loose source becomes a linked knowledge unit with traceable claims, reusable concepts, and a clear next retrieval path.
 
 ## Verification Case
 

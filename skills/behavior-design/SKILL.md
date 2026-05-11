@@ -1,6 +1,8 @@
 ---
 name: behavior-design
 description: Design a behavior change system — decompose a goal into minimum habits, define triggers, build SOPs, and set up review cycles. Use when the user wants to build a habit, change behavior, or achieve a personal goal.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Behavior Design System
@@ -19,6 +21,9 @@ Use behavior-design for this goal. Decompose it into minimum habits, triggers, S
 
 **Expected Result**
 - The agent creates a habit plan with trigger, minimum action, environment design, review metric, and fallback.
+
+**Output Example**
+- A behavior card with goal, trigger, 15-minute action, cue, reward, review metric, and fallback.
 
 **Verification Case**
 - The first action takes 15 minutes or less and has a concrete time, place, trigger, and success criterion.

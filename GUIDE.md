@@ -32,6 +32,18 @@
 # Clone the repository
 git clone https://github.com/Mark393295827/third-brain-v5-skills.git
 cd third-brain-v5-skills
+bash install.sh
+```
+
+Explicit targets:
+
+```bash
+bash install.sh codex
+bash install.sh claude
+bash install.sh gemini
+bash install.sh cursor
+bash install.sh windsurf
+bash install.sh all
 ```
 
 ### Install for Your Platform

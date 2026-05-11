@@ -1,6 +1,8 @@
 ---
 name: daily-okr
 description: Execute a daily knowledge compound closed loop — 7 Key Results from input to feedback with scoring. Use when the user wants to do a daily review, plan their day, or run a knowledge workflow.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Daily OKR — Knowledge Compound Closed Loop
@@ -19,6 +21,9 @@ Run daily-okr in compact mode. Produce one insight, one wiki update, one action 
 
 **Expected Result**
 - The agent addresses all 7 KRs and leaves a concise daily artifact.
+
+**Output Example**
+- A 7-KR scorecard with one captured input, one insight, one wiki update, one action, one idea, one output, and one review.
 
 **Verification Case**
 - KR3 has a wiki update, KR4 has a concrete action, KR7 includes evidence for completed claims, and the score is calculated.

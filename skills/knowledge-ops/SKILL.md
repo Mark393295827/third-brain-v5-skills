@@ -1,6 +1,8 @@
 ---
 name: knowledge-ops
 description: Manage a multi-layered knowledge system — ingest, organize, deduplicate, vectorize, sync, and retrieve across wiki files, vector DB, memory, and external stores. Use when the user wants to save, organize, sync, search, or scale their knowledge base.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Knowledge Operations
@@ -19,6 +21,9 @@ Use knowledge-ops to organize this knowledge base. Deduplicate, classify, sync, 
 
 **Expected Result**
 - The agent proposes or runs organization, deduplication, vector sync, and retrieval steps.
+
+**Output Example**
+- A sync report listing indexed notes, duplicates, skipped files, merge candidates, and retrieval test queries.
 
 **Verification Case**
 - The output reports what was indexed, skipped, merged, or flagged for manual review.

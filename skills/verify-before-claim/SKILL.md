@@ -1,6 +1,8 @@
 ---
 name: verify-before-claim
 description: Iron rule — no completion claims without fresh verification evidence. Use whenever about to claim work is done, fixed, working, or passing. Run verification commands and show output before making any success statement.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Verify Before Claim
@@ -19,6 +21,9 @@ Use verify-before-claim. Before saying this is done, identify the proof command,
 
 **Expected Result**
 - The agent reports command output, exit code, pass/fail count, and any remaining unverified risk.
+
+**Output Example**
+- `Command: npm test`, `Exit code: 0`, `Result: 42 passed, 0 failed`, plus residual risks.
 
 **Verification Case**
 - No completion language appears unless fresh evidence is shown in the same response.

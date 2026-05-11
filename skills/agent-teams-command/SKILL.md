@@ -1,6 +1,8 @@
 ---
 name: agent-teams-command
 description: Ender's Game approach to commanding Claude Code Agent Teams. Strategic multi-agent orchestration with Karpathy Agentic Engineering principles — plan, act, observe, iterate. L1-L5 commander progression.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Ender's Game: Agent Teams Command System
@@ -19,6 +21,9 @@ Use agent-teams-command for this project. Split work into roles, define ownershi
 
 **Expected Result**
 - The agent produces a team plan with roles, responsibilities, communication cadence, integration points, and verification gates.
+
+**Output Example**
+- A team map with agent roles, owned files or modules, deliverables, integration plan, and verification checklist.
 
 **Verification Case**
 - Each delegated task has a bounded scope, clear owner, expected output, and integration check.

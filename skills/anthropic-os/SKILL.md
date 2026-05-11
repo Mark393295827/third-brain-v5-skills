@@ -1,6 +1,8 @@
 ---
 name: anthropic-os
 description: Cognitive Symbiont — Livewired self-evolving system. CASH + 3B creativity algorithms (Bending/Breaking/Blending). Predictive coding, collective intelligence, time-arrow diagnostics.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Anthropic OS — Cognitive Symbiont Engine
@@ -19,6 +21,9 @@ Use anthropic-os on this work system. Diagnose the current loop, identify the bi
 
 **Expected Result**
 - The agent returns a work-method diagnosis with growth loops, allocation choices, feedback mechanisms, and next experiments.
+
+**Output Example**
+- A work-system memo with current loop, big bet, feedback signal, operating principle, and next experiment.
 
 **Verification Case**
 - The output names one measurable system change and how it will be reviewed after the next cycle.

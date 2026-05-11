@@ -4,6 +4,13 @@
 
 The user has scattered inputs, vague priorities, and no compact daily review artifact.
 
+## Input
+
+```text
+Source: today's links, notes, project observations, conversations, or unfinished tasks.
+Goal: compress the day into one insight, one action, one output, and one review score.
+```
+
 ## Prompt
 
 ```text
@@ -30,6 +37,18 @@ The user has:
 - one next action
 - one reusable artifact
 - one daily score
+
+## Output Example
+
+```text
+KR1 Input: 2 signals captured
+KR2 Insight: one-line judgment
+KR3 Wiki: updated wiki/concepts/context-engineering.md
+KR4 Action: 15-minute follow-up scheduled
+KR5 Idea: one cross-domain idea
+KR6 Output: reusable checklist
+KR7 Score: 7/10 with evidence notes
+```
 
 ## Verification
 

@@ -1,6 +1,8 @@
 ---
 name: wiki-lint
 description: Health-check the knowledge wiki — find orphans, broken links, missing frontmatter, contradictions, stale content, and statistical drift. Use when the user says "lint the wiki", "health check", or periodically for maintenance.
+version: "1.1"
+updated: "2026-05-12"
 ---
 
 # Wiki Lint — Knowledge Base Health Check
@@ -19,6 +21,9 @@ Use wiki-lint on my vault. Check frontmatter, broken links, orphans, stale pages
 
 **Expected Result**
 - The agent produces a lint report with ranked issues and concrete repair actions.
+
+**Output Example**
+- A lint report grouped by severity with file paths, issue counts, and repair checklist.
 
 **Verification Case**
 - The report includes file paths, issue counts, severity, and at least one recommended fix per high-priority issue.

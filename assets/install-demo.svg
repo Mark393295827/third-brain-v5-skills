@@ -1,0 +1,22 @@
+<svg width="980" height="420" viewBox="0 0 980 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Third Brain V5 install demo</title>
+  <desc id="desc">A terminal-style demo showing clone, install, and first prompt commands.</desc>
+  <rect width="980" height="420" rx="22" fill="#070B18"/>
+  <rect x="28" y="28" width="924" height="364" rx="16" fill="#0B1020" stroke="#26364F"/>
+  <circle cx="62" cy="58" r="7" fill="#FF5F57"/>
+  <circle cx="86" cy="58" r="7" fill="#FFBD2E"/>
+  <circle cx="110" cy="58" r="7" fill="#28C840"/>
+  <text x="142" y="64" fill="#94A3B8" font-family="JetBrains Mono, Consolas, monospace" font-size="15">3-minute setup</text>
+
+  <text x="64" y="116" fill="#38BDF8" font-family="JetBrains Mono, Consolas, monospace" font-size="20">$ git clone https://github.com/Mark393295827/third-brain-v5-skills.git</text>
+  <text x="64" y="156" fill="#38BDF8" font-family="JetBrains Mono, Consolas, monospace" font-size="20">$ cd third-brain-v5-skills</text>
+  <text x="64" y="196" fill="#38BDF8" font-family="JetBrains Mono, Consolas, monospace" font-size="20">$ bash install.sh</text>
+
+  <text x="64" y="250" fill="#A7F3D0" font-family="JetBrains Mono, Consolas, monospace" font-size="19">Installed 16 skills</text>
+  <text x="64" y="288" fill="#EDE9FE" font-family="JetBrains Mono, Consolas, monospace" font-size="18">Paste into your agent:</text>
+  <text x="64" y="330" fill="#FDE68A" font-family="JetBrains Mono, Consolas, monospace" font-size="18">Use wiki-ingest on this source and verify the created files.</text>
+
+  <rect x="64" y="356" width="270" height="6" rx="3" fill="#38BDF8">
+    <animate attributeName="width" values="90;270;90" dur="3s" repeatCount="indefinite"/>
+  </rect>
+</svg>
