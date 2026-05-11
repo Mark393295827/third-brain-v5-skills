@@ -23,6 +23,9 @@ Use deep-research on this question. Define scope, gather multiple sources, compa
 **Verification Case**
 - Claims are tied to sources, dates are explicit when relevant, and uncertainty is separated from conclusions.
 
+**Verified Effect**
+- A broad research question becomes a sourced synthesis with confidence levels and decision-relevant gaps.
+
 ## When to Use
 
 - User says "research X for me" or "deep dive into X"

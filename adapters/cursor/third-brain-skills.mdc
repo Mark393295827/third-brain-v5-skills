@@ -1,0 +1,28 @@
+---
+description: Route knowledge, behavior, research, verification, and agent-team tasks to Third Brain V5 skill files.
+alwaysApply: false
+---
+
+# Third Brain V5 Skill Router
+
+When the user asks for knowledge ingestion, daily review, research, verification, behavior design, creativity, startup evaluation, or agent-team orchestration:
+
+1. Inspect the relevant `skills/<skill-name>/SKILL.md`.
+2. Follow its `Usage Template` first.
+3. Then follow its workflow and quality gates.
+4. Report the expected output and verification evidence.
+5. State the `Verified Effect` in plain language when summarizing the result.
+
+Common routing:
+
+- Source, PDF, article, or note ingestion -> `skills/wiki-ingest/SKILL.md`
+- Daily review or daily planning -> `skills/daily-okr/SKILL.md`
+- Deep understanding or synthesis -> `skills/cognitive-compile/SKILL.md`
+- Completion claim, bug fix, tests, shipping -> `skills/verify-before-claim/SKILL.md`
+- Habit or behavior change -> `skills/behavior-design/SKILL.md`
+- Idea generation -> `skills/creativity-engine/SKILL.md`
+- Research report -> `skills/deep-research/SKILL.md`
+- Startup idea or due diligence -> `skills/startup-evaluation/SKILL.md`
+- Multi-agent execution -> `skills/agent-teams-command/SKILL.md`
+
+Do not claim a workflow is complete unless the relevant verification case is satisfied.

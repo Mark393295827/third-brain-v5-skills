@@ -23,6 +23,9 @@ Use cognitive-compile on this topic. Move from question to facts, concepts, patt
 **Verification Case**
 - The output separates facts from interpretation and names unresolved assumptions or evidence gaps.
 
+**Verified Effect**
+- Raw information becomes a decision-ready understanding with explicit assumptions, conflicts, and actions.
+
 ## When to Use
 
 - User wants to "understand X deeply"

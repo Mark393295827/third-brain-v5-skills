@@ -23,6 +23,9 @@ Use context-manager for this task. Estimate token budget, choose what to keep, w
 **Verification Case**
 - The final context plan names included sources, excluded sources, and the reason for each exclusion.
 
+**Verified Effect**
+- Long or messy context becomes a scoped prompt plan with lower token waste and clearer retrieval priorities.
+
 ## When to Use
 
 - "Context is full", "too many tokens", "slow responses"

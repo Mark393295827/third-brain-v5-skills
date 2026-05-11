@@ -23,6 +23,9 @@ Use wiki-ingest on this source. Create source notes, concept pages, entity pages
 **Verification Case**
 - New wiki pages have frontmatter, source references, at least two `[[wikilinks]]`, and timeline entries.
 
+**Verified Effect**
+- Knowledge stops being a loose summary: the source becomes traceable, linked, and reusable across future sessions.
+
 ## When to Use
 
 - User drops a file and says "ingest this"

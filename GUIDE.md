@@ -1,6 +1,6 @@
 # Third Brain V5 Skills — Installation & Usage Guide
 
-> **16 skills** transforming AI coding agents into a persistent knowledge compounding system. Compatible with Claude Code, Codex CLI, and Gemini CLI.
+> **16 skills** transforming AI coding agents into a persistent knowledge compounding system. Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, Windsurf, and other rule/context-based AI IDEs.
 
 ---
 
@@ -21,7 +21,7 @@
 
 ### Prerequisites
 
-- **Claude Code** ≥ v2.1.32 (`claude --version`)
+- One supported AI coding tool: **Claude Code**, **Codex CLI**, **Gemini CLI**, **Cursor**, **Windsurf**, or another tool that can read project rules/context files
 - **Git** (`git --version`)
 - **Python 3.8+** (for token-cost-tracker and vector features)
 - **Obsidian** (recommended for wiki knowledge base)
@@ -60,6 +60,27 @@ cp -r skills/* ~/.agents/skills/
 mkdir -p ~/.gemini/skills/
 cp -r skills/* ~/.gemini/skills/
 ```
+
+#### Cursor
+
+Cursor support uses a project-rule adapter that routes requests to the `skills/*/SKILL.md` files kept in this repository.
+
+```bash
+mkdir -p .cursor/rules
+cp adapters/cursor/third-brain-skills.mdc .cursor/rules/third-brain-skills.mdc
+```
+
+#### Windsurf / Cascade
+
+Windsurf can use these as native workspace skills, with an optional routing rule.
+
+```bash
+mkdir -p .windsurf/skills .windsurf/rules
+cp -r skills/* .windsurf/skills/
+cp adapters/windsurf/third-brain-skills.md .windsurf/rules/third-brain-skills.md
+```
+
+For details, see [docs/compatibility.md](docs/compatibility.md).
 
 #### Commands (Optional)
 
@@ -195,6 +216,16 @@ claude "Create a team of 3 agents to research this topic."
 
 ## 5. Workflow Scenarios
 
+For copyable, standalone workflow files, see [examples/](examples/). The five recommended starting workflows are:
+
+| Workflow | Example File | Best Skill Entry |
+|----------|--------------|------------------|
+| 3-minute source ingest | [examples/3-minute-quickstart.md](examples/3-minute-quickstart.md) | `wiki-ingest` |
+| Research PDF to wiki brief | [examples/research-pdf-to-wiki.md](examples/research-pdf-to-wiki.md) | `wiki-ingest` + `cognitive-compile` |
+| Verified code session | [examples/verified-code-session.md](examples/verified-code-session.md) | `verify-before-claim` |
+| Daily knowledge loop | [examples/daily-knowledge-loop.md](examples/daily-knowledge-loop.md) | `daily-okr` |
+| Startup evaluation sprint | [examples/startup-evaluation-sprint.md](examples/startup-evaluation-sprint.md) | `startup-evaluation` |
+
 ### Scenario 1: Knowledge Capture & Compounding
 
 **Goal**: Capture an article, understand it deeply, and make the knowledge compound.
@@ -278,6 +309,27 @@ Step 3 — Behavior Design:
 
 Step 4 — Knowledge Capture:
   "Extract what we learned. Save the winning ideas to my wiki."
+```
+
+### Scenario 5: Startup Evaluation Sprint
+
+**Goal**: Turn an early idea into an evidence map and validation plan.
+
+```
+Step 1 — Frame the Idea:
+  "Use startup-evaluation on this idea:
+   An AI coach that turns reading notes into daily behavior experiments."
+
+Step 2 — Separate Facts from Assumptions:
+  "List what we know, what we assume, and what would kill the idea."
+
+Step 3 — Define the Cheapest Test:
+  "Design a 7-day validation test with one target customer segment,
+   one success metric, and one interview script."
+
+Step 4 — Preserve Learning:
+  "Use session-learn to save the decision, assumptions, and next test
+   into my wiki."
 ```
 
 ---

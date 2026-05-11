@@ -15,9 +15,12 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - Before/after usage cases in README.
 - `examples/` workflows for ingest, verification, daily review, and Obsidian entry.
 - Standard skill template reference.
+- Cursor and Windsurf compatibility documentation and adapter templates.
+- Fifth workflow example for startup evaluation.
 
 ### Changed
 - README first screen now emphasizes value proposition, quick install, try-it prompts, and local demos.
+- Each skill now includes a verified-effect statement in its usage template.
 
 ## Release Template
 

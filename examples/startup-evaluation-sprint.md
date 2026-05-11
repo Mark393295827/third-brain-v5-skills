@@ -1,0 +1,44 @@
+# Workflow: Startup Evaluation Sprint
+
+## Before
+
+The user has an exciting startup idea, but the assumptions are mixed together: customer, market, product, pricing, channel, and risk are not separated.
+
+## Prompt
+
+```text
+Use startup-evaluation on this idea.
+
+Evaluate it as a 90-minute validation sprint:
+1. define the beachhead customer
+2. identify the painful use case
+3. map the value proposition
+4. list the riskiest assumptions
+5. separate facts from guesses
+6. design the cheapest validation test
+7. produce a go / no-go / learn-more recommendation
+
+Final output:
+- one-page evaluation
+- assumption table
+- validation experiment
+- follow-up research questions
+```
+
+## After
+
+The idea becomes a decision artifact:
+
+- who it is for
+- what pain it solves
+- why now
+- what must be true
+- what to test next
+
+## Verification
+
+The workflow is complete when the recommendation is supported by named assumptions and at least one concrete validation test.
+
+## Verified Effect
+
+The user moves from idea excitement to a practical validation plan with cheaper next steps.

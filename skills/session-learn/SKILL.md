@@ -23,6 +23,9 @@ Use session-learn on this conversation. Extract reusable concepts, decisions, co
 **Verification Case**
 - The output lists saved files and separates confirmed learning from open questions.
 
+**Verified Effect**
+- Useful session knowledge is preserved as durable notes instead of disappearing into chat history.
+
 ## When to Use
 
 - "Extract this session" or "save what we learned"

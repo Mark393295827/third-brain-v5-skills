@@ -23,6 +23,9 @@ Use project-flow-ops to triage this backlog. Rank priorities, identify blockers,
 **Verification Case**
 - Every top-priority item has an owner, next action, status, and reason for priority.
 
+**Verified Effect**
+- A messy backlog becomes a ranked execution queue with visible blockers and review cadence.
+
 ## When to Use
 
 - User says "what should I work on next?"

@@ -23,6 +23,9 @@ Use knowledge-ops to organize this knowledge base. Deduplicate, classify, sync, 
 **Verification Case**
 - The output reports what was indexed, skipped, merged, or flagged for manual review.
 
+**Verified Effect**
+- A growing wiki becomes searchable, deduplicated, and ready for semantic retrieval.
+
 ## When to Use
 
 - User wants to "save this to my knowledge base"

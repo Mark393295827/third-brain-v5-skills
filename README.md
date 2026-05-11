@@ -1,6 +1,6 @@
 # Third Brain V5 Skills
 
-**Turn Codex CLI, Claude Code, or Gemini CLI into a persistent knowledge compounding system.**
+**Turn Codex CLI, Claude Code, Gemini CLI, Cursor, or Windsurf into a persistent knowledge compounding system.**
 
 Install 16 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, and orchestrating agent teams.
 
@@ -8,6 +8,8 @@ Install 16 ready-to-use Agent Skills for ingesting sources, building an interlin
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-8A2BE2)](https://claude.ai/code)
 [![Codex CLI](https://img.shields.io/badge/Codex%20CLI-Compatible-000000)](https://github.com/openai/codex)
 [![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Compatible-4285F4)](https://github.com/google-gemini/gemini-cli)
+[![Cursor](https://img.shields.io/badge/Cursor-Rules%20Adapter-111827)](docs/compatibility.md)
+[![Windsurf](https://img.shields.io/badge/Windsurf-Skills%20Compatible-0EA5E9)](docs/compatibility.md)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Format-2ea44f)](https://agentskills.io)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 ![Skills](https://img.shields.io/badge/skills-16-FF6B6B)
@@ -20,6 +22,8 @@ Install 16 ready-to-use Agent Skills for ingesting sources, building an interlin
 ---
 
 ## Quick Install
+
+For Claude Code, Codex CLI, or Gemini CLI:
 
 ```bash
 git clone https://github.com/Mark393295827/third-brain-v5-skills.git
@@ -38,6 +42,14 @@ mkdir -p ~/.claude/skills && cp -r skills/* ~/.claude/skills/
 
 # Gemini CLI
 mkdir -p ~/.gemini/skills && cp -r skills/* ~/.gemini/skills/
+
+# Cursor rules adapter
+mkdir -p .cursor/rules && cp adapters/cursor/third-brain-skills.mdc .cursor/rules/
+
+# Windsurf native workspace skills + routing rule
+mkdir -p .windsurf/skills .windsurf/rules
+cp -r skills/* .windsurf/skills/
+cp adapters/windsurf/third-brain-skills.md .windsurf/rules/
 ```
 
 ## Try It
@@ -95,6 +107,7 @@ Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quic
 | [tools/pipeline-cost-calculator.html](tools/pipeline-cost-calculator.html) | Pipeline cost estimator |
 | [GUIDE.md](GUIDE.md) | Full installation, workflow, and troubleshooting guide |
 | [examples/](examples/) | Copyable workflows and Obsidian entry note |
+| [docs/compatibility.md](docs/compatibility.md) | Cursor, Windsurf, and other AI IDE setup |
 
 If this saves you time, consider starring the repo so others can discover it through GitHub search.
 

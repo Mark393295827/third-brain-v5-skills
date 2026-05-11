@@ -23,6 +23,9 @@ Use harness-engineering for this agent workflow. Design permissions, tools, feed
 **Verification Case**
 - The design names what the agent can do automatically, what needs approval, and what is denied.
 
+**Verified Effect**
+- An ad hoc agent workflow becomes a controlled runtime with explicit permissions, observability, and failure handling.
+
 ## When to Use
 
 - Deploying agents to production

@@ -23,6 +23,9 @@ Use behavior-design for this goal. Decompose it into minimum habits, triggers, S
 **Verification Case**
 - The first action takes 15 minutes or less and has a concrete time, place, trigger, and success criterion.
 
+**Verified Effect**
+- A vague goal becomes a repeatable behavior loop with a trigger, minimum action, review metric, and fallback.
+
 ## When to Use
 
 - User says "I want to build a habit of X"

@@ -23,6 +23,9 @@ Use creativity-engine on this challenge. Generate cross-domain combinations, ran
 **Verification Case**
 - Each finalist idea states the source ingredients, target user, expected value, and a testable next step.
 
+**Verified Effect**
+- Brainstorming turns into ranked options with a smallest viable experiment for the best idea.
+
 ## When to Use
 
 - User wants "new ideas about X"

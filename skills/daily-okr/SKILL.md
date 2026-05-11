@@ -23,6 +23,9 @@ Run daily-okr in compact mode. Produce one insight, one wiki update, one action 
 **Verification Case**
 - KR3 has a wiki update, KR4 has a concrete action, KR7 includes evidence for completed claims, and the score is calculated.
 
+**Verified Effect**
+- A scattered workday becomes one captured insight, one action, one reusable output, and one feedback score.
+
 ## When to Use
 
 - User says "start my daily OKR", "daily review", "today's workflow"

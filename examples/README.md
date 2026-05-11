@@ -8,6 +8,7 @@ These examples show complete workflows that users can copy into Codex CLI, Claud
 - [Research PDF to wiki](research-pdf-to-wiki.md) — turn a source into notes, concepts, and an output brief.
 - [Verified code session](verified-code-session.md) — use verification gates before claiming a fix.
 - [Daily knowledge loop](daily-knowledge-loop.md) — run a compact daily OKR workflow.
+- [Startup evaluation sprint](startup-evaluation-sprint.md) — turn a startup idea into assumptions and a validation plan.
 - [Obsidian entry note](obsidian-entry-note.md) — a lightweight dashboard note for vault users.
 
 ## Pattern

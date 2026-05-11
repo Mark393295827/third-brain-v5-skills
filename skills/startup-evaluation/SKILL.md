@@ -23,6 +23,9 @@ Use startup-evaluation on this idea. Assess customer, market, beachhead, value p
 **Verification Case**
 - The output distinguishes known facts from assumptions and names the next cheapest test.
 
+**Verified Effect**
+- Startup enthusiasm becomes an evidence map, risk register, and practical validation plan.
+
 ## When to Use
 
 - User wants to evaluate a startup idea

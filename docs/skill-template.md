@@ -28,6 +28,9 @@ Use skill-name to ...
 **Verification Case**
 - The result is valid when ...
 
+**Verified Effect**
+- Successful use changes the user's workflow by ...
+
 ## When to Use
 
 - Trigger phrase or situation.

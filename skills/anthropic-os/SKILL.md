@@ -23,6 +23,9 @@ Use anthropic-os on this work system. Diagnose the current loop, identify the bi
 **Verification Case**
 - The output names one measurable system change and how it will be reviewed after the next cycle.
 
+**Verified Effect**
+- A team or personal work system gains an explicit improvement loop rather than relying on one-off productivity tactics.
+
 ## Core Philosophy
 
 > "DNA only provides the basic blueprint. It is every subsequent encounter that shapes who we become." — David Eagleman, *Livewired*

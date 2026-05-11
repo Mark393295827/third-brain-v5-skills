@@ -23,6 +23,9 @@ Use verify-before-claim. Before saying this is done, identify the proof command,
 **Verification Case**
 - No completion language appears unless fresh evidence is shown in the same response.
 
+**Verified Effect**
+- The agent shifts from confidence-based status claims to evidence-based status reports.
+
 ## When to Use
 
 - Before saying "done", "fixed", "complete", "passing", "working"

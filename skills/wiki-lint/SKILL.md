@@ -23,6 +23,9 @@ Use wiki-lint on my vault. Check frontmatter, broken links, orphans, stale pages
 **Verification Case**
 - The report includes file paths, issue counts, severity, and at least one recommended fix per high-priority issue.
 
+**Verified Effect**
+- Wiki health becomes visible through ranked issues instead of vague feelings that the vault is disorganized.
+
 ## When to Use
 
 - User says "lint the wiki", "health check", "run lint"
