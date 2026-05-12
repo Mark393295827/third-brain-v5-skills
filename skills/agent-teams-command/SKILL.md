@@ -7,7 +7,17 @@ updated: "2026-05-12"
 
 # Ender's Game: Agent Teams Command System
 
-> This is not a "feature" — this is a **command system**. Based on Karpathy's Agentic Engineering framework for systematic problem-solving, transforming Claude Code Agent Teams from ad-hoc tools into a complete operational architecture.
+> "Ender knew, even as he gave the order, that this was the way victory would come — not through strength, but through understanding." — Orson Scott Card
+
+> This is not a "feature" — this is a **command system**. You are not "using" Agent Teams. You are **commanding a fleet**. Based on Karpathy's Agentic Engineering framework, transforming Claude Code Agent Teams into a complete operational architecture.
+
+## Command Philosophy: Ender's Three Principles
+
+| Principle | Meaning | Agent Teams |
+|-----------|---------|-------------|
+| **Trust Your Commander** | Ender commands through squad leaders, not every soldier | Let Team Lead coordinate; you don't micromanage each agent |
+| **Understanding Over Strength** | Study the enemy's thinking | Know each agent's capability; choose Opus vs Sonnet deliberately |
+| **Asymmetric Tactics** | Solve problems in unexpected ways | Let agents QA each other; parallel multi-directional exploration |
 
 ## Usage Template
 
