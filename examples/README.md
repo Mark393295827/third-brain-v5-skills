@@ -11,6 +11,7 @@ These examples show complete workflows that users can copy into Codex CLI, Claud
 - [Daily knowledge loop](daily-knowledge-loop.md) — run a compact daily OKR workflow.
 - [Startup evaluation sprint](startup-evaluation-sprint.md) — turn a startup idea into assumptions and a validation plan.
 - [Obsidian entry note](obsidian-entry-note.md) — a lightweight dashboard note for vault users.
+- [LLM + Skills + Obsidian architecture review](llm-skills-obsidian-architecture.md) — audit the whole closed-loop system and produce an architecture diagram.
 
 ## Pattern
 

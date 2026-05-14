@@ -13,7 +13,7 @@ You have access to the following Agent Skills. Each skill is a markdown file in 
 
 ### 🔄 Daily Loop
 - **daily-okr** — 7 Key Results daily cycle: Input → Cognition → Wiki → Behavior → Creativity → Output → Feedback. Includes Stop Doing List.
-- **cognitive-compile** — 7-step deep learning: Question → Facts → Concepts → Patterns → Conflicts → Judgment → Action.
+- **cognitive-compile** — 8-section deep learning compile: Question → Facts → Concepts → Patterns → Conflicts → Hypotheses → Decision → Action.
 
 ### 🎨 Behavior & Creativity
 - **behavior-design** — Behavior change system: goals → habits → triggers → SOPs → review. Includes HAS (Human Agency Scale).
@@ -32,6 +32,7 @@ You have access to the following Agent Skills. Each skill is a markdown file in 
 - **token-cost-tracker** — Command: estimate, log, report token usage.
 
 ### 🏗️ Engineering
+- **agentic-engineering** — Refactor skills and workflows for autonomy, state checkpoints, verification, and lower human coordination load.
 - **harness-engineering** — Agent runtime infrastructure: three-tier permissions, GAN patterns, closed-loop design.
 - **agent-teams-command** — Ender's Game approach to Claude Code Agent Teams. Karpathy Agentic Engineering.
 

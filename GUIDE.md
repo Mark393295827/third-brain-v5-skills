@@ -1,6 +1,6 @@
 # Third Brain V5 Skills — Installation & Usage Guide
 
-> **16 skills** transforming AI coding agents into a persistent knowledge compounding system. Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, Windsurf, and other rule/context-based AI IDEs.
+> **17 skills** transforming AI coding agents into a persistent knowledge compounding system. Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, Windsurf, and other rule/context-based AI IDEs.
 
 ---
 
@@ -56,7 +56,7 @@ cp -r skills/* ~/.claude/skills/
 
 # Verify installation
 ls ~/.claude/skills/ | wc -l
-# Expected output: 16
+# Expected output: 17
 ```
 
 #### Codex CLI
@@ -180,7 +180,7 @@ claude "Create a team of 3 agents to research this topic."
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
 | **daily-okr** | 7-KR cycle: Input→Cognition→Wiki→Behavior→Creativity→Output→Feedback | "run my daily OKR" |
-| **cognitive-compile** | 7-step deep learning: Question→Facts→Concepts→Patterns→Conflicts→Judgment→Action | "do a cognitive compile on X" |
+| **cognitive-compile** | 8-section deep learning compile: Question→Facts→Concepts→Patterns→Conflicts→Hypotheses→Decision→Action | "do a cognitive compile on X" |
 
 ### 🎨 Behavior & Creativity
 
@@ -214,6 +214,7 @@ claude "Create a team of 3 agents to research this topic."
 
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
+| **agentic-engineering** | Refactors skills/workflows for autonomy, state checkpoints, verification, and lower coordination load | "make this workflow more agentic" |
 | **harness-engineering** | Agent runtime: permissions, tools, feedback loops, observability | "how do I make this agent safe?" |
 | **agent-teams-command** | Multi-agent orchestration via Agent Teams (Ender's Game approach) | "create an agent team to build X" |
 

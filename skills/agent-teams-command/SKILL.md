@@ -364,7 +364,7 @@ ORDERS: Create a team of 2 teammates using Sonnet.
 
 ---
 
-## Karpathy Agentic Engineering Quality Gates
+## Quality Gates
 
 ### Systems Engineering Checklist
 

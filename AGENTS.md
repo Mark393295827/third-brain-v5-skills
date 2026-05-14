@@ -11,7 +11,7 @@ This repository contains Agent Skills for the Codex CLI environment. Place skill
 
 ### 🔄 Daily Loop
 - **daily-okr** — 7 Key Results daily knowledge compound cycle.
-- **cognitive-compile** — 7-step deep learning framework.
+- **cognitive-compile** — 8-section deep learning compile framework.
 
 ### 🎨 Behavior & Creativity
 - **behavior-design** — Behavior change system with HAS framework.
@@ -30,6 +30,7 @@ This repository contains Agent Skills for the Codex CLI environment. Place skill
 - **token-cost-tracker** — Token usage estimation and tracking.
 
 ### 🏗️ Engineering
+- **agentic-engineering** — Agentic workflow refactoring with autonomy defaults, state checkpoints, and verification gates.
 - **harness-engineering** — AI agent runtime infrastructure design.
 - **agent-teams-command** — Multi-agent team orchestration.
 

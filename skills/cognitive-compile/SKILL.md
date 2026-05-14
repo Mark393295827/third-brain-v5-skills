@@ -1,19 +1,19 @@
 ---
 name: cognitive-compile
-description: Deep learning 7-step framework — transforms raw information into actionable judgment. Use when the user wants to deeply understand a topic, not just capture it.
-version: "1.1"
-updated: "2026-05-12"
+description: Deep learning compile framework — transforms raw information into actionable judgment. Use when the user wants to deeply understand a topic, not just capture it.
+version: "1.2"
+updated: "2026-05-13"
 ---
 
 # Cognitive Compile — Deep Learning Framework
 
-Transform raw information into structured understanding and actionable judgment through 7 steps.
+Transform raw information into structured understanding and actionable judgment through 8 explicit sections.
 
 ## Usage Template
 
 **Prompt**
 ```text
-Use cognitive-compile on this topic. Move from question to facts, concepts, patterns, conflicts, judgment, and action.
+Use cognitive-compile on this topic. Move from question to facts, concepts, pattern recognition, conflict detection, hypothesis generation, decision support, and action.
 ```
 
 **Use Case**
@@ -23,7 +23,7 @@ Use cognitive-compile on this topic. Move from question to facts, concepts, patt
 - The agent produces a structured reasoning artifact with conflicts, judgment, and next actions.
 
 **Output Example**
-- A 7-section compile: question, facts, concepts, patterns, conflicts, judgment, and action.
+- An 8-section compile: question, facts, concepts, pattern recognition, conflict detection, hypothesis generation, decision support, and action.
 
 **Verification Case**
 - The output separates facts from interpretation and names unresolved assumptions or evidence gaps.
@@ -38,7 +38,7 @@ Use cognitive-compile on this topic. Move from question to facts, concepts, patt
 - After ingesting an important source, before filing it away
 - User says "help me think through this"
 
-## The 7 Steps
+## The 8 Sections
 
 ### 1. What is the original question?
 
@@ -66,7 +66,7 @@ Map the intellectual terrain.
 - Identify relationships between them
 - Note: is this connecting previously unconnected ideas?
 
-### 4. What patterns does this resemble?
+### 4. Pattern Recognition — what patterns does this resemble?
 
 Connect new knowledge to existing mental models.
 
@@ -74,7 +74,7 @@ Connect new knowledge to existing mental models.
 - What analogy from a different domain applies?
 - Does this confirm or challenge existing models in the wiki?
 
-### 5. What conflicts or uncertainties exist?
+### 5. Conflict Detection — what conflicts or uncertainties exist?
 
 Surface tensions, contradictions, and gaps.
 
@@ -82,7 +82,17 @@ Surface tensions, contradictions, and gaps.
 - What is the key uncertainty?
 - What information is missing?
 
-### 6. What judgment can I form?
+### 6. Hypothesis Generation — what can I test?
+
+Turn insight into testable propositions.
+
+```
+If X is true, then Y should happen when I try Z.
+The cheapest way to test this is...
+The evidence that would falsify this is...
+```
+
+### 7. Decision Support — what judgment can I form?
 
 Form a tentative thesis — not final truth, but best current understanding.
 
@@ -90,15 +100,18 @@ Form a tentative thesis — not final truth, but best current understanding.
 On balance, the evidence suggests that...
 The key insight that changes my mental model is...
 I'm most uncertain about...
+This changes my next decision by...
 ```
 
-### 7. What can I act on?
+### 8. What can I act on?
 
 Convert understanding into action.
 
 - One thing to do differently
 - One thing to investigate further
 - One thing to write to the wiki
+- One behavior experiment to run, if applicable
+- One creativity experiment to run, if applicable
 
 ## Output
 
@@ -114,9 +127,13 @@ evidence_level: single-source | multi-source
 
 ## Quality Gates
 
-- [ ] All 7 steps completed
+- [ ] All 8 sections completed
+- [ ] Pattern Recognition is explicit
+- [ ] Conflict Detection is explicit
+- [ ] Hypothesis Generation is explicit
+- [ ] Decision Support is explicit
 - [ ] Step 3: linked to ≥2 existing wiki pages
 - [ ] Step 5: contradictions flagged if any
-- [ ] Step 7: at least 1 concrete action
+- [ ] Final action list includes at least 1 concrete action
 - [ ] Result saved to wiki
 - [ ] Log updated

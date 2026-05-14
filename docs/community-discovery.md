@@ -7,7 +7,13 @@ Use this checklist when publishing or refreshing the GitHub repository page.
 Recommended description:
 
 ```text
-AI-powered Third Brain skills for Codex CLI, Claude Code, Gemini CLI, Cursor, and Windsurf: LLM Wiki, cognitive OS, behavior redesign, verification, and knowledge compounding workflows.
+Third Brain V5 — 17 Production-Ready Agent Skills for Claude / Codex / Cursor | Persistent Knowledge OS + Behavior Design + Creativity Engine
+```
+
+Recommended Chinese description:
+
+```text
+第三大脑 V5 — 17 个生产就绪的 Claude/Codex/Cursor 技能 | 持久知识操作系统 + 行为设计 + 创意引擎
 ```
 
 ## Topics
@@ -48,7 +54,7 @@ Submit only after the README, examples, and install path are stable.
 ## Submission Blurb
 
 ```text
-Third Brain V5 Skills is a collection of 16 Agent Skills that turn AI coding agents into a persistent knowledge compounding system. It supports Codex CLI, Claude Code, Gemini CLI, Cursor, and Windsurf, with workflows for LLM Wiki ingestion, cognitive compile, behavior redesign, verification, multi-agent orchestration, and startup evaluation.
+Third Brain V5 Skills is a collection of 17 Agent Skills that turn AI coding agents into a persistent knowledge compounding system. It supports Codex CLI, Claude Code, Gemini CLI, Cursor, and Windsurf, with workflows for LLM Wiki ingestion, cognitive compile, behavior redesign, verification, agentic workflow design, multi-agent orchestration, and startup evaluation.
 ```
 
 ## Maintenance Cadence

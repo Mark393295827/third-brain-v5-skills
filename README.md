@@ -1,12 +1,12 @@
 # Third Brain V5 Skills
 
 <p align="center">
-  <img src="assets/hero.svg" alt="AI-Powered Third Brain V5" width="100%">
+  <img src="assets/third-brain-v5-system-architecture.png" alt="Third Brain V5 system architecture: LLM, Skills, Obsidian, behavior design, creativity engine, governance, and compounding loops" width="100%">
 </p>
 
-**Turn Codex CLI, Claude Code, Gemini CLI, Cursor, or Windsurf into a persistent knowledge compounding system.**
+**Third Brain V5 — 17 production-ready Agent Skills for Claude, Codex, Gemini, Cursor, and Windsurf. Build a persistent Knowledge OS with Obsidian, behavior design, creativity loops, verification, and multi-agent workflows.**
 
-Install 16 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, and orchestrating agent teams.
+Install 17 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, improving agent workflows, and orchestrating agent teams.
 
 [![GitHub stars](https://img.shields.io/github/stars/Mark393295827/third-brain-v5-skills?style=social)](https://github.com/Mark393295827/third-brain-v5-skills/stargazers)
 [![Last commit](https://img.shields.io/github/last-commit/Mark393295827/third-brain-v5-skills)](https://github.com/Mark393295827/third-brain-v5-skills/commits/main)
@@ -20,7 +20,7 @@ Install 16 ready-to-use Agent Skills for ingesting sources, building an interlin
 [![Supported Models](https://img.shields.io/badge/models-Claude%20%7C%20GPT%20%7C%20Gemini-22C55E)](GUIDE.md)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Format-2ea44f)](https://agentskills.io)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
-![Skills](https://img.shields.io/badge/skills-16-FF6B6B)
+![Skills](https://img.shields.io/badge/skills-17-FF6B6B)
 ![Karpathy LLM OS](https://img.shields.io/badge/Karpathy%20LLM%20OS-Compatible-8A2BE2)
 ![Token Tracking](https://img.shields.io/badge/token--tracking-00D1B2)
 ![Ender's Game](https://img.shields.io/badge/Ender's%20Game-Command-8A2BE2)
@@ -163,7 +163,7 @@ These skills transform any AI coding agent into a **persistent knowledge compoun
 | **🔬 Research & Quality** | Verify before claiming, research with rigor | deep-research, verify-before-claim |
 | **🔄 Continuous Learning** | Extract patterns from every session | session-learn, project-flow-ops |
 | **📊 Context & Cost** | Manage the LLM's scarcest resource | context-manager, token-cost-tracker |
-| **🏗️ Engineering** | Design agent infrastructure and multi-agent teams | harness-engineering, agent-teams-command |
+| **🏗️ Engineering** | Design agent workflows, infrastructure, and multi-agent teams | agentic-engineering, harness-engineering, agent-teams-command |
 | **💼 Strategy** | Evaluate startups, adopt Anthropic-level methods | startup-evaluation, anthropic-os |
 
 ---
@@ -183,7 +183,7 @@ These skills transform any AI coding agent into a **persistent knowledge compoun
 | Skill | Description |
 |-------|-------------|
 | [daily-okr](skills/daily-okr/SKILL.md) | Daily knowledge compound closed loop — 7 Key Results from input to feedback, with scoring. Includes Stop Doing List (Buffett/Munger). |
-| [cognitive-compile](skills/cognitive-compile/SKILL.md) | Deep learning 7-step framework: Question → Facts → Concepts → Patterns → Conflicts → Judgment → Action. |
+| [cognitive-compile](skills/cognitive-compile/SKILL.md) | Deep learning 8-section framework: Question → Facts → Concepts → Pattern Recognition → Conflict Detection → Hypothesis Generation → Decision Support → Action. |
 
 ### 🎨 Behavior & Creativity
 
@@ -217,6 +217,7 @@ These skills transform any AI coding agent into a **persistent knowledge compoun
 
 | Skill | Description |
 |-------|-------------|
+| [agentic-engineering](skills/agentic-engineering/SKILL.md) | Refactor skills and workflows so agents can execute autonomously with clear defaults, checkpoints, verification, and lower human coordination load. |
 | [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — three-tier permissions, GAN-inspired multi-agent patterns, closed-loop system design (Aladdin). |
 | [agent-teams-command](skills/agent-teams-command/SKILL.md) | Ender's Game approach to commanding Claude Code Agent Teams. Karpathy Agentic Engineering — Plan→Act→Observe→Iterate. L1-L5 commander progression. |
 

@@ -1,8 +1,8 @@
 ---
 name: wiki-ingest
 description: Ingest sources (articles, PDFs, videos, notes) into a persistent interlinked knowledge wiki. Creates source notes, entity pages, concept pages, and updates navigation. Based on the STOW (Source → Think → Organize → Write) pattern.
-version: "1.1"
-updated: "2026-05-12"
+version: "1.2"
+updated: "2026-05-13"
 ---
 
 # Wiki Ingest
@@ -30,6 +30,11 @@ Use wiki-ingest on this source. Create source notes, concept pages, entity pages
 
 **Verified Effect**
 - Knowledge stops being a loose summary: the source becomes traceable, linked, and reusable across future sessions.
+
+**V5.2 Closure Add-on**
+- Classify every input as `external-fact`, `human-experience`, `internal-state`, or `environment-signal`.
+- For high-value ingests, decide whether to create one behavior experiment and one creativity experiment.
+- Record governance risks: single-source claims, missing provenance, stale-page risk, and review queue items.
 
 ## When to Use
 
@@ -63,6 +68,7 @@ status: "raw | ingested"
 - Never modify source files after creation
 - Extract 3-7 Key Insights with block refs (`^ki-short-name`)
 - Flag single-source claims with `> [!warning] Single source`
+- Assign an input class: `external-fact | human-experience | internal-state | environment-signal`
 
 ### Step 2: Auto-create Entity Pages
 
@@ -144,7 +150,34 @@ What this means for decision-making.
 2. Update the central index
 3. Update relevant MOC (map of content) pages
 
-### Step 5: Append Timeline
+### Step 5: Convert to Behavior / Creativity When Warranted
+
+After a high-value ingest, run these checks:
+
+| Check | Create / Update |
+|-------|-----------------|
+| The source implies a habit, action, identity shift, pain point, or repeated decision | `08_behaviors/action-sops/` or `08_behaviors/reviews/` |
+| The source suggests a product, content asset, analogy, cross-domain pattern, or minimum test | `09_creativity/experiments/` |
+| The source contains single-source claims, missing provenance, or stale-page risk | `system/governance-dashboard.md` or review queue |
+
+Behavior experiment minimum fields:
+- source concept
+- behavior hypothesis
+- trigger
+- 15-minute action
+- success metric
+- review date
+
+Creativity experiment minimum fields:
+- source ingredients
+- combination formula
+- target user
+- hypothesis
+- minimum test
+- success signal
+- next output
+
+### Step 6: Append Timeline
 
 After updating or creating any wiki page, append a timeline entry at the bottom (below a `---` separator):
 
@@ -162,13 +195,15 @@ After updating or creating any wiki page, append a timeline entry at the bottom 
 - Content below `---` is the **timeline** — append-only, never edited or deleted
 - Add an entry on creation, and every time a core claim changes
 
-### Step 6: Log
+### Step 7: Log
 
 Append to `system/log.md` with:
 - Source ingested
 - Entity pages created/updated
 - Concept pages created/updated
 - Maps updated
+- Behavior / creativity experiments created or explicitly skipped
+- Governance risks recorded
 
 ## Quality Gates
 
@@ -177,6 +212,9 @@ Append to `system/log.md` with:
 - [ ] ≥1 concept page created or updated
 - [ ] Every wiki page has ≥2 `[[wikilinks]]`
 - [ ] Navigation (overview + index + maps) updated
+- [ ] Behavior conversion assessed
+- [ ] Creativity conversion assessed
+- [ ] Governance risks recorded
 - [ ] Log appended
 
 ## Page Format

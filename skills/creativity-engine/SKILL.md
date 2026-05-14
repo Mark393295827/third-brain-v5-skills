@@ -1,8 +1,8 @@
 ---
 name: creativity-engine
 description: Generate, validate, and output new ideas based on existing knowledge. Combines combinatorial creativity, cross-domain analogy, and minimum experiments. Use when the user wants fresh ideas, new product concepts, or creative solutions.
-version: "1.1"
-updated: "2026-05-12"
+version: "1.2"
+updated: "2026-05-13"
 ---
 
 # Creativity Engine
@@ -27,6 +27,7 @@ Use creativity-engine on this challenge. Generate cross-domain combinations, ran
 
 **Verification Case**
 - Each finalist idea states the source ingredients, target user, expected value, and a testable next step.
+- Post-ingest ideas are saved as experiment notes when they have a plausible minimum test.
 
 **Verified Effect**
 - Brainstorming turns into ranked options with a smallest viable experiment for the best idea.
@@ -95,6 +96,15 @@ For the top 3 ideas, design the cheapest test:
 | 2 | ... | Landing page + ads | ≥5% signup rate | $50 |
 | 3 | ... | Manual prototype | Works for 1 case | Time |
 
+For Obsidian workflows, save the selected experiment to `09_creativity/experiments/` with:
+- source ingredients
+- combination formula
+- target user
+- hypothesis
+- minimum test
+- success signal
+- next output
+
 ### C4: Output Asset
 
 After validation, if the idea survives:
@@ -125,4 +135,5 @@ Evaluate each idea:
 - [ ] ≥10 ideas generated across ≥3 categories
 - [ ] Top 3 have minimum experiment designs
 - [ ] Each idea cites its source concept(s)
+- [ ] Selected experiment is saved to `09_creativity/experiments/` when working in an Obsidian vault
 - [ ] Validated ideas written to durable output

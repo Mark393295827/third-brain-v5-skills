@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO="Mark393295827/third-brain-v5-skills"
-BRANCH="master"
+BRANCH="main"
 SKILLS_DIR="$(dirname "$0")/skills"
 ADAPTERS_DIR="$(dirname "$0")/adapters"
 TARGET_ARG="${1:-auto}"

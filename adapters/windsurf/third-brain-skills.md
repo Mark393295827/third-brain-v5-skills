@@ -17,6 +17,12 @@ Routing:
 - Idea generation -> `@creativity-engine`
 - Research report -> `@deep-research`
 - Startup idea or due diligence -> `@startup-evaluation`
+- Knowledge organization, deduplication, or vector search -> `@knowledge-ops`
+- Wiki health check, broken links, or stale pages -> `@wiki-lint`
+- Context limits or token budget -> `@context-manager`
+- Agent workflow refactor or autonomy design -> `@agentic-engineering`
+- Agent permissions, tools, observability, or runtime safety -> `@harness-engineering`
+- Team operating system, growth method, or self-evolving work method -> `@anthropic-os`
 - Multi-agent execution -> `@agent-teams-command`
 
 For each selected skill:

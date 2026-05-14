@@ -124,6 +124,15 @@ For rapid assessment, focus on these critical factors:
 | **C** | Small or crowded | Weak PMF, undifferentiated | Inexperienced or incomplete | Pass or pivot needed |
 | **D** | No clear market | No product-market fit | Wrong team | Clear pass |
 
+## Quality Gates
+
+- [ ] Known facts are separated from assumptions.
+- [ ] Beachhead customer and painful use case are explicit.
+- [ ] Market, product, business model, and execution risks are scored.
+- [ ] Competitive alternatives are named.
+- [ ] Next cheapest validation test is concrete and measurable.
+- [ ] Final verdict includes residual uncertainty.
+
 ## Key Insights from Bill Aulet
 
 1. **Start small, think big** — Beachhead market first, then expand

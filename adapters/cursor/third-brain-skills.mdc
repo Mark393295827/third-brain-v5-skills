@@ -23,6 +23,12 @@ Common routing:
 - Idea generation -> `skills/creativity-engine/SKILL.md`
 - Research report -> `skills/deep-research/SKILL.md`
 - Startup idea or due diligence -> `skills/startup-evaluation/SKILL.md`
+- Knowledge organization, deduplication, or vector search -> `skills/knowledge-ops/SKILL.md`
+- Wiki health check, broken links, or stale pages -> `skills/wiki-lint/SKILL.md`
+- Context limits or token budget -> `skills/context-manager/SKILL.md`
+- Agent workflow refactor or autonomy design -> `skills/agentic-engineering/SKILL.md`
+- Agent permissions, tools, observability, or runtime safety -> `skills/harness-engineering/SKILL.md`
+- Team operating system, growth method, or self-evolving work method -> `skills/anthropic-os/SKILL.md`
 - Multi-agent execution -> `skills/agent-teams-command/SKILL.md`
 
 Do not claim a workflow is complete unless the relevant verification case is satisfied.
