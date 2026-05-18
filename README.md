@@ -153,6 +153,10 @@ If this saves you time, consider starring the repo so others can discover it thr
 
 These skills transform any AI coding agent into a **persistent knowledge compounding system**. Instead of treating each conversation as a one-off chat, these skills create an interlinked knowledge base that grows richer with every session — while also providing strategic execution frameworks inspired by Anthropic's work methods and Karpathy's Agentic Engineering.
 
+### Agent Understanding Framework
+
+Third Brain treats agents as LLM OS processes, not chat personas: the LLM is the CPU, context is RAM, Obsidian/wiki/logs are disk, tools are system calls, skills are executable programs, and the harness is the kernel that enforces permissions and observability. See [Agent Understanding Framework](wiki/concepts/agent-understanding-framework.md).
+
 ### Design Philosophy
 
 | Layer | Principle | Skills |
@@ -236,6 +240,7 @@ These skills transform any AI coding agent into a **persistent knowledge compoun
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                      Karpathy LLM OS Layer                                │
 │  LLM=CPU │ Context=RAM │ Storage=Disk │ Tools=System Calls                │
+│  Skills=Programs │ Harness=Kernel │ Agent Teams=Processes                 │
 │  ┌──────────────────────────────────────────────────────────────────┐    │
 │  │ context-manager: Token Budget → Prompt Assembly → Truncation     │    │
 │  │ token-cost-tracker: Estimate → Log → Report                     │    │

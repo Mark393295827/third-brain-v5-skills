@@ -1,8 +1,8 @@
 ---
 name: agent-teams-command
 description: Ender's Game approach to commanding Claude Code Agent Teams. Strategic multi-agent orchestration with Karpathy Agentic Engineering principles — plan, act, observe, iterate. L1-L5 commander progression.
-version: "1.1"
-updated: "2026-05-12"
+version: "1.2"
+updated: "2026-05-18"
 ---
 
 # Ender's Game: Agent Teams Command System
@@ -53,7 +53,26 @@ Task List       = Shared Memory / IPC
 Context Window  = RAM (per agent, isolated)
 Tools           = System Calls
 QA Loop         = Error Correction / Interrupt Handler
+Team Log        = Durable Disk / Write-back
 ```
+
+---
+
+## Agent Team Operating Model
+
+Use agent teams only when parallel processes reduce wall-clock time or increase quality. Each process needs a bounded territory, explicit IPC, and an integration gate.
+
+| OS concern | Team command rule |
+|---|---|
+| Process creation | Spawn only for independent or reviewable work. |
+| Memory isolation | Give each teammate only the context needed for its scope. |
+| IPC | Use task lists, handoff notes, and review reports. |
+| Locks | Assign file/module ownership before work begins. |
+| Interrupts | Stop or redirect agents when scope, safety, or quality drifts. |
+| Join | Integrate only after each output has evidence. |
+| Cleanup | Close agents and write lessons to wiki/logs. |
+
+Avoid parallelism when the next step depends on a single blocking decision. Do that work locally, then delegate independent slices.
 
 ---
 
@@ -149,6 +168,7 @@ Sub-agents  = Single-threaded sub-processes
 □ QA loop as error correction mechanism
 □ Plan→Act→Observe iteration
 □ Resource monitoring (Token cost)
+□ Team log captures decisions, evidence, and reusable learning
 ```
 
 ---
@@ -181,11 +201,13 @@ DELIVERABLES:
 1. [Deliverable 1]
 2. [Deliverable 2]
 3. QA report
+4. Integration notes + residual risks
 
 QUALITY GATES:
 - [ ] All tests passing
 - [ ] No critical QA issues
 - [ ] No file ownership conflicts
+- [ ] Each teammate reports changed files, evidence, and open risks
 ```
 
 ### Three Engineering Laws
@@ -280,6 +302,7 @@ Optimal size: 3-5 agents (beyond → scheduling overhead > parallel gain)
 Model selection: Sonnet (default) | Opus (complex reasoning) | Haiku (simple tasks)
 Token budget: Each agent has independent context window
 Cleanup protocol: Lead MUST execute cleanup (otherwise resource leak)
+Write-back: Lead records decisions, evidence, and reusable lessons
 ```
 
 ### Resource Cleanup Protocol
@@ -393,6 +416,7 @@ ORDERS: Create a team of 2 teammates using Sonnet.
 □ Post-mission report generated
 □ Lessons captured in knowledge base
 □ Applicable to future campaigns
+□ Teammates closed or explicitly handed off
 ```
 
 ### Diagnostic Matrix
