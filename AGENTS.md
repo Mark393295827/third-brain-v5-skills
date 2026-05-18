@@ -30,9 +30,9 @@ This repository contains Agent Skills for the Codex CLI environment. Place skill
 - **token-cost-tracker** — Token usage estimation and tracking.
 
 ### 🏗️ Engineering
-- **agentic-engineering** — Agentic workflow refactoring with autonomy defaults, state checkpoints, and verification gates.
-- **harness-engineering** — AI agent runtime infrastructure design.
-- **agent-teams-command** — Multi-agent team orchestration.
+- **agentic-engineering** — Agent-as-process workflow refactoring with autonomy defaults, state checkpoints, write-back, and verification gates.
+- **harness-engineering** — Agent runtime kernel design: permissions, tools as system calls, observability, and recovery.
+- **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, integration, cleanup, and evidence gates.
 
 ### 💼 Strategy
 - **startup-evaluation** — MIT 24-step startup evaluation framework.
@@ -41,3 +41,7 @@ This repository contains Agent Skills for the Codex CLI environment. Place skill
 ## Compatibility
 
 All skills follow the [Agent Skills](https://agentskills.io) open format. Skills are model-agnostic markdown files compatible with Codex CLI.
+
+## Karpathy LLM OS
+
+LLM=CPU · Context=RAM · Storage=Disk · Tools=System Calls · Skills=Programs · Harness=Kernel · Agent Teams=Processes

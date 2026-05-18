@@ -6,7 +6,12 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 
 ## Unreleased
 
-- Nothing yet.
+### Added
+- Agent understanding framework wiki concept mapping Karpathy LLM OS ideas to Third Brain agent workflow, harness, and team design.
+
+### Changed
+- `agentic-engineering`, `harness-engineering`, and `agent-teams-command` now share a process/kernel/system-call mental model with explicit write-back and cleanup rules.
+- README, GUIDE, and CLI entry docs now link or describe the expanded LLM OS architecture mapping.
 
 ## v5.1 - 2026-05-14
 

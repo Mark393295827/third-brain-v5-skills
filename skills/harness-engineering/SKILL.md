@@ -1,13 +1,27 @@
 ---
 name: harness-engineering
 description: Design runtime infrastructure around AI agents — permissions, tools, feedback loops, observability. Use when deploying agents to production or designing multi-agent systems.
-version: "1.1"
-updated: "2026-05-12"
+version: "1.2"
+updated: "2026-05-18"
 ---
 
 # Harness Engineering
 
 Design the system *around* AI agents for reliable, safe production use.
+
+## Agent Runtime Model
+
+Treat the agent harness as the kernel around an LLM OS:
+
+| Kernel concern | Agent harness responsibility |
+|---|---|
+| Memory management | Curate context, summarize bulky outputs, persist state to wiki/logs. |
+| Syscall boundary | Expose tools with contracts, allowlists, deny rules, and retries. |
+| Process isolation | Separate write scopes, sandboxes, credentials, and state per agent. |
+| Scheduling | Decide sequential, parallel, or event-driven execution. |
+| Interrupts | Stop, ask approval, rollback, or route to a safer action. |
+| Observability | Log tool calls, decisions, outputs, costs, and verification evidence. |
+| Garbage collection | Close idle agents, remove stale tasks, compact context, and record risks. |
 
 ## Usage Template
 
@@ -58,6 +72,7 @@ Use harness-engineering for this agent workflow. Design permissions, tools, feed
 - Use `CLAUDE.md` for project-level context
 - Use `context-manager` for token budgeting
 - Never inject raw 10K+ token files
+- Persist reusable outputs to wiki, docs, logs, or state files; chat history is not durable memory
 
 ### 2. Tooling & API Surface
 **Three-Tier Permission Model:**
@@ -91,10 +106,12 @@ Use harness-engineering for this agent workflow. Design permissions, tools, feed
 - Log every tool call + result
 - Metrics: success rate, revert rate, token usage
 - Cost tracking per session
+- Evidence ledger: verification command, source link, screenshot, test result, or diff for each completion claim
 
 ### 6. Maintenance
 - Periodic agents: dead code, outdated docs, architectural drift
 - Wiki lint for broken links/missing frontmatter
+- Context garbage collection: summarize completed work, close idle processes, and record residual risk
 
 ---
 
@@ -142,6 +159,23 @@ Generator ←──sprint contract──→ Evaluator
 
 ---
 
+## Permissioned Tool Design
+
+Define every tool like a system call:
+
+| Field | Required question |
+|---|---|
+| Purpose | What state can this tool read or change? |
+| Inputs | Which arguments must be explicit, not inferred? |
+| Bounds | Which paths, domains, records, or resources are allowed? |
+| Failure mode | What is the safe fallback when it fails or is denied? |
+| Evidence | What output proves it succeeded? |
+| Audit | Where is the call logged? |
+
+Prefer narrow tools with explicit inputs over broad shell/API access. If broad access is unavoidable, wrap it with approval gates and post-action verification.
+
+---
+
 ## Closed-Loop System (Aladdin)
 
 ```
@@ -174,3 +208,5 @@ Data Lake → Risk Engine → Optimizer → Stress Test → OMS → Compliance �
 - [ ] High-risk actions require approval
 - [ ] Multi-agent isolation prevents interference
 - [ ] Generator and Evaluator separate for complex tasks
+- [ ] Reusable outputs have durable write-back outside chat history
+- [ ] Tool contracts include bounds, failure path, evidence, and audit trail

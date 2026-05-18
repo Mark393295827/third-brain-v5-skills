@@ -32,9 +32,9 @@ You have access to the following Agent Skills. Each skill is a markdown file in 
 - **token-cost-tracker** — Command: estimate, log, report token usage.
 
 ### 🏗️ Engineering
-- **agentic-engineering** — Refactor skills and workflows for autonomy, state checkpoints, verification, and lower human coordination load.
-- **harness-engineering** — Agent runtime infrastructure: three-tier permissions, GAN patterns, closed-loop design.
-- **agent-teams-command** — Ender's Game approach to Claude Code Agent Teams. Karpathy Agentic Engineering.
+- **agentic-engineering** — Refactor skills and workflows as agent processes with autonomy defaults, state checkpoints, write-back, and verification gates.
+- **harness-engineering** — Agent runtime kernel: three-tier permissions, tools as system calls, observability, recovery, and closed-loop design.
+- **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, integration, cleanup, and evidence gates.
 
 ### 💼 Strategy
 - **startup-evaluation** — MIT 24-step startup evaluation framework.
@@ -54,7 +54,7 @@ Invoke any skill naturally:
 ## Grounding Principles
 
 ### Karpathy LLM OS
-LLM=CPU · Context=RAM · Storage=Disk · Tools=System Calls · Agent Teams=Parallel Processes
+LLM=CPU · Context=RAM · Storage=Disk · Tools=System Calls · Skills=Programs · Harness=Kernel · Agent Teams=Processes
 
 ### 3B Creativity Algorithms
 - **Bending**: Mutate existing success patterns into new contexts
