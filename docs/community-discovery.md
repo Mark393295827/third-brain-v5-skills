@@ -49,7 +49,9 @@ Run the target finder:
 
 ```powershell
 $env:GITHUB_TOKEN="ghp_your_token_here"
+python tools\configure-github-repo.py --apply
 python tools\find-awesome-pr-targets.py
+python tools\submit-awesome-prs.py --limit 3
 python tools\growth-loop.py
 ```
 
@@ -69,7 +71,11 @@ Use generated files:
 - `outreach/awesome-lists/awesome-pr-targets.md`
 - `outreach/awesome-lists/awesome-pr-template.md`
 - `outreach/awesome-lists/awesome-candidates.json`
+- `outreach/awesome-lists/awesome-pr-runbook.md`
 - `outreach/growth-reports/YYYY-MM-DD.md`
+
+The Awesome submitter defaults to dry-run and marks ambiguous section placement
+as `needs-review`; review those manually before using `--allow-new-section`.
 
 ## Submission Blurb
 

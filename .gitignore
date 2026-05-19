@@ -4,5 +4,6 @@ __pycache__/
 .vscode/
 .idea/
 *.log
+outreach/awesome-lists/previews/
 .DS_Store
 Thumbs.db

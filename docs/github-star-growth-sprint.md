@@ -41,6 +41,14 @@ The loop follows: test repository metrics and launch assets -> verify current st
 - [ ] Pin current draft PR or release if it explains the agent framework update.
 - [ ] Create a GitHub Release titled `v5.2 Agent Understanding Framework` after merging the current PR.
 
+Automate the metadata check:
+
+```powershell
+python tools\configure-github-repo.py
+$env:GITHUB_TOKEN="ghp_your_token_here"
+python tools\configure-github-repo.py --apply
+```
+
 ### Hour 2-8: Awesome-List PRs
 
 Run:
@@ -48,6 +56,7 @@ Run:
 ```powershell
 $env:GITHUB_TOKEN="ghp_your_token_here"
 python tools\find-awesome-pr-targets.py
+python tools\submit-awesome-prs.py --limit 3
 ```
 
 Open 3-5 high-fit PRs first:
@@ -65,6 +74,18 @@ Use generated assets:
 - `outreach/awesome-lists/awesome-pr-targets.md`
 - `outreach/awesome-lists/awesome-pr-template.md`
 - `outreach/awesome-lists/awesome-candidates.json`
+- `outreach/awesome-lists/awesome-pr-runbook.md`
+
+Only submit with explicit apply mode after reviewing the preview files:
+
+```powershell
+$env:GITHUB_TOKEN="ghp_your_token_here"
+python tools\submit-awesome-prs.py --limit 3 --apply
+```
+
+If a target has no clear matching section, the submitter marks it as
+`needs-review` instead of opening a low-quality PR. Use `--allow-new-section`
+only when the new section is appropriate for that list.
 
 ### Hour 8-24: Launch Posts
 

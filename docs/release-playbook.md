@@ -41,7 +41,9 @@ Run this once per week:
 
 ## Launch Checklist
 
+- [ ] Run `python tools/configure-github-repo.py` and apply the metadata update when the token is available.
 - [ ] Run `python tools/find-awesome-pr-targets.py`.
+- [ ] Run `python tools/submit-awesome-prs.py --limit 3` and review previews.
 - [ ] Run `python tools/growth-loop.py`.
 - [ ] Open 3-5 relevant Awesome-list PRs.
 - [ ] Publish one X thread from `outreach/launch/x-thread.md`.

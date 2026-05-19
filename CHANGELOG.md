@@ -10,6 +10,7 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - Agent understanding framework wiki concept mapping Karpathy LLM OS ideas to Third Brain agent workflow, harness, and team design.
 - GitHub star growth sprint playbook, launch copy pack, and Awesome-list target finder for legitimate open-source distribution.
 - Continuous growth-loop script that tests repository metrics, verifies launch assets, evaluates readiness, and writes dated improvement reports.
+- GitHub repository metadata configurator and Awesome-list PR submitter scripts with dry-run defaults and explicit token-gated apply mode.
 
 ### Changed
 - `agentic-engineering`, `harness-engineering`, and `agent-teams-command` now share a process/kernel/system-call mental model with explicit write-back and cleanup rules.
