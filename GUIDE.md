@@ -214,9 +214,9 @@ claude "Create a team of 3 agents to research this topic."
 
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
-| **agentic-engineering** | Refactors skills/workflows for autonomy, state checkpoints, verification, and lower coordination load | "make this workflow more agentic" |
-| **harness-engineering** | Agent runtime: permissions, tools, feedback loops, observability | "how do I make this agent safe?" |
-| **agent-teams-command** | Multi-agent orchestration via Agent Teams (Ender's Game approach) | "create an agent team to build X" |
+| **agentic-engineering** | Refactors workflows as agent processes with autonomy defaults, state checkpoints, write-back, and verification | "make this workflow more agentic" |
+| **harness-engineering** | Agent runtime kernel: permissions, tools as system calls, feedback loops, observability, recovery | "how do I make this agent safe?" |
+| **agent-teams-command** | Multi-agent process orchestration with ownership, IPC, integration, cleanup, and evidence gates | "create an agent team to build X" |
 
 ### 💼 Strategy
 

@@ -1,0 +1,35 @@
+{
+  "mode": "dry-run",
+  "results": [
+    {
+      "repo": "Prat011/awesome-llm-skills",
+      "status": "prepared",
+      "mode": "inserted-under:### Claude Code (Anthropic)",
+      "preview_path": "outreach\\awesome-lists\\previews\\Prat011__awesome-llm-skills__README.preview.md"
+    },
+    {
+      "repo": "IAAR-Shanghai/Awesome-AI-Memory",
+      "status": "needs-review",
+      "mode": "appended-new-section",
+      "preview_path": "outreach\\awesome-lists\\previews\\IAAR-Shanghai__Awesome-AI-Memory__README.preview.md"
+    },
+    {
+      "repo": "PatrickJS/awesome-cursorrules",
+      "status": "prepared",
+      "mode": "inserted-under:# Awesome Cursor Rules [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)",
+      "preview_path": "outreach\\awesome-lists\\previews\\PatrickJS__awesome-cursorrules__README.preview.md"
+    },
+    {
+      "repo": "sanjeed5/awesome-cursor-rules-mdc",
+      "status": "needs-review",
+      "mode": "appended-new-section",
+      "preview_path": "outreach\\awesome-lists\\previews\\sanjeed5__awesome-cursor-rules-mdc__README.preview.md"
+    },
+    {
+      "repo": "hyp1231/awesome-llm-powered-agent",
+      "status": "prepared",
+      "mode": "inserted-under:# Awesome LLM-Powered Agent",
+      "preview_path": "outreach\\awesome-lists\\previews\\hyp1231__awesome-llm-powered-agent__README.preview.md"
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 node_modules/
+__pycache__/
+*.pyc
 .vscode/
 .idea/
 *.log
+outreach/awesome-lists/previews/
 .DS_Store
 Thumbs.db

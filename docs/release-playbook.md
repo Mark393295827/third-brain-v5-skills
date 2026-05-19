@@ -36,6 +36,19 @@ Run this once per week:
 - [ ] At least one quick prompt shows the expected workflow.
 - [ ] Demo or screenshot links are easy to find.
 - [ ] Troubleshooting covers the most common failure mode.
+- [ ] The README has one honest star CTA tied to user value.
+- [ ] The release has a short launch post ready for X / HN / Product Hunt.
+
+## Launch Checklist
+
+- [ ] Run `python tools/configure-github-repo.py` and apply the metadata update when the token is available.
+- [ ] Run `python tools/find-awesome-pr-targets.py`.
+- [ ] Run `python tools/submit-awesome-prs.py --limit 3` and review previews.
+- [ ] Run `python tools/growth-loop.py`.
+- [ ] Open 3-5 relevant Awesome-list PRs.
+- [ ] Publish one X thread from `outreach/launch/x-thread.md`.
+- [ ] Submit Show HN only when README and demo links are stable.
+- [ ] Convert repeated launch feedback into docs or examples within 48 hours.
 
 ## Suggested GitHub Topics
 

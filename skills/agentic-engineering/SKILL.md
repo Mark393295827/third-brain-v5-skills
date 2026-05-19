@@ -1,13 +1,27 @@
 ---
 name: agentic-engineering
 description: Design or refactor agent skills, workflows, and operating loops for model-native Agentic Engineering. Use when making skills more autonomous, concise, verifiable, long-horizon capable, token-efficient, and lower-friction for human-LLM collaboration.
-version: "1.0"
-updated: "2026-05-13"
+version: "1.2"
+updated: "2026-05-18"
 ---
 
 # Agentic Engineering
 
 Refactor a skill or workflow so the model can execute more work with less human steering, while preserving verification, provenance, and control of high-risk actions.
+
+## Agent Understanding Model
+
+Use the Karpathy-style LLM OS mapping as the design baseline:
+
+| OS concept | Agent workflow meaning |
+|---|---|
+| LLM = CPU | The model runs the next reasoning/action loop. |
+| Context = RAM | Load only the state needed for the next step. |
+| Wiki/logs = Disk | Durable knowledge lives outside chat memory. |
+| Tools = System calls | Actions must have contracts, permissions, and evidence. |
+| Loop = Scheduler | Plan -> Act -> Observe -> Iterate controls work. |
+
+The agent is a process with state, tools, permissions, and write-back duties. Do not design skills as advice pages; design them as executable control loops.
 
 ## Usage Template
 
@@ -41,6 +55,7 @@ Design around the model as it is, not as a human assistant metaphor.
 | Output is probabilistic | Require tests, citations, diffs, screenshots, or link checks before claims. |
 | Tool use is the action layer | Name allowed tools, denied actions, and idempotent retries. |
 | Long-horizon drift is normal | Add checkpoints, state files, stop criteria, and recovery paths. |
+| Durable knowledge is external | Persist reusable results into wiki, docs, logs, or state files. |
 | The model is strong at synthesis | Do not over-explain generic concepts; specify local constraints and unusual rules. |
 | The model can over-ask | Provide safe defaults and ask only for irreversible, high-risk, or genuinely ambiguous decisions. |
 | Cost and latency matter | Route simple work to thin loops; reserve deep context for high-uncertainty decisions. |
@@ -88,11 +103,13 @@ Avoid relying on chat memory for multi-hour or multi-session continuity.
 ### 4. Use the Thin Loop
 
 ```text
+Boot minimal context.
 Plan the next smallest useful step.
-Act with tools.
-Observe evidence.
-Update state.
+Act with tools as system calls.
+Observe environmental evidence.
+Update durable state.
 Verify or iterate.
+Write back reusable learning.
 Stop when definition of done is proven.
 ```
 
@@ -118,6 +135,18 @@ Every completion claim needs fresh evidence:
 - source references resolve
 - known residual risks are named
 
+### 7. Close the Memory Loop
+
+After significant output, decide where the result belongs:
+
+| Output | Durable home |
+|---|---|
+| Source-derived claim | `sources/` reference + `wiki/` synthesis |
+| Reusable workflow | skill, SOP, or command file |
+| Project decision | `wiki/decisions/` or project log |
+| Correction | related wiki page + change log |
+| Open risk | review queue or issue tracker |
+
 ## Quality Gates
 
 - [ ] Trigger description says exactly when to use the skill.
@@ -125,6 +154,7 @@ Every completion claim needs fresh evidence:
 - [ ] Workflow has safe defaults and a narrow ask-user policy.
 - [ ] Long-horizon tasks have checkpoints or state artifacts.
 - [ ] Quality gates include executable or inspectable evidence.
+- [ ] Significant outputs have a write-back destination.
 - [ ] Anti-patterns name the most likely model failure modes.
 - [ ] Output format is concrete enough for another agent to follow.
 
@@ -134,4 +164,5 @@ Every completion claim needs fresh evidence:
 - Writing long philosophy where a table or checklist would guide better.
 - Claiming completion from confidence instead of verification.
 - Keeping state only in conversation.
+- Treating tools as magic actions instead of permissioned system calls.
 - Optimizing for one impressive answer instead of a reusable loop.
