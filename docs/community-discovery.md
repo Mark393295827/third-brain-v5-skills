@@ -45,11 +45,29 @@ startup-evaluation
 
 Submit only after the README, examples, and install path are stable.
 
-- Awesome AI Agents
-- Awesome Claude Code
-- Awesome Obsidian
-- Awesome LLM Apps
-- Awesome Prompt Engineering
+Run the target finder:
+
+```powershell
+$env:GITHUB_TOKEN="ghp_your_token_here"
+python tools\find-awesome-pr-targets.py
+```
+
+Current high-priority targets:
+
+| Priority | Repository | Fit |
+|---:|---|---|
+| 1 | `Prat011/awesome-llm-skills` | Direct fit: LLM and AI Agent Skills. |
+| 2 | `PatrickJS/awesome-cursorrules` | Very high-star Cursor audience; adapter-rule angle. |
+| 3 | `sanjeed5/awesome-cursor-rules-mdc` | Cursor `.mdc` rules audience. |
+| 4 | `hyp1231/awesome-llm-powered-agent` | Broad LLM agent ecosystem. |
+| 5 | `IAAR-Shanghai/Awesome-AI-Memory` | Memory / persistent knowledge angle. |
+| 6 | `kaushikb11/awesome-llm-agents` | Agent frameworks and resources. |
+
+Use generated files:
+
+- `outreach/awesome-lists/awesome-pr-targets.md`
+- `outreach/awesome-lists/awesome-pr-template.md`
+- `outreach/awesome-lists/awesome-candidates.json`
 
 ## Submission Blurb
 
@@ -62,3 +80,15 @@ Third Brain V5 Skills is a collection of 17 Agent Skills that turn AI coding age
 - Weekly: review Issues/PRs and update `CHANGELOG.md`.
 - Every 1-2 weeks: ship one focused release.
 - Monthly: refresh screenshots, examples, topics, and compatibility notes.
+
+## Launch Channels
+
+Use the launch pack in `outreach/launch/`:
+
+- `show-hn.md`
+- `product-hunt.md`
+- `x-thread.md`
+- `reddit-post.md`
+- `devto-article-outline.md`
+
+Do not post identical copy everywhere. Adapt the language to each community and ask for workflow feedback instead of asking for stars.

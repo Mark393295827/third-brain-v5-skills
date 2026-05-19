@@ -8,6 +8,8 @@
 
 Install 17 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, improving agent workflows, and orchestrating agent teams.
 
+**Use this if your AI coding agent keeps forgetting context, making unverifiable "done" claims, or scattering useful knowledge across chats. Star it if you want a reusable, verification-first skill stack for long-running AI work.**
+
 [![GitHub stars](https://img.shields.io/github/stars/Mark393295827/third-brain-v5-skills?style=social)](https://github.com/Mark393295827/third-brain-v5-skills/stargazers)
 [![Last commit](https://img.shields.io/github/last-commit/Mark393295827/third-brain-v5-skills)](https://github.com/Mark393295827/third-brain-v5-skills/commits/main)
 [![Issues](https://img.shields.io/github/issues/Mark393295827/third-brain-v5-skills)](https://github.com/Mark393295827/third-brain-v5-skills/issues)
@@ -144,6 +146,7 @@ Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quic
 | [examples/](examples/) | Copyable workflows and Obsidian entry note |
 | [docs/compatibility.md](docs/compatibility.md) | Cursor, Windsurf, and other AI IDE setup |
 | [docs/community-discovery.md](docs/community-discovery.md) | GitHub description, topics, and Awesome-list submission notes |
+| [docs/github-star-growth-sprint.md](docs/github-star-growth-sprint.md) | 48-hour launch and Awesome-list growth sprint |
 
 If this saves you time, consider starring the repo so others can discover it through GitHub search.
 

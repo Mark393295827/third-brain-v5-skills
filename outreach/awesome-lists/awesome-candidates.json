@@ -1,0 +1,101 @@
+[
+  {
+    "full_name": "PatrickJS/awesome-cursorrules",
+    "html_url": "https://github.com/PatrickJS/awesome-cursorrules",
+    "description": "📄  Configuration files that enhance Cursor AI editor experience with custom rules and behaviors",
+    "stars": 39577,
+    "forks": 3381,
+    "default_branch": "main",
+    "keyword": "Awesome-Cursor",
+    "suggested_section": "Awesome Cursor Rules [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)",
+    "suggested_markdown": "- [Third Brain V5 Skills](https://github.com/Mark393295827/third-brain-v5-skills) - Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf. Adds Obsidian-backed persistent memory, verification-first workflows to reduce hallucinated completion claims, context/cost control, and multi-agent orchestration."
+  },
+  {
+    "full_name": "langgptai/awesome-claude-prompts",
+    "html_url": "https://github.com/langgptai/awesome-claude-prompts",
+    "description": "This repo includes Claude prompt curation to use Claude better.",
+    "stars": 5111,
+    "forks": 556,
+    "default_branch": "main",
+    "keyword": "Awesome-Claude-Prompt",
+    "suggested_section": "Claude official prompt resource:",
+    "suggested_markdown": "- [Third Brain V5 Skills](https://github.com/Mark393295827/third-brain-v5-skills) - Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf. Adds Obsidian-backed persistent memory, verification-first workflows to reduce hallucinated completion claims, context/cost control, and multi-agent orchestration."
+  },
+  {
+    "full_name": "sanjeed5/awesome-cursor-rules-mdc",
+    "html_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
+    "description": "Curated list of awesome Cursor Rules .mdc files",
+    "stars": 3507,
+    "forks": 429,
+    "default_branch": "main",
+    "keyword": "Awesome-Cursor",
+    "suggested_section": "AI Agent Tools",
+    "suggested_markdown": "- [Third Brain V5 Skills](https://github.com/Mark393295827/third-brain-v5-skills) - Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf. Adds Obsidian-backed persistent memory, verification-first workflows to reduce hallucinated completion claims, context/cost control, and multi-agent orchestration."
+  },
+  {
+    "full_name": "hyp1231/awesome-llm-powered-agent",
+    "html_url": "https://github.com/hyp1231/awesome-llm-powered-agent",
+    "description": "Awesome things about LLM-powered agents. Papers / Repos / Blogs / ...",
+    "stars": 2233,
+    "forks": 216,
+    "default_branch": "main",
+    "keyword": "Awesome-LLM-Agents",
+    "suggested_section": "Awesome LLM-Powered Agent",
+    "suggested_markdown": "- [Third Brain V5 Skills](https://github.com/Mark393295827/third-brain-v5-skills) - Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf. Adds Obsidian-backed persistent memory, verification-first workflows to reduce hallucinated completion claims, context/cost control, and multi-agent orchestration."
+  },
+  {
+    "full_name": "kaushikb11/awesome-llm-agents",
+    "html_url": "https://github.com/kaushikb11/awesome-llm-agents",
+    "description": "A curated list of awesome LLM agents frameworks.",
+    "stars": 1486,
+    "forks": 284,
+    "default_branch": "main",
+    "keyword": "Awesome-LLM-Agents",
+    "suggested_section": "Awesome LLM Agent Frameworks [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)",
+    "suggested_markdown": "- [Third Brain V5 Skills](https://github.com/Mark393295827/third-brain-v5-skills) - Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf. Adds Obsidian-backed persistent memory, verification-first workflows to reduce hallucinated completion claims, context/cost control, and multi-agent orchestration."
+  },
+  {
+    "full_name": "Prat011/awesome-llm-skills",
+    "html_url": "https://github.com/Prat011/awesome-llm-skills",
+    "description": "A curated list of awesome LLM and AI Agent Skills, resources and tools for customising AI Agent workflows - that works with Claude Code, Codex, Gemini CLI and your custom AI Agents",
+    "stars": 1247,
+    "forks": 179,
+    "default_branch": "master",
+    "keyword": "Awesome-LLM-Agents",
+    "suggested_section": "Claude Code (Anthropic)",
+    "suggested_markdown": "- [Third Brain V5 Skills](https://github.com/Mark393295827/third-brain-v5-skills) - Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf. Adds Obsidian-backed persistent memory, verification-first workflows to reduce hallucinated completion claims, context/cost control, and multi-agent orchestration."
+  },
+  {
+    "full_name": "IAAR-Shanghai/Awesome-AI-Memory",
+    "html_url": "https://github.com/IAAR-Shanghai/Awesome-AI-Memory",
+    "description": "Awesome AI Memory | LLM Memory | A curated knowledge base on AI memory for LLMs and agents, covering long-term memory, reasoning, retrieval, and memory-native system design.  Awesome-AI-Memory 是一个 集中式、持续更新的 AI 记忆知识库，系统性整理了与 大模型记忆（LLM Memory）与智能体记忆（Agent Memory） 相关的前沿研究、工程框架、系统设计、评测基准与真实应用实践。",
+    "stars": 894,
+    "forks": 83,
+    "default_branch": "main",
+    "keyword": "Awesome-LLM-Agents",
+    "suggested_section": "AI Agent Tools",
+    "suggested_markdown": "- [Third Brain V5 Skills](https://github.com/Mark393295827/third-brain-v5-skills) - Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf. Adds Obsidian-backed persistent memory, verification-first workflows to reduce hallucinated completion claims, context/cost control, and multi-agent orchestration."
+  },
+  {
+    "full_name": "bergside/awesome-design-skills",
+    "html_url": "https://github.com/bergside/awesome-design-skills",
+    "description": "List of 67 awesome DESIGN.md and SKILL.md design skill files for agentic tools like Claude Design, Google Stitch, Codex, Cursor, and other AI tools",
+    "stars": 847,
+    "forks": 72,
+    "default_branch": "main",
+    "keyword": "Awesome-Cursor",
+    "suggested_section": "AI Agent Tools",
+    "suggested_markdown": "- [Third Brain V5 Skills](https://github.com/Mark393295827/third-brain-v5-skills) - Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf. Adds Obsidian-backed persistent memory, verification-first workflows to reduce hallucinated completion claims, context/cost control, and multi-agent orchestration."
+  },
+  {
+    "full_name": "rohitg00/awesome-ai-apps",
+    "html_url": "https://github.com/rohitg00/awesome-ai-apps",
+    "description": "A curated collection of awesome AI Agents and LLM Apps built with multiple tech stacks, showcasing real-world implementations using OpenAI, Gemini, local models, and various AI frameworks.",
+    "stars": 771,
+    "forks": 162,
+    "default_branch": "main",
+    "keyword": "Awesome-LLM-Agents",
+    "suggested_section": "🎯 [Starter Agents](./starter-agents/)",
+    "suggested_markdown": "- [Third Brain V5 Skills](https://github.com/Mark393295827/third-brain-v5-skills) - Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf. Adds Obsidian-backed persistent memory, verification-first workflows to reduce hallucinated completion claims, context/cost control, and multi-agent orchestration."
+  }
+]
