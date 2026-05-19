@@ -15,6 +15,23 @@ Fast open-source star growth usually comes from four compounding channels:
 
 ## 48-Hour Sprint
 
+### Continuous Loop
+
+Run this at least daily during launch week:
+
+```powershell
+$env:GITHUB_TOKEN="ghp_your_token_here"
+python tools\find-awesome-pr-targets.py
+python tools\growth-loop.py
+```
+
+Outputs:
+
+- `outreach/growth-reports/YYYY-MM-DD.md`
+- `outreach/growth-reports/YYYY-MM-DD.json`
+
+The loop follows: test repository metrics and launch assets -> verify current stars/PRs/candidates -> evaluate readiness score -> improve with next actions.
+
 ### Hour 0-2: Repository Conversion
 
 - [ ] Set GitHub description:
@@ -88,6 +105,7 @@ Keep PRs narrow: one README list entry, one category, no unrelated edits.
 | README conversion blockers fixed | 2+ |
 | GitHub stars | Track daily for 7 days |
 | New issues/discussions | More important than raw stars |
+| Growth report cadence | Daily during launch week |
 
 ## Anti-Spam Rules
 

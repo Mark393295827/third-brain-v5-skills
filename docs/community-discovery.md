@@ -50,6 +50,7 @@ Run the target finder:
 ```powershell
 $env:GITHUB_TOKEN="ghp_your_token_here"
 python tools\find-awesome-pr-targets.py
+python tools\growth-loop.py
 ```
 
 Current high-priority targets:
@@ -68,6 +69,7 @@ Use generated files:
 - `outreach/awesome-lists/awesome-pr-targets.md`
 - `outreach/awesome-lists/awesome-pr-template.md`
 - `outreach/awesome-lists/awesome-candidates.json`
+- `outreach/growth-reports/YYYY-MM-DD.md`
 
 ## Submission Blurb
 

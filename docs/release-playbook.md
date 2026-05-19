@@ -42,6 +42,7 @@ Run this once per week:
 ## Launch Checklist
 
 - [ ] Run `python tools/find-awesome-pr-targets.py`.
+- [ ] Run `python tools/growth-loop.py`.
 - [ ] Open 3-5 relevant Awesome-list PRs.
 - [ ] Publish one X thread from `outreach/launch/x-thread.md`.
 - [ ] Submit Show HN only when README and demo links are stable.
