@@ -43,6 +43,8 @@ Start-Process tools/index.html
 
 Quick links: [Visual Dashboard](tools/index.html) · [One-Click Test Prompt](examples/one-click-test-prompt.md) · [3-Minute Quickstart](examples/3-minute-quickstart.md)
 
+Format standard: [Agent Skills Standard](docs/agent-skills-standard.md) · run `python tools/lint-agent-skills.py` before publishing skill changes.
+
 ## Quick Install
 
 ![Install demo](assets/install-demo.svg)

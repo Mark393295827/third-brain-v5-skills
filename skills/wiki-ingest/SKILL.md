@@ -1,6 +1,6 @@
 ---
 name: wiki-ingest
-description: Ingest sources (articles, PDFs, videos, notes) into a persistent interlinked knowledge wiki. Creates source notes, entity pages, concept pages, and updates navigation. Based on the STOW (Source → Think → Organize → Write) pattern.
+description: Ingest articles, PDFs, videos, transcripts, and notes into a persistent interlinked knowledge wiki. Use when the user wants source notes, entity pages, concept pages, navigation updates, or STOW processing.
 version: "1.2"
 updated: "2026-05-13"
 ---

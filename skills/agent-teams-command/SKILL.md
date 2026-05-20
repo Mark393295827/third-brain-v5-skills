@@ -1,6 +1,6 @@
 ---
 name: agent-teams-command
-description: Ender's Game approach to commanding Claude Code Agent Teams. Strategic multi-agent orchestration with Karpathy Agentic Engineering principles — plan, act, observe, iterate. L1-L5 commander progression.
+description: Command multi-agent work with bounded roles, ownership, integration gates, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, or multi-agent orchestration.
 version: "1.2"
 updated: "2026-05-18"
 ---

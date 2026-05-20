@@ -1,6 +1,6 @@
 ---
 name: session-learn
-description: Extract reusable knowledge from sessions. Scans for new concepts, entities, corrections, patterns, ideas, decisions, gaps — saves to wiki. Use at session end or "extract knowledge".
+description: Extract reusable knowledge from a work session and save concepts, entities, corrections, patterns, ideas, decisions, and gaps to the wiki. Use when ending a session or when the user says to extract knowledge.
 version: "1.1"
 updated: "2026-05-12"
 ---

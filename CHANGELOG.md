@@ -11,11 +11,13 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - GitHub star growth sprint playbook, launch copy pack, and Awesome-list target finder for legitimate open-source distribution.
 - Continuous growth-loop script that tests repository metrics, verifies launch assets, evaluates readiness, and writes dated improvement reports.
 - GitHub repository metadata configurator and Awesome-list PR submitter scripts with dry-run defaults and explicit token-gated apply mode.
+- Agent Skills open-format standard document and linter for validating skill folder shape, metadata, trigger descriptions, and quality gate sections.
 
 ### Changed
 - `agentic-engineering`, `harness-engineering`, and `agent-teams-command` now share a process/kernel/system-call mental model with explicit write-back and cleanup rules.
 - README, GUIDE, and CLI entry docs now link or describe the expanded LLM OS architecture mapping.
 - README and community discovery docs now include stronger launch/discovery paths for GitHub star conversion.
+- Skill descriptions now use explicit `Use when` trigger language for better discovery under progressive disclosure.
 
 ## v5.1 - 2026-05-14
 

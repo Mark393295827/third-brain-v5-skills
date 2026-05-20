@@ -1,6 +1,6 @@
 ---
 name: anthropic-os
-description: Cognitive Symbiont — Livewired self-evolving system. CASH + 3B creativity algorithms (Bending/Breaking/Blending). Predictive coding, collective intelligence, time-arrow diagnostics.
+description: Improve a personal or team operating system with self-evolving loops, CASH allocation, 3B creativity, predictive coding, and diagnostics. Use when the user wants to redesign a work method, learning loop, or cognitive operating system.
 version: "1.1"
 updated: "2026-05-12"
 ---
