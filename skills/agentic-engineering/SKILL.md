@@ -7,7 +7,9 @@ updated: "2026-05-18"
 
 # Agentic Engineering
 
-Refactor a skill or workflow so the model can execute more work with less human steering, while preserving verification, provenance, and control of high-risk actions.
+Refactor a skill or workflow so the model can execute more work with less human steering, while preserving verification, provenance, security, and the professional quality ceiling.
+
+Agentic Engineering is the step after vibe coding: speed is useful only if quality does not degrade. Humans keep ownership of taste, judgment, architecture, and risk boundaries; agents execute bounded macro actions with evidence.
 
 ## Agent Understanding Model
 
@@ -62,7 +64,21 @@ Design around the model as it is, not as a human assistant metaphor.
 
 ## Workflow
 
-### 1. Compress the Contract
+### 1. Define the Quality Ceiling
+
+Name the standard that must not drop:
+
+```text
+Quality ceiling:
+User-visible risk:
+Security risk:
+Verification evidence:
+Human judgment required:
+```
+
+If quality cannot be measured or inspected, do not delegate broad autonomous work yet.
+
+### 2. Compress the Contract
 
 State the workflow in one sentence:
 
@@ -72,7 +88,26 @@ Input -> transformation -> durable output -> verification evidence
 
 If this sentence is vague, fix it before adding steps.
 
-### 2. Set Autonomy Defaults
+### 3. Write the Macro Action Spec
+
+Before assigning a large unit of work, define:
+
+```text
+Objective:
+Scope:
+Non-goals:
+Inputs:
+Owned files or territory:
+Expected output:
+Verification evidence:
+Security/risk review:
+Write-back destination:
+Stop condition:
+```
+
+Treat features, research, plans, and verification as macro actions. Shrink the action until ownership and proof are clear.
+
+### 4. Set Autonomy Defaults
 
 Use this escalation policy:
 
@@ -84,7 +119,7 @@ Use this escalation policy:
 | Destructive, irreversible, credential, payment, legal, or production action | Stop and ask. |
 | User explicitly requested a choice | Ask once, briefly. |
 
-### 3. Externalize State
+### 5. Externalize State
 
 For long tasks, create or update one durable state artifact:
 
@@ -100,7 +135,7 @@ Next action:
 
 Avoid relying on chat memory for multi-hour or multi-session continuity.
 
-### 4. Use the Thin Loop
+### 6. Use the Thin Loop
 
 ```text
 Boot minimal context.
@@ -115,7 +150,32 @@ Stop when definition of done is proven.
 
 Keep the loop short. Do not produce broad plans unless the task is broad.
 
-### 5. Convert Human Collaboration into Interfaces
+### 7. Add an Evaluator or Red Team When Risk Is High
+
+Use a separate critic, test suite, or adversarial pass when output touches:
+
+- authentication, permissions, secrets, payment, legal, or data deletion
+- public-facing claims, launch materials, or user trust
+- architecture that is hard to reverse
+- generated code without strong tests
+
+For security-sensitive work, the minimum pattern is:
+
+```text
+Builder output -> evaluator review -> adversarial test -> fix loop -> final proof
+```
+
+### 8. Use AutoResearch Only Inside Evaluation Boundaries
+
+Allow long autonomous experimentation only when:
+
+- the metric is objective
+- evaluation is cheap and repeatable
+- safety, cost, and runtime limits are explicit
+
+Otherwise keep the loop supervised with human review gates.
+
+### 9. Convert Human Collaboration into Interfaces
 
 Replace repeated human check-ins with artifacts:
 
@@ -126,7 +186,7 @@ Replace repeated human check-ins with artifacts:
 | "Why this choice?" | Assumption ledger + tradeoff table |
 | "Can this be reused?" | SOP, skill update, or wiki output |
 
-### 6. Verify Before Claiming
+### 10. Verify Before Claiming
 
 Every completion claim needs fresh evidence:
 
@@ -135,7 +195,7 @@ Every completion claim needs fresh evidence:
 - source references resolve
 - known residual risks are named
 
-### 7. Close the Memory Loop
+### 11. Close the Memory Loop
 
 After significant output, decide where the result belongs:
 
@@ -152,8 +212,11 @@ After significant output, decide where the result belongs:
 - [ ] Trigger description says exactly when to use the skill.
 - [ ] `SKILL.md` removes generic teaching and keeps only non-obvious procedure.
 - [ ] Workflow has safe defaults and a narrow ask-user policy.
+- [ ] Macro actions have scope, owner, non-goals, proof, and stop condition.
 - [ ] Long-horizon tasks have checkpoints or state artifacts.
 - [ ] Quality gates include executable or inspectable evidence.
+- [ ] High-risk work has evaluator, critic, or adversarial review.
+- [ ] AutoResearch loops have objective metrics, cheap evals, and explicit limits.
 - [ ] Significant outputs have a write-back destination.
 - [ ] Anti-patterns name the most likely model failure modes.
 - [ ] Output format is concrete enough for another agent to follow.
@@ -166,3 +229,5 @@ After significant output, decide where the result belongs:
 - Keeping state only in conversation.
 - Treating tools as magic actions instead of permissioned system calls.
 - Optimizing for one impressive answer instead of a reusable loop.
+- Delegating a large macro action without non-goals, ownership, proof, or a stop condition.
+- Running autonomous iteration where success depends on taste or risk judgment rather than a cheap metric.

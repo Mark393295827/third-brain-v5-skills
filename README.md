@@ -43,7 +43,7 @@ Start-Process tools/index.html
 
 Quick links: [Visual Dashboard](tools/index.html) · [One-Click Test Prompt](examples/one-click-test-prompt.md) · [3-Minute Quickstart](examples/3-minute-quickstart.md)
 
-Format standard: [Agent Skills Standard](docs/agent-skills-standard.md) · run `python tools/lint-agent-skills.py` before publishing skill changes.
+Format standard: [Agent Skills Standard](docs/agent-skills-standard.md) · [Agentic Engineering Principles](docs/agentic-engineering-principles.md) · run `python tools/lint-agent-skills.py` before publishing skill changes.
 
 ## Quick Install
 
@@ -226,9 +226,9 @@ Third Brain treats agents as LLM OS processes, not chat personas: the LLM is the
 
 | Skill | Description |
 |-------|-------------|
-| [agentic-engineering](skills/agentic-engineering/SKILL.md) | Refactor skills and workflows so agents can execute autonomously with clear defaults, checkpoints, verification, and lower human coordination load. |
-| [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — three-tier permissions, GAN-inspired multi-agent patterns, closed-loop system design (Aladdin). |
-| [agent-teams-command](skills/agent-teams-command/SKILL.md) | Ender's Game approach to commanding Claude Code Agent Teams. Karpathy Agentic Engineering — Plan→Act→Observe→Iterate. L1-L5 commander progression. |
+| [agentic-engineering](skills/agentic-engineering/SKILL.md) | Refactor workflows into spec-driven macro actions with quality ceilings, verification gates, state checkpoints, and write-back. |
+| [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — permissions, system-call tools, observability, recovery, and adversarial review. |
+| [agent-teams-command](skills/agent-teams-command/SKILL.md) | Command multi-agent macro actions with ownership, IPC, integration joins, cleanup, evidence gates, and red-team review for high-risk work. |
 
 ### 💼 Strategy
 

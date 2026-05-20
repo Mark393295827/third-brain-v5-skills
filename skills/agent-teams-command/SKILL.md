@@ -74,6 +74,26 @@ Use agent teams only when parallel processes reduce wall-clock time or increase 
 
 Avoid parallelism when the next step depends on a single blocking decision. Do that work locally, then delegate independent slices.
 
+## Agentic Macro Actions
+
+Delegate macro actions, not vague wishes. Each teammate receives a bounded unit such as feature implementation, research, plan critique, test design, or adversarial review.
+
+```text
+MACRO ACTION:
+Objective:
+Scope:
+Non-goals:
+Owned territory:
+Inputs:
+Expected output:
+Verification evidence:
+Risk review:
+Handoff target:
+Stop condition:
+```
+
+If two teammates need the same files, split by phase instead of parallel ownership. If proof is unclear, assign a researcher or evaluator before assigning a builder.
+
 ---
 
 ## Command Architecture
@@ -208,6 +228,7 @@ QUALITY GATES:
 - [ ] No critical QA issues
 - [ ] No file ownership conflicts
 - [ ] Each teammate reports changed files, evidence, and open risks
+- [ ] High-risk outputs reviewed by a separate critic or red team
 ```
 
 ### Three Engineering Laws
@@ -395,6 +416,7 @@ ORDERS: Create a team of 2 teammates using Sonnet.
 [Phase 0: Plan]
 □ Tasks decomposed into parallelizable sub-tasks
 □ Each sub-task has clear owner and boundary
+□ Each macro action has non-goals, proof, and stop condition
 □ Dependencies modeled
 
 [Phase 1: Act]
@@ -404,6 +426,7 @@ ORDERS: Create a team of 2 teammates using Sonnet.
 
 [Phase 2: Observe]
 □ QA loop executed
+□ High-risk outputs passed adversarial review
 □ Issues fed back to corresponding agent
 □ Re-verified after fixes
 
@@ -428,6 +451,7 @@ ORDERS: Create a team of 2 teammates using Sonnet.
 | Token explosion | Agent count >10 | Limit to 3-5 agents |
 | Insufficient context | Missing initial instructions | Full context in GOAL (like system prompt) |
 | Resource leak | Lead didn't run cleanup | Enforce cleanup protocol |
+| Fast but fragile output | Vibe coding without quality ceiling | Add spec, evaluator, and proof gate |
 
 ---
 

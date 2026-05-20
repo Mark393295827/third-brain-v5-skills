@@ -9,6 +9,8 @@ updated: "2026-05-18"
 
 Design the system *around* AI agents for reliable, safe production use.
 
+Harness Engineering protects the quality ceiling of Agentic Engineering. It turns fast agent output into controlled execution through permissions, observability, recovery, and adversarial validation.
+
 ## Agent Runtime Model
 
 Treat the agent harness as the kernel around an LLM OS:
@@ -101,6 +103,7 @@ Use harness-engineering for this agent workflow. Design permissions, tools, feed
 - **Generator + Evaluator pattern** (GAN-inspired)
 - Deny-and-continue: try safer alternative on block
 - Escalate to human after 3 consecutive blocks
+- For high-risk work: Builder -> Evaluator -> Red Team -> Fixer -> final proof
 
 ### 5. Observability & Governance
 - Log every tool call + result
@@ -176,6 +179,22 @@ Prefer narrow tools with explicit inputs over broad shell/API access. If broad a
 
 ---
 
+## Security-Aware Integration
+
+Before shipping high-risk agent output, run an adversarial review:
+
+| Risk area | Minimum adversarial check |
+|---|---|
+| Auth, permissions, secrets | Attempt privilege escalation and secret exposure paths. |
+| Data mutation or deletion | Verify backups, rollback, idempotency, and explicit target bounds. |
+| Public claims or launch copy | Check evidence, source quality, and unsupported promises. |
+| External API actions | Confirm rate limits, credentials, audit logs, and retry safety. |
+| Multi-agent integration | Check ownership conflicts, stale assumptions, and unverified joins. |
+
+Use simulated hostile agents, security tests, or a skeptical evaluator before release. Do not let the same builder be the only judge of safety.
+
+---
+
 ## Closed-Loop System (Aladdin)
 
 ```
@@ -208,5 +227,6 @@ Data Lake → Risk Engine → Optimizer → Stress Test → OMS → Compliance �
 - [ ] High-risk actions require approval
 - [ ] Multi-agent isolation prevents interference
 - [ ] Generator and Evaluator separate for complex tasks
+- [ ] High-risk outputs receive adversarial or red-team review
 - [ ] Reusable outputs have durable write-back outside chat history
 - [ ] Tool contracts include bounds, failure path, evidence, and audit trail
