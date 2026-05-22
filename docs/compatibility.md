@@ -27,7 +27,7 @@ bash install.sh cursor
 Recommended prompt:
 
 ```text
-Use the Third Brain V5 skill router. For this task, select the relevant skill from skills/*/SKILL.md and follow its Usage Template, Workflow, Quality Gates, and Verified Effect.
+Use the Third Brain V5 skill router. For this task, select the relevant skill from skills/*/SKILL.md, check assumes/conflicts_with, then follow its Usage Template, Workflow, Success Metrics, Quality Gates, and Verified Effect.
 ```
 
 ## Windsurf Setup
@@ -43,7 +43,7 @@ bash install.sh windsurf
 Recommended prompt:
 
 ```text
-Use @wiki-ingest on this source, then verify the created files and list the single-source claims.
+Use @wiki-ingest on this source, resolve paths from system/config.md, then verify the created files and list the single-source claims.
 ```
 
 ## Other Tools
@@ -55,7 +55,7 @@ For tools without native skill discovery:
 3. Start with one explicit prompt:
 
 ```text
-Read AGENTS.md and the relevant file under skills/*/SKILL.md before acting. Follow the skill's Prompt, Use Case, Expected Result, Verification Case, and Verified Effect.
+Read AGENTS.md and the relevant file under skills/*/SKILL.md before acting. Check assumes/conflicts_with, follow the skill's Prompt, Use Case, Expected Result, Success Metrics, Verification Case, and Verified Effect, and resolve wiki paths from system/config.md when present.
 ```
 
 ## Notes
@@ -63,6 +63,7 @@ Read AGENTS.md and the relevant file under skills/*/SKILL.md before acting. Foll
 - Prefer native skills when the tool supports `SKILL.md`.
 - Prefer rules for lightweight routing instructions.
 - Prefer examples when the user wants a copyable workflow rather than an always-on behavior rule.
+- Prefer `system/config.md` over hard-coded vault paths in tools that write wiki files.
 
 ## References
 

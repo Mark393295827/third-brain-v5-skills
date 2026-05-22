@@ -2,12 +2,16 @@
 name: wiki-lint
 description: Health-check the knowledge wiki — find orphans, broken links, missing frontmatter, contradictions, stale content, and statistical drift. Use when the user says "lint the wiki", "health check", or periodically for maintenance.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "Vault paths are resolved from system/config.md when present; otherwise default STOW paths are used."
+conflicts_with: "Do not silently repair high-risk or source-file issues; report them or ask before modifying durable records."
 ---
 
 # Wiki Lint — Knowledge Base Health Check
 
 Systematic audit of wiki health across 8 dimensions.
+
+Resolve target paths from `system/config.md` when available. If no config exists, use the default STOW layout and write the report to `system/lint-report.md`.
 
 ## Usage Template
 
@@ -30,6 +34,12 @@ Use wiki-lint on my vault. Check frontmatter, broken links, orphans, stale pages
 
 **Verified Effect**
 - Wiki health becomes visible through ranked issues instead of vague feelings that the vault is disorganized.
+
+## Success Metrics
+
+- Report includes issue counts, severity, file paths, and recommended fixes.
+- Broken links, orphans, missing frontmatter, stale pages, and source-protection risks are checked or marked not applicable.
+- No source files are modified during linting.
 
 ## When to Use
 
@@ -93,13 +103,13 @@ Scan every wiki page for:
 
 ## Output
 
-Write results to `system/lint-report.md`:
+Write results to `LINT_REPORT_FILE`:
 
 ```markdown
 ---
 title: "Lint Report"
 type: system
-updated: "YYYY-MM-DD"
+updated: "[date]"
 ---
 
 # Lint Report — [date]
@@ -123,5 +133,5 @@ updated: "YYYY-MM-DD"
 - [ ] All 8 checks completed
 - [ ] Auto-fixable issues fixed (with approval)
 - [ ] Non-auto-fixable issues added to review queue
-- [ ] Lint report written to system/lint-report.md
+- [ ] Lint report written to `LINT_REPORT_FILE`
 - [ ] Log updated

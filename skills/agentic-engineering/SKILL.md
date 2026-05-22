@@ -2,7 +2,9 @@
 name: agentic-engineering
 description: Design or refactor agent skills, workflows, and operating loops for model-native Agentic Engineering. Use when making skills more autonomous, concise, verifiable, long-horizon capable, token-efficient, and lower-friction for human-LLM collaboration.
 version: "1.2"
-updated: "2026-05-18"
+updated: "2026-05-22"
+assumes: "The workflow can be expressed as a bounded agent loop with observable verification evidence."
+conflicts_with: "Do not override harness-engineering safety boundaries or verify-before-claim evidence requirements."
 ---
 
 # Agentic Engineering
@@ -46,6 +48,12 @@ Use agentic-engineering to revise this skill/workflow. Make it model-native, con
 
 **Verified Effect**
 - Human coordination load drops; the LLM spends fewer tokens asking for obvious decisions and more tokens executing, checking, and learning.
+
+## Success Metrics
+
+- Revised workflow has one trigger, one bounded macro action, one state checkpoint, one verification gate, and one write-back target.
+- The skill or workflow can be executed without extra clarification for its primary use case.
+- Residual human judgment points are explicit rather than hidden in vague prose.
 
 ## Model Meta-Properties
 

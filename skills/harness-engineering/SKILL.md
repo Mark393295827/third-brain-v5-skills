@@ -2,7 +2,9 @@
 name: harness-engineering
 description: Design runtime infrastructure around AI agents — permissions, tools, feedback loops, observability. Use when deploying agents to production or designing multi-agent systems.
 version: "1.2"
-updated: "2026-05-18"
+updated: "2026-05-22"
+assumes: "The agent workflow will use tools, permissions, logs, or production-like reliability boundaries."
+conflicts_with: "Do not relax approval, sandbox, or observability constraints introduced by agentic-engineering or agent-teams-command."
 ---
 
 # Harness Engineering
@@ -46,6 +48,12 @@ Use harness-engineering for this agent workflow. Design permissions, tools, feed
 
 **Verified Effect**
 - An ad hoc agent workflow becomes a controlled runtime with explicit permissions, observability, and failure handling.
+
+## Success Metrics
+
+- Design specifies permissions, tool contracts, observability, failure handling, and recovery path.
+- High-risk actions have approval or sandbox boundaries.
+- Verification evidence is defined before deployment or automation.
 
 ## When to Use
 

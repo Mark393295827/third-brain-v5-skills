@@ -2,7 +2,9 @@
 name: project-flow-ops
 description: Operate execution flow — triage tasks, manage priorities, keep progress structured. Use when the user needs backlog control, task planning, or workflow coordination across projects.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "There is a backlog or set of projects that can be ranked and reviewed."
+conflicts_with: "Do not replace behavior-design for habit formation or agent-teams-command for active multi-agent orchestration."
 ---
 
 # Project Flow Operations
@@ -30,6 +32,12 @@ Use project-flow-ops to triage this backlog. Rank priorities, identify blockers,
 
 **Verified Effect**
 - A messy backlog becomes a ranked execution queue with visible blockers and review cadence.
+
+## Success Metrics
+
+- Top-priority items each have owner, status, blocker, next action, and review date.
+- Backlog is ranked with a reason for priority instead of only grouped by theme.
+- Output identifies one immediate next action and one item to defer or drop.
 
 ## When to Use
 

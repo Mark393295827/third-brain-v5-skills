@@ -18,7 +18,7 @@ Create:
 
 ## Expected 3-Minute Result
 
-- One source note under `sources/`.
-- One concept note under `wiki/concepts/`.
-- One reusable output under `wiki/outputs/`.
+- One source note under `SOURCES_DIR` (default: `sources/`).
+- One concept note under `CONCEPTS_DIR` (default: `wiki/concepts/`).
+- One reusable output under `OUTPUTS_DIR` (default: `wiki/outputs/`).
 - A verification summary that lists files and flags single-source claims.

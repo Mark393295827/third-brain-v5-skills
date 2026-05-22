@@ -28,6 +28,8 @@ Routing:
 For each selected skill:
 
 1. Follow the skill's Prompt, Use Case, Expected Result, Verification Case, and Verified Effect.
-2. Use the workflow and quality gates from the skill file.
-3. Summarize created files, verification evidence, and remaining risk.
-4. Avoid completion claims unless the relevant verification case is satisfied.
+2. Check `assumes` and `conflicts_with` before acting.
+3. Use the workflow, `Success Metrics`, and quality gates from the skill file.
+4. Resolve wiki paths from `system/config.md` when present.
+5. Summarize created files, verification evidence, and remaining risk.
+6. Avoid completion claims unless the relevant verification case and success metrics are satisfied.

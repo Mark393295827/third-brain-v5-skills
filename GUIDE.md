@@ -118,13 +118,26 @@ Enable multi-agent orchestration in `.claude/settings.local.json`:
 
 Requires Claude Code v2.1.32+.
 
-### 2.2 Wiki Structure
+### 2.2 Wiki Path Configuration
 
-Create the vault layout that skills expect:
+Skills read the default vault contract from `system/config.md`. If your Obsidian vault already has a different structure, copy that file into the vault and edit the path values before running write-heavy skills.
+
+Create the default layout when starting a new vault:
 
 ```bash
 mkdir -p {sources,wiki/{concepts,entities,atomic-notes,outputs,decisions,sops},maps,system/templates}
 ```
+
+Minimum required variables:
+
+| Variable | Default |
+|---|---|
+| `SOURCES_DIR` | `sources/` |
+| `CONCEPTS_DIR` | `wiki/concepts/` |
+| `ENTITIES_DIR` | `wiki/entities/` |
+| `OUTPUTS_DIR` | `wiki/outputs/` |
+| `SYSTEM_DIR` | `system/` |
+| `LOG_FILE` | `system/log.md` |
 
 ### 2.3 Token Tracking (Optional)
 
@@ -445,11 +458,13 @@ claude "Generate my weekly token report."
 | Skill not found | Skills not copied to correct directory | Run `cp -r skills/* ~/.claude/skills/` |
 | Agent Teams not working | Experimental flag not set | Add `"experimental.agentTeams": true` to settings |
 | Token cost too high | Using Opus for simple tasks | Switch to Sonnet; use context-manager budget rules |
-| Wiki links broken | Wiki structure not set up | Create folders: wiki/concepts/, wiki/entities/ etc. |
+| Wiki links broken | Wiki structure not set up or config paths mismatch | Check `system/config.md`, then create the configured concept/entity folders. |
 | Vector search failing | ChromaDB not installed | `pip install chromadb sentence-transformers` |
 | Session-learn empty | Session too short (<5 tool calls) | Work longer or trigger manually |
 | Cognitive compile too long | Topic too broad | Narrow the question; use concrete ideas |
 | LLM context full | No truncation strategy | Use context-manager to budget and trim |
+| Growth loop shows `0` stars/forks/watchers or `n/a` PRs | GitHub API unavailable (no `GITHUB_TOKEN`, rate limit, or blocked network) | Set `GITHUB_TOKEN` and re-run `python tools/growth-loop.py`; reports write to `outreach/growth-reports/` (UTC date). |
+| Awesome PR targets not refreshing | GitHub search blocked/rate-limited | Set `GITHUB_TOKEN` and re-run `python tools/find-awesome-pr-targets.py` (it will reuse existing candidates when offline). |
 
 ### Quick Diagnostics
 

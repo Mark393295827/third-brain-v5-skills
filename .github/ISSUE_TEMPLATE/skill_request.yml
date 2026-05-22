@@ -27,10 +27,19 @@ body:
   - type: textarea
     id: verification
     attributes:
-      label: How should we verify it works?
+      label: Success metrics and verification
+      description: What measurable result proves one run succeeded? Include any evidence or file outputs.
       placeholder: "A successful run should produce..."
     validations:
       required: true
+  - type: textarea
+    id: assumptions
+    attributes:
+      label: Assumptions and conflicts
+      description: What must be true for this skill to run safely, and what should it not override?
+      placeholder: "Assumes... Conflicts with..."
+    validations:
+      required: false
   - type: textarea
     id: examples
     attributes:

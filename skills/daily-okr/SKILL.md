@@ -2,7 +2,9 @@
 name: daily-okr
 description: Execute a daily knowledge compound closed loop — 7 Key Results from input to feedback with scoring. Use when the user wants to do a daily review, plan their day, or run a knowledge workflow.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "The user wants a daily loop that connects knowledge capture, action, output, and review."
+conflicts_with: "Do not let daily scoring replace verify-before-claim for completion claims or wiki-lint for vault health."
 ---
 
 # Daily OKR — Knowledge Compound Closed Loop
@@ -30,6 +32,12 @@ Run daily-okr in compact mode. Produce one insight, one wiki update, one action 
 
 **Verified Effect**
 - A scattered workday becomes one captured insight, one action, one reusable output, and one feedback score.
+
+## Success Metrics
+
+- All 7 KRs have an explicit result, score, or skipped-with-reason status.
+- KR3 names the wiki update, KR4 names a concrete action, and KR7 states evidence for any completion claim.
+- Daily artifact includes a final score and one improvement for tomorrow.
 
 ## When to Use
 

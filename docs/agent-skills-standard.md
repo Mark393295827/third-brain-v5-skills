@@ -32,8 +32,11 @@ Every `SKILL.md` must have:
 - YAML frontmatter at the top.
 - `name` matching the folder name.
 - `description` that says what the skill does and when to use it.
+- `assumes` stating required operating assumptions.
+- `conflicts_with` stating boundaries that should not be silently overridden.
 - A top-level title.
 - A `## Usage Template` section.
+- A `## Success Metrics` section.
 - A `## Quality Gates` section.
 
 Recommended description pattern:

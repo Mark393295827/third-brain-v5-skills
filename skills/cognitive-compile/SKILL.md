@@ -2,7 +2,9 @@
 name: cognitive-compile
 description: Deep learning compile framework — transforms raw information into actionable judgment. Use when the user wants to deeply understand a topic, not just capture it.
 version: "1.2"
-updated: "2026-05-13"
+updated: "2026-05-22"
+assumes: "The task requires deeper understanding or judgment, not only capture or storage."
+conflicts_with: "Do not use when the user only needs ingestion; run wiki-ingest before synthesis when source capture is missing."
 ---
 
 # Cognitive Compile — Deep Learning Framework
@@ -30,6 +32,12 @@ Use cognitive-compile on this topic. Move from question to facts, concepts, patt
 
 **Verified Effect**
 - Raw information becomes a decision-ready understanding with explicit assumptions, conflicts, and actions.
+
+## Success Metrics
+
+- Artifact contains all 8 sections and separates facts, interpretations, assumptions, conflicts, and actions.
+- At least one decision-relevant judgment and one evidence gap are explicit.
+- Next action is small enough to execute or test in the next work session.
 
 ## When to Use
 

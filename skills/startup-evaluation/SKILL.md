@@ -2,7 +2,9 @@
 name: startup-evaluation
 description: Evaluate startups using the 24-step disciplined entrepreneurship framework. Use when assessing a startup idea, conducting due diligence, or analyzing a business model.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "The idea or company can be assessed through customer, market, value, and validation assumptions."
+conflicts_with: "Do not treat market assumptions as verified research; use deep-research or verify-before-claim for evidence checks."
 ---
 
 # Startup Evaluation — 24-Step Framework
@@ -30,6 +32,12 @@ Use startup-evaluation on this idea. Assess customer, market, beachhead, value p
 
 **Verified Effect**
 - Startup enthusiasm becomes an evidence map, risk register, and practical validation plan.
+
+## Success Metrics
+
+- Assessment distinguishes facts, assumptions, risks, and unknowns.
+- Beachhead customer, painful use case, value proposition, and business model hypothesis are stated.
+- Next cheapest validation test has a metric and decision rule.
 
 ## When to Use
 

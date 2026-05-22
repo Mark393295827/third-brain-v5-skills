@@ -2,7 +2,9 @@
 name: wiki-ingest
 description: Ingest articles, PDFs, videos, transcripts, and notes into a persistent interlinked knowledge wiki. Use when the user wants source notes, entity pages, concept pages, navigation updates, or STOW processing.
 version: "1.2"
-updated: "2026-05-13"
+updated: "2026-05-22"
+assumes: "Vault paths are resolved from system/config.md when present; otherwise default STOW paths are used."
+conflicts_with: "Do not run bulk deduplication or vector sync here; use knowledge-ops after source capture."
 ---
 
 # Wiki Ingest
@@ -23,13 +25,19 @@ Use wiki-ingest on this source. Create source notes, concept pages, entity pages
 - The agent creates an immutable source note, 3-7 key insights, linked wiki pages, and a log entry.
 
 **Output Example**
-- `sources/src-YYYYMMDD-title.md`, `wiki/concepts/concept-name.md`, `wiki/entities/entity-name.md`, and `system/log.md` update.
+- `SOURCES_DIR/src-YYYYMMDD-title.md`, `CONCEPTS_DIR/concept-name.md`, `ENTITIES_DIR/entity-name.md`, and `LOG_FILE` update.
 
 **Verification Case**
 - New wiki pages have frontmatter, source references, at least two `[[wikilinks]]`, and timeline entries.
 
 **Verified Effect**
 - Knowledge stops being a loose summary: the source becomes traceable, linked, and reusable across future sessions.
+
+## Success Metrics
+
+- Creates one immutable source note, 3-7 key insights with block refs, and at least one linked wiki page.
+- Each new wiki page has frontmatter, source references, at least two wikilinks, and a timeline entry.
+- Final report lists created/updated files and flags single-source claims.
 
 **V5.2 Closure Add-on**
 - Classify every input as `external-fact`, `human-experience`, `internal-state`, or `environment-signal`.
@@ -45,9 +53,13 @@ Use wiki-ingest on this source. Create source notes, concept pages, entity pages
 
 ## Workflow
 
+### Step 0: Resolve Paths
+
+Before writing, read `system/config.md` when available and resolve `SOURCES_DIR`, `CONCEPTS_DIR`, `ENTITIES_DIR`, `MAPS_DIR`, `LOG_FILE`, `BEHAVIORS_DIR`, and `CREATIVITY_DIR`. If no config exists, use the default STOW layout.
+
 ### Step 1: Capture
 
-Create an immutable source note in `sources/`:
+Create an immutable source note in `SOURCES_DIR`:
 
 ```markdown
 ---
@@ -156,9 +168,9 @@ After a high-value ingest, run these checks:
 
 | Check | Create / Update |
 |-------|-----------------|
-| The source implies a habit, action, identity shift, pain point, or repeated decision | `08_behaviors/action-sops/` or `08_behaviors/reviews/` |
-| The source suggests a product, content asset, analogy, cross-domain pattern, or minimum test | `09_creativity/experiments/` |
-| The source contains single-source claims, missing provenance, or stale-page risk | `system/governance-dashboard.md` or review queue |
+| The source implies a habit, action, identity shift, pain point, or repeated decision | `BEHAVIORS_DIR/action-sops/` or `BEHAVIORS_DIR/reviews/` |
+| The source suggests a product, content asset, analogy, cross-domain pattern, or minimum test | `CREATIVITY_DIR/experiments/` |
+| The source contains single-source claims, missing provenance, or stale-page risk | `SYSTEM_DIR/governance-dashboard.md` or review queue |
 
 Behavior experiment minimum fields:
 - source concept
@@ -197,7 +209,7 @@ After updating or creating any wiki page, append a timeline entry at the bottom 
 
 ### Step 7: Log
 
-Append to `system/log.md` with:
+Append to `LOG_FILE` with:
 - Source ingested
 - Entity pages created/updated
 - Concept pages created/updated

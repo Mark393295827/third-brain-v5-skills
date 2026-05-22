@@ -2,7 +2,9 @@
 name: agent-teams-command
 description: Command multi-agent work with bounded roles, ownership, integration gates, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, or multi-agent orchestration.
 version: "1.2"
-updated: "2026-05-18"
+updated: "2026-05-22"
+assumes: "Multi-agent work has separable ownership, clear integration points, and a configured agent runtime."
+conflicts_with: "Do not use for tasks with a single obvious next step or no separable write scopes; prefer agentic-engineering or project-flow-ops."
 ---
 
 # Ender's Game: Agent Teams Command System
@@ -40,6 +42,12 @@ Use agent-teams-command for this project. Split work into roles, define ownershi
 
 **Verified Effect**
 - Parallel agent work becomes coordinated delivery instead of overlapping, unreviewed outputs.
+
+## Success Metrics
+
+- Team plan names each role, owner, write scope, IPC channel, integration point, and stop condition.
+- Every delegated workstream has at least one verification gate before integration.
+- Final report states integrated status, unresolved risks, and which agents can be closed.
 
 ---
 

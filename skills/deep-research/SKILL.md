@@ -2,7 +2,9 @@
 name: deep-research
 description: Multi-source deep research — search, synthesize, and deliver cited reports. Use when the user wants thorough research on any topic with evidence and citations.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "The question benefits from multiple sources, citations, and explicit uncertainty."
+conflicts_with: "Do not use as a substitute for wiki-ingest when the task is to preserve a provided source in the vault."
 ---
 
 # Deep Research
@@ -30,6 +32,12 @@ Use deep-research on this question. Define scope, gather multiple sources, compa
 
 **Verified Effect**
 - A broad research question becomes a sourced synthesis with confidence levels and decision-relevant gaps.
+
+## Success Metrics
+
+- Report cites multiple sources, shows dates where freshness matters, and separates evidence from interpretation.
+- Major disagreements or uncertainty are named with confidence levels.
+- Output ends with decision-relevant implications or next research gaps.
 
 ## When to Use
 

@@ -2,7 +2,9 @@
 name: knowledge-ops
 description: Manage a multi-layered knowledge system — ingest, organize, deduplicate, vectorize, sync, and retrieve across wiki files, vector DB, memory, and external stores. Use when the user wants to save, organize, sync, search, or scale their knowledge base.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "A wiki or knowledge base already exists and needs organization, sync, retrieval, or scale."
+conflicts_with: "Do not modify immutable sources; use wiki-ingest for new source capture and wiki-lint for health reports."
 ---
 
 # Knowledge Operations
@@ -31,6 +33,12 @@ Use knowledge-ops to organize this knowledge base. Deduplicate, classify, sync, 
 **Verified Effect**
 - A growing wiki becomes searchable, deduplicated, and ready for semantic retrieval.
 
+## Success Metrics
+
+- Report states files indexed, skipped, deduplicated, merged, or flagged for review.
+- At least one retrieval test query demonstrates the organized knowledge can be found.
+- No immutable source file is modified during organization.
+
 ## When to Use
 
 - User wants to "save this to my knowledge base"
@@ -43,6 +51,8 @@ Use knowledge-ops to organize this knowledge base. Deduplicate, classify, sync, 
 ---
 
 ## Knowledge Layers
+
+Resolve wiki and system paths from `system/config.md` when available. If no config exists, default to `wiki/`, `sources/`, `maps/`, and `system/`.
 
 ### Layer 1: Active Execution Truth
 - GitHub issues, PRs, Linear tasks — current operational state
@@ -97,7 +107,8 @@ client = chromadb.PersistentClient(path="./vector_store")
 collection = client.get_or_create_collection("wiki")
 
 def sync_wiki():
-    files = glob.glob("wiki/**/*.md", recursive=True)
+    wiki_dir = os.environ.get("WIKI_DIR", "wiki")
+    files = glob.glob(os.path.join(wiki_dir, "**", "*.md"), recursive=True)
     for f in files:
         with open(f, "r") as fh:
             content = fh.read()

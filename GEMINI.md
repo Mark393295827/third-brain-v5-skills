@@ -42,6 +42,24 @@ This repository contains Agent Skills for the Gemini CLI environment. Place skil
 
 All skills follow the [Agent Skills](https://agentskills.io) open format. Skills are model-agnostic markdown files compatible with Gemini CLI.
 
+## Skill Contract
+
+When selecting a skill, read its frontmatter before executing:
+
+- `assumes` — required operating assumptions.
+- `conflicts_with` — boundaries that must not be silently overridden.
+- `## Success Metrics` — the minimum observable result for one successful run.
+- `## Quality Gates` — checks that must pass before claiming completion.
+
+For wiki-writing skills, resolve paths from `system/config.md` when available. Defaults include `SOURCES_DIR=sources/`, `CONCEPTS_DIR=wiki/concepts/`, `ENTITIES_DIR=wiki/entities/`, and `LOG_FILE=system/log.md`.
+
+## Adoption Ladder
+
+1. Start with `wiki-ingest` + `verify-before-claim`.
+2. Add `daily-okr` + `session-learn` after daily ingest and evidence checks are working.
+3. Add `cognitive-compile`, `behavior-design`, and `creativity-engine` when the wiki has enough material to synthesize.
+4. Add `knowledge-ops`, `harness-engineering`, `agentic-engineering`, and `agent-teams-command` only when scale, reliability, or multi-agent ownership requires them.
+
 ## Karpathy LLM OS
 
 LLM=CPU · Context=RAM · Storage=Disk · Tools=System Calls · Skills=Programs · Harness=Kernel · Agent Teams=Processes

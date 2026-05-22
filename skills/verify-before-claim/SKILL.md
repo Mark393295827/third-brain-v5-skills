@@ -2,7 +2,9 @@
 name: verify-before-claim
 description: Iron rule — no completion claims without fresh verification evidence. Use whenever about to claim work is done, fixed, working, or passing. Run verification commands and show output before making any success statement.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "A verifiable artifact, command, inspection, or evidence source exists for the claim."
+conflicts_with: "Do not bypass because another skill produced a score, plan, or confidence statement."
 ---
 
 # Verify Before Claim
@@ -30,6 +32,12 @@ Use verify-before-claim. Before saying this is done, identify the proof command,
 
 **Verified Effect**
 - The agent shifts from confidence-based status claims to evidence-based status reports.
+
+## Success Metrics
+
+- A fresh verification command or inspection is run in the current session.
+- Output includes command, exit code or observable evidence, result, and residual risk.
+- No completion claim is made when evidence is missing, stale, or failing.
 
 ## When to Use
 

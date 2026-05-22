@@ -22,8 +22,9 @@ Then run a cognitive compile on the strongest concept from the PDF.
 Final output:
 1. created/updated file list
 2. 5 key insights with citations
-3. one reusable brief in wiki/outputs/
+3. one reusable brief in `OUTPUTS_DIR` (default: `wiki/outputs/`)
 4. verification evidence that links and frontmatter are present
+5. single-source claims and unresolved evidence gaps
 ```
 
 ## After
@@ -38,13 +39,13 @@ The PDF becomes:
 ## Output Example
 
 ```text
-sources/src-20260512-ai-safety-report.md
-wiki/concepts/agent-evaluation.md
-wiki/entities/anthropic.md
-wiki/outputs/ai-safety-brief.md
-system/log.md
+SOURCES_DIR/src-20260512-ai-safety-report.md
+CONCEPTS_DIR/agent-evaluation.md
+ENTITIES_DIR/anthropic.md
+OUTPUTS_DIR/ai-safety-brief.md
+LOG_FILE
 ```
 
 ## Verification
 
-The workflow is complete only after the agent checks the new files exist and reports which claims are single-source.
+The workflow is complete only after the agent resolves paths from `system/config.md`, checks the new files exist, satisfies the `wiki-ingest` and `cognitive-compile` success metrics, and reports which claims are single-source.

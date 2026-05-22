@@ -105,7 +105,7 @@ One-click test prompt: [examples/one-click-test-prompt.md](examples/one-click-te
 
 ## 3-Minute Quick Start
 
-The fastest useful path is `wiki-ingest`: turn one article, PDF, transcript, or rough note into durable wiki knowledge.
+The fastest useful path is `wiki-ingest`: turn one article, PDF, transcript, or rough note into durable wiki knowledge. Treat this as the recommended first skill; add the rest only after the previous layer is producing evidence.
 
 ```text
 Use wiki-ingest on this source.
@@ -113,12 +113,12 @@ Use wiki-ingest on this source.
 Goal: turn it into reusable wiki knowledge, not a loose summary.
 
 Create:
-1. one immutable source note in sources/
+1. one immutable source note in `SOURCES_DIR` (default: `sources/`)
 2. 3-7 key insights with source references
-3. at least one concept page in wiki/concepts/
-4. relevant entity pages in wiki/entities/
+3. at least one concept page in `CONCEPTS_DIR` (default: `wiki/concepts/`)
+4. relevant entity pages in `ENTITIES_DIR` (default: `wiki/entities/`)
 5. links from the new pages to existing related pages when possible
-6. a short log entry in system/log.md
+6. a short log entry in `LOG_FILE` (default: `system/log.md`)
 
 After writing files, run a quick verification:
 - list created or updated files
@@ -127,6 +127,17 @@ After writing files, run a quick verification:
 ```
 
 Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quickstart.md).
+
+## Skill Adoption Ladder
+
+| Stage | Core skills | Upgrade when |
+|---|---|---|
+| Week 1: Start | `wiki-ingest` + `verify-before-claim` | You can ingest at least one source per day and every completion claim has fresh evidence. |
+| Weeks 2-4: Daily loop | + `daily-okr` + `session-learn` | Daily OKR score is above 70% for a week and session learnings are being written back. |
+| Month 2+: Deepen | + `cognitive-compile` + `behavior-design` + `creativity-engine` | The wiki has 50+ pages or repeated decisions need deeper synthesis and experiments. |
+| Month 3+: Engineer | + `knowledge-ops` + `harness-engineering` + `agentic-engineering` | Retrieval, permissions, verification gates, or workflow reliability become bottlenecks. |
+| Multi-agent: Scale | + `agent-teams-command` + `project-flow-ops` | Work can be split into separate owners with clear integration and verification gates. |
+| Strategy: Evaluate | + `startup-evaluation` + `anthropic-os` + `deep-research` | You need market, operating-system, or multi-source research decisions. |
 
 ## Before → After
 
@@ -359,7 +370,7 @@ cp -r third-brain-v5-skills/skills/* ~/.gemini/skills/
 
 ## Wiki Structure
 
-These skills assume the following vault layout:
+These skills use `system/config.md` as the default path contract. The layout below is the default, not a hard requirement; override it in your local `system/config.md`, `CLAUDE.md`, or equivalent agent rules file if your Obsidian vault already uses different folders.
 
 ```
 sources/          ← Immutable source notes (articles, books, reports)
@@ -375,6 +386,8 @@ system/           ← Schema, log, templates, lint reports
 08_behaviors/     ← Behavior system (goals, habits, SOPs, reviews)
 09_creativity/    ← Creativity system (ideas, experiments, prototypes)
 ```
+
+Path config: [system/config.md](system/config.md).
 
 ---
 

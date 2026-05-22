@@ -51,6 +51,25 @@ Invoke any skill naturally:
 - "Bias to yes on this decision" — Costolo operator mode
 - "Estimate token cost for this task"
 
+## Skill Contract
+
+Before executing a selected skill, read the skill frontmatter and enforce:
+
+- `assumes`: required operating assumptions for safe use.
+- `conflicts_with`: workflows or assumptions that must not be silently overridden.
+- `## Success Metrics`: minimum measurable result for one successful run.
+- `## Quality Gates`: checks required before completion claims.
+
+For wiki-writing skills, resolve `SOURCES_DIR`, `CONCEPTS_DIR`, `ENTITIES_DIR`, `OUTPUTS_DIR`, and `LOG_FILE` from `system/config.md` when available. If no config exists, use the default STOW layout.
+
+## Recommended Adoption Ladder
+
+1. Week 1: `wiki-ingest` + `verify-before-claim`.
+2. Weeks 2-4: add `daily-okr` + `session-learn`.
+3. Month 2+: add `cognitive-compile`, `behavior-design`, and `creativity-engine`.
+4. Month 3+: add `knowledge-ops`, `harness-engineering`, and `agentic-engineering`.
+5. Multi-agent scale: add `agent-teams-command` and `project-flow-ops`.
+
 ## Grounding Principles
 
 ### Karpathy LLM OS

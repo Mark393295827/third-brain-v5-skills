@@ -18,7 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
 MAX_SKILL_LINES = 500
 ALLOWED_TOP_LEVEL = {"SKILL.md", "scripts", "references", "assets", "agents"}
-REQUIRED_SECTIONS = ["## Usage Template", "## Quality Gates"]
+REQUIRED_FRONTMATTER = ["name", "description", "assumes", "conflicts_with"]
+REQUIRED_SECTIONS = ["## Usage Template", "## Success Metrics", "## Quality Gates"]
 
 
 @dataclass
@@ -62,16 +63,16 @@ def check_skill(skill_dir: Path) -> list[Issue]:
             )
         )
 
+    for key in REQUIRED_FRONTMATTER:
+        if not frontmatter.get(key):
+            issues.append(Issue(skill_file, f"frontmatter missing {key}"))
+
     name = frontmatter.get("name")
-    if not name:
-        issues.append(Issue(skill_file, "frontmatter missing name"))
-    elif name != skill_dir.name:
+    if name and name != skill_dir.name:
         issues.append(Issue(skill_file, f"name '{name}' does not match folder '{skill_dir.name}'"))
 
     description = frontmatter.get("description")
-    if not description:
-        issues.append(Issue(skill_file, "frontmatter missing description"))
-    elif "Use when" not in description:
+    if description and "Use when" not in description:
         issues.append(Issue(skill_file, "description must include an explicit 'Use when' trigger"))
 
     if not re.search(r"^#\s+\S+", body, flags=re.MULTILINE):

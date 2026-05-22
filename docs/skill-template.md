@@ -8,6 +8,8 @@ name: skill-name
 description: One sentence that explains what the skill does and when to use it.
 version: "1.1"
 updated: "YYYY-MM-DD"
+assumes: "What must be true for this skill to run safely."
+conflicts_with: "Which skills, assumptions, or workflows this skill must not silently override."
 ---
 
 # Skill Name
@@ -35,6 +37,12 @@ Use skill-name to ...
 
 **Verified Effect**
 - Successful use changes the user's workflow by ...
+
+## Success Metrics
+
+- Minimum observable result for one successful run.
+- Evidence or file output that proves the skill did the job.
+- Clear fail condition or escalation trigger.
 
 ## When to Use
 

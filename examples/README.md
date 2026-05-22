@@ -20,4 +20,5 @@ Each example follows the same shape:
 1. Before: the messy starting point.
 2. Prompt: the exact instruction to paste into the agent.
 3. Expected output: files, notes, or checks the agent should produce.
-4. Verification: how to know the workflow worked.
+4. Config awareness: wiki paths should resolve through `system/config.md` when present.
+5. Verification: how to know the workflow worked, using the selected skills' success metrics and quality gates.
