@@ -24,6 +24,32 @@ Use this distinction:
 4. **Security-aware integration**: red-team high-risk outputs before release.
 5. **Closed-loop optimization**: use cheap objective metrics when the task can be evaluated repeatedly.
 
+## Full-Stack Agent Surfaces
+
+The Google I/O '26 wiki update expands the operating standard: agents are no
+longer only coding helpers. They are entering IDEs, personal assistants, search,
+commerce, generative media, and ambient devices. A skill should therefore treat
+agent execution as a full-stack system:
+
+```text
+model -> context -> tools -> product surface -> verification -> governance
+```
+
+Use this surface checklist when designing or revising agent workflows:
+
+| Surface | Required control |
+|---|---|
+| Developer IDE/CLI | tests, diffs, subagent ownership, task queue, hooks |
+| Personal agent | user mandate, memory scope, resumable log |
+| Agentic search | source provenance, comparison criteria, action preview |
+| Agentic commerce | budget, payment boundary, receipt, rollback path |
+| Generative media | prompt/edit history, watermark or disclosure path |
+| Ambient device | sensor consent, privacy mode, fallback and interrupt controls |
+
+If the workflow can act through a user's account, change external state, spend
+money, publish content, or use sensors, it needs an explicit mandate and audit
+trail before execution.
+
 ## Macro Action Contract
 
 Use this contract before assigning an agent or skill a large unit of work:
@@ -62,6 +88,12 @@ Use autonomous iteration only when all three are true:
 - The search space is bounded by safety, cost, and time limits.
 
 When any condition is false, use a supervised loop with explicit review gates.
+
+## Single-Source Product Claims
+
+Launch demos and keynotes can inspire skill updates, but do not convert them into
+guarantees. Mark product availability, scale metrics, benchmark numbers, protocol
+status, and security claims as `single-source` until independently verified.
 
 ## Skill Mapping
 

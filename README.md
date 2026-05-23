@@ -4,7 +4,7 @@
   <img src="assets/third-brain-v5-system-architecture.png" alt="Third Brain V5 system architecture: LLM, Skills, Obsidian, behavior design, creativity engine, governance, and compounding loops" width="100%">
 </p>
 
-**Third Brain V5 — 17 production-ready Agent Skills for Claude, Codex, Gemini, Cursor, and Windsurf. Build a persistent Knowledge OS with Obsidian, behavior design, creativity loops, verification, and multi-agent workflows.**
+**Third Brain V5 — 17 production-ready Agent Skills for Claude, Codex, Gemini, Cursor, and Windsurf. Build a persistent Knowledge OS with Obsidian, behavior design, creativity loops, verification, full-stack agent harnesses, and multi-agent workflows.**
 
 Install 17 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, improving agent workflows, and orchestrating agent teams.
 
@@ -135,7 +135,7 @@ Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quic
 | Week 1: Start | `wiki-ingest` + `verify-before-claim` | You can ingest at least one source per day and every completion claim has fresh evidence. |
 | Weeks 2-4: Daily loop | + `daily-okr` + `session-learn` | Daily OKR score is above 70% for a week and session learnings are being written back. |
 | Month 2+: Deepen | + `cognitive-compile` + `behavior-design` + `creativity-engine` | The wiki has 50+ pages or repeated decisions need deeper synthesis and experiments. |
-| Month 3+: Engineer | + `knowledge-ops` + `harness-engineering` + `agentic-engineering` | Retrieval, permissions, verification gates, or workflow reliability become bottlenecks. |
+| Month 3+: Engineer | + `knowledge-ops` + `harness-engineering` + `agentic-engineering` | Retrieval, permissions, delegated actions, provenance, or workflow reliability become bottlenecks. |
 | Multi-agent: Scale | + `agent-teams-command` + `project-flow-ops` | Work can be split into separate owners with clear integration and verification gates. |
 | Strategy: Evaluate | + `startup-evaluation` + `anthropic-os` + `deep-research` | You need market, operating-system, or multi-source research decisions. |
 
@@ -172,6 +172,8 @@ These skills transform any AI coding agent into a **persistent knowledge compoun
 ### Agent Understanding Framework
 
 Third Brain treats agents as LLM OS processes, not chat personas: the LLM is the CPU, context is RAM, Obsidian/wiki/logs are disk, tools are system calls, skills are executable programs, and the harness is the kernel that enforces permissions and observability. See [Agent Understanding Framework](wiki/concepts/agent-understanding-framework.md).
+
+The latest engineering update adds a full-stack agent lens: agent workflows now account for IDE subagents, personal agents, agentic search, commerce mandates, generative-media provenance, and ambient-device privacy. See [Agentic Engineering Principles](docs/agentic-engineering-principles.md).
 
 ### Design Philosophy
 
@@ -237,9 +239,9 @@ Third Brain treats agents as LLM OS processes, not chat personas: the LLM is the
 
 | Skill | Description |
 |-------|-------------|
-| [agentic-engineering](skills/agentic-engineering/SKILL.md) | Refactor workflows into spec-driven macro actions with quality ceilings, verification gates, state checkpoints, and write-back. |
-| [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — permissions, system-call tools, observability, recovery, and adversarial review. |
-| [agent-teams-command](skills/agent-teams-command/SKILL.md) | Command multi-agent macro actions with ownership, IPC, integration joins, cleanup, evidence gates, and red-team review for high-risk work. |
+| [agentic-engineering](skills/agentic-engineering/SKILL.md) | Refactor workflows into spec-driven macro actions with quality ceilings, delegated-action boundaries, verification gates, state checkpoints, and write-back. |
+| [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — permissions, system-call tools, delegated-action gates, provenance, observability, recovery, and adversarial review. |
+| [agent-teams-command](skills/agent-teams-command/SKILL.md) | Command multi-agent macro actions with ownership, IPC, async budget envelopes, integration joins, cleanup, evidence gates, and red-team review for high-risk work. |
 
 ### 💼 Strategy
 

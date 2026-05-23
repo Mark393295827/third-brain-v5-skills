@@ -227,9 +227,9 @@ claude "Create a team of 3 agents to research this topic."
 
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
-| **agentic-engineering** | Refactors workflows into spec-driven macro actions with quality ceilings, autonomy defaults, write-back, and verification | "make this workflow more agentic" |
-| **harness-engineering** | Agent runtime kernel: permissions, tools as system calls, feedback loops, observability, recovery, adversarial review | "how do I make this agent safe?" |
-| **agent-teams-command** | Multi-agent macro action orchestration with ownership, IPC, integration, cleanup, evidence gates, and red-team review | "create an agent team to build X" |
+| **agentic-engineering** | Refactors workflows into spec-driven macro actions with quality ceilings, delegated-action boundaries, autonomy defaults, write-back, and verification | "make this workflow more agentic" |
+| **harness-engineering** | Agent runtime kernel: permissions, tools as system calls, delegated-action gates, provenance ledgers, observability, recovery, adversarial review | "how do I make this agent safe?" |
+| **agent-teams-command** | Multi-agent macro action orchestration with ownership, IPC, async budget envelopes, integration, cleanup, evidence gates, and red-team review | "create an agent team to build X" |
 
 ### 💼 Strategy
 

@@ -1,8 +1,8 @@
 ---
 name: agent-teams-command
 description: Command multi-agent work with bounded roles, ownership, integration gates, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, or multi-agent orchestration.
-version: "1.2"
-updated: "2026-05-22"
+version: "1.3"
+updated: "2026-05-23"
 assumes: "Multi-agent work has separable ownership, clear integration points, and a configured agent runtime."
 conflicts_with: "Do not use for tasks with a single obvious next step or no separable write scopes; prefer agentic-engineering or project-flow-ops."
 ---
@@ -81,6 +81,20 @@ Use agent teams only when parallel processes reduce wall-clock time or increase 
 | Cleanup | Close agents and write lessons to wiki/logs. |
 
 Avoid parallelism when the next step depends on a single blocking decision. Do that work locally, then delegate independent slices.
+
+## Antigravity-Style Swarm Boundary
+
+Google I/O '26 described Antigravity as an agent-first development surface with subagents, hooks, async task management, and very large token budgets. Treat this as a cautionary operating pattern: swarm execution is useful only when the harness can prove progress.
+
+Use a swarm only when all are true:
+
+- tasks can be split into independent owned territories
+- every territory has objective verification
+- an async task queue or visible task list exists
+- token, time, and request budgets are capped
+- integration happens through a join gate, not direct file collision
+
+Do not scale agent count to create momentum. Scale only when isolation plus verification reduces wall-clock time or improves review quality.
 
 ## Agentic Macro Actions
 
@@ -235,6 +249,7 @@ QUALITY GATES:
 - [ ] All tests passing
 - [ ] No critical QA issues
 - [ ] No file ownership conflicts
+- [ ] Token/time/request budget stayed inside cap
 - [ ] Each teammate reports changed files, evidence, and open risks
 - [ ] High-risk outputs reviewed by a separate critic or red team
 ```
@@ -334,6 +349,17 @@ Cleanup protocol: Lead MUST execute cleanup (otherwise resource leak)
 Write-back: Lead records decisions, evidence, and reusable lessons
 ```
 
+For long-horizon builds, add a budget envelope before launch:
+
+```text
+Max agents:
+Max wall-clock:
+Max tool calls / model requests:
+Max token or cost estimate:
+Checkpoint cadence:
+Kill condition:
+```
+
 ### Resource Cleanup Protocol
 
 ```text
@@ -431,6 +457,7 @@ ORDERS: Create a team of 2 teammates using Sonnet.
 □ Agents launched in parallel per plan
 □ No file ownership conflicts
 □ Inter-process communication normal
+□ Agent count, wall-clock, request count, and token budget inside cap
 
 [Phase 2: Observe]
 □ QA loop executed

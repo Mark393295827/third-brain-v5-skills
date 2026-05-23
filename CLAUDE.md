@@ -32,9 +32,9 @@ You have access to the following Agent Skills. Each skill is a markdown file in 
 - **token-cost-tracker** — Command: estimate, log, report token usage.
 
 ### 🏗️ Engineering
-- **agentic-engineering** — Refactor skills and workflows as agent processes with autonomy defaults, state checkpoints, write-back, and verification gates.
-- **harness-engineering** — Agent runtime kernel: three-tier permissions, tools as system calls, observability, recovery, and closed-loop design.
-- **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, integration, cleanup, and evidence gates.
+- **agentic-engineering** — Refactor skills and workflows as agent processes with autonomy defaults, delegated-action boundaries, state checkpoints, write-back, and verification gates.
+- **harness-engineering** — Agent runtime kernel: three-tier permissions, tools as system calls, provenance ledgers, delegated-action gates, observability, recovery, and closed-loop design.
+- **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, async budget envelopes, integration, cleanup, and evidence gates.
 
 ### 💼 Strategy
 - **startup-evaluation** — MIT 24-step startup evaluation framework.

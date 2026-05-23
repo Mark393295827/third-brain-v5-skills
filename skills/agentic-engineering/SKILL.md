@@ -1,8 +1,8 @@
 ---
 name: agentic-engineering
 description: Design or refactor agent skills, workflows, and operating loops for model-native Agentic Engineering. Use when making skills more autonomous, concise, verifiable, long-horizon capable, token-efficient, and lower-friction for human-LLM collaboration.
-version: "1.2"
-updated: "2026-05-22"
+version: "1.3"
+updated: "2026-05-23"
 assumes: "The workflow can be expressed as a bounded agent loop with observable verification evidence."
 conflicts_with: "Do not override harness-engineering safety boundaries or verify-before-claim evidence requirements."
 ---
@@ -26,6 +26,21 @@ Use the Karpathy-style LLM OS mapping as the design baseline:
 | Loop = Scheduler | Plan -> Act -> Observe -> Iterate controls work. |
 
 The agent is a process with state, tools, permissions, and write-back duties. Do not design skills as advice pages; design them as executable control loops.
+
+## Full-Stack Agent Pattern
+
+Use the Google I/O '26 wiki update as the new maturity signal: useful agents are moving from chat boxes into full-stack product surfaces.
+
+| Surface | Agentic engineering requirement |
+|---|---|
+| Developer IDE or CLI | subagents, hooks, async queues, tests, diffs, task state |
+| Personal agent | user intent, memory boundary, tool allowlist, resumable tasks |
+| Agentic search | source grounding, comparison criteria, reversible action preview |
+| Agentic commerce | explicit mandate, budget, payment boundary, audit trail |
+| Generative media | provenance, edit history, watermark or disclosure path |
+| Ambient device | sensor boundary, privacy mode, interrupt and fallback controls |
+
+Do not treat these as separate prompt styles. They are one full-stack agent design problem: model -> context -> tool calls -> product surface -> verification -> governance.
 
 ## Usage Template
 
@@ -115,6 +130,17 @@ Stop condition:
 
 Treat features, research, plans, and verification as macro actions. Shrink the action until ownership and proof are clear.
 
+For delegated actions that can affect a user, account, purchase, external system, public claim, or generated media artifact, add:
+
+```text
+User mandate:
+Authority boundary:
+Budget/cost limit:
+Reversibility:
+Audit/provenance record:
+User confirmation point:
+```
+
 ### 4. Set Autonomy Defaults
 
 Use this escalation policy:
@@ -203,6 +229,8 @@ Every completion claim needs fresh evidence:
 - source references resolve
 - known residual risks are named
 
+For vendor-keynote, launch, or product-roadmap claims, mark single-source status until checked against public docs, changelogs, or independent usage evidence.
+
 ### 11. Close the Memory Loop
 
 After significant output, decide where the result belongs:
@@ -221,6 +249,7 @@ After significant output, decide where the result belongs:
 - [ ] `SKILL.md` removes generic teaching and keeps only non-obvious procedure.
 - [ ] Workflow has safe defaults and a narrow ask-user policy.
 - [ ] Macro actions have scope, owner, non-goals, proof, and stop condition.
+- [ ] Delegated external actions define mandate, authority, cost, reversibility, and audit record.
 - [ ] Long-horizon tasks have checkpoints or state artifacts.
 - [ ] Quality gates include executable or inspectable evidence.
 - [ ] High-risk work has evaluator, critic, or adversarial review.
@@ -238,4 +267,5 @@ After significant output, decide where the result belongs:
 - Treating tools as magic actions instead of permissioned system calls.
 - Optimizing for one impressive answer instead of a reusable loop.
 - Delegating a large macro action without non-goals, ownership, proof, or a stop condition.
+- Letting an agent buy, publish, message, schedule, or mutate external state without an explicit mandate and audit trail.
 - Running autonomous iteration where success depends on taste or risk judgment rather than a cheap metric.

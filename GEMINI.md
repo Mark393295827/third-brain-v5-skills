@@ -30,9 +30,9 @@ This repository contains Agent Skills for the Gemini CLI environment. Place skil
 - **token-cost-tracker** — Token usage estimation and tracking.
 
 ### 🏗️ Engineering
-- **agentic-engineering** — Agent-as-process workflow refactoring with autonomy defaults, state checkpoints, write-back, and verification gates.
-- **harness-engineering** — Agent runtime kernel design: permissions, tools as system calls, observability, and recovery.
-- **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, integration, cleanup, and evidence gates.
+- **agentic-engineering** — Agent-as-process workflow refactoring with autonomy defaults, delegated-action boundaries, state checkpoints, write-back, and verification gates.
+- **harness-engineering** — Agent runtime kernel design: permissions, tools as system calls, provenance ledgers, delegated-action gates, observability, and recovery.
+- **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, async budget envelopes, integration, cleanup, and evidence gates.
 
 ### 💼 Strategy
 - **startup-evaluation** — MIT 24-step startup evaluation framework.
