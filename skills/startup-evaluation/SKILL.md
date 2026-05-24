@@ -1,159 +1,265 @@
 ---
 name: startup-evaluation
-description: Evaluate startups using the 24-step disciplined entrepreneurship framework. Use when assessing a startup idea, conducting due diligence, or analyzing a business model.
-version: "1.1"
-updated: "2026-05-22"
-assumes: "The idea or company can be assessed through customer, market, value, and validation assumptions."
-conflicts_with: "Do not treat market assumptions as verified research; use deep-research or verify-before-claim for evidence checks."
+description: Evaluate startup health using entrepreneurship, VC, and execution frameworks. Use when assessing a startup idea, company, pitch, due diligence target, fundraising readiness, or business model health.
+version: "1.2"
+updated: "2026-05-24"
+assumes: "The idea or company can be assessed through stage, customer, market, product, team, traction, capital, and risk evidence."
+conflicts_with: "Do not treat founder claims, TAM slides, or investor narratives as verified facts; use deep-research or verify-before-claim for evidence checks."
 ---
 
-# Startup Evaluation — 24-Step Framework
+# Startup Evaluation
 
-Evaluate startups systematically using MIT's Disciplined Entrepreneurship framework by Bill Aulet.
+Evaluate the health of a startup, not just the attractiveness of its pitch.
+
+This skill combines:
+
+- MIT Disciplined Entrepreneurship: beachhead, customer, value, business model, validation
+- Timmons model: opportunity x team x resources dynamic fit
+- VC 5T model: Team, Target Market, Tech/Product, Traction, Terms
+- PMF and pretotyping: behavior evidence before build effort
+- Efficiency models: define the question, use MECE, test assumptions cheaply
 
 ## Usage Template
 
 **Prompt**
 ```text
-Use startup-evaluation on this idea. Assess customer, market, beachhead, value proposition, business model, risks, and next validation step.
+Use startup-evaluation on this company/idea.
+Assess startup health, evidence quality, red flags, fundraising readiness, and the next cheapest validation step.
 ```
 
 **Use Case**
-- Evaluating a startup idea, company, or product direction before investing more time or money.
+- Founder wants a health check before building, hiring, or fundraising.
+- Investor wants a due diligence memo or pass/lean-in decision.
+- Team wants to identify the one constraint limiting progress.
 
 **Expected Result**
-- The agent returns a structured assessment with assumptions, evidence, risks, and validation experiments.
+- A structured startup health memo with scores, evidence, risks, and validation experiments.
 
 **Output Example**
-- A one-page startup memo with beachhead customer, painful use case, assumptions, risks, and cheapest test.
+- Stage: Seed. Health score: 62/100. Verdict: promising but not Series A ready. Top constraint: weak retention evidence. Next test: 20-customer paid pilot with D30 retention threshold.
 
 **Verification Case**
-- The output distinguishes known facts from assumptions and names the next cheapest test.
+- The output separates facts, assumptions, and opinions; every score cites evidence or marks missing evidence.
 
 **Verified Effect**
-- Startup enthusiasm becomes an evidence map, risk register, and practical validation plan.
+- Startup enthusiasm becomes a health dashboard, risk register, and concrete validation plan.
 
 ## Success Metrics
 
-- Assessment distinguishes facts, assumptions, risks, and unknowns.
-- Beachhead customer, painful use case, value proposition, and business model hypothesis are stated.
-- Next cheapest validation test has a metric and decision rule.
+- Stage, startup type, and evaluation objective are explicit.
+- Scores distinguish evidence-backed health from narrative confidence.
+- The memo identifies top constraint, fatal risks, runway status, and next cheapest test.
+- VC-scale companies are judged by power-law upside; bootstrapped companies are judged by cashflow and durability.
 
 ## When to Use
 
-- User wants to evaluate a startup idea
-- User is conducting due diligence on a company
-- User wants to analyze a business model
-- User says "assess this startup" or "evaluate this business"
+- "Evaluate this startup."
+- "Is this business healthy?"
+- "Should I invest / join / keep building / fundraise?"
+- "Review my pitch deck or startup idea."
+- "What is the next validation experiment?"
 
-## The 24-Step Framework
+## Startup Health Model
 
-### Phase 1: Market Identification (Steps 1-5)
+Use this equation as the mental model:
 
-| Step | Question | Key Metric |
-|:----:|----------|------------|
-| 1 | **Market Segmentation** — Who are the potential customers? | Customer segments identified |
-| 2 | **Beachhead Market** — Which segment to start with? | Clear initial target |
-| 3 | **End-User Profile** — Who exactly is the buyer? | Detailed persona |
-| 4 | **TAM Calculation** — How big is the market? | Total Addressable Market |
-| 5 | **Customer Acquisition** — How do they find you? | Acquisition channels |
+```text
+Startup Health =
+  Opportunity quality
+  x Team quality
+  x Evidence momentum
+  x Capital discipline
+  x Learning velocity
+  - Fatal risks
+```
 
-### Phase 2: Customer Understanding (Steps 6-10)
+Do not average away a fatal flaw. A brilliant market with no reachable customer, no team fit, or six weeks of runway is unhealthy.
 
-| Step | Question | Key Metric |
-|:----:|----------|------------|
-| 6 | **Decision Making Unit** — Who decides to buy? | DMU mapped |
-| 7 | **Acquisition Process** — What's the buying journey? | Funnel stages |
-| 8 | **Customer LTV** — What's a customer worth? | Lifetime Value |
-| 9 | **Competitive Landscape** — Who else serves this market? | Competitive map |
-| 10 | **Product Solution** — What do you offer? | Value proposition |
+## Step 1: Classify the Case
 
-### Phase 3: Product Development (Steps 11-15)
+Before scoring, classify:
 
-| Step | Question | Key Metric |
-|:----:|----------|------------|
-| 11 | **Value Proposition** — Why you? | Unique value |
-| 12 | **Quantified Value** — How much better? | Metrics |
-| 13 | **Pricing Strategy** — What to charge? | Price points |
-| 14 | **Sales Channel** — How to deliver? | Channel strategy |
-| 15 | **Marketing Strategy** — How to attract? | Marketing plan |
+| Field | Options |
+|---|---|
+| Stage | idea, pre-seed, seed, Series A, growth, mature |
+| Startup type | lifestyle/SME, innovation-driven, VC-scale, hard tech, AI-native |
+| Evaluation lens | founder health check, investor due diligence, fundraising readiness, pivot decision |
+| Evidence state | narrative only, interviews, behavior, payment, retention, repeatable growth |
 
-### Phase 4: Business Model (Steps 16-20)
+If data is missing, continue with assumptions and mark confidence low.
 
-| Step | Question | Key Metric |
-|:----:|----------|------------|
-| 16 | **Business Model** — How to make money? | Revenue model |
-| 17 | **Customer CAC** — What does it cost to acquire? | Acquisition cost |
-| 18 | **Sales Process** — How to close deals? | Sales funnel |
-| 19 | **Market Size** — More precise estimate? | Refined TAM |
-| 20 | **Financing Strategy** — How to fund? | Capital needs |
+## Step 2: Evidence Ladder
 
-### Phase 5: Execution (Steps 21-24)
+Rank claims by evidence quality:
 
-| Step | Question | Key Metric |
-|:----:|----------|------------|
-| 21 | **Team Design** — Who's needed? | Team gaps |
-| 22 | **Board Design** — Governance structure? | Board composition |
-| 23 | **Milestones** — Key checkpoints? | Milestone plan |
-| 24 | **Iteration** — How to adapt? | Feedback loops |
+| Level | Evidence | Weight |
+|---|---|---|
+| 0 | Founder belief, TAM slide, friend feedback | very weak |
+| 1 | Customer interviews about past behavior | weak |
+| 2 | Landing page, waitlist, demo usage | moderate |
+| 3 | Paid pilot, preorder, signed LOI, repeated use | strong |
+| 4 | Retention, expansion, organic referral, healthy unit economics | very strong |
 
-## Quick Evaluation Checklist
+Quotes and intentions do not prove demand. Payment, repeated usage, retention, and referral are stronger.
 
-For rapid assessment, focus on these critical factors:
+## Step 3: Score Startup Health
 
-### ✅ Market (Steps 1-5)
-- [ ] Clear market segment identified
-- [ ] TAM > $1B (for VC-backed) or > $100M (for bootstrapped)
-- [ ] Beachhead market clearly defined
-- [ ] Customer acquisition channels exist
+Default weights. Adjust only when stage or startup type clearly requires it.
 
-### ✅ Product-Market Fit (Steps 6-10)
-- [ ] Clear buyer persona
-- [ ] LTV/CAC > 3
-- [ ] Competitive advantage identified
-- [ ] Value proposition is compelling
+| Dimension | Weight | Healthy signal | Red flag |
+|---|---:|---|---|
+| Customer pain and beachhead | 15 | narrow painful use case, reachable buyer, urgent workflow | vague user, nice-to-have pain |
+| Market and timing | 15 | large/growing market or focused profitable niche, clear timing window | TAM-only logic, market too early/late |
+| Value proposition and 10x | 15 | 10x better, 1/10 cost, or new capability | marginal improvement |
+| PMF and traction | 15 | retention, payment, pull, repeatable channel | paid growth only, high churn, weak usage |
+| Business model and unit economics | 10 | LTV/CAC > 3, clear pricing, gross margin path | CAC unknown, payback too long |
+| Team and governance | 15 | founder-market fit, complementary roles, written equity/decision rules | solo gaps, cofounder conflict, weak recruiting |
+| Capital and runway | 10 | 12-18 month runway, milestone-based spend, financing plan | <6 month runway, unfocused burn |
+| Moat and risk control | 5 | data, network, distribution, regulatory or execution moat | easily copied, platform/model dependency |
 
-### ✅ Business Model (Steps 16-20)
-- [ ] Revenue model is clear
-- [ ] Unit economics work
-- [ ] Capital requirements are reasonable
+Score each dimension:
 
-### ✅ Execution (Steps 21-24)
-- [ ] Team has relevant experience
-- [ ] Milestones are achievable
-- [ ] Feedback loops exist
+```text
+0 = absent
+1 = narrative only
+2 = weak signal
+3 = plausible but incomplete
+4 = evidence-backed
+5 = strong and repeatable
+```
 
-## Evaluation Scoring
+Final score:
 
-| Score | Market | Product | Team | Verdict |
-|:-----:|--------|---------|------|---------|
-| **A** | Large, growing, clear entry | Strong PMF, defensible | Experienced, complementary | Strong invest |
-| **B** | Good size, some competition | PMF emerging, needs iteration | Capable, some gaps | Conditional invest |
-| **C** | Small or crowded | Weak PMF, undifferentiated | Inexperienced or incomplete | Pass or pivot needed |
-| **D** | No clear market | No product-market fit | Wrong team | Clear pass |
+| Score | Status | Meaning |
+|---:|---|---|
+| 80-100 | Healthy | Scale or fundraise if risks are bounded. |
+| 65-79 | Promising | Continue, but fix the top constraint before major spend. |
+| 50-64 | Fragile | Narrow scope and validate before hiring/fundraising. |
+| 0-49 | Unhealthy | Pivot, pause, or redesign assumptions. |
+
+## Step 4: VC 5T Cross-Check
+
+For VC-backed or investor-facing evaluations, add a 5T view:
+
+| 5T | Question |
+|---|---|
+| Team | Why this team? What unfair insight or execution proof exists? |
+| Target Market | Can this become a power-law outcome, not just a good business? |
+| Tech/Product | Is there defensibility beyond using current tools? |
+| Traction | Is growth pulled by customers and retention, not only paid push? |
+| Terms | Does valuation, dilution, and round structure leave room for returns? |
+
+Use the 5T view to decide whether the company is venture-scale. A healthy bootstrapped company can still be a poor VC investment.
+
+## Step 5: AI-Native and Hard-Tech Addendum
+
+Use when relevant:
+
+| Question | Why it matters |
+|---|---|
+| Is this Type 1, 2, or 3 AI? | Tools on existing software, replacement software, or software becoming labor have different TAM and pricing logic. |
+| Does the product improve 10-40% or 10-40x? | VC outcomes need step-change value, not small convenience. |
+| What remains if code or models get cheaper? | Moat must move to data, workflow, distribution, trust, regulation, or physical execution. |
+| Is there product surplus? | Products built for the next model can fail before users adopt them. |
+| Are hardware, supply chain, regulation, or deployment loops bottlenecks? | Hard-tech health depends on non-software execution constraints. |
+
+## Step 6: Runway and Financing Health
+
+Use these thresholds:
+
+| Metric | Green | Yellow | Red |
+|---|---|---|---|
+| Runway | 18+ months | 6-18 months | <6 months |
+| Fundraising start | before 12 months runway | 6-12 months | after crisis starts |
+| LTV/CAC | 3-5+ | 1-3 | <1 or unknown at scale |
+| CAC payback | <12 months | 12-18 months | >18 months |
+| Burn focus | tied to next milestone | mixed | vanity hiring/spend |
+
+Capital should buy evidence for the next milestone. Spending that does not reduce the top uncertainty is unhealthy.
+
+## Step 7: Diagnose the Constraint
+
+Name one primary constraint:
+
+| Constraint | Typical fix |
+|---|---|
+| No painful problem | customer discovery and problem pivot |
+| Wrong beachhead | segment narrower by buyer, workflow, urgency |
+| Weak value proposition | quantify before/after value and 10x wedge |
+| No behavior evidence | pretotype, paid pilot, concierge MVP |
+| Weak retention | reduce scope, improve core workflow, delay scale |
+| Team gap | recruit missing builder/seller/operator, clarify equity and decisions |
+| Capital risk | cut burn, milestone fundraising, smaller experiment |
+| Moat risk | build data loop, distribution edge, workflow lock-in, trust layer |
+
+## Step 8: Output Format
+
+Return:
+
+```markdown
+## Startup Health Memo
+
+Stage / type / lens:
+Verdict:
+Health score:
+Confidence:
+
+### Evidence Ledger
+Facts:
+Assumptions:
+Missing evidence:
+
+### Scorecard
+| Dimension | Score | Evidence | Risk |
+
+### Top Constraint
+...
+
+### Red Flags
+...
+
+### Fundraising Readiness
+...
+
+### Next Cheapest Test
+Hypothesis:
+Experiment:
+Metric:
+Decision rule:
+Cost/time:
+
+### 30-Day Operating Focus
+...
+```
 
 ## Quality Gates
 
-- [ ] Known facts are separated from assumptions.
-- [ ] Beachhead customer and painful use case are explicit.
-- [ ] Market, product, business model, and execution risks are scored.
-- [ ] Competitive alternatives are named.
-- [ ] Next cheapest validation test is concrete and measurable.
-- [ ] Final verdict includes residual uncertainty.
+- [ ] Stage, type, and lens are explicit.
+- [ ] Facts, assumptions, and missing evidence are separated.
+- [ ] Health score uses the scorecard and does not hide fatal risks.
+- [ ] VC-scale and bootstrapped-health judgments are not conflated.
+- [ ] Customer pain, beachhead, PMF, unit economics, team, runway, and moat are covered.
+- [ ] Top constraint is singular and actionable.
+- [ ] Next cheapest test has a metric, threshold, cost/time box, and decision rule.
+- [ ] Final verdict names residual uncertainty.
 
-## Key Insights from Bill Aulet
+## Anti-Patterns
 
-1. **Start small, think big** — Beachhead market first, then expand
-2. **Customer discovery > product development** — Talk to customers before building
-3. **LTV/CAC is the key metric** — Must be > 3 for sustainable business
-4. **Innovation-driven vs. small business** — Different frameworks for different types
-5. **Discipline over inspiration** — Follow the process, don't rely on genius
+- Treating a large TAM as proof of opportunity.
+- Scoring a startup from pitch quality rather than customer behavior.
+- Averaging high team quality with zero demand evidence.
+- Recommending fundraising before knowing the milestone capital will prove.
+- Calling an AI wrapper defensible without data, distribution, workflow, or trust moat.
+- Giving many generic suggestions instead of one constraint and one next test.
 
 ## Connections
 
-- [[wiki/concepts/产品市场契合]] — PMF is the core goal
-- [[wiki/concepts/创新扩散]] — How new products get adopted
-- [[wiki/concepts/飞轮效应]] — Business model growth logic
-- [[wiki/concepts/精益思维]] — Rapid iteration methodology
-- [[wiki/concepts/7种战略力量]] — Competitive advantage framework
-- [[maps/VC与一级投资知识库]] — VC evaluation frameworks
+- [[wiki/concepts/创业基础框架]] — Timmons opportunity x team x resources
+- [[wiki/concepts/创业机会识别]] — opportunity sources, beachhead, TAM/SAM/SOM
+- [[wiki/concepts/产品市场契合]] — MVP, retention, payment, referral
+- [[wiki/concepts/创业融资]] — runway, LTV/CAC, fundraising stages
+- [[wiki/concepts/创业团队建设]] — founder fit, complementary roles, equity rules
+- [[wiki/concepts/顶级VC评估框架]] — 5T, TOPSCAN, T2D3
+- [[maps/创业知识库]] — entrepreneurship system map
+- [[maps/VC与一级投资知识库]] — investor evaluation map
+- [[maps/效率思维与模型]] — hypothesis-driven, MECE, cheap tests

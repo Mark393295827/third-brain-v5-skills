@@ -235,7 +235,7 @@ claude "Create a team of 3 agents to research this topic."
 
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
-| **startup-evaluation** | MIT 24-step startup evaluation framework | "evaluate this startup" |
+| **startup-evaluation** | Startup health diagnosis: customer pain, market, PMF, team, unit economics, runway, VC 5T, and next cheapest test | "evaluate this startup" |
 | **anthropic-os** | Self-evolving work method engine. CASH, 70/30, hive mind, 3B algorithms | "launch Anthropic OS" |
 
 ---

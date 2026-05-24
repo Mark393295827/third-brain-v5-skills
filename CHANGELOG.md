@@ -7,6 +7,7 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 ## Unreleased
 
 ### Added
+- Startup health framework digest translating Obsidian startup, VC, efficiency, and primary-investor maps into skill rules.
 - Google I/O '26 agentic stack digest translating the latest Obsidian wiki ingest into full-stack agent design rules.
 - Agent understanding framework wiki concept mapping Karpathy LLM OS ideas to Third Brain agent workflow, harness, and team design.
 - GitHub star growth sprint playbook, launch copy pack, and Awesome-list target finder for legitimate open-source distribution.
@@ -19,6 +20,7 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - README skill adoption ladder that makes `wiki-ingest` + `verify-before-claim` the recommended first stage.
 
 ### Changed
+- `startup-evaluation` now evaluates startup health with stage, evidence ladder, PMF/traction, unit economics, team/governance, runway, VC 5T, AI/hard-tech addendum, top-constraint diagnosis, and next-cheapest-test design.
 - `agentic-engineering`, `harness-engineering`, `agent-teams-command`, and `verify-before-claim` now include full-stack agent surfaces: delegated actions, commerce mandates, generated-media provenance, ambient-device privacy, and single-source product claim rules.
 - `agentic-engineering`, `harness-engineering`, and `agent-teams-command` now share a process/kernel/system-call mental model with explicit write-back and cleanup rules.
 - README, GUIDE, and CLI entry docs now link or describe the expanded LLM OS architecture mapping.

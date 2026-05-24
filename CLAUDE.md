@@ -37,7 +37,7 @@ You have access to the following Agent Skills. Each skill is a markdown file in 
 - **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, async budget envelopes, integration, cleanup, and evidence gates.
 
 ### 💼 Strategy
-- **startup-evaluation** — MIT 24-step startup evaluation framework.
+- **startup-evaluation** — Startup health diagnosis with entrepreneurship, VC 5T, PMF, runway, team, and next-test frameworks.
 - **anthropic-os** — Cognitive Symbiont Engine. Livewired + 3B creativity algorithms (Bending/Breaking/Blending). Predictive coding, time-arrow diagnostics.
 
 ## Usage

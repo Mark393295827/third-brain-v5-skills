@@ -137,7 +137,7 @@ Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quic
 | Month 2+: Deepen | + `cognitive-compile` + `behavior-design` + `creativity-engine` | The wiki has 50+ pages or repeated decisions need deeper synthesis and experiments. |
 | Month 3+: Engineer | + `knowledge-ops` + `harness-engineering` + `agentic-engineering` | Retrieval, permissions, delegated actions, provenance, or workflow reliability become bottlenecks. |
 | Multi-agent: Scale | + `agent-teams-command` + `project-flow-ops` | Work can be split into separate owners with clear integration and verification gates. |
-| Strategy: Evaluate | + `startup-evaluation` + `anthropic-os` + `deep-research` | You need market, operating-system, or multi-source research decisions. |
+| Strategy: Evaluate | + `startup-evaluation` + `anthropic-os` + `deep-research` | You need startup health, market, operating-system, or multi-source research decisions. |
 
 ## Before → After
 
@@ -247,7 +247,7 @@ The latest engineering update adds a full-stack agent lens: agent workflows now 
 
 | Skill | Description |
 |-------|-------------|
-| [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startups using MIT's 24-step disciplined entrepreneurship framework. Market identification, customer understanding, business model analysis. |
+| [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startup health with entrepreneurship, VC 5T, PMF, runway, team, unit economics, and next-cheapest-test diagnostics. |
 | [anthropic-os](skills/anthropic-os/SKILL.md) | Anthropic OS — Self-Evolving Work Method Engine. CASH growth system, 70/30 rule, two-week rule, hive mind, working backwards. Built-in self-evolution mechanism. |
 
 ---
