@@ -7,6 +7,8 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 ## Unreleased
 
 ### Added
+- Karpathy wiki skill-audit digest translating LLM Wiki, macro actions, AutoResearch boundaries, and agentic education into concrete wiki skill rules.
+- Wiki ingest governance digest translating recent Obsidian ingest logs, lint report, governance dashboard, and clipping queue rules into skill updates.
 - Startup health framework digest translating Obsidian startup, VC, efficiency, and primary-investor maps into skill rules.
 - Google I/O '26 agentic stack digest translating the latest Obsidian wiki ingest into full-stack agent design rules.
 - Agent understanding framework wiki concept mapping Karpathy LLM OS ideas to Third Brain agent workflow, harness, and team design.
@@ -20,6 +22,8 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - README skill adoption ladder that makes `wiki-ingest` + `verify-before-claim` the recommended first stage.
 
 ### Changed
+- `wiki-ingest`, `wiki-lint`, and `knowledge-ops` now apply a Karpathy-style understanding gate, Markdown-first retrieval default, macro-action scope contract, reusable workflow extraction, and objective-metric boundary for autonomous loops.
+- `wiki-ingest`, `wiki-lint`, and `knowledge-ops` now include source-risk taxonomy, clipping lifecycle, targeted post-ingest lint, P0/P1 graph health gates, duplicate-source handling, provenance debt, and weak-link review queues.
 - `startup-evaluation` now evaluates startup health with stage, evidence ladder, PMF/traction, unit economics, team/governance, runway, VC 5T, AI/hard-tech addendum, top-constraint diagnosis, and next-cheapest-test design.
 - `agentic-engineering`, `harness-engineering`, `agent-teams-command`, and `verify-before-claim` now include full-stack agent surfaces: delegated actions, commerce mandates, generated-media provenance, ambient-device privacy, and single-source product claim rules.
 - `agentic-engineering`, `harness-engineering`, and `agent-teams-command` now share a process/kernel/system-call mental model with explicit write-back and cleanup rules.

@@ -7,9 +7,9 @@ You have access to the following Agent Skills. Each skill is a markdown file in 
 ## Skill Categories
 
 ### 📥 Knowledge Pipeline
-- **wiki-ingest** — Ingest sources (articles, PDFs, videos) into an interlinked wiki. STOW pipeline: Source → Think → Organize → Write.
-- **knowledge-ops** — Multi-layer knowledge management with ChromaDB vector storage.
-- **wiki-lint** — Health-check the wiki across 8 dimensions.
+- **wiki-ingest** — Ingest sources into an interlinked wiki with source-risk classification, macro-action scope, block refs, clipping archive, Karpathy understanding gate, governance notes, and post-ingest lint. STOW pipeline: Source → Think → Organize → Write.
+- **knowledge-ops** — Multi-layer knowledge management with Markdown-first retrieval, optional ChromaDB vector support, evidence hierarchy, deduplication, and knowledge debt queues.
+- **wiki-lint** — Health-check the wiki across P0/P1 graph health, source refs, frontmatter, links, provenance debt, clipping lifecycle, understanding integrity, and drift.
 
 ### 🔄 Daily Loop
 - **daily-okr** — 7 Key Results daily cycle: Input → Cognition → Wiki → Behavior → Creativity → Output → Feedback. Includes Stop Doing List.

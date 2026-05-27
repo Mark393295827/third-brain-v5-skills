@@ -184,9 +184,9 @@ claude "Create a team of 3 agents to research this topic."
 
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
-| **wiki-ingest** | Ingests articles, PDFs, videos into wiki | "ingest this into my wiki" |
-| **knowledge-ops** | Manages multi-layer knowledge; dedup, classify, vectorize | "save this to my knowledge base" |
-| **wiki-lint** | Health-check: orphans, broken links, missing frontmatter | "lint my wiki" |
+| **wiki-ingest** | Ingests sources with risk classification, macro-action scope, wiki pages, clipping archive, Karpathy understanding gate, governance notes, and post-ingest lint | "ingest this into my wiki" |
+| **knowledge-ops** | Manages multi-layer knowledge; dedup, classify, preserve evidence hierarchy, use Markdown-first retrieval, vectorize optionally, and queue knowledge debt | "save this to my knowledge base" |
+| **wiki-lint** | Health-check: P0/P1 graph health, source refs, frontmatter, links, provenance debt, clipping lifecycle, and understanding integrity | "lint my wiki" |
 
 ### 🔄 Daily Workflow
 

@@ -196,9 +196,9 @@ The latest engineering update adds a full-stack agent lens: agent workflows now 
 
 | Skill | Description |
 |-------|-------------|
-| [wiki-ingest](skills/wiki-ingest/SKILL.md) | Ingest sources (articles, PDFs, videos) into a persistent interlinked wiki. Creates source notes, entity pages, concept pages, updates navigation. STOW pipeline. |
-| [knowledge-ops](skills/knowledge-ops/SKILL.md) | Multi-layer knowledge management — classify, deduplicate, vectorize with ChromaDB, sync across stores. |
-| [wiki-lint](skills/wiki-lint/SKILL.md) | Health-check the wiki across 8 dimensions: frontmatter, links, orphans, stale content, contradictions, drift. |
+| [wiki-ingest](skills/wiki-ingest/SKILL.md) | Ingest sources into a persistent interlinked wiki with source-risk taxonomy, macro-action scope, concept/entity pages, Karpathy understanding gate, clipping archive, and post-ingest lint. |
+| [knowledge-ops](skills/knowledge-ops/SKILL.md) | Multi-layer knowledge management — classify, deduplicate, preserve evidence hierarchy, keep Markdown-first retrieval primary, use vectors as optional support, and queue knowledge debt. |
+| [wiki-lint](skills/wiki-lint/SKILL.md) | Health-check the wiki across P0/P1 graph health, frontmatter, source refs, links, clipping lifecycle, provenance debt, understanding integrity, contradictions, and drift. |
 
 ### 🔄 Daily Workflow
 

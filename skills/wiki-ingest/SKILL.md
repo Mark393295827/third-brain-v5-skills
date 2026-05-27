@@ -1,8 +1,8 @@
 ---
 name: wiki-ingest
 description: Ingest articles, PDFs, videos, transcripts, and notes into a persistent interlinked knowledge wiki. Use when the user wants source notes, entity pages, concept pages, navigation updates, or STOW processing.
-version: "1.2"
-updated: "2026-05-22"
+version: "1.4"
+updated: "2026-05-27"
 assumes: "Vault paths are resolved from system/config.md when present; otherwise default STOW paths are used."
 conflicts_with: "Do not run bulk deduplication or vector sync here; use knowledge-ops after source capture."
 ---
@@ -38,6 +38,9 @@ Use wiki-ingest on this source. Create source notes, concept pages, entity pages
 - Creates one immutable source note, 3-7 key insights with block refs, and at least one linked wiki page.
 - Each new wiki page has frontmatter, source references, at least two wikilinks, and a timeline entry.
 - Final report lists created/updated files and flags single-source claims.
+- Targeted post-ingest lint confirms no missing frontmatter, broken source refs, zero-inlink pages, or pages with fewer than two outbound wikilinks.
+- Clippings are archived after successful ingest and the clipping queue is updated when applicable.
+- Each concept page passes the Karpathy understanding gate: one-line thesis, source boundary, mechanism, connections, and what remains uncertain.
 
 **V5.2 Closure Add-on**
 - Classify every input as `external-fact`, `human-experience`, `internal-state`, or `environment-signal`.
@@ -57,6 +60,23 @@ Use wiki-ingest on this source. Create source notes, concept pages, entity pages
 
 Before writing, read `system/config.md` when available and resolve `SOURCES_DIR`, `CONCEPTS_DIR`, `ENTITIES_DIR`, `MAPS_DIR`, `LOG_FILE`, `BEHAVIORS_DIR`, and `CREATIVITY_DIR`. If no config exists, use the default STOW layout.
 
+### Step 0A: Define the Ingest Macro Action
+
+Treat each ingest as an agentic macro action:
+
+```text
+Objective:
+Source boundary:
+Owned vault paths:
+Expected source note:
+Expected wiki updates:
+Verification evidence:
+Non-goals:
+Stop condition:
+```
+
+Do not start a broad autonomous expansion unless the source has objective metrics and cheap verification. Otherwise ingest once, record uncertainty, and queue follow-up research.
+
 ### Step 1: Capture
 
 Create an immutable source note in `SOURCES_DIR`:
@@ -64,13 +84,16 @@ Create an immutable source note in `SOURCES_DIR`:
 ```markdown
 ---
 source_id: "src-YYYYMMDD-short-slug"
-title: "Original Source Title"
-author: ""
-url: ""
-created_at: "YYYY-MM-DD"
-captured_at: "YYYY-MM-DDTHH:MM:SS"
-source_type: "article | book | video-transcript | paper | conversation"
-trust_level: "1-unverified | 2-expert-source"
+source_date: "YYYY-MM-DD"
+source_title: "Original Source Title"
+source_author: ""
+source_type: "article | book | video-transcript | pdf | epub | notebooklm-mediated | local-synthesis | primary-filing | company-interview"
+source_url: ""
+input_class: "external-fact | human-experience | internal-state | environment-signal"
+created: "YYYY-MM-DD"
+knowledge_stage: captured
+evidence_level: "single-source | multi-source | curated-map"
+trust_level: "1-unverified | 2-expert-source | 3-primary-source"
 hash: "sha256-16char"
 status: "raw | ingested"
 ---
@@ -81,6 +104,21 @@ status: "raw | ingested"
 - Extract 3-7 Key Insights with block refs (`^ki-short-name`)
 - Flag single-source claims with `> [!warning] Single source`
 - Assign an input class: `external-fact | human-experience | internal-state | environment-signal`
+
+### Step 1A: Classify Source Risk
+
+Use a source-risk label before writing claims:
+
+| Source type | Default evidence | Required caution |
+|---|---|---|
+| primary filing / official docs | high | still check date, draft/final status, and missing fields |
+| article / book / transcript | medium | mark author perspective and single-source claims |
+| founder / company / investor interview | medium-low | treat metrics, adoption, roadmap, and performance as self-reported |
+| NotebookLM-mediated source | low | state that the original transcript/source is not fully archived |
+| local synthesis / PDF stack | low | treat as secondary-source synthesis; do not promote numbers without primary refs |
+| fast-changing financial/product claim | low | add review queue item for current docs or filings |
+
+If a clipping duplicates an existing source, create or update provenance only when it adds useful block refs; otherwise link to the canonical source and log the duplicate.
 
 ### Step 2: Auto-create Entity Pages
 
@@ -156,11 +194,27 @@ What this means for decision-making.
 - Use **tables** for comparisons (frameworks, classifications, data)
 - End with **connections** (grouped wikilinks) + **evolution timeline** (separated by `---`)
 
+**Karpathy understanding gate:**
+
+Before writing a concept page, answer:
+
+```text
+Core thesis: What changed in my understanding?
+Mechanism: What causes what?
+Boundary: What is this source allowed to prove?
+Counterpoint: What could make this wrong?
+Reusable bit: Is this a concept, SOP, skill, decision rule, or review item?
+```
+
+The page should compile understanding for humans and agents. Do not store a long summary that future agents must re-understand from scratch.
+
 ### Step 4: Update Navigation
 
 1. Update the wiki overview / living synthesis
 2. Update the central index
 3. Update relevant MOC (map of content) pages
+4. Update source batch index when the source starts or extends a topic batch
+5. For Web Clipper inputs, move the processed clipping to `Clippings/archive/` and update `Clippings/README.md` if that queue exists
 
 ### Step 5: Convert to Behavior / Creativity When Warranted
 
@@ -188,6 +242,11 @@ Creativity experiment minimum fields:
 - minimum test
 - success signal
 - next output
+
+Skill / SOP conversion check:
+- If the source teaches a repeatable agent workflow, mark it as a candidate for `skills/`, `commands/`, or `wiki/sops/`.
+- Extract only the few "human bits" that matter: objective, constraints, failure modes, verification, and write-back target.
+- Do not create a new skill when an existing skill can absorb the rule.
 
 ### Step 6: Append Timeline
 
@@ -217,6 +276,21 @@ Append to `LOG_FILE` with:
 - Behavior / creativity experiments created or explicitly skipped
 - Governance risks recorded
 
+### Step 8: Targeted Post-Ingest Lint
+
+Before final reporting, run a targeted health check over the files touched:
+
+- source file exists and block refs resolve
+- every new/updated wiki page has V5 frontmatter
+- every new/updated wiki page has at least two outbound wikilinks
+- every source reference points to an existing source
+- every new concept/entity is linked from at least one relevant MOC or page
+- no empty files were created
+- concept pages pass the understanding gate rather than being raw summaries
+- weak links are reported, not auto-created, unless the source clearly defines the concept/entity
+
+For large batches, write or update `system/lint-report.md` with P0/P1 results and queue P2/P3 debt instead of trying to fix all historical structure issues.
+
 ## Quality Gates
 
 - [ ] Source note created with frontmatter
@@ -228,6 +302,9 @@ Append to `LOG_FILE` with:
 - [ ] Creativity conversion assessed
 - [ ] Governance risks recorded
 - [ ] Log appended
+- [ ] Targeted post-ingest lint completed
+- [ ] Clipping archived or left in queue with reason
+- [ ] Understanding gate passed for new/updated concepts
 
 ## Page Format
 
@@ -251,3 +328,6 @@ evidence_level: single-source | multi-source | curated-map
 - **Linked**: every page ≥2 outbound `[[wikilinks]]`
 - **Sourced**: every claim cites `(Source: [[source-file#^ref]])`
 - **Contradictions flagged**: `> [!warning] Contradiction` when sources disagree
+- **No fake provenance**: do not invent hashes, source IDs, or primary-source confidence for old or mediated materials
+- **Debt is explicit**: weak links, stale metadata, duplicate sources, and fast-changing claims go to lint report or governance queue
+- **Markdown first**: durable Markdown pages are the knowledge product; vector search is optional retrieval support, not a substitute for understanding

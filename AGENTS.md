@@ -5,9 +5,9 @@ This repository contains Agent Skills for the Codex CLI environment. Place skill
 ## Skills
 
 ### 📥 Knowledge Pipeline
-- **wiki-ingest** — STOW pipeline for ingesting sources into an interlinked wiki.
-- **knowledge-ops** — Multi-layer knowledge management with vector storage.
-- **wiki-lint** — 8-dimension wiki health check.
+- **wiki-ingest** — STOW pipeline with source-risk classification, macro-action scope, block refs, clipping archive, Karpathy understanding gate, governance notes, and post-ingest lint.
+- **knowledge-ops** — Multi-layer knowledge management with Markdown-first retrieval, optional vector storage, evidence hierarchy, deduplication, and knowledge debt queues.
+- **wiki-lint** — Wiki health check for P0/P1 graph health, source refs, frontmatter, links, provenance debt, clipping lifecycle, and understanding integrity.
 
 ### 🔄 Daily Loop
 - **daily-okr** — 7 Key Results daily knowledge compound cycle.
