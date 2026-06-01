@@ -1,8 +1,8 @@
 ---
 name: agentic-engineering
 description: Design or refactor agent skills, workflows, and operating loops for model-native Agentic Engineering. Use when making skills more autonomous, concise, verifiable, long-horizon capable, token-efficient, and lower-friction for human-LLM collaboration.
-version: "1.3"
-updated: "2026-05-23"
+version: "1.4"
+updated: "2026-06-01"
 assumes: "The workflow can be expressed as a bounded agent loop with observable verification evidence."
 conflicts_with: "Do not override harness-engineering safety boundaries or verify-before-claim evidence requirements."
 ---
@@ -41,6 +41,21 @@ Use the Google I/O '26 wiki update as the new maturity signal: useful agents are
 | Ambient device | sensor boundary, privacy mode, interrupt and fallback controls |
 
 Do not treat these as separate prompt styles. They are one full-stack agent design problem: model -> context -> tool calls -> product surface -> verification -> governance.
+
+## Workflow Complexity Gate
+
+Before adding orchestration, classify the work at the lowest sufficient level:
+
+| Level | Use when | Gate before upgrading |
+|---|---|---|
+| Prompt | One-off answer, small edit, short analysis | Is the work repeating? |
+| Skill | Reusable workflow or domain method | Does it need isolated execution? |
+| Subagent | Independent side task or context isolation | Does it need communication or shared state? |
+| Agent team | Multiple roles must coordinate or review each other | Can file ownership, IPC, and join gates be defined? |
+| Long-running goal | Depth problem: iterate until objective criteria pass | Is `done` externally verifiable and budgeted? |
+| Dynamic workflow | Width problem: many independent shards can run in parallel | Is script review, cost envelope, and runtime observability in place? |
+
+Default to the lower level when value, independence, or verification is unclear. Higher orchestration increases token cost, permission surface, and audit burden.
 
 ## Usage Template
 
@@ -251,6 +266,7 @@ After significant output, decide where the result belongs:
 - [ ] Macro actions have scope, owner, non-goals, proof, and stop condition.
 - [ ] Delegated external actions define mandate, authority, cost, reversibility, and audit record.
 - [ ] Long-horizon tasks have checkpoints or state artifacts.
+- [ ] Workflow complexity is justified at the lowest sufficient level.
 - [ ] Quality gates include executable or inspectable evidence.
 - [ ] High-risk work has evaluator, critic, or adversarial review.
 - [ ] AutoResearch loops have objective metrics, cheap evals, and explicit limits.

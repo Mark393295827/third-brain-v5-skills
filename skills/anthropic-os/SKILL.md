@@ -1,8 +1,8 @@
 ---
 name: anthropic-os
 description: Improve a personal or team operating system with self-evolving loops, CASH allocation, 3B creativity, predictive coding, and diagnostics. Use when the user wants to redesign a work method, learning loop, or cognitive operating system.
-version: "1.1"
-updated: "2026-05-22"
+version: "1.2"
+updated: "2026-06-01"
 assumes: "The user wants to improve a work system rather than solve a single isolated task."
 conflicts_with: "Do not use as a replacement for startup-evaluation, daily-okr, or project-flow-ops when the user asks for those narrower workflows."
 ---
@@ -61,6 +61,35 @@ Use anthropic-os on this work system. Diagnose the current loop, identify the bi
 │  E0: Evolution Engine — Self-upgrade via 3B iteration            │
 └──────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## AIOS 4C Operating Audit
+
+Use this audit when the operating system is meant to become the default work surface rather than a side tool:
+
+| Layer | Question | Upgrade path | Risk |
+|---|---|---|---|
+| Context | Does the system know the project, history, rules, and prior outputs? | Files, memory, transcripts, wiki, logs | Context pollution or stale truth |
+| Connections | Which systems can it reach? | Calendar, email, Slack, Drive, GitHub, APIs, MCP | Over-broad account access |
+| Capabilities | How does it work in the user's style? | Skills, commands, SOPs, templates | Skill sprawl without maintenance |
+| Cadence | What should happen without manual prompting? | Routines, scheduled checks, event triggers | Slop automation and hidden failures |
+
+Do not add cadence before context, connections, and capabilities are strong enough to support it. A scheduled prompt without the right context and proof path is automation theater.
+
+## Bike Method Permission Ladder
+
+Treat permissions as keys, not intentions. Move through autonomy stages only after evidence accumulates:
+
+| Stage | Human role | Agent capability |
+|---|---|---|
+| Observe | Check sources and reasoning | Read-only search, summarize, recommend |
+| Co-drive | Approve each action | Draft, simulate, prepare changes |
+| Training wheels | Review logs and outputs | Execute scoped reversible actions |
+| Watch | Monitor exceptions | Run recurring low-risk routines |
+| Autonomy | Audit periodically | Run proven high-frequency loops |
+
+Never grant send, publish, pay, delete, or production-write capability merely because the prompt says not to misuse it. Remove the key or put the action behind approval until the loop has passed lower stages.
 
 ---
 
@@ -412,6 +441,8 @@ The system evolves itself using the same 3B algorithms it prescribes:
 ## Quality Gates
 
 - [ ] Practice stored in unified YAML schema
+- [ ] AIOS audit covers Context, Connections, Capabilities, and Cadence
+- [ ] Permission ladder identifies current autonomy stage and next gate
 - [ ] Diagnostic covers all 6 maturity dimensions
 - [ ] Prescription follows adaptive routing rules
 - [ ] Execution artifacts are copy-ready
