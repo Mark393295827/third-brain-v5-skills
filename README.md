@@ -137,7 +137,7 @@ Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quic
 | Month 2+: Deepen | + `cognitive-compile` + `behavior-design` + `creativity-engine` | The wiki has 50+ pages or repeated decisions need deeper synthesis and experiments. |
 | Month 3+: Engineer | + `knowledge-ops` + `harness-engineering` + `agentic-engineering` | Retrieval, permissions, delegated actions, provenance, or workflow reliability become bottlenecks. |
 | Multi-agent: Scale | + `agent-teams-command` + `project-flow-ops` | Work can be split into separate owners with clear integration and verification gates. |
-| Strategy: Evaluate | + `startup-evaluation` + `anthropic-os` + `deep-research` | You need startup health, market, operating-system, or multi-source research decisions. |
+| Strategy: Evaluate | + `startup-evaluation` + `anthropic-os` + `deep-research` | You need startup health, market, operating-system, or STOW-compatible evidence research decisions. |
 
 ## Before → After
 
@@ -218,7 +218,7 @@ The latest engineering update adds a full-stack agent lens: agent workflows now 
 
 | Skill | Description |
 |-------|-------------|
-| [deep-research](skills/deep-research/SKILL.md) | Multi-source deep research with confidence-based evidence standards. |
+| [deep-research](skills/deep-research/SKILL.md) | STOW-compatible research harness with ChatGPT-style preflight, source/claim ledgers, activity trace, citations, privacy checks, and wiki-ingest handoff packets. |
 | [verify-before-claim](skills/verify-before-claim/SKILL.md) | Iron rule: No completion claims without fresh verification evidence. Includes expected value thinking from poker psychology. |
 
 ### 🔄 Learning & Flow
@@ -299,7 +299,7 @@ The latest engineering update adds a full-stack agent lens: agent workflows now 
     │ session-learn (+Closure Protocol)  ← feedback loop          │
     │ verify-before-claim               ← quality gate            │
     │ wiki-lint                         ← health check            │
-    │ deep-research                     ← synthesis               │
+    │ deep-research                     ← research + STOW handoff │
     │ harness-engineering               ← safety + multi-agent    │
     │ agent-teams-command               ← fleet command           │
     │ startup-evaluation                ← VC evaluation           │

@@ -36,6 +36,8 @@ The PDF becomes:
 - one output brief
 - a list of open questions for follow-up research
 
+For unanswered external questions, run `deep-research` after ingest and ask for a source ledger, claim ledger, activity trace, and STOW handoff packet before adding new claims to the wiki.
+
 ## Output Example
 
 ```text

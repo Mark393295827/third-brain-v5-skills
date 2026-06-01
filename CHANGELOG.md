@@ -25,6 +25,7 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - README skill adoption ladder that makes `wiki-ingest` + `verify-before-claim` the recommended first stage.
 
 ### Changed
+- Entry docs, adapters, examples, dashboards, and token-cost benchmarks now describe the upgraded `deep-research` STOW handoff workflow consistently.
 - `deep-research` now includes ChatGPT-style preflight, source-access boundaries, activity traces, STOW mapping, private-data safety checks, and wiki-ingest handoff packets.
 - `deep-research` now supports research modes, source ledgers, claim ledgers, outline-first synthesis, recency/social signal handling, and Heavy mode gap-fill/adversarial loops.
 - `agentic-engineering`, `harness-engineering`, `agent-teams-command`, `anthropic-os`, and `context-manager` now include workflow complexity gates, dynamic-workflow governance, AIOS 4C/Bike Method audits, managed-agent runtime separation, and long-horizon compaction contracts.

@@ -20,7 +20,7 @@ You have access to the following Agent Skills. Each skill is a markdown file in 
 - **creativity-engine** — Combinatorial ideation with Lego Building Blocks method. Cross-domain analogies + minimum experiments.
 
 ### 🔬 Research & Quality
-- **deep-research** — Multi-source research with confidence-based evidence standards.
+- **deep-research** — STOW-compatible research harness with ChatGPT-style preflight, source/claim ledgers, activity trace, citations, privacy checks, and wiki-ingest handoff.
 - **verify-before-claim** — No completion claims without fresh verification evidence. Includes expected value thinking.
 
 ### 🔄 Learning
