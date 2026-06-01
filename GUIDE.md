@@ -206,7 +206,7 @@ claude "Create a team of 3 agents to research this topic."
 
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
-| **deep-research** | Multi-source research with confidence-based evidence | "research X for me" |
+| **deep-research** | Research harness with preflight, source/claim ledgers, activity trace, citations, privacy checks, and STOW handoff | "research X for me" |
 | **verify-before-claim** | No completion claims without fresh verification evidence | "verify before I ship" |
 
 ### 🔄 Learning & Flow
@@ -242,12 +242,13 @@ claude "Create a team of 3 agents to research this topic."
 
 ## 5. Workflow Scenarios
 
-For copyable, standalone workflow files, see [examples/](examples/). The five recommended starting workflows are:
+For copyable, standalone workflow files, see [examples/](examples/). The recommended starting workflows are:
 
 | Workflow | Example File | Best Skill Entry |
 |----------|--------------|------------------|
 | 3-minute source ingest | [examples/3-minute-quickstart.md](examples/3-minute-quickstart.md) | `wiki-ingest` |
 | Research PDF to wiki brief | [examples/research-pdf-to-wiki.md](examples/research-pdf-to-wiki.md) | `wiki-ingest` + `cognitive-compile` |
+| Deep research to STOW handoff | [examples/deep-research-stow-handoff.md](examples/deep-research-stow-handoff.md) | `deep-research` + optional `wiki-ingest` |
 | Verified code session | [examples/verified-code-session.md](examples/verified-code-session.md) | `verify-before-claim` |
 | Daily knowledge loop | [examples/daily-knowledge-loop.md](examples/daily-knowledge-loop.md) | `daily-okr` |
 | Startup evaluation sprint | [examples/startup-evaluation-sprint.md](examples/startup-evaluation-sprint.md) | `startup-evaluation` |
@@ -312,7 +313,8 @@ Step 2 — Startup Evaluation:
    Use the startup-evaluation framework."
 
 Step 3 — Research:
-  "Research existing competitors in AI legal tech."
+  "Use deep-research to analyze existing competitors in AI legal tech.
+   Include source access, claim ledger, activity trace, and STOW handoff."
 
 Step 4 — Strategy:
   "Launch anthropic-os. Evaluate this idea using 70/30 allocation.
@@ -325,7 +327,8 @@ Step 4 — Strategy:
 
 ```
 Step 1 — Research:
-  "Research latest trends in AI marketing automation."
+  "Use deep-research on latest trends in AI marketing automation.
+   Run the preflight, source ledger, claim ledger, and activity trace."
 
 Step 2 — Creativity:
   "Generate 10 campaign ideas combining AI and emotional storytelling."
@@ -379,7 +382,8 @@ Step 4 — Preserve Learning:
 
 ```
 1. "Run a cognitive compile on [topic]."
-2. "Research [topic] with deep-research."
+2. "Research [topic] with deep-research, including source boundary,
+    claim ledger, activity trace, and STOW handoff if durable."
 3. "Ingest findings into wiki."
 
 For complex build tasks:
@@ -410,7 +414,7 @@ For strategic decisions:
 | Cognitive Compile | Opus | Deep reasoning needed |
 | Wiki Ingest | Sonnet | Structured output |
 | Agent Teams | Sonnet (default) / Opus (complex) | Balance speed vs quality |
-| Deep Research | Opus | Synthesis and analysis |
+| Deep Research | Opus | Evidence synthesis, activity trace, and STOW handoff |
 | Creativity Engine | Sonnet | Creative fluency |
 | Token Estimation | Haiku | Fast, cheap classification |
 

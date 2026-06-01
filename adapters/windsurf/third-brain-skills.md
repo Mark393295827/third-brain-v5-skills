@@ -15,7 +15,7 @@ Routing:
 - Completion claim, bug fix, tests, shipping -> `@verify-before-claim`
 - Habit or behavior change -> `@behavior-design`
 - Idea generation -> `@creativity-engine`
-- Research report -> `@deep-research`
+- Research report, market scan, competitor analysis, or fast-changing evidence question -> `@deep-research`
 - Startup idea or due diligence -> `@startup-evaluation`
 - Knowledge organization, deduplication, or vector search -> `@knowledge-ops`
 - Wiki health check, broken links, or stale pages -> `@wiki-lint`
@@ -33,3 +33,5 @@ For each selected skill:
 4. Resolve wiki paths from `system/config.md` when present.
 5. Summarize created files, verification evidence, and remaining risk.
 6. Avoid completion claims unless the relevant verification case and success metrics are satisfied.
+
+For `@deep-research`, include the ChatGPT-style preflight, source-access boundary, source ledger, claim ledger, activity trace, citations, and STOW handoff packet when follow-up wiki ingest is expected.

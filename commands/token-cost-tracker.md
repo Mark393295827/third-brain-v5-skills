@@ -60,7 +60,8 @@ token-cost-tracker report --period weekly
 | wiki-ingest (bulk, 5) | Sonnet | 100K-300K | $0.30-0.90 |
 | cognitive-compile | Opus | 200K-500K | $3.00-7.50 |
 | session-learn | Sonnet | 50K-150K | $0.15-0.45 |
-| deep-research | Opus | 300K-1M | $4.50-15.00 |
+| deep-research (evidence brief) | Opus | 80K-250K | $1.20-3.75 |
+| deep-research (standard/heavy) | Opus | 300K-1.5M | $4.50-22.50 |
 | daily-okr (full) | Sonnet+Haiku | 30K-80K | $0.10-0.25 |
 | wiki-lint | Haiku | 10K-30K | $0.01-0.03 |
 | context-manager | Haiku | 5K-15K | ~$0.01 |

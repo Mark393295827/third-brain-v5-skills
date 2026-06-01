@@ -18,7 +18,7 @@ This repository contains Agent Skills for the Codex CLI environment. Place skill
 - **creativity-engine** — Combinatorial ideation + minimum experiments.
 
 ### 🔬 Research & Quality
-- **deep-research** — Multi-source research with evidence standards.
+- **deep-research** — STOW-compatible research harness with ChatGPT-style preflight, source/claim ledgers, activity trace, citations, privacy checks, and wiki-ingest handoff.
 - **verify-before-claim** — Verification-first quality gate.
 
 ### 🔄 Learning
