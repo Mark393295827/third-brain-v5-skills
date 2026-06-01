@@ -1,8 +1,8 @@
 ---
 name: harness-engineering
 description: Design runtime infrastructure around AI agents — permissions, tools, feedback loops, observability. Use when deploying agents to production or designing multi-agent systems.
-version: "1.3"
-updated: "2026-05-23"
+version: "1.4"
+updated: "2026-06-01"
 assumes: "The agent workflow will use tools, permissions, logs, or production-like reliability boundaries."
 conflicts_with: "Do not relax approval, sandbox, or observability constraints introduced by agentic-engineering or agent-teams-command."
 ---
@@ -41,6 +41,32 @@ Google I/O '26 added a practical pressure test for harness design: the same runt
 | Ambient eyewear/device | sensor consent, privacy mode, physical-world fallback |
 
 If a harness cannot produce an audit trail for what the agent saw, decided, called, changed, and verified, the agent is not ready for delegated action.
+
+## Managed Agent Runtime Model
+
+For production-like agents, separate the runtime into three resources:
+
+| Resource | Defines | Harness questions |
+|---|---|---|
+| Agent | Model, persona, system prompt, skills, MCP/tools | Is the role narrow enough? Are capabilities necessary? |
+| Environment | Execution space, container, network, credentials, filesystem | What can the agent reach? What is allowlisted or denied? |
+| Session | Agent instance, mounted context, event stream, durable state | How is state resumed, deleted, audited, and recovered? |
+
+The session event log is the backbone of reliability. It should capture user messages, tool calls, tool results, agent responses, verification evidence, errors, and recovery actions. A response without an inspectable event trail is not enough for delegated production work.
+
+## Permission Bike Method
+
+Escalate autonomy by proven reliability, not by confidence in a prompt:
+
+| Stage | Allowed capability | Required proof |
+|---|---|---|
+| Observe | Read, search, summarize, recommend | Sources and assumptions are inspectable. |
+| Co-drive | Draft, simulate, prepare changes | Human approves every external action. |
+| Training wheels | Execute low-risk scoped actions | Logs, rollback, and post-action checks pass. |
+| Supervised autonomy | Run reversible routines | Alerts, receipts, and anomaly review exist. |
+| Autonomy | Run high-frequency low-risk loops | Periodic permission audit and failure review. |
+
+Do not give a tool key and rely on text instructions to prevent misuse. The real boundary is the key, endpoint, account, filesystem, network, budget, and approval path.
 
 ## Usage Template
 
@@ -259,7 +285,9 @@ Data Lake → Risk Engine → Optimizer → Stress Test → OMS → Compliance �
 ## Quality Gates
 
 - [ ] Each agent has defined permission scope
+- [ ] Agent, Environment, and Session responsibilities are separated
 - [ ] Three-tier permission model documented
+- [ ] Permission escalation follows observe -> co-drive -> scoped action -> monitored autonomy
 - [ ] Write-Test-Fix feedback loop in place
 - [ ] Tool calls logged and observable
 - [ ] Token costs tracked per session

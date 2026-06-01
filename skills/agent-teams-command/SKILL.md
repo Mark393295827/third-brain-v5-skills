@@ -1,8 +1,8 @@
 ---
 name: agent-teams-command
 description: Command multi-agent work with bounded roles, ownership, integration gates, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, or multi-agent orchestration.
-version: "1.3"
-updated: "2026-05-23"
+version: "1.4"
+updated: "2026-06-01"
 assumes: "Multi-agent work has separable ownership, clear integration points, and a configured agent runtime."
 conflicts_with: "Do not use for tasks with a single obvious next step or no separable write scopes; prefer agentic-engineering or project-flow-ops."
 ---
@@ -95,6 +95,22 @@ Use a swarm only when all are true:
 - integration happens through a join gate, not direct file collision
 
 Do not scale agent count to create momentum. Scale only when isolation plus verification reduces wall-clock time or improves review quality.
+
+## Dynamic Workflow Choice Gate
+
+Agent teams solve communication and coordination. Dynamic workflows solve width: a reviewed script launches many independent workers, then a synthesis step merges outputs.
+
+Use a dynamic workflow instead of an agent team only when all are true:
+
+- the work shards into many independent files, sources, tests, or review targets
+- workers do not need frequent peer communication
+- synthesis can merge results from structured outputs
+- the generated script can be reviewed before execution
+- agent count, model choice, files/directories, wall-clock, and token budget are capped
+- runtime state exposes active workers, tool calls, cost, errors, and stop controls
+- the workflow is archived in the project only if it is worth reusing
+
+Choose an agent team when roles need IPC, debate, dependency handoffs, shared judgment, or iterative repair. Choose a long-running goal when the hard part is depth: keep iterating until objective criteria pass.
 
 ## Agentic Macro Actions
 
@@ -373,72 +389,7 @@ Kill condition:
 
 ## L5: Legendary Commander — Classic Campaigns
 
-### Campaign 1: Full-Stack System Development
-
-```text
-GOAL: Build a full-stack app (REST API + React) running on localhost.
-
-ORDERS: Create a team of 3 teammates using Sonnet.
-
-─── TEAMMATE 1 (Codename: GEPARD/BACKEND) ───
-  TASK: FastAPI + SQLite + REST endpoints
-  OWNERSHIP: backend/
-  DEPENDENCY: Notify FALCON when done
-
-─── TEAMMATE 2 (Codename: FALCON/FRONTEND) ───
-  TASK: React frontend + API integration
-  OWNERSHIP: frontend/
-  DEPENDENCY: Wait for GEPARD's API spec
-
-─── TEAMMATE 3 (Codename: SENTINEL/QA) ───
-  TASK: E2E tests + API tests
-  OWNERSHIP: tests/
-  DEPENDENCY: Wait for all teammates
-
-QUALITY GATES:
-- [ ] All tests passing
-- [ ] API response time <200ms
-- [ ] No frontend console errors
-```
-
-### Campaign 2: Technical Decision Research
-
-```text
-GOAL: Evaluate PostgreSQL → MongoDB migration feasibility.
-
-ORDERS: Create a team of 3 teammates using Opus.
-
-─── TEAMMATE 1 (Codename: OWL/DATABASE) ───
-  TASK: Query pattern analysis + performance benchmarks
-  OWNERSHIP: research/performance/
-
-─── TEAMMATE 2 (Codename: BEAVER/MIGRATION) ───
-  TASK: Migration tool evaluation + downtime analysis
-  OWNERSHIP: research/migration/
-
-─── TEAMMATE 3 (Codename: FOX/CRITIC) ───
-  TASK: Challenge first two teammates' conclusions
-  OWNERSHIP: research/risks/
-  DEPENDENCY: Wait for OWL + BEAVER to complete
-```
-
-### Campaign 3: Security Audit & Fix
-
-```text
-GOAL: Find and fix all security vulnerabilities in the auth module.
-
-ORDERS: Create a team of 2 teammates using Sonnet.
-
-─── TEAMMATE 1 (Codename: EAGLE/AUDITOR) ───
-  TASK: OWASP Top 10 scan + code audit
-  OWNERSHIP: security/audit/
-  DEPENDENCY: Submit issues to BADGER when done
-
-─── TEAMMATE 2 (Codename: BADGER/FIXER) ───
-  TASK: Fix all discovered security issues
-  OWNERSHIP: src/auth/
-  DEPENDENCY: Wait for EAGLE's issue list
-```
+Detailed campaign templates live in `references/classic-campaigns.md` to keep the executable skill short. Use them for full-stack builds, technical decision research, and security audit/fix work when a concrete order format is needed.
 
 ---
 
@@ -452,12 +403,14 @@ ORDERS: Create a team of 2 teammates using Sonnet.
 □ Each sub-task has clear owner and boundary
 □ Each macro action has non-goals, proof, and stop condition
 □ Dependencies modeled
+□ Team vs dynamic workflow vs long-running goal choice is justified
 
 [Phase 1: Act]
 □ Agents launched in parallel per plan
 □ No file ownership conflicts
 □ Inter-process communication normal
 □ Agent count, wall-clock, request count, and token budget inside cap
+□ Generated workflow scripts reviewed before execution when used
 
 [Phase 2: Observe]
 □ QA loop executed

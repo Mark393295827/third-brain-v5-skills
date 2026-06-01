@@ -24,6 +24,23 @@ Use this distinction:
 4. **Security-aware integration**: red-team high-risk outputs before release.
 5. **Closed-loop optimization**: use cheap objective metrics when the task can be evaluated repeatedly.
 
+## Workflow Complexity Ladder
+
+Start at the lowest sufficient runtime:
+
+| Runtime | Use for | Upgrade only when |
+|---|---|---|
+| Prompt | One-off answer, small edit, short analysis | The workflow repeats or needs reuse |
+| Skill | Repeatable recipe or domain method | It needs isolated execution |
+| Subagent | Side task with isolated context | It needs peer communication or shared state |
+| Agent team | Coordinated roles, review, dependencies | Ownership, IPC, and join gates are clear |
+| Long-running goal | Depth: iterate until objective criteria pass | Completion criteria and budget are explicit |
+| Dynamic workflow | Width: many independent shards in parallel | Script review, cost envelope, and observability exist |
+
+Higher orchestration is not automatically better. It raises token cost, permission
+surface, and audit burden. Dynamic workflows are a width tool; long-running goals
+are a depth tool; agent teams are a communication tool.
+
 ## Full-Stack Agent Surfaces
 
 The Google I/O '26 wiki update expands the operating standard: agents are no
@@ -49,6 +66,21 @@ Use this surface checklist when designing or revising agent workflows:
 If the workflow can act through a user's account, change external state, spend
 money, publish content, or use sensors, it needs an explicit mandate and audit
 trail before execution.
+
+## AIOS Runtime Audit
+
+When a workflow becomes a personal or team operating system, audit four layers:
+
+| Layer | Required check |
+|---|---|
+| Context | Files, memory, wiki, logs, and prior outputs are current and scoped. |
+| Connections | Each app/API account has read/write/send/delete boundaries. |
+| Capabilities | Skills, commands, and SOPs have triggers, outputs, and proof gates. |
+| Cadence | Scheduled or event-triggered routines have alerts, receipts, and rollback. |
+
+Use the permission Bike Method before adding real-world capabilities: observe,
+co-drive, scoped action, supervised autonomy, then autonomy. Text instructions
+do not replace endpoint, credential, budget, and approval boundaries.
 
 ## Macro Action Contract
 

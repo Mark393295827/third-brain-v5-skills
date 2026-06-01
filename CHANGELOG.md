@@ -7,6 +7,7 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 ## Unreleased
 
 ### Added
+- AI workflow skill-iteration digest translating recent Obsidian AIOS, dynamic workflow, managed-agent, and self-compaction notes into repo skill updates.
 - Karpathy wiki skill-audit digest translating LLM Wiki, macro actions, AutoResearch boundaries, and agentic education into concrete wiki skill rules.
 - Wiki ingest governance digest translating recent Obsidian ingest logs, lint report, governance dashboard, and clipping queue rules into skill updates.
 - Startup health framework digest translating Obsidian startup, VC, efficiency, and primary-investor maps into skill rules.
@@ -22,6 +23,7 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - README skill adoption ladder that makes `wiki-ingest` + `verify-before-claim` the recommended first stage.
 
 ### Changed
+- `agentic-engineering`, `harness-engineering`, `agent-teams-command`, `anthropic-os`, and `context-manager` now include workflow complexity gates, dynamic-workflow governance, AIOS 4C/Bike Method audits, managed-agent runtime separation, and long-horizon compaction contracts.
 - `wiki-ingest`, `wiki-lint`, and `knowledge-ops` now apply a Karpathy-style understanding gate, Markdown-first retrieval default, macro-action scope contract, reusable workflow extraction, and objective-metric boundary for autonomous loops.
 - `wiki-ingest`, `wiki-lint`, and `knowledge-ops` now include source-risk taxonomy, clipping lifecycle, targeted post-ingest lint, P0/P1 graph health gates, duplicate-source handling, provenance debt, and weak-link review queues.
 - `startup-evaluation` now evaluates startup health with stage, evidence ladder, PMF/traction, unit economics, team/governance, runway, VC 5T, AI/hard-tech addendum, top-constraint diagnosis, and next-cheapest-test design.

@@ -1,8 +1,8 @@
 ---
 name: context-manager
 description: Manage the LLM's context window — token budgeting, prompt assembly, truncation strategies. Use when approaching context limits or optimizing prompt costs.
-version: "1.1"
-updated: "2026-05-22"
+version: "1.2"
+updated: "2026-06-01"
 assumes: "Context is scarce; source priority and token budget matter for task success."
 conflicts_with: "Do not drop source evidence required by verify-before-claim, deep-research, or wiki-ingest provenance."
 ---
@@ -139,6 +139,26 @@ Simple task (1-2 steps)?
 
 ---
 
+## Long-Horizon Compaction Contract
+
+For long tasks, compaction is not just shorter text. The summary must preserve the state needed to continue without drift:
+
+```markdown
+Goal:
+Current definition of done:
+User constraints and denied actions:
+Key files, sources, or artifacts:
+Completed steps:
+Failed paths and why:
+Verification evidence:
+Open risks:
+Next action:
+```
+
+Use compaction before context pressure becomes an emergency. After resuming from a compacted state, run one quick continuity check: confirm the goal, constraints, current step, and evidence before taking the next action.
+
+---
+
 ## Tokenmaxxing vs Efficiency
 
 > "Token maxing is actually the coolest thing you can do now." — Gary Tan
@@ -175,6 +195,7 @@ Simple task (1-2 steps)?
 - [ ] Token budget <80% before first call
 - [ ] 3-layer prompt assembly
 - [ ] Large outputs (>500 tokens) summarized
+- [ ] Long-horizon compactions preserve goal, constraints, evidence, risks, and next action
 - [ ] Cost estimated for >100K token tasks
 - [ ] Cache-friendly ordering
 - [ ] Context utilization logged
