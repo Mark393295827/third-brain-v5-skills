@@ -1,8 +1,10 @@
 ---
 name: verify-before-claim
 description: Iron rule — no completion claims without fresh verification evidence. Use whenever about to claim work is done, fixed, working, or passing. Run verification commands and show output before making any success statement.
-version: "1.1"
-updated: "2026-05-12"
+version: "1.2"
+updated: "2026-05-23"
+assumes: "A verifiable artifact, command, inspection, or evidence source exists for the claim."
+conflicts_with: "Do not bypass because another skill produced a score, plan, or confidence statement."
 ---
 
 # Verify Before Claim
@@ -30,6 +32,12 @@ Use verify-before-claim. Before saying this is done, identify the proof command,
 
 **Verified Effect**
 - The agent shifts from confidence-based status claims to evidence-based status reports.
+
+## Success Metrics
+
+- A fresh verification command or inspection is run in the current session.
+- Output includes command, exit code or observable evidence, result, and residual risk.
+- No completion claim is made when evidence is missing, stale, or failing.
 
 ## When to Use
 
@@ -64,6 +72,9 @@ BEFORE claiming any status:
 | Build succeeds | Build exit code 0 | "Looks good" |
 | Bug fixed | Reproduce original symptom: passes | "I changed the code" |
 | Tests added | New tests exist + old tests still pass | "Tests should work" |
+| Vendor/product claim | Official docs, changelog, or independent source; otherwise mark single-source | Keynote/demo statement alone |
+| Agent can act for user | Mandate, tool log, preview/confirmation, receipt, rollback path | "User asked generally" |
+| Generated media is safe/provenanced | Source/prompt/edit record and disclosure or watermark path | "Looks AI-generated" |
 
 ## Red Flags — STOP
 
@@ -103,6 +114,19 @@ BEFORE claiming any status:
    - KEY: Evaluate the PROCESS, not just the result
 ```
 
+## Single-Source Product Claims
+
+Keynotes, launch posts, demos, and roadmap statements can be useful evidence, but they are not enough for operational guidance. When the only source is a vendor statement:
+
+```text
+Status: single-source
+Source type: keynote / launch post / docs / independent test
+Operational risk:
+What must be verified next:
+```
+
+Do not turn a demo into a guarantee. Treat availability, scale numbers, benchmark claims, payment protocols, security properties, and adoption figures as unverified until checked.
+
 **The Biggest Lesson from Poker:**
 > "Knowing when to fold is more important than knowing when to play."
 
@@ -134,3 +158,5 @@ This skill is the verification component of the TDD-for-SOPs approach. Before wr
 - [ ] Full output shown (exit code, failure count)
 - [ ] Claim only made WITH evidence
 - [ ] No "should", "probably", "I think" on completion status
+- [ ] Vendor/demo/product claims are marked single-source unless independently verified
+- [ ] Delegated user actions have mandate, receipt, and rollback evidence

@@ -2,7 +2,9 @@
 name: behavior-design
 description: Design a behavior change system — decompose a goal into minimum habits, define triggers, build SOPs, and set up review cycles. Use when the user wants to build a habit, change behavior, or achieve a personal goal.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "The goal can be converted into repeated behavior with a concrete trigger and review metric."
+conflicts_with: "Do not treat one-off strategy decisions as habits; use project-flow-ops or anthropic-os first."
 ---
 
 # Behavior Design System
@@ -30,6 +32,12 @@ Use behavior-design for this goal. Decompose it into minimum habits, triggers, S
 
 **Verified Effect**
 - A vague goal becomes a repeatable behavior loop with a trigger, minimum action, review metric, and fallback.
+
+## Success Metrics
+
+- Plan defines a concrete trigger, a minimum action of 15 minutes or less, a success metric, and a fallback.
+- First repetition can be attempted today without buying tools or redesigning the whole environment.
+- Review cadence and failure handling are written down.
 
 ## When to Use
 

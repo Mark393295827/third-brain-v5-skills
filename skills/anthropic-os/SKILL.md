@@ -1,8 +1,10 @@
 ---
 name: anthropic-os
-description: Cognitive Symbiont — Livewired self-evolving system. CASH + 3B creativity algorithms (Bending/Breaking/Blending). Predictive coding, collective intelligence, time-arrow diagnostics.
+description: Improve a personal or team operating system with self-evolving loops, CASH allocation, 3B creativity, predictive coding, and diagnostics. Use when the user wants to redesign a work method, learning loop, or cognitive operating system.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "The user wants to improve a work system rather than solve a single isolated task."
+conflicts_with: "Do not use as a replacement for startup-evaluation, daily-okr, or project-flow-ops when the user asks for those narrower workflows."
 ---
 
 # Anthropic OS — Cognitive Symbiont Engine
@@ -30,6 +32,12 @@ Use anthropic-os on this work system. Diagnose the current loop, identify the bi
 
 **Verified Effect**
 - A team or personal work system gains an explicit improvement loop rather than relying on one-off productivity tactics.
+
+## Success Metrics
+
+- Output names one big bet, one 70/30 allocation choice, one CASH feedback signal, and one review date.
+- The next self-evolution step can be completed inside two weeks.
+- At least one failure mode or success disaster is recorded before execution.
 
 ## Core Philosophy
 

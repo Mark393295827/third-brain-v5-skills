@@ -118,13 +118,26 @@ Enable multi-agent orchestration in `.claude/settings.local.json`:
 
 Requires Claude Code v2.1.32+.
 
-### 2.2 Wiki Structure
+### 2.2 Wiki Path Configuration
 
-Create the vault layout that skills expect:
+Skills read the default vault contract from `system/config.md`. If your Obsidian vault already has a different structure, copy that file into the vault and edit the path values before running write-heavy skills.
+
+Create the default layout when starting a new vault:
 
 ```bash
 mkdir -p {sources,wiki/{concepts,entities,atomic-notes,outputs,decisions,sops},maps,system/templates}
 ```
+
+Minimum required variables:
+
+| Variable | Default |
+|---|---|
+| `SOURCES_DIR` | `sources/` |
+| `CONCEPTS_DIR` | `wiki/concepts/` |
+| `ENTITIES_DIR` | `wiki/entities/` |
+| `OUTPUTS_DIR` | `wiki/outputs/` |
+| `SYSTEM_DIR` | `system/` |
+| `LOG_FILE` | `system/log.md` |
 
 ### 2.3 Token Tracking (Optional)
 
@@ -171,9 +184,9 @@ claude "Create a team of 3 agents to research this topic."
 
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
-| **wiki-ingest** | Ingests articles, PDFs, videos into wiki | "ingest this into my wiki" |
-| **knowledge-ops** | Manages multi-layer knowledge; dedup, classify, vectorize | "save this to my knowledge base" |
-| **wiki-lint** | Health-check: orphans, broken links, missing frontmatter | "lint my wiki" |
+| **wiki-ingest** | Ingests sources with risk classification, macro-action scope, wiki pages, clipping archive, Karpathy understanding gate, governance notes, and post-ingest lint | "ingest this into my wiki" |
+| **knowledge-ops** | Manages multi-layer knowledge; dedup, classify, preserve evidence hierarchy, use Markdown-first retrieval, vectorize optionally, and queue knowledge debt | "save this to my knowledge base" |
+| **wiki-lint** | Health-check: P0/P1 graph health, source refs, frontmatter, links, provenance debt, clipping lifecycle, and understanding integrity | "lint my wiki" |
 
 ### 🔄 Daily Workflow
 
@@ -214,15 +227,15 @@ claude "Create a team of 3 agents to research this topic."
 
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
-| **agentic-engineering** | Refactors workflows as agent processes with autonomy defaults, state checkpoints, write-back, and verification | "make this workflow more agentic" |
-| **harness-engineering** | Agent runtime kernel: permissions, tools as system calls, feedback loops, observability, recovery | "how do I make this agent safe?" |
-| **agent-teams-command** | Multi-agent process orchestration with ownership, IPC, integration, cleanup, and evidence gates | "create an agent team to build X" |
+| **agentic-engineering** | Refactors workflows into spec-driven macro actions with quality ceilings, delegated-action boundaries, autonomy defaults, write-back, and verification | "make this workflow more agentic" |
+| **harness-engineering** | Agent runtime kernel: permissions, tools as system calls, delegated-action gates, provenance ledgers, observability, recovery, adversarial review | "how do I make this agent safe?" |
+| **agent-teams-command** | Multi-agent macro action orchestration with ownership, IPC, async budget envelopes, integration, cleanup, evidence gates, and red-team review | "create an agent team to build X" |
 
 ### 💼 Strategy
 
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
-| **startup-evaluation** | MIT 24-step startup evaluation framework | "evaluate this startup" |
+| **startup-evaluation** | Startup health diagnosis: customer pain, market, PMF, team, unit economics, runway, VC 5T, and next cheapest test | "evaluate this startup" |
 | **anthropic-os** | Self-evolving work method engine. CASH, 70/30, hive mind, 3B algorithms | "launch Anthropic OS" |
 
 ---
@@ -445,11 +458,13 @@ claude "Generate my weekly token report."
 | Skill not found | Skills not copied to correct directory | Run `cp -r skills/* ~/.claude/skills/` |
 | Agent Teams not working | Experimental flag not set | Add `"experimental.agentTeams": true` to settings |
 | Token cost too high | Using Opus for simple tasks | Switch to Sonnet; use context-manager budget rules |
-| Wiki links broken | Wiki structure not set up | Create folders: wiki/concepts/, wiki/entities/ etc. |
+| Wiki links broken | Wiki structure not set up or config paths mismatch | Check `system/config.md`, then create the configured concept/entity folders. |
 | Vector search failing | ChromaDB not installed | `pip install chromadb sentence-transformers` |
 | Session-learn empty | Session too short (<5 tool calls) | Work longer or trigger manually |
 | Cognitive compile too long | Topic too broad | Narrow the question; use concrete ideas |
 | LLM context full | No truncation strategy | Use context-manager to budget and trim |
+| Growth loop shows `0` stars/forks/watchers or `n/a` PRs | GitHub API unavailable (no `GITHUB_TOKEN`, rate limit, or blocked network) | Set `GITHUB_TOKEN` and re-run `python tools/growth-loop.py`; reports write to `outreach/growth-reports/` (UTC date). |
+| Awesome PR targets not refreshing | GitHub search blocked/rate-limited | Set `GITHUB_TOKEN` and re-run `python tools/find-awesome-pr-targets.py` (it will reuse existing candidates when offline). |
 
 ### Quick Diagnostics
 

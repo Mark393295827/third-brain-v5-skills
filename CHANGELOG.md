@@ -7,15 +7,33 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 ## Unreleased
 
 ### Added
+- Karpathy wiki skill-audit digest translating LLM Wiki, macro actions, AutoResearch boundaries, and agentic education into concrete wiki skill rules.
+- Wiki ingest governance digest translating recent Obsidian ingest logs, lint report, governance dashboard, and clipping queue rules into skill updates.
+- Startup health framework digest translating Obsidian startup, VC, efficiency, and primary-investor maps into skill rules.
+- Google I/O '26 agentic stack digest translating the latest Obsidian wiki ingest into full-stack agent design rules.
 - Agent understanding framework wiki concept mapping Karpathy LLM OS ideas to Third Brain agent workflow, harness, and team design.
 - GitHub star growth sprint playbook, launch copy pack, and Awesome-list target finder for legitimate open-source distribution.
 - Continuous growth-loop script that tests repository metrics, verifies launch assets, evaluates readiness, and writes dated improvement reports.
 - GitHub repository metadata configurator and Awesome-list PR submitter scripts with dry-run defaults and explicit token-gated apply mode.
+- Agent Skills open-format standard document and linter for validating skill folder shape, metadata, trigger descriptions, and quality gate sections.
+- Agentic Engineering principles document translating spec-driven development, macro actions, security-aware integration, and AutoResearch boundaries into repo standards.
+- Skill-level `assumes`, `conflicts_with`, and `## Success Metrics` contracts across all 17 skills.
+- `system/config.md` as the default configurable vault path contract for wiki-writing skills.
+- README skill adoption ladder that makes `wiki-ingest` + `verify-before-claim` the recommended first stage.
 
 ### Changed
+- `wiki-ingest`, `wiki-lint`, and `knowledge-ops` now apply a Karpathy-style understanding gate, Markdown-first retrieval default, macro-action scope contract, reusable workflow extraction, and objective-metric boundary for autonomous loops.
+- `wiki-ingest`, `wiki-lint`, and `knowledge-ops` now include source-risk taxonomy, clipping lifecycle, targeted post-ingest lint, P0/P1 graph health gates, duplicate-source handling, provenance debt, and weak-link review queues.
+- `startup-evaluation` now evaluates startup health with stage, evidence ladder, PMF/traction, unit economics, team/governance, runway, VC 5T, AI/hard-tech addendum, top-constraint diagnosis, and next-cheapest-test design.
+- `agentic-engineering`, `harness-engineering`, `agent-teams-command`, and `verify-before-claim` now include full-stack agent surfaces: delegated actions, commerce mandates, generated-media provenance, ambient-device privacy, and single-source product claim rules.
 - `agentic-engineering`, `harness-engineering`, and `agent-teams-command` now share a process/kernel/system-call mental model with explicit write-back and cleanup rules.
 - README, GUIDE, and CLI entry docs now link or describe the expanded LLM OS architecture mapping.
 - README and community discovery docs now include stronger launch/discovery paths for GitHub star conversion.
+- Skill descriptions now use explicit `Use when` trigger language for better discovery under progressive disclosure.
+- Core engineering skills now emphasize quality ceilings, macro action specs, adversarial review, and objective evaluation boundaries.
+- Cursor, Windsurf, Codex, Claude, and Gemini routing docs now enforce assumptions, conflicts, success metrics, and path config before completion claims.
+- Wiki examples and commands now refer to configurable path variables instead of hard-coded vault directories.
+- The skill linter now requires `assumes`, `conflicts_with`, and `## Success Metrics`.
 
 ## v5.1 - 2026-05-14
 

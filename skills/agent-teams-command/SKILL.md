@@ -1,8 +1,10 @@
 ---
 name: agent-teams-command
-description: Ender's Game approach to commanding Claude Code Agent Teams. Strategic multi-agent orchestration with Karpathy Agentic Engineering principles — plan, act, observe, iterate. L1-L5 commander progression.
-version: "1.2"
-updated: "2026-05-18"
+description: Command multi-agent work with bounded roles, ownership, integration gates, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, or multi-agent orchestration.
+version: "1.3"
+updated: "2026-05-23"
+assumes: "Multi-agent work has separable ownership, clear integration points, and a configured agent runtime."
+conflicts_with: "Do not use for tasks with a single obvious next step or no separable write scopes; prefer agentic-engineering or project-flow-ops."
 ---
 
 # Ender's Game: Agent Teams Command System
@@ -41,6 +43,12 @@ Use agent-teams-command for this project. Split work into roles, define ownershi
 **Verified Effect**
 - Parallel agent work becomes coordinated delivery instead of overlapping, unreviewed outputs.
 
+## Success Metrics
+
+- Team plan names each role, owner, write scope, IPC channel, integration point, and stop condition.
+- Every delegated workstream has at least one verification gate before integration.
+- Final report states integrated status, unresolved risks, and which agents can be closed.
+
 ---
 
 ## Karpathy Agentic Engineering Mapping
@@ -73,6 +81,40 @@ Use agent teams only when parallel processes reduce wall-clock time or increase 
 | Cleanup | Close agents and write lessons to wiki/logs. |
 
 Avoid parallelism when the next step depends on a single blocking decision. Do that work locally, then delegate independent slices.
+
+## Antigravity-Style Swarm Boundary
+
+Google I/O '26 described Antigravity as an agent-first development surface with subagents, hooks, async task management, and very large token budgets. Treat this as a cautionary operating pattern: swarm execution is useful only when the harness can prove progress.
+
+Use a swarm only when all are true:
+
+- tasks can be split into independent owned territories
+- every territory has objective verification
+- an async task queue or visible task list exists
+- token, time, and request budgets are capped
+- integration happens through a join gate, not direct file collision
+
+Do not scale agent count to create momentum. Scale only when isolation plus verification reduces wall-clock time or improves review quality.
+
+## Agentic Macro Actions
+
+Delegate macro actions, not vague wishes. Each teammate receives a bounded unit such as feature implementation, research, plan critique, test design, or adversarial review.
+
+```text
+MACRO ACTION:
+Objective:
+Scope:
+Non-goals:
+Owned territory:
+Inputs:
+Expected output:
+Verification evidence:
+Risk review:
+Handoff target:
+Stop condition:
+```
+
+If two teammates need the same files, split by phase instead of parallel ownership. If proof is unclear, assign a researcher or evaluator before assigning a builder.
 
 ---
 
@@ -207,7 +249,9 @@ QUALITY GATES:
 - [ ] All tests passing
 - [ ] No critical QA issues
 - [ ] No file ownership conflicts
+- [ ] Token/time/request budget stayed inside cap
 - [ ] Each teammate reports changed files, evidence, and open risks
+- [ ] High-risk outputs reviewed by a separate critic or red team
 ```
 
 ### Three Engineering Laws
@@ -305,6 +349,17 @@ Cleanup protocol: Lead MUST execute cleanup (otherwise resource leak)
 Write-back: Lead records decisions, evidence, and reusable lessons
 ```
 
+For long-horizon builds, add a budget envelope before launch:
+
+```text
+Max agents:
+Max wall-clock:
+Max tool calls / model requests:
+Max token or cost estimate:
+Checkpoint cadence:
+Kill condition:
+```
+
 ### Resource Cleanup Protocol
 
 ```text
@@ -395,15 +450,18 @@ ORDERS: Create a team of 2 teammates using Sonnet.
 [Phase 0: Plan]
 □ Tasks decomposed into parallelizable sub-tasks
 □ Each sub-task has clear owner and boundary
+□ Each macro action has non-goals, proof, and stop condition
 □ Dependencies modeled
 
 [Phase 1: Act]
 □ Agents launched in parallel per plan
 □ No file ownership conflicts
 □ Inter-process communication normal
+□ Agent count, wall-clock, request count, and token budget inside cap
 
 [Phase 2: Observe]
 □ QA loop executed
+□ High-risk outputs passed adversarial review
 □ Issues fed back to corresponding agent
 □ Re-verified after fixes
 
@@ -428,6 +486,7 @@ ORDERS: Create a team of 2 teammates using Sonnet.
 | Token explosion | Agent count >10 | Limit to 3-5 agents |
 | Insufficient context | Missing initial instructions | Full context in GOAL (like system prompt) |
 | Resource leak | Lead didn't run cleanup | Enforce cleanup protocol |
+| Fast but fragile output | Vibe coding without quality ceiling | Add spec, evaluator, and proof gate |
 
 ---
 

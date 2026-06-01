@@ -1,13 +1,17 @@
 ---
 name: wiki-lint
 description: Health-check the knowledge wiki — find orphans, broken links, missing frontmatter, contradictions, stale content, and statistical drift. Use when the user says "lint the wiki", "health check", or periodically for maintenance.
-version: "1.1"
-updated: "2026-05-12"
+version: "1.3"
+updated: "2026-05-27"
+assumes: "Vault paths are resolved from system/config.md when present; otherwise default STOW paths are used."
+conflicts_with: "Do not silently repair high-risk or source-file issues; report them or ask before modifying durable records."
 ---
 
 # Wiki Lint — Knowledge Base Health Check
 
 Systematic audit of wiki health across 8 dimensions.
+
+Resolve target paths from `system/config.md` when available. If no config exists, use the default STOW layout and write the report to `system/lint-report.md`.
 
 ## Usage Template
 
@@ -31,6 +35,14 @@ Use wiki-lint on my vault. Check frontmatter, broken links, orphans, stale pages
 **Verified Effect**
 - Wiki health becomes visible through ranked issues instead of vague feelings that the vault is disorganized.
 
+## Success Metrics
+
+- Report includes issue counts, severity, file paths, and recommended fixes.
+- Broken links, orphans, missing frontmatter, stale pages, and source-protection risks are checked or marked not applicable.
+- No source files are modified during linting.
+- P0/P1 checks can prove main graph health after an ingest: no empty files, missing wiki frontmatter, broken source refs, zero-inlink wiki pages, or wiki pages with fewer than two outbound links.
+- Concept-page quality checks separate real understanding from raw summaries: thesis, mechanism, source boundary, uncertainty, and connections.
+
 ## When to Use
 
 - User says "lint the wiki", "health check", "run lint"
@@ -46,11 +58,14 @@ Scan every wiki page for:
 - [ ] Missing `created:` field
 - [ ] Pages without frontmatter entirely
 - [ ] Legacy status values (e.g., `seedling` → `seed`)
+- [ ] Missing `knowledge_stage:` or `evidence_level:` on V5 pages
+- [ ] Source files missing `source_id`, `hash`, `trust_level`, or `status` are reported as provenance debt; do not fabricate values
 
 ## Check 2: Broken Links
 
 - [ ] Find `[[wikilinks]]` pointing to non-existent pages
 - [ ] Find `(Source: [[...]])` references to missing source files
+- [ ] Distinguish true missing sources from weak concept/entity links and example-text false positives
 
 ## Check 3: Orphan Pages
 
@@ -79,6 +94,19 @@ Scan every wiki page for:
 - [ ] Concept pages missing `## 关联` or `## Connections` section
 - [ ] Pages with no ASCII diagram or comparison table for framework-type content
 - [ ] New pages without ≥2 outgoing `[[wikilinks]]`
+- [ ] Concept pages that summarize a source without a mechanism, boundary, uncertainty, or reusable insight
+
+## Check 7A: Karpathy Understanding Integrity
+
+Flag pages that violate LLM Wiki intent:
+
+| Symptom | Why it matters | Action |
+|---|---|---|
+| Raw summary only | Future agents must re-understand the source | add thesis, mechanism, connections |
+| No source boundary | Claim strength is unclear | add evidence note or single-source warning |
+| No uncertainty | The page looks more certain than the source | add review queue item |
+| Vector/RAG-only pointer | Knowledge is not compiled into Markdown | create or update a durable wiki page |
+| Workflow buried in prose | Agent cannot reuse it | extract SOP, skill rule, or behavior experiment |
 
 ## Check 8: Statistical Drift
 
@@ -86,20 +114,26 @@ Scan every wiki page for:
 - [ ] Verify central index includes all pages
 - [ ] Verify all new pages appear in the correct index section
 
-## Check 9: Permissions
+## Check 9: Clipping Queue and Source Lifecycle
+
+- [ ] Processed clippings are in `Clippings/archive/`
+- [ ] `Clippings/README.md` queue counts and processed-source table are current when present
+- [ ] Duplicate clippings point to canonical source notes instead of creating parallel facts
+
+## Check 10: Permissions
 
 - [ ] No unintended modifications to `sources/` files
 - [ ] Review-queue items addressed
 
 ## Output
 
-Write results to `system/lint-report.md`:
+Write results to `LINT_REPORT_FILE`:
 
 ```markdown
 ---
 title: "Lint Report"
 type: system
-updated: "YYYY-MM-DD"
+updated: "[date]"
 ---
 
 # Lint Report — [date]
@@ -120,8 +154,11 @@ updated: "YYYY-MM-DD"
 
 ## Quality Gates
 
-- [ ] All 8 checks completed
+- [ ] All checks completed
+- [ ] P0/P1 graph health summarized
 - [ ] Auto-fixable issues fixed (with approval)
 - [ ] Non-auto-fixable issues added to review queue
-- [ ] Lint report written to system/lint-report.md
+- [ ] Lint report written to `LINT_REPORT_FILE`
 - [ ] Log updated
+- [ ] Historical V5 structure debt is reported separately from current ingest failures
+- [ ] Understanding-integrity failures are reported separately from formatting debt

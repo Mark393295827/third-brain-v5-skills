@@ -1,8 +1,10 @@
 ---
 name: session-learn
-description: Extract reusable knowledge from sessions. Scans for new concepts, entities, corrections, patterns, ideas, decisions, gaps — saves to wiki. Use at session end or "extract knowledge".
+description: Extract reusable knowledge from a work session and save concepts, entities, corrections, patterns, ideas, decisions, and gaps to the wiki. Use when ending a session or when the user says to extract knowledge.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "The current session contains reusable learning worth writing back to durable storage."
+conflicts_with: "Do not rewrite immutable source notes; use wiki-ingest for raw source capture and append logs instead."
 ---
 
 # Session Learn
@@ -31,6 +33,12 @@ Use session-learn on this conversation. Extract reusable concepts, decisions, co
 **Verified Effect**
 - Useful session knowledge is preserved as durable notes instead of disappearing into chat history.
 
+## Success Metrics
+
+- Extracts signals into durable notes or explicitly states that no durable signal met the save threshold.
+- Saved items are classified as concept, entity, correction, pattern, idea, decision, or gap.
+- Final summary lists saved files and open questions separately.
+
 ## When to Use
 
 - "Extract this session" or "save what we learned"
@@ -43,14 +51,16 @@ Use session-learn on this conversation. Extract reusable concepts, decisions, co
 
 ## 7 Knowledge Signals
 
+Resolve destination paths from `system/config.md` when available. If no config exists, use the default wiki and system paths.
+
 | # | Signal | Action |
 |:--|--------|--------|
-| 1 | **New Concept** | Create `wiki/concepts/[name].md` status:seed |
-| 2 | **New Entity** | Create `wiki/entities/[name].md` type:entity |
+| 1 | **New Concept** | Create `CONCEPTS_DIR/[name].md` status:seed |
+| 2 | **New Entity** | Create `ENTITIES_DIR/[name].md` type:entity |
 | 3 | **Correction** | Update page + annotate + log |
 | 4 | **Reusable Pattern** | Create/update SOP page |
-| 5 | **New Idea** | Save to creativity/ideas/ or wiki/outputs/ |
-| 6 | **Major Decision** | Record to decisions/ with rationale |
+| 5 | **New Idea** | Save to `CREATIVITY_DIR/ideas/` or `OUTPUTS_DIR/` |
+| 6 | **Major Decision** | Record to `DECISIONS_DIR/` with rationale |
 | 7 | **Knowledge Gap** | Append to review queue |
 
 ---
@@ -106,7 +116,7 @@ Convert to wiki form → Cross-reference → Record to log.md
 - **Closure always**: every output → format → link → log
 - **Confidence markers**: new pages get `status: seed`
 - **Conflict honesty**: never overwrite without annotation
-- **Log everything**: append to system/log.md
+- **Log everything**: append to `LOG_FILE`
 
 ## Execution
 
@@ -118,7 +128,7 @@ Convert to wiki form → Cross-reference → Record to log.md
 5. Check gaps → append to review queue
 6. Batch write (parallel)
 7. Update overview + central index
-8. Append to system/log.md
+8. Append to `LOG_FILE`
 ```
 
 ## Quality Gates

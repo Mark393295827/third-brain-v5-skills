@@ -5,6 +5,7 @@ REPO="Mark393295827/third-brain-v5-skills"
 BRANCH="main"
 SKILLS_DIR="$(dirname "$0")/skills"
 ADAPTERS_DIR="$(dirname "$0")/adapters"
+CONFIG_FILE="$(dirname "$0")/system/config.md"
 TARGET_ARG="${1:-auto}"
 
 echo "=== Third Brain V5 Skills Installer ==="
@@ -90,3 +91,9 @@ for skill in "$SKILLS_DIR"/*/; do
     desc=$(head -5 "$skill/SKILL.md" 2>/dev/null | grep "^description:" | sed 's/^description: //')
     echo "  - $name${desc:+: $desc}"
 done
+
+echo ""
+if [ -f "$CONFIG_FILE" ]; then
+    echo "Path config template: $CONFIG_FILE"
+    echo "Copy it into your vault as system/config.md if your wiki folders differ from the defaults."
+fi

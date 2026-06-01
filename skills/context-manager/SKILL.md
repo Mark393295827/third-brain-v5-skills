@@ -2,7 +2,9 @@
 name: context-manager
 description: Manage the LLM's context window — token budgeting, prompt assembly, truncation strategies. Use when approaching context limits or optimizing prompt costs.
 version: "1.1"
-updated: "2026-05-12"
+updated: "2026-05-22"
+assumes: "Context is scarce; source priority and token budget matter for task success."
+conflicts_with: "Do not drop source evidence required by verify-before-claim, deep-research, or wiki-ingest provenance."
 ---
 
 # Context Manager
@@ -30,6 +32,12 @@ Use context-manager for this task. Estimate token budget, choose what to keep, w
 
 **Verified Effect**
 - Long or messy context becomes a scoped prompt plan with lower token waste and clearer retrieval priorities.
+
+## Success Metrics
+
+- Output includes an estimated token budget and a keep/summarize/drop table.
+- Each excluded source has a reason, and critical context has a retrieval path.
+- Final prompt plan fits the target context window with margin.
 
 ## When to Use
 

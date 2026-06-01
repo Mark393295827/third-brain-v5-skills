@@ -4,7 +4,7 @@
   <img src="assets/third-brain-v5-system-architecture.png" alt="Third Brain V5 system architecture: LLM, Skills, Obsidian, behavior design, creativity engine, governance, and compounding loops" width="100%">
 </p>
 
-**Third Brain V5 — 17 production-ready Agent Skills for Claude, Codex, Gemini, Cursor, and Windsurf. Build a persistent Knowledge OS with Obsidian, behavior design, creativity loops, verification, and multi-agent workflows.**
+**Third Brain V5 — 17 production-ready Agent Skills for Claude, Codex, Gemini, Cursor, and Windsurf. Build a persistent Knowledge OS with Obsidian, behavior design, creativity loops, verification, full-stack agent harnesses, and multi-agent workflows.**
 
 Install 17 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, improving agent workflows, and orchestrating agent teams.
 
@@ -42,6 +42,8 @@ Start-Process tools/index.html
 ```
 
 Quick links: [Visual Dashboard](tools/index.html) · [One-Click Test Prompt](examples/one-click-test-prompt.md) · [3-Minute Quickstart](examples/3-minute-quickstart.md)
+
+Format standard: [Agent Skills Standard](docs/agent-skills-standard.md) · [Agentic Engineering Principles](docs/agentic-engineering-principles.md) · run `python tools/lint-agent-skills.py` before publishing skill changes.
 
 ## Quick Install
 
@@ -103,7 +105,7 @@ One-click test prompt: [examples/one-click-test-prompt.md](examples/one-click-te
 
 ## 3-Minute Quick Start
 
-The fastest useful path is `wiki-ingest`: turn one article, PDF, transcript, or rough note into durable wiki knowledge.
+The fastest useful path is `wiki-ingest`: turn one article, PDF, transcript, or rough note into durable wiki knowledge. Treat this as the recommended first skill; add the rest only after the previous layer is producing evidence.
 
 ```text
 Use wiki-ingest on this source.
@@ -111,12 +113,12 @@ Use wiki-ingest on this source.
 Goal: turn it into reusable wiki knowledge, not a loose summary.
 
 Create:
-1. one immutable source note in sources/
+1. one immutable source note in `SOURCES_DIR` (default: `sources/`)
 2. 3-7 key insights with source references
-3. at least one concept page in wiki/concepts/
-4. relevant entity pages in wiki/entities/
+3. at least one concept page in `CONCEPTS_DIR` (default: `wiki/concepts/`)
+4. relevant entity pages in `ENTITIES_DIR` (default: `wiki/entities/`)
 5. links from the new pages to existing related pages when possible
-6. a short log entry in system/log.md
+6. a short log entry in `LOG_FILE` (default: `system/log.md`)
 
 After writing files, run a quick verification:
 - list created or updated files
@@ -125,6 +127,17 @@ After writing files, run a quick verification:
 ```
 
 Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quickstart.md).
+
+## Skill Adoption Ladder
+
+| Stage | Core skills | Upgrade when |
+|---|---|---|
+| Week 1: Start | `wiki-ingest` + `verify-before-claim` | You can ingest at least one source per day and every completion claim has fresh evidence. |
+| Weeks 2-4: Daily loop | + `daily-okr` + `session-learn` | Daily OKR score is above 70% for a week and session learnings are being written back. |
+| Month 2+: Deepen | + `cognitive-compile` + `behavior-design` + `creativity-engine` | The wiki has 50+ pages or repeated decisions need deeper synthesis and experiments. |
+| Month 3+: Engineer | + `knowledge-ops` + `harness-engineering` + `agentic-engineering` | Retrieval, permissions, delegated actions, provenance, or workflow reliability become bottlenecks. |
+| Multi-agent: Scale | + `agent-teams-command` + `project-flow-ops` | Work can be split into separate owners with clear integration and verification gates. |
+| Strategy: Evaluate | + `startup-evaluation` + `anthropic-os` + `deep-research` | You need startup health, market, operating-system, or multi-source research decisions. |
 
 ## Before → After
 
@@ -160,6 +173,8 @@ These skills transform any AI coding agent into a **persistent knowledge compoun
 
 Third Brain treats agents as LLM OS processes, not chat personas: the LLM is the CPU, context is RAM, Obsidian/wiki/logs are disk, tools are system calls, skills are executable programs, and the harness is the kernel that enforces permissions and observability. See [Agent Understanding Framework](wiki/concepts/agent-understanding-framework.md).
 
+The latest engineering update adds a full-stack agent lens: agent workflows now account for IDE subagents, personal agents, agentic search, commerce mandates, generative-media provenance, and ambient-device privacy. See [Agentic Engineering Principles](docs/agentic-engineering-principles.md).
+
 ### Design Philosophy
 
 | Layer | Principle | Skills |
@@ -181,9 +196,9 @@ Third Brain treats agents as LLM OS processes, not chat personas: the LLM is the
 
 | Skill | Description |
 |-------|-------------|
-| [wiki-ingest](skills/wiki-ingest/SKILL.md) | Ingest sources (articles, PDFs, videos) into a persistent interlinked wiki. Creates source notes, entity pages, concept pages, updates navigation. STOW pipeline. |
-| [knowledge-ops](skills/knowledge-ops/SKILL.md) | Multi-layer knowledge management — classify, deduplicate, vectorize with ChromaDB, sync across stores. |
-| [wiki-lint](skills/wiki-lint/SKILL.md) | Health-check the wiki across 8 dimensions: frontmatter, links, orphans, stale content, contradictions, drift. |
+| [wiki-ingest](skills/wiki-ingest/SKILL.md) | Ingest sources into a persistent interlinked wiki with source-risk taxonomy, macro-action scope, concept/entity pages, Karpathy understanding gate, clipping archive, and post-ingest lint. |
+| [knowledge-ops](skills/knowledge-ops/SKILL.md) | Multi-layer knowledge management — classify, deduplicate, preserve evidence hierarchy, keep Markdown-first retrieval primary, use vectors as optional support, and queue knowledge debt. |
+| [wiki-lint](skills/wiki-lint/SKILL.md) | Health-check the wiki across P0/P1 graph health, frontmatter, source refs, links, clipping lifecycle, provenance debt, understanding integrity, contradictions, and drift. |
 
 ### 🔄 Daily Workflow
 
@@ -224,15 +239,15 @@ Third Brain treats agents as LLM OS processes, not chat personas: the LLM is the
 
 | Skill | Description |
 |-------|-------------|
-| [agentic-engineering](skills/agentic-engineering/SKILL.md) | Refactor skills and workflows so agents can execute autonomously with clear defaults, checkpoints, verification, and lower human coordination load. |
-| [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — three-tier permissions, GAN-inspired multi-agent patterns, closed-loop system design (Aladdin). |
-| [agent-teams-command](skills/agent-teams-command/SKILL.md) | Ender's Game approach to commanding Claude Code Agent Teams. Karpathy Agentic Engineering — Plan→Act→Observe→Iterate. L1-L5 commander progression. |
+| [agentic-engineering](skills/agentic-engineering/SKILL.md) | Refactor workflows into spec-driven macro actions with quality ceilings, delegated-action boundaries, verification gates, state checkpoints, and write-back. |
+| [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — permissions, system-call tools, delegated-action gates, provenance, observability, recovery, and adversarial review. |
+| [agent-teams-command](skills/agent-teams-command/SKILL.md) | Command multi-agent macro actions with ownership, IPC, async budget envelopes, integration joins, cleanup, evidence gates, and red-team review for high-risk work. |
 
 ### 💼 Strategy
 
 | Skill | Description |
 |-------|-------------|
-| [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startups using MIT's 24-step disciplined entrepreneurship framework. Market identification, customer understanding, business model analysis. |
+| [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startup health with entrepreneurship, VC 5T, PMF, runway, team, unit economics, and next-cheapest-test diagnostics. |
 | [anthropic-os](skills/anthropic-os/SKILL.md) | Anthropic OS — Self-Evolving Work Method Engine. CASH growth system, 70/30 rule, two-week rule, hive mind, working backwards. Built-in self-evolution mechanism. |
 
 ---
@@ -357,7 +372,7 @@ cp -r third-brain-v5-skills/skills/* ~/.gemini/skills/
 
 ## Wiki Structure
 
-These skills assume the following vault layout:
+These skills use `system/config.md` as the default path contract. The layout below is the default, not a hard requirement; override it in your local `system/config.md`, `CLAUDE.md`, or equivalent agent rules file if your Obsidian vault already uses different folders.
 
 ```
 sources/          ← Immutable source notes (articles, books, reports)
@@ -373,6 +388,8 @@ system/           ← Schema, log, templates, lint reports
 08_behaviors/     ← Behavior system (goals, habits, SOPs, reviews)
 09_creativity/    ← Creativity system (ideas, experiments, prototypes)
 ```
+
+Path config: [system/config.md](system/config.md).
 
 ---
 

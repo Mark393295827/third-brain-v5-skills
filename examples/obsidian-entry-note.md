@@ -25,12 +25,12 @@ Extract what we learned this session and save reusable patterns to my wiki.
 
 ## Navigation
 
-- `sources/` — immutable source notes
-- `wiki/concepts/` — reusable ideas and frameworks
-- `wiki/entities/` — people, companies, products, projects
-- `wiki/outputs/` — briefs, reports, decisions, reusable artifacts
-- `maps/` — maps of content
-- `system/` — logs, templates, lint reports
+- `SOURCES_DIR` — immutable source notes
+- `CONCEPTS_DIR` — reusable ideas and frameworks
+- `ENTITIES_DIR` — people, companies, products, projects
+- `OUTPUTS_DIR` — briefs, reports, decisions, reusable artifacts
+- `MAPS_DIR` — maps of content
+- `SYSTEM_DIR` — logs, templates, lint reports, and `system/config.md`
 
 ## Weekly Maintenance
 

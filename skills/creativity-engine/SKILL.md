@@ -2,7 +2,9 @@
 name: creativity-engine
 description: Generate, validate, and output new ideas based on existing knowledge. Combines combinatorial creativity, cross-domain analogy, and minimum experiments. Use when the user wants fresh ideas, new product concepts, or creative solutions.
 version: "1.2"
-updated: "2026-05-13"
+updated: "2026-05-22"
+assumes: "The user wants divergent options and is willing to validate one minimum experiment."
+conflicts_with: "Do not present untested ideas as validated; route evidence claims through verify-before-claim or deep-research."
 ---
 
 # Creativity Engine
@@ -31,6 +33,12 @@ Use creativity-engine on this challenge. Generate cross-domain combinations, ran
 
 **Verified Effect**
 - Brainstorming turns into ranked options with a smallest viable experiment for the best idea.
+
+## Success Metrics
+
+- Produces ranked options with source ingredients, target user, expected value, and risk for each finalist.
+- Selects one minimum experiment with a success signal, cost, and review date.
+- Saves the experiment when operating inside a configured wiki or creativity workspace.
 
 ## When to Use
 
@@ -96,7 +104,7 @@ For the top 3 ideas, design the cheapest test:
 | 2 | ... | Landing page + ads | ≥5% signup rate | $50 |
 | 3 | ... | Manual prototype | Works for 1 case | Time |
 
-For Obsidian workflows, save the selected experiment to `09_creativity/experiments/` with:
+For Obsidian workflows, save the selected experiment to `CREATIVITY_DIR/experiments/` with:
 - source ingredients
 - combination formula
 - target user
@@ -135,5 +143,5 @@ Evaluate each idea:
 - [ ] ≥10 ideas generated across ≥3 categories
 - [ ] Top 3 have minimum experiment designs
 - [ ] Each idea cites its source concept(s)
-- [ ] Selected experiment is saved to `09_creativity/experiments/` when working in an Obsidian vault
+- [ ] Selected experiment is saved to `CREATIVITY_DIR/experiments/` when working in an Obsidian vault
 - [ ] Validated ideas written to durable output
