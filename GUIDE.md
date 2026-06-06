@@ -1,6 +1,6 @@
 # Third Brain V5 Skills — Installation & Usage Guide
 
-> **17 skills** transforming AI coding agents into a persistent knowledge compounding system. Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, Windsurf, and other rule/context-based AI IDEs.
+> **18 skills** transforming AI coding agents into a persistent knowledge compounding system. Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, Windsurf, and other rule/context-based AI IDEs.
 
 ---
 
@@ -56,7 +56,7 @@ cp -r skills/* ~/.claude/skills/
 
 # Verify installation
 ls ~/.claude/skills/ | wc -l
-# Expected output: 17
+# Expected output: 18
 ```
 
 #### Codex CLI
@@ -231,12 +231,13 @@ claude "Create a team of 3 agents to research this topic."
 | **harness-engineering** | Agent runtime kernel: permissions, tools as system calls, delegated-action gates, provenance ledgers, observability, recovery, adversarial review | "how do I make this agent safe?" |
 | **agent-teams-command** | Multi-agent macro action orchestration with ownership, IPC, async budget envelopes, integration, cleanup, evidence gates, and red-team review | "create an agent team to build X" |
 
-### 💼 Strategy
+### 💼 Strategy & Operations
 
 | Skill | What It Does | Trigger Phrase |
 |-------|-------------|----------------|
 | **startup-evaluation** | Startup health diagnosis: customer pain, market, PMF, team, unit economics, runway, VC 5T, and next cheapest test | "evaluate this startup" |
 | **anthropic-os** | Self-evolving work method engine. CASH, 70/30, hive mind, 3B algorithms | "launch Anthropic OS" |
+| **ai-six-sigma-property-os** | AI + Ontology + DMAIC Black Belt model for property work orders, dispatch, quotes, evidence, CTQ metrics, and quality dashboards | "design my Property Agent OS" |
 
 ---
 

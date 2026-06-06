@@ -26,6 +26,7 @@ Common routing:
 - Idea generation -> `skills/creativity-engine/SKILL.md`
 - Research report, market scan, competitor analysis, or fast-changing evidence question -> `skills/deep-research/SKILL.md`
 - Startup idea or due diligence -> `skills/startup-evaluation/SKILL.md`
+- Property operations, dispatch, quotes, evidence, CTQ metrics, or AI Six Sigma -> `skills/ai-six-sigma-property-os/SKILL.md`
 - Knowledge organization, deduplication, or vector search -> `skills/knowledge-ops/SKILL.md`
 - Wiki health check, broken links, or stale pages -> `skills/wiki-lint/SKILL.md`
 - Context limits or token budget -> `skills/context-manager/SKILL.md`

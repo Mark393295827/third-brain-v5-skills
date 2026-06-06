@@ -4,9 +4,9 @@
   <img src="assets/third-brain-v5-system-architecture.png" alt="Third Brain V5 system architecture: LLM, Skills, Obsidian, behavior design, creativity engine, governance, and compounding loops" width="100%">
 </p>
 
-**Third Brain V5 — 17 production-ready Agent Skills for Claude, Codex, Gemini, Cursor, and Windsurf. Build a persistent Knowledge OS with Obsidian, behavior design, creativity loops, verification, full-stack agent harnesses, and multi-agent workflows.**
+**Third Brain V5 — 18 production-ready Agent Skills for Claude, Codex, Gemini, Cursor, and Windsurf. Build a persistent Knowledge OS with Obsidian, behavior design, creativity loops, verification, full-stack agent harnesses, multi-agent workflows, and AI operations quality systems.**
 
-Install 17 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, improving agent workflows, and orchestrating agent teams.
+Install 18 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, improving agent workflows, orchestrating agent teams, and designing AI Six Sigma operations.
 
 **Use this if your AI coding agent keeps forgetting context, making unverifiable "done" claims, or scattering useful knowledge across chats. Star it if you want a reusable, verification-first skill stack for long-running AI work.**
 
@@ -22,7 +22,7 @@ Install 17 ready-to-use Agent Skills for ingesting sources, building an interlin
 [![Supported Models](https://img.shields.io/badge/models-Claude%20%7C%20GPT%20%7C%20Gemini-22C55E)](GUIDE.md)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Format-2ea44f)](https://agentskills.io)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
-![Skills](https://img.shields.io/badge/skills-17-FF6B6B)
+![Skills](https://img.shields.io/badge/skills-18-FF6B6B)
 ![Karpathy LLM OS](https://img.shields.io/badge/Karpathy%20LLM%20OS-Compatible-8A2BE2)
 ![Token Tracking](https://img.shields.io/badge/token--tracking-00D1B2)
 ![Ender's Game](https://img.shields.io/badge/Ender's%20Game-Command-8A2BE2)
@@ -138,6 +138,7 @@ Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quic
 | Month 3+: Engineer | + `knowledge-ops` + `harness-engineering` + `agentic-engineering` | Retrieval, permissions, delegated actions, provenance, or workflow reliability become bottlenecks. |
 | Multi-agent: Scale | + `agent-teams-command` + `project-flow-ops` | Work can be split into separate owners with clear integration and verification gates. |
 | Strategy: Evaluate | + `startup-evaluation` + `anthropic-os` + `deep-research` | You need startup health, market, operating-system, or STOW-compatible evidence research decisions. |
+| Operations: Control | + `ai-six-sigma-property-os` | You need measurable service quality, dispatch, quote, evidence, and workflow control loops. |
 
 ## Before → After
 
@@ -186,7 +187,7 @@ The latest engineering update adds a full-stack agent lens: agent workflows now 
 | **🔄 Continuous Learning** | Extract patterns from every session | session-learn, project-flow-ops |
 | **📊 Context & Cost** | Manage the LLM's scarcest resource | context-manager, token-cost-tracker |
 | **🏗️ Engineering** | Design agent workflows, infrastructure, and multi-agent teams | agentic-engineering, harness-engineering, agent-teams-command |
-| **💼 Strategy** | Evaluate startups, adopt Anthropic-level methods | startup-evaluation, anthropic-os |
+| **💼 Strategy & Operations** | Evaluate startups, adopt Anthropic-level methods, and design AI quality systems | startup-evaluation, anthropic-os, ai-six-sigma-property-os |
 
 ---
 
@@ -243,12 +244,13 @@ The latest engineering update adds a full-stack agent lens: agent workflows now 
 | [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — permissions, system-call tools, delegated-action gates, provenance, observability, recovery, and adversarial review. |
 | [agent-teams-command](skills/agent-teams-command/SKILL.md) | Command multi-agent macro actions with ownership, IPC, async budget envelopes, integration joins, cleanup, evidence gates, and red-team review for high-risk work. |
 
-### 💼 Strategy
+### 💼 Strategy & Operations
 
 | Skill | Description |
 |-------|-------------|
 | [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startup health with entrepreneurship, VC 5T, PMF, runway, team, unit economics, and next-cheapest-test diagnostics. |
 | [anthropic-os](skills/anthropic-os/SKILL.md) | Anthropic OS — Self-Evolving Work Method Engine. CASH growth system, 70/30 rule, two-week rule, hive mind, working backwards. Built-in self-evolution mechanism. |
+| [ai-six-sigma-property-os](skills/ai-six-sigma-property-os/SKILL.md) | Design an AI + Ontology + DMAIC Black Belt operating model for property work orders, dispatch, quotes, evidence, CTQ dashboards, and MVP quality control. |
 
 ---
 
@@ -304,6 +306,7 @@ The latest engineering update adds a full-stack agent lens: agent workflows now 
     │ agent-teams-command               ← fleet command           │
     │ startup-evaluation                ← VC evaluation           │
     │ anthropic-os                      ← work method engine      │
+    │ ai-six-sigma-property-os          ← property quality OS     │
     └─────────────────────────────────────────────────────────────┘
 ```
 

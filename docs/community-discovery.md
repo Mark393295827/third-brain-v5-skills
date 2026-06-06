@@ -7,13 +7,13 @@ Use this checklist when publishing or refreshing the GitHub repository page.
 Recommended description:
 
 ```text
-Third Brain V5 — 17 Production-Ready Agent Skills for Claude / Codex / Cursor | Persistent Knowledge OS + Behavior Design + Creativity Engine
+Third Brain V5 — 18 Production-Ready Agent Skills for Claude / Codex / Cursor | Persistent Knowledge OS + Behavior Design + AI Operations
 ```
 
 Recommended Chinese description:
 
 ```text
-第三大脑 V5 — 17 个生产就绪的 Claude/Codex/Cursor 技能 | 持久知识操作系统 + 行为设计 + 创意引擎
+第三大脑 V5 — 18 个生产就绪的 Claude/Codex/Cursor 技能 | 持久知识操作系统 + 行为设计 + AI 运营质量系统
 ```
 
 ## Topics
@@ -39,6 +39,9 @@ multi-agent
 behavior-design
 verification
 startup-evaluation
+six-sigma
+operations-quality
+property-management
 ```
 
 ## Awesome List Targets
@@ -80,7 +83,7 @@ as `needs-review`; review those manually before using `--allow-new-section`.
 ## Submission Blurb
 
 ```text
-Third Brain V5 Skills is a collection of 17 Agent Skills that turn AI coding agents into a persistent knowledge compounding system. It supports Codex CLI, Claude Code, Gemini CLI, Cursor, and Windsurf, with workflows for LLM Wiki ingestion, cognitive compile, behavior redesign, verification, agentic workflow design, multi-agent orchestration, and startup evaluation.
+Third Brain V5 Skills is a collection of 18 Agent Skills that turn AI coding agents into a persistent knowledge compounding system. It supports Codex CLI, Claude Code, Gemini CLI, Cursor, and Windsurf, with workflows for LLM Wiki ingestion, cognitive compile, behavior redesign, verification, agentic workflow design, multi-agent orchestration, startup evaluation, and AI Six Sigma operations design.
 ```
 
 ## Maintenance Cadence

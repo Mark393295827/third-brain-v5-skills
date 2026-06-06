@@ -35,7 +35,7 @@ The loop follows: test repository metrics and launch assets -> verify current st
 ### Hour 0-2: Repository Conversion
 
 - [ ] Set GitHub description:
-  `Third Brain V5 — 17 Agent Skills for Claude/Codex/Cursor | Persistent Knowledge OS + verification-first AI workflows`
+  `Third Brain V5 — 18 Agent Skills for Claude/Codex/Cursor | Persistent Knowledge OS + verification-first AI workflows`
 - [ ] Set GitHub topics from [community-discovery.md](community-discovery.md).
 - [ ] Confirm README first screen shows: value prop, install command, compatibility, demo, star CTA.
 - [ ] Pin current draft PR or release if it explains the agent framework update.

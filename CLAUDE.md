@@ -36,9 +36,10 @@ You have access to the following Agent Skills. Each skill is a markdown file in 
 - **harness-engineering** — Agent runtime kernel: three-tier permissions, tools as system calls, provenance ledgers, delegated-action gates, observability, recovery, and closed-loop design.
 - **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, async budget envelopes, integration, cleanup, and evidence gates.
 
-### 💼 Strategy
+### 💼 Strategy & Operations
 - **startup-evaluation** — Startup health diagnosis with entrepreneurship, VC 5T, PMF, runway, team, and next-test frameworks.
 - **anthropic-os** — Cognitive Symbiont Engine. Livewired + 3B creativity algorithms (Bending/Breaking/Blending). Predictive coding, time-arrow diagnostics.
+- **ai-six-sigma-property-os** — AI + Ontology + DMAIC Black Belt operating model for property work orders, dispatch, quotes, evidence, CTQ dashboards, and MVP quality control.
 
 ## Usage
 
@@ -47,6 +48,7 @@ Invoke any skill naturally:
 - "Run a cognitive compile on X"
 - "Create an agent team to build Y"
 - "Launch Anthropic OS for my team" — includes 3B creativity algorithms
+- "Design my Property Agent OS with AI Six Sigma"
 - "Apply 3B to our growth strategy" — Bending/Breaking/Blending
 - "Bias to yes on this decision" — Costolo operator mode
 - "Estimate token cost for this task"
