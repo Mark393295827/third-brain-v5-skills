@@ -17,6 +17,7 @@ Routing:
 - Idea generation -> `@creativity-engine`
 - Research report, market scan, competitor analysis, or fast-changing evidence question -> `@deep-research`
 - Startup idea or due diligence -> `@startup-evaluation`
+- Property operations, dispatch, quotes, evidence, CTQ metrics, or AI Six Sigma -> `@ai-six-sigma-property-os`
 - Knowledge organization, deduplication, or vector search -> `@knowledge-ops`
 - Wiki health check, broken links, or stale pages -> `@wiki-lint`
 - Context limits or token budget -> `@context-manager`

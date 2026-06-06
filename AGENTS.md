@@ -34,9 +34,10 @@ This repository contains Agent Skills for the Codex CLI environment. Place skill
 - **harness-engineering** — Agent runtime kernel design: permissions, tools as system calls, provenance ledgers, delegated-action gates, observability, and recovery.
 - **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, async budget envelopes, integration, cleanup, and evidence gates.
 
-### 💼 Strategy
+### 💼 Strategy & Operations
 - **startup-evaluation** — Startup health diagnosis with entrepreneurship, VC 5T, PMF, runway, team, and next-test frameworks.
 - **anthropic-os** — Self-evolving work method engine.
+- **ai-six-sigma-property-os** — AI + Ontology + DMAIC Black Belt operating model for property work orders, dispatch, quotes, evidence, CTQ dashboards, and MVP quality control.
 
 ## Compatibility
 

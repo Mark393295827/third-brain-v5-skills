@@ -7,6 +7,7 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 ## Unreleased
 
 ### Added
+- `ai-six-sigma-property-os` skill for designing an AI + Ontology + DMAIC Black Belt operating model for property work orders, dispatch, quotes, evidence, CTQ dashboards, root-cause loops, and MVP quality control.
 - ChatGPT Deep Research STOW comparison report and official-docs digest for testing `deep-research` against plan review, source control, activity trace, and safety behavior.
 - GitHub deep-research top-5 digest translating high-star repository patterns into `deep-research` skill upgrades.
 - AI workflow skill-iteration digest translating recent Obsidian AIOS, dynamic workflow, managed-agent, and self-compaction notes into repo skill updates.
@@ -20,7 +21,7 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - GitHub repository metadata configurator and Awesome-list PR submitter scripts with dry-run defaults and explicit token-gated apply mode.
 - Agent Skills open-format standard document and linter for validating skill folder shape, metadata, trigger descriptions, and quality gate sections.
 - Agentic Engineering principles document translating spec-driven development, macro actions, security-aware integration, and AutoResearch boundaries into repo standards.
-- Skill-level `assumes`, `conflicts_with`, and `## Success Metrics` contracts across all 17 skills.
+- Skill-level `assumes`, `conflicts_with`, and `## Success Metrics` contracts across all 18 skills.
 - `system/config.md` as the default configurable vault path contract for wiki-writing skills.
 - README skill adoption ladder that makes `wiki-ingest` + `verify-before-claim` the recommended first stage.
 
