@@ -1,9 +1,9 @@
 ---
 name: agent-teams-command
 description: Command multi-agent work with bounded roles, ownership, integration gates, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, or multi-agent orchestration.
-version: "1.4"
-updated: "2026-06-01"
-assumes: "Multi-agent work has separable ownership, clear integration points, and a configured agent runtime."
+version: "1.5"
+updated: "2026-06-08"
+assumes: "Multi-agent work has separable ownership, clear integration points, risk budgets, and a configured agent runtime."
 conflicts_with: "Do not use for tasks with a single obvious next step or no separable write scopes; prefer agentic-engineering or project-flow-ops."
 ---
 
@@ -82,6 +82,20 @@ Use agent teams only when parallel processes reduce wall-clock time or increase 
 
 Avoid parallelism when the next step depends on a single blocking decision. Do that work locally, then delegate independent slices.
 
+## Antifragile Swarm Gate
+
+Before spawning agents, assume the environment has fog and friction: incomplete context, stale assumptions, noisy outputs, tool failures, and permission risk. Command the team as a risk-budgeted swarm, not a pile of helpers.
+
+| Gate | Command rule |
+|---|---|
+| Survival first | Define the maximum acceptable blast radius per teammate. |
+| No hero node | No single teammate owns planning, execution, verification, and write-back for a high-risk path. |
+| Replaceability | Each teammate has a narrow role, bounded tools, and a handoff format another agent can continue. |
+| Mechanical rebalancing | Define when to downweight, kill, replace, or add a reviewer based on cost, error rate, risk, or blocked state. |
+| OODA low friction | Observe few signals, orient with the shared plan, decide from finite actions, act in reversible steps, and write back evidence. |
+
+If you cannot name blast radius, kill condition, and verification evidence for a teammate, do not spawn that teammate.
+
 ## Antigravity-Style Swarm Boundary
 
 Google I/O '26 described Antigravity as an agent-first development surface with subagents, hooks, async task management, and very large token budgets. Treat this as a cautionary operating pattern: swarm execution is useful only when the harness can prove progress.
@@ -123,6 +137,8 @@ Scope:
 Non-goals:
 Owned territory:
 Inputs:
+Risk budget / blast radius:
+Allowed tools / denied actions:
 Expected output:
 Verification evidence:
 Risk review:
@@ -240,14 +256,24 @@ GOAL: [Strategic objective — sets context, like loading system prompt]
 
 ORDERS: Create a team of [N] teammates using [MODEL].
 
+RISK BUDGET:
+  Max blast radius per teammate: [files/actions/data/accounts]
+  Kill/downweight signals: [cost spike | repeated error | blocked | unsafe action]
+  Rebalance options: [replace | add critic | narrow scope | switch sequential]
+  Write-back target: [wiki/log/state file]
+
 ─── TEAMMATE 1 ─── Codename: [NAME] — Role: [ROLE]
   TASK: [Specific task description]
   OWNERSHIP: [file/module ownership]
+  PERMISSIONS: [allowed tools/actions; denied actions]
+  BLAST RADIUS: [maximum change or effect]
   DEPENDENCY: Message [TEAMMATE] when done
   
 ─── TEAMMATE 2 ─── Codename: [NAME] — Role: [ROLE]
   TASK: [Specific task description]
   OWNERSHIP: [file/module ownership]
+  PERMISSIONS: [allowed tools/actions; denied actions]
+  BLAST RADIUS: [maximum change or effect]
   DEPENDENCY: Wait for [TEAMMATE] to complete
 
 ─── TEAMMATE 3 ─── Codename: [NAME] — Role: QA
@@ -266,8 +292,10 @@ QUALITY GATES:
 - [ ] No critical QA issues
 - [ ] No file ownership conflicts
 - [ ] Token/time/request budget stayed inside cap
+- [ ] Blast radius and permission limits held
 - [ ] Each teammate reports changed files, evidence, and open risks
 - [ ] High-risk outputs reviewed by a separate critic or red team
+- [ ] Lessons, decisions, and risk adjustments written back
 ```
 
 ### Three Engineering Laws
@@ -365,6 +393,16 @@ Cleanup protocol: Lead MUST execute cleanup (otherwise resource leak)
 Write-back: Lead records decisions, evidence, and reusable lessons
 ```
 
+Mechanical rebalancing rules:
+
+| Signal | Action |
+|---|---|
+| Same blocker twice | Narrow scope or switch to sequential execution. |
+| Rising cost without evidence | Pause or downweight the teammate. |
+| Unsafe or out-of-scope tool request | Kill or sandbox the process; add reviewer. |
+| High-value uncertainty | Add a critic/researcher before adding a builder. |
+| Integration conflict | Stop parallel writes and join through the lead. |
+
 For long-horizon builds, add a budget envelope before launch:
 
 ```text
@@ -401,6 +439,7 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 [Phase 0: Plan]
 □ Tasks decomposed into parallelizable sub-tasks
 □ Each sub-task has clear owner and boundary
+□ Each sub-task has risk budget, blast radius, and kill/downweight condition
 □ Each macro action has non-goals, proof, and stop condition
 □ Dependencies modeled
 □ Team vs dynamic workflow vs long-running goal choice is justified
@@ -409,23 +448,27 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 □ Agents launched in parallel per plan
 □ No file ownership conflicts
 □ Inter-process communication normal
+□ Permission and blast-radius limits held
 □ Agent count, wall-clock, request count, and token budget inside cap
 □ Generated workflow scripts reviewed before execution when used
 
 [Phase 2: Observe]
 □ QA loop executed
 □ High-risk outputs passed adversarial review
+□ Rebalancing decisions applied when agents drifted, stalled, or exceeded budget
 □ Issues fed back to corresponding agent
 □ Re-verified after fixes
 
 [Phase 3: Iterate]
 □ Quality met → exit loop
 □ Not met → continue iteration
+□ OODA loop stayed low-friction: few signals, finite decisions, reversible actions
 □ Max iterations exceeded → escalate to commander
 
 [Phase 4: Learn]
 □ Post-mission report generated
 □ Lessons captured in knowledge base
+□ Risk budget and rebalancing lessons written back
 □ Applicable to future campaigns
 □ Teammates closed or explicitly handed off
 ```
@@ -440,9 +483,13 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 | Insufficient context | Missing initial instructions | Full context in GOAL (like system prompt) |
 | Resource leak | Lead didn't run cleanup | Enforce cleanup protocol |
 | Fast but fragile output | Vibe coding without quality ceiling | Add spec, evaluator, and proof gate |
+| Swarm gets noisy | No shared OODA frame | Reduce signals, freeze plan, route updates through lead |
+| One agent becomes hero node | Too much authority in one process | Split planner/builder/evaluator/write-back roles |
+| Agent spends without proof | No mechanical rebalancing | Downweight, narrow scope, or kill based on predeclared signal |
 
 ---
 
 ## Evolution Timeline
 
 - **2026-05-10**: Created. Agent Teams command system based on Karpathy Agentic Engineering framework. L1-L5 commander progression path. 3 classic engineering campaigns.
+- **2026-06-08**: Added antifragile swarm gate from same-day Obsidian ingest: risk budgets, blast radius, no-hero-node decomposition, mechanical rebalancing, and low-friction OODA write-back.
