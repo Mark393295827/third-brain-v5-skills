@@ -13,7 +13,7 @@ Suggested entry:
 ### PatrickJS/awesome-cursorrules
 
 - URL: https://github.com/PatrickJS/awesome-cursorrules
-- Stars: 39877
+- Stars: 39907
 - Matched keyword: `Awesome-Cursor`
 - Suggested section: `Awesome Cursor Rules [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)`
 - Default branch: `main`
@@ -22,7 +22,7 @@ Suggested entry:
 ### langgptai/awesome-claude-prompts
 
 - URL: https://github.com/langgptai/awesome-claude-prompts
-- Stars: 5205
+- Stars: 5210
 - Matched keyword: `Awesome-Claude-Prompt`
 - Suggested section: `Claude official prompt resource:`
 - Default branch: `main`
@@ -49,7 +49,7 @@ Suggested entry:
 ### kaushikb11/awesome-llm-agents
 
 - URL: https://github.com/kaushikb11/awesome-llm-agents
-- Stars: 1500
+- Stars: 1506
 - Matched keyword: `Awesome-LLM-Agents`
 - Suggested section: `Awesome LLM Agent Frameworks [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)`
 - Default branch: `main`
@@ -58,7 +58,7 @@ Suggested entry:
 ### Prat011/awesome-llm-skills
 
 - URL: https://github.com/Prat011/awesome-llm-skills
-- Stars: 1296
+- Stars: 1301
 - Matched keyword: `Awesome-LLM-Agents`
 - Suggested section: `Claude Code (Anthropic)`
 - Default branch: `master`
@@ -67,7 +67,7 @@ Suggested entry:
 ### bergside/awesome-design-skills
 
 - URL: https://github.com/bergside/awesome-design-skills
-- Stars: 1136
+- Stars: 1162
 - Matched keyword: `Awesome-Cursor`
 - Suggested section: `AI Agent Tools`
 - Default branch: `main`
@@ -76,7 +76,7 @@ Suggested entry:
 ### IAAR-Shanghai/Awesome-AI-Memory
 
 - URL: https://github.com/IAAR-Shanghai/Awesome-AI-Memory
-- Stars: 953
+- Stars: 961
 - Matched keyword: `Awesome-LLM-Agents`
 - Suggested section: `AI Agent Tools`
 - Default branch: `main`
