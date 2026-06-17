@@ -1,182 +1,187 @@
 # Third Brain V5 Skills
 
 <p align="center">
-  <img src="assets/third-brain-v5-system-architecture.png" alt="Third Brain V5 system architecture: LLM, Skills, Obsidian, behavior design, creativity engine, governance, and compounding loops" width="100%">
+  <img src="assets/third-brain-v5-system-architecture.png" alt="Third Brain V5 system architecture: LLM, Skills, Obsidian, behavior design, creativity engine, governance, and compounding loops" width="600">
 </p>
 
-**Third Brain V5 — 18 production-ready Agent Skills for Claude, Codex, Gemini, Cursor, and Windsurf. Build a persistent Knowledge OS with Obsidian, behavior design, creativity loops, verification, full-stack agent harnesses, multi-agent workflows, and AI operations quality systems.**
+**Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf.** Build a persistent knowledge system with verification-first workflows, context management, and multi-agent orchestration.
 
-Install 18 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, improving agent workflows, orchestrating agent teams, and designing AI Six Sigma operations.
+Install 18 reusable agent skills for ingesting sources, building interlinked wikis, running daily review loops, verifying claims before shipping, managing token costs, and orchestrating multi-agent teams.
 
-**Use this if your AI coding agent keeps forgetting context, making unverifiable "done" claims, or scattering useful knowledge across chats. Star it if you want a reusable, verification-first skill stack for long-running AI work.**
+**Use this if:**
+- Your AI agent keeps forgetting context between sessions
+- You want to enforce verification gates before "done" claims
+- You need to structure knowledge as linked pages (like Obsidian) instead of scattered chat history
+- You're building agent workflows that should learn and compound over time
 
 [![GitHub stars](https://img.shields.io/github/stars/Mark393295827/third-brain-v5-skills?style=social)](https://github.com/Mark393295827/third-brain-v5-skills/stargazers)
-[![Last commit](https://img.shields.io/github/last-commit/Mark393295827/third-brain-v5-skills)](https://github.com/Mark393295827/third-brain-v5-skills/commits/main)
-[![Issues](https://img.shields.io/github/issues/Mark393295827/third-brain-v5-skills)](https://github.com/Mark393295827/third-brain-v5-skills/issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-8A2BE2)](https://claude.ai/code)
-[![Codex CLI](https://img.shields.io/badge/Codex%20CLI-Compatible-000000)](https://github.com/openai/codex)
-[![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Compatible-4285F4)](https://github.com/google-gemini/gemini-cli)
-[![Cursor](https://img.shields.io/badge/Cursor-Rules%20Adapter-111827)](docs/compatibility.md)
-[![Windsurf](https://img.shields.io/badge/Windsurf-Skills%20Compatible-0EA5E9)](docs/compatibility.md)
-[![Supported Models](https://img.shields.io/badge/models-Claude%20%7C%20GPT%20%7C%20Gemini-22C55E)](GUIDE.md)
-[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Format-2ea44f)](https://agentskills.io)
+[![Cursor](https://img.shields.io/badge/Cursor-Rules%20Compatible-111827)](GUIDE.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
-![Skills](https://img.shields.io/badge/skills-18-FF6B6B)
-![Karpathy LLM OS](https://img.shields.io/badge/Karpathy%20LLM%20OS-Compatible-8A2BE2)
-![Token Tracking](https://img.shields.io/badge/token--tracking-00D1B2)
-![Ender's Game](https://img.shields.io/badge/Ender's%20Game-Command-8A2BE2)
 
 ---
 
-## Visual Navigation
+## Quick Start
 
-Open the local dashboard for a searchable skill map, workflow shortcuts, and cost tools:
-
-```bash
-# macOS
-open tools/index.html
-
-# Windows PowerShell
-Start-Process tools/index.html
-```
-
-Quick links: [Visual Dashboard](tools/index.html) · [One-Click Test Prompt](examples/one-click-test-prompt.md) · [3-Minute Quickstart](examples/3-minute-quickstart.md)
-
-Format standard: [Agent Skills Standard](docs/agent-skills-standard.md) · [Agentic Engineering Principles](docs/agentic-engineering-principles.md) · run `python tools/lint-agent-skills.py` before publishing skill changes.
-
-## Quick Install
-
-![Install demo](assets/install-demo.svg)
-
-For Claude Code, Codex CLI, or Gemini CLI:
+### 1. Clone & Install
 
 ```bash
 git clone https://github.com/Mark393295827/third-brain-v5-skills.git
 cd third-brain-v5-skills
-bash install.sh
+bash install.sh claude  # or: codex, gemini, cursor, windsurf, all
 ```
 
-Explicit targets:
+### 2. Try a Skill
 
-```bash
-bash install.sh codex
-bash install.sh claude
-bash install.sh gemini
-bash install.sh cursor
-bash install.sh windsurf
-bash install.sh all
-```
-
-Manual install paths:
-
-```bash
-# Codex CLI
-mkdir -p ~/.agents/skills && cp -r skills/* ~/.agents/skills/
-
-# Claude Code
-mkdir -p ~/.claude/skills && cp -r skills/* ~/.claude/skills/
-
-# Gemini CLI
-mkdir -p ~/.gemini/skills && cp -r skills/* ~/.gemini/skills/
-
-# Cursor rules adapter
-mkdir -p .cursor/rules && cp adapters/cursor/third-brain-skills.mdc .cursor/rules/
-
-# Windsurf native workspace skills + routing rule
-mkdir -p .windsurf/skills .windsurf/rules
-cp -r skills/* .windsurf/skills/
-cp adapters/windsurf/third-brain-skills.md .windsurf/rules/
-```
-
-## Try It
-
-Paste one of these into your agent after installing:
+Paste this into Claude Code or your agent:
 
 ```text
-"I just read an interesting article. Ingest it into my wiki."
-"Run my daily OKR."
-"Cognitive compile on AI agent safety."
-"Verify before I ship."
-"Create an agent team to build a full-stack prototype."
+Use wiki-ingest on this source. Create source notes, concept pages, entity pages, navigation updates, and a verification summary.
 ```
 
-One-click test prompt: [examples/one-click-test-prompt.md](examples/one-click-test-prompt.md).
+Then paste a URL, article, PDF text, or any source you want to capture.
 
-## 3-Minute Quick Start
+### 3. Next Steps
 
-The fastest useful path is `wiki-ingest`: turn one article, PDF, transcript, or rough note into durable wiki knowledge. Treat this as the recommended first skill; add the rest only after the previous layer is producing evidence.
+See the **[3-Minute Quickstart](examples/3-minute-quickstart.md)** for a complete walkthrough.
 
-```text
-Use wiki-ingest on this source.
-
-Goal: turn it into reusable wiki knowledge, not a loose summary.
-
-Create:
-1. one immutable source note in `SOURCES_DIR` (default: `sources/`)
-2. 3-7 key insights with source references
-3. at least one concept page in `CONCEPTS_DIR` (default: `wiki/concepts/`)
-4. relevant entity pages in `ENTITIES_DIR` (default: `wiki/entities/`)
-5. links from the new pages to existing related pages when possible
-6. a short log entry in `LOG_FILE` (default: `system/log.md`)
-
-After writing files, run a quick verification:
-- list created or updated files
-- check each wiki page has at least two wikilinks
-- state any claims that are single-source only
-```
-
-Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quickstart.md).
-
-## Skill Adoption Ladder
-
-| Stage | Core skills | Upgrade when |
-|---|---|---|
-| Week 1: Start | `wiki-ingest` + `verify-before-claim` | You can ingest at least one source per day and every completion claim has fresh evidence. |
-| Weeks 2-4: Daily loop | + `daily-okr` + `session-learn` | Daily OKR score is above 70% for a week and session learnings are being written back. |
-| Month 2+: Deepen | + `cognitive-compile` + `behavior-design` + `creativity-engine` | The wiki has 50+ pages or repeated decisions need deeper synthesis and experiments. |
-| Month 3+: Engineer | + `knowledge-ops` + `harness-engineering` + `agentic-engineering` | Retrieval, permissions, delegated actions, provenance, or workflow reliability become bottlenecks. |
-| Multi-agent: Scale | + `agent-teams-command` + `project-flow-ops` | Work can be split into separate owners with clear integration and verification gates. |
-| Strategy: Evaluate | + `startup-evaluation` + `anthropic-os` + `deep-research` | You need startup health, market, operating-system, or STOW-compatible evidence research decisions. |
-| Operations: Control | + `ai-six-sigma-property-os` | You need measurable service quality, dispatch, quote, evidence, and workflow control loops. |
-
-## Before → After
-
-| Use Case | Before | After |
-|----------|--------|-------|
-| Research PDF | A long PDF is summarized once and then forgotten. | `wiki-ingest` creates source notes, concept pages, entity pages, links, and a reusable brief. |
-| Coding session | The agent says "fixed" without proof. | `verify-before-claim` requires a fresh command, exit code, and evidence before any completion claim. |
-| Daily knowledge work | Inputs, ideas, and actions stay scattered across chat history. | `daily-okr` produces one insight, one wiki update, one action, one reusable output, and a daily score. |
-
-## Demo & Tools
-
-| Resource | What it shows |
-|----------|---------------|
-| [tools/index.html](tools/index.html) | Visual dashboard and skill navigation |
-| [dashboard.html](dashboard.html) | Visual overview of the Third Brain V5 system |
-| [tools/token-calculator.html](tools/token-calculator.html) | Token cost calculator |
-| [tools/pipeline-cost-calculator.html](tools/pipeline-cost-calculator.html) | Pipeline cost estimator |
-| [GUIDE.md](GUIDE.md) | Full installation, workflow, and troubleshooting guide |
-| [examples/](examples/) | Copyable workflows and Obsidian entry note |
-| [docs/compatibility.md](docs/compatibility.md) | Cursor, Windsurf, and other AI IDE setup |
-| [docs/community-discovery.md](docs/community-discovery.md) | GitHub description, topics, and Awesome-list submission notes |
-| [docs/github-star-growth-sprint.md](docs/github-star-growth-sprint.md) | 48-hour launch and Awesome-list growth sprint |
-
-If this saves you time, consider starring the repo so others can discover it through GitHub search.
+Full guide: **[GUIDE.md](GUIDE.md)**
 
 ---
 
-## Overview
+## The Problem
 
-These skills transform any AI coding agent into a **persistent knowledge compounding system**. Instead of treating each conversation as a one-off chat, these skills create an interlinked knowledge base that grows richer with every session — while also providing strategic execution frameworks inspired by Anthropic's work methods and Karpathy's Agentic Engineering.
+| Scenario | Before | After |
+|----------|--------|-------|
+| **Research PDF** | Summarized once, then forgotten | `wiki-ingest`: source notes, concept pages, linked wiki |
+| **Coding session** | Agent: "I fixed it" (no proof) | `verify-before-claim`: requires test output + exit code before any claim |
+| **Daily work** | Tasks and ideas scatter across chat | `daily-okr`: one insight, one wiki update, one action, one output, daily score |
 
-### Agent Understanding Framework
+---
 
-Third Brain treats agents as LLM OS processes, not chat personas: the LLM is the CPU, context is RAM, Obsidian/wiki/logs are disk, tools are system calls, skills are executable programs, and the harness is the kernel that enforces permissions and observability. See [Agent Understanding Framework](wiki/concepts/agent-understanding-framework.md).
+## Core Skills (Start Here)
 
-The latest engineering update adds a full-stack agent lens: agent workflows now account for IDE subagents, personal agents, agentic search, commerce mandates, generative-media provenance, and ambient-device privacy. See [Agentic Engineering Principles](docs/agentic-engineering-principles.md).
+### 🧠 **Knowledge & Verification**
 
-### Design Philosophy
+| Skill | What it does |
+|-------|-------------|
+| **[wiki-ingest](skills/wiki-ingest/SKILL.md)** | Capture sources (articles, PDFs, transcripts) into an interlinked wiki with source references, concept pages, and entity pages. Enforces "Karpathy understanding gate" so pages explain *why* something matters, not just summarizing it. |
+| **[verify-before-claim](skills/verify-before-claim/SKILL.md)** | **Iron rule**: No completion claims without fresh verification evidence. Run the proof command, show the output, then claim. Prevents "should work" hallucinations. Uses poker psychology (expected value thinking) to distinguish process from outcomes. |
+
+### 📅 **Daily Loop**
+
+| Skill | What it does |
+|-------|-------------|
+| **[daily-okr](skills/daily-okr/SKILL.md)** | Execute a 7-KR cycle: Input → Cognition → Wiki → Behavior → Creativity → Output → Feedback. Includes **Stop Doing List** (Buffett/Munger) to identify what NOT to do. Score: 3=starting, 5=minimal loop, 7=quality, 10=flywheel. |
+
+### 🎯 **Behavior & Creativity**
+
+| Skill | What it does |
+|-------|-------------|
+| **[behavior-design](skills/behavior-design/SKILL.md)** | Turn goals into habit systems. Decompose → minimum habits → triggers → SOPs → review. Includes Human Agency Scale (HAS) from BJ Fogg. |
+| **[creativity-engine](skills/creativity-engine/SKILL.md)** | Generate novel ideas via combinatorial creativity. Lego Building Blocks method (Andrew Ng), cross-domain analogies, minimum experiments. |
+
+### 🔬 **Research & Quality**
+
+| Skill | What it does |
+|-------|-------------|
+| **[deep-research](skills/deep-research/SKILL.md)** | STOW-compatible research harness with evidence trails, source/claim ledgers, privacy checks, and direct handoff to wiki-ingest. |
+| **[session-learn](skills/session-learn/SKILL.md)** | Extract knowledge patterns from sessions — concepts, entities, corrections, patterns, ideas, decisions, gaps. Closure protocol ensures learning feeds back into the wiki. |
+
+### 📊 **Context & Engineering**
+
+| Skill | What it does |
+|-------|-------------|
+| **[context-manager](skills/context-manager/SKILL.md)** | Manage LLM context window — token budgeting, prompt assembly, truncation strategies using Concrete Ideas framework (Andrew Ng) + Tokenmax techniques. |
+| **[agentic-engineering](skills/agentic-engineering/SKILL.md)** | Design agent workflows as spec-driven macro actions with quality ceilings, verification gates, delegated-action boundaries, and state checkpoints. |
+| **[agent-teams-command](skills/agent-teams-command/SKILL.md)** | Orchestrate multi-agent fleets — ownership, IPC, async budget envelopes, integration joins, evidence gates. |
+
+---
+
+## Complete Skill List
+
+### 📥 Ingestion & Knowledge
+
+- `wiki-ingest` — Ingest sources with source-risk taxonomy, Karpathy understanding gate, concept/entity pages, wikilinks
+- `knowledge-ops` — Multi-layer knowledge management: classify, deduplicate, preserve evidence hierarchy, vector + Markdown retrieval
+- `wiki-lint` — Health check: P0/P1 graph health, frontmatter, source refs, wikilink density, provenance debt
+
+### 🔄 Daily Workflow
+
+- `daily-okr` — 7-KR closed loop with Stop Doing List (Buffett/Munger), daily score
+- `cognitive-compile` — 8-section framework: Question → Facts → Concepts → Pattern Recognition → Conflict Detection → Hypothesis Generation
+
+### 🎨 Behavior & Creativity
+
+- `behavior-design` — Goals → habits → triggers → SOPs → review (HAS framework)
+- `creativity-engine` — Combinatorial creativity: Lego Building Blocks, cross-domain analogies, minimum tests
+
+### 🔬 Research & Quality
+
+- `deep-research` — STOW-compatible research harness, evidence trails, source/claim ledgers
+- `verify-before-claim` — Verification gates, poker psychology (expected value), red-flag detection
+
+### 🔄 Learning & Flow
+
+- `session-learn` — 7 signal types: concepts, entities, corrections, patterns, ideas, decisions, gaps
+- `project-flow-ops` — Execution flow: triage, plan, track, review across projects
+
+### 📊 Context & Cost
+
+- `context-manager` — Token budgeting, prompt assembly, truncation strategies
+- `token-cost-tracker` — Estimate, log, report token usage with built-in Python logger
+
+### 🏗️ Engineering
+
+- `agentic-engineering` — Spec-driven macro actions, quality ceilings, verification gates, state checks
+- `harness-engineering` — Runtime infrastructure: permissions, system-call tools, delegated gates, provenance, observability
+- `agent-teams-command` — Multi-agent orchestration: ownership, IPC, async budgets, evidence gates
+
+### 💼 Strategy & Operations
+
+- `startup-evaluation` — Startup health: entrepreneurship, VC 5T, PMF, runway, team, unit economics
+- `anthropic-os` — Self-evolving work method engine: CASH growth, 70/30 rule, two-week rule, working backwards
+- `ai-six-sigma-property-os` — AI + Ontology + DMAIC for property work orders, dispatch, quotes, evidence
+
+---
+
+## How These Skills Fit Together
+
+```
+                        LLM (CPU) + Context (RAM) + Wiki (Disk)
+                        
+External Sources ──→ wiki-ingest + knowledge-ops ──→ Knowledge Layers
+                            ↓
+                    Daily Loop (daily-okr)
+                    /    /    \    \    \
+               Input  Cognition  Wiki  Behavior  Creativity
+                            |
+                        Output → Feedback
+                            ↓
+                    session-learn (extract patterns)
+                            ↓
+                    verify-before-claim (quality gate)
+                            ↓
+                Multi-agent teams (agentic-engineering)
+```
+
+The system is a **closed loop**: ingest sources → process daily → extract learning → verify claims → scale to teams.
+
+---
+
+## Architecture & Design
+
+**Third Brain treats agents as LLM OS processes:**
+- LLM = CPU
+- Context = RAM
+- Wiki/Obsidian = Disk
+- Tools = System calls
+- Skills = Executable programs
+- Harness = Kernel
+- Agent teams = Processes
+
+### Design Layers
 
 | Layer | Principle | Skills |
 |-------|-----------|--------|
@@ -186,225 +191,149 @@ The latest engineering update adds a full-stack agent lens: agent workflows now 
 | **🔬 Research & Quality** | Verify before claiming, research with rigor | deep-research, verify-before-claim |
 | **🔄 Continuous Learning** | Extract patterns from every session | session-learn, project-flow-ops |
 | **📊 Context & Cost** | Manage the LLM's scarcest resource | context-manager, token-cost-tracker |
-| **🏗️ Engineering** | Design agent workflows, infrastructure, and multi-agent teams | agentic-engineering, harness-engineering, agent-teams-command |
-| **💼 Strategy & Operations** | Evaluate startups, adopt Anthropic-level methods, and design AI quality systems | startup-evaluation, anthropic-os, ai-six-sigma-property-os |
+| **🏗️ Engineering** | Design agent workflows and multi-agent systems | agentic-engineering, harness-engineering, agent-teams-command |
+| **💼 Strategy & Operations** | Evaluate startups, design AI quality systems | startup-evaluation, anthropic-os, ai-six-sigma-property-os |
 
 ---
 
-## Skills
+## Skill Adoption Path
 
-### 📥 Ingestion & Knowledge
+Start small. Add skills as you need them.
 
-| Skill | Description |
-|-------|-------------|
-| [wiki-ingest](skills/wiki-ingest/SKILL.md) | Ingest sources into a persistent interlinked wiki with source-risk taxonomy, macro-action scope, concept/entity pages, Karpathy understanding gate, clipping archive, and post-ingest lint. |
-| [knowledge-ops](skills/knowledge-ops/SKILL.md) | Multi-layer knowledge management — classify, deduplicate, preserve evidence hierarchy, keep Markdown-first retrieval primary, use vectors as optional support, and queue knowledge debt. |
-| [wiki-lint](skills/wiki-lint/SKILL.md) | Health-check the wiki across P0/P1 graph health, frontmatter, source refs, links, clipping lifecycle, provenance debt, understanding integrity, contradictions, and drift. |
-
-### 🔄 Daily Workflow
-
-| Skill | Description |
-|-------|-------------|
-| [daily-okr](skills/daily-okr/SKILL.md) | Daily knowledge compound closed loop — 7 Key Results from input to feedback, with scoring. Includes Stop Doing List (Buffett/Munger). |
-| [cognitive-compile](skills/cognitive-compile/SKILL.md) | Deep learning 8-section framework: Question → Facts → Concepts → Pattern Recognition → Conflict Detection → Hypothesis Generation → Decision Support → Action. |
-
-### 🎨 Behavior & Creativity
-
-| Skill | Description |
-|-------|-------------|
-| [behavior-design](skills/behavior-design/SKILL.md) | Transform goals into behavior systems. Decompose → minimum habits → triggers → SOPs → review. Includes HAS (Human Agency Scale) from Stanford research. |
-| [creativity-engine](skills/creativity-engine/SKILL.md) | Generate novel ideas via combinatorial creativity. Lego Building Blocks method (Andrew Ng), cross-domain analogies, minimum experiments. |
-
-### 🔬 Research & Quality
-
-| Skill | Description |
-|-------|-------------|
-| [deep-research](skills/deep-research/SKILL.md) | STOW-compatible research harness with ChatGPT-style preflight, source/claim ledgers, activity trace, citations, privacy checks, and wiki-ingest handoff packets. |
-| [verify-before-claim](skills/verify-before-claim/SKILL.md) | Iron rule: No completion claims without fresh verification evidence. Includes expected value thinking from poker psychology. |
-
-### 🔄 Learning & Flow
-
-| Skill | Description |
-|-------|-------------|
-| [session-learn](skills/session-learn/SKILL.md) | Extract knowledge patterns from sessions — 7 signal types (concepts, entities, corrections, patterns, ideas, decisions, gaps). Closure Protocol included. |
-| [project-flow-ops](skills/project-flow-ops/SKILL.md) | Execution flow — triage, plan, track, review across projects. |
-
-### 📊 Context & Cost
-
-| Skill | Description |
-|-------|-------------|
-| [context-manager](skills/context-manager/SKILL.md) | Manage the LLM's context window — token budgeting, prompt assembly, truncation strategies. Concrete Ideas framework (Andrew Ng) + Tokenmaxxing vs Efficiency (Gary Tan). |
-| [token-cost-tracker](commands/token-cost-tracker.md) | Estimate, log, and report token usage. Built-in Python logger script. |
-
-### 🏗️ Engineering
-
-| Skill | Description |
-|-------|-------------|
-| [agentic-engineering](skills/agentic-engineering/SKILL.md) | Refactor workflows into spec-driven macro actions with quality ceilings, delegated-action boundaries, verification gates, state checkpoints, and write-back. |
-| [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — permissions, system-call tools, delegated-action gates, provenance, observability, recovery, and adversarial review. |
-| [agent-teams-command](skills/agent-teams-command/SKILL.md) | Command multi-agent macro actions with ownership, IPC, async budget envelopes, integration joins, cleanup, evidence gates, and red-team review for high-risk work. |
-
-### 💼 Strategy & Operations
-
-| Skill | Description |
-|-------|-------------|
-| [startup-evaluation](skills/startup-evaluation/SKILL.md) | Evaluate startup health with entrepreneurship, VC 5T, PMF, runway, team, unit economics, and next-cheapest-test diagnostics. |
-| [anthropic-os](skills/anthropic-os/SKILL.md) | Anthropic OS — Self-Evolving Work Method Engine. CASH growth system, 70/30 rule, two-week rule, hive mind, working backwards. Built-in self-evolution mechanism. |
-| [ai-six-sigma-property-os](skills/ai-six-sigma-property-os/SKILL.md) | Design an AI + Ontology + DMAIC Black Belt operating model for property work orders, dispatch, quotes, evidence, CTQ dashboards, and MVP quality control. |
+| Stage | Core Skills | Unlock When |
+|-------|------------|-------------|
+| **Week 1** | `wiki-ingest` + `verify-before-claim` | You can ingest 1 source/day + every claim has fresh evidence |
+| **Weeks 2-4** | + `daily-okr` + `session-learn` | Daily OKR score >70% for a week, learnings feed back to wiki |
+| **Month 2+** | + `cognitive-compile` + `behavior-design` + `creativity-engine` | Wiki has 50+ pages or repeated decisions need synthesis |
+| **Month 3+** | + `knowledge-ops` + `harness-engineering` + `agentic-engineering` | Retrieval, permissions, delegated actions become bottlenecks |
+| **Multi-agent** | + `agent-teams-command` + `project-flow-ops` | Work splits into separate owners with clear integration gates |
+| **Strategy** | + `startup-evaluation` + `anthropic-os` + `deep-research` | Need startup health, market, operating-system decisions |
+| **Operations** | + `ai-six-sigma-property-os` | Need measurable service quality, dispatch, evidence loops |
 
 ---
 
-## Architecture
+## Installation
 
-```
-┌──────────────────────────────────────────────────────────────────────────┐
-│                      Karpathy LLM OS Layer                                │
-│  LLM=CPU │ Context=RAM │ Storage=Disk │ Tools=System Calls                │
-│  Skills=Programs │ Harness=Kernel │ Agent Teams=Processes                 │
-│  ┌──────────────────────────────────────────────────────────────────┐    │
-│  │ context-manager: Token Budget → Prompt Assembly → Truncation     │    │
-│  │ token-cost-tracker: Estimate → Log → Report                     │    │
-│  └──────────────────────────────────────────────────────────────────┘    │
-└──────────────────────────────────────────────────────────────────────────┘
-                                    │
-                         ┌──────────┴──────────┐
-                         ▼                     ▼
-              ┌──────────────────┐   ┌──────────────────────┐
-              │   External       │   │   Agent Teams        │
-              │   Sources        │   │   (Parallel Fleet)    │
-              └────────┬─────────┘   └──────────────────────┘
-                       ▼
-         ┌──────────────────────────────┐
-         │   wiki-ingest + knowledge-ops│
-         │   (STOW pipeline + RAG sync) │
-         └──────┬──────────┬────────────┘
-                │          │
-         ┌──────▼          └──────────────┐
-         │  Knowledge Layers               │
-         │  ├ Active (GitHub/Linear)       │
-         │  ├ Memory (quick access)        │
-         │  ├ Wiki (durable, interlinked)  │
-         │  ├ Vector (ChromaDB, semantic)  │
-         │  └ External (DBs, APIs)         │
-         └────────────────────────────────┘
-                │
-    ┌───────────┼──────────┬──────────────┬──────────────┐
-    ▼           ▼          ▼              ▼              ▼
-┌─────────┐ ┌─────────┐ ┌──────────┐ ┌───────────┐ ┌──────────┐
-│ daily   │ │cognitive│ │ behavior │ │ creativity│ │ project  │
-│ -okr    │ │-compile │ │ -design  │ │ -engine   │ │ -flow-ops│
-└─────────┘ └─────────┘ └──────────┘ └───────────┘ └──────────┘
-    │           │          │              │              │
-    └───────────┼──────────┼──────────────┼──────────────┘
-                ▼
-    ┌─────────────────────────────────────────────────────────────┐
-    │ session-learn (+Closure Protocol)  ← feedback loop          │
-    │ verify-before-claim               ← quality gate            │
-    │ wiki-lint                         ← health check            │
-    │ deep-research                     ← research + STOW handoff │
-    │ harness-engineering               ← safety + multi-agent    │
-    │ agent-teams-command               ← fleet command           │
-    │ startup-evaluation                ← VC evaluation           │
-    │ anthropic-os                      ← work method engine      │
-    │ ai-six-sigma-property-os          ← property quality OS     │
-    └─────────────────────────────────────────────────────────────┘
-```
-
----
-
-## Quick Start
-
-For detailed installation, usage, and 5 complete workflow scenarios, see the **[Full Guide](GUIDE.md)**.
-
-### Clone
-
-```bash
-git clone https://github.com/Mark393295827/third-brain-v5-skills.git
-cd third-brain-v5-skills
-bash install.sh
-```
-
-### Claude Code
+### For Claude Code
 
 ```bash
 # Personal skills (available across all projects)
-cp -r third-brain-v5-skills/skills/* ~/.claude/skills/
+cp -r skills/* ~/.claude/skills/
 
 # Project skills (shared with team)
-cp -r third-brain-v5-skills/skills/* .claude/skills/
+cp -r skills/* .claude/skills/
 ```
 
-### Codex CLI
+### For Cursor
 
 ```bash
-cp -r third-brain-v5-skills/skills/* ~/.agents/skills/
+mkdir -p .cursor/rules && cp adapters/cursor/third-brain-skills.mdc .cursor/rules/
 ```
 
-### Gemini CLI
+### For Windsurf
 
 ```bash
-cp -r third-brain-v5-skills/skills/* ~/.gemini/skills/
+mkdir -p .windsurf/skills .windsurf/rules
+cp -r skills/* .windsurf/skills/
+cp adapters/windsurf/third-brain-skills.md .windsurf/rules/
 ```
 
-### Try It
+### For Codex CLI / Gemini CLI
 
+```bash
+cp -r skills/* ~/.agents/skills/  # Codex
+cp -r skills/* ~/.gemini/skills/  # Gemini
 ```
-"I just read an interesting article — ingest it into my wiki."
-"Run my daily OKR."
-"Cognitive compile on AI Agent safety."
-"Design a reading habit."
-"Generate 10 business ideas from my wiki."
-"Extract what we learned this session."
-"Verify before I ship."
-"Lint my wiki."
-"Create an agent team to build a full-stack app."
-"Launch Anthropic OS for my team's growth."
-```
+
+Full guide: **[GUIDE.md](GUIDE.md)**
 
 ---
 
-## Command Reference
+## Example Workflows
 
-| Command | File | Usage |
-|---------|------|-------|
-| `token-cost-tracker estimate` | [token-cost-tracker.md](commands/token-cost-tracker.md) | Estimate token cost before a task |
-| `token-cost-tracker log` | [token-cost-tracker.md](commands/token-cost-tracker.md) | Log actual token usage |
-| `token-cost-tracker report` | [token-cost-tracker.md](commands/token-cost-tracker.md) | Weekly/monthly cost report |
+Each workflow is copyable into your agent. See **[examples/](examples/)** for complete, verified examples:
+
+- [3-minute quickstart](examples/3-minute-quickstart.md) — Fastest path to useful output
+- [Research PDF to wiki](examples/research-pdf-to-wiki.md) — Turn a source into linked pages
+- [Verified code session](examples/verified-code-session.md) — Use verification gates before claiming a fix
+- [Daily knowledge loop](examples/daily-knowledge-loop.md) — Run a compact daily OKR workflow
+- [Startup evaluation sprint](examples/startup-evaluation-sprint.md) — Turn an idea into validated assumptions
 
 ---
 
 ## Wiki Structure
 
-These skills use `system/config.md` as the default path contract. The layout below is the default, not a hard requirement; override it in your local `system/config.md`, `CLAUDE.md`, or equivalent agent rules file if your Obsidian vault already uses different folders.
+Skills default to STOW paths (configurable via `system/config.md`):
 
 ```
-sources/          ← Immutable source notes (articles, books, reports)
+sources/          ← Immutable source notes (articles, PDFs, transcripts)
 wiki/
 ├── concepts/     ← Ideas, frameworks, methods
 ├── entities/     ← People, companies, products
-├── atomic-notes/ ← Single knowledge atoms
-├── outputs/      ← Reusable outputs (reports, analyses, evaluations)
-├── decisions/    ← Architecture and strategy decisions
+├── atomic-notes/ ← Single-fact notes
+├── outputs/      ← Reusable reports, analyses
+├── decisions/    ← Architecture decisions
 └── sops/         ← Standard operating procedures
-maps/             ← Navigation / Maps of Content
-system/           ← Schema, log, templates, lint reports
-08_behaviors/     ← Behavior system (goals, habits, SOPs, reviews)
-09_creativity/    ← Creativity system (ideas, experiments, prototypes)
+system/           ← Config, log, schema, templates
+08_behaviors/     ← Behavior system (goals, habits, reviews)
+09_creativity/    ← Creativity system (ideas, experiments)
 ```
-
-Path config: [system/config.md](system/config.md).
 
 ---
 
-## Related Projects
+## Tools & References
 
-- [Agent Skills](https://agentskills.io) — Open format specification
-- [llm-wiki-agent](https://github.com/SamurAIGPT/llm-wiki-agent) — Original STOW pattern implementation
+| Resource | Purpose |
+|----------|---------|
+| [tools/index.html](tools/index.html) | Visual skill navigator and dashboard |
+| [tools/token-calculator.html](tools/token-calculator.html) | Token cost calculator |
+| [GUIDE.md](GUIDE.md) | Full installation & troubleshooting |
+| [CLAUDE.md](CLAUDE.md) | Claude Code setup |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute skills |
+
+---
+
+## What This Is NOT
+
+- **Not a chat wrapper.** Skills are executable prompts that agents follow; they're not productivity theater.
+- **Not a productivity tool with 100 metrics.** Daily OKR has 7 KRs; that's it. Scoring is 3/5/7/10, not a complex formula.
+- **Not an all-in-one framework.** Pick skills incrementally. You don't need all 18 to start.
+- **Not prescriptive.** Adapt paths, frontmatter, and skill triggers to your workflow.
+
+---
+
+## Philosophy
+
+**Three core principles:**
+
+1. **Verification first**: No "done" without proof. No claims without evidence. Expected value over confidence.
+2. **Knowledge compounds**: Every session should improve the wiki, not scatter across chat history.
+3. **Closed loops**: Ingest → Process → Learn → Scale → Verify. No loose ends.
+
+---
+
+## Related Work
+
+- [Agent Skills Format](https://agentskills.io) — Open specification for agent skills
+- [llm-wiki-agent](https://github.com/SamurAIGPT/llm-wiki-agent) — Original STOW pattern implementation by SamurAIGPT
+- [Karpathy LLM OS](https://karpathy.ai) — Conceptual framework
+
+---
 
 ## Contributing
 
-Bug reports, skill requests, and small PRs are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md), [CHANGELOG.md](CHANGELOG.md), and the [release playbook](docs/release-playbook.md) for the weekly feedback loop and release checklist.
+Bug reports, skill improvements, and PRs are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) and [CHANGELOG.md](CHANGELOG.md).
+
+---
 
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+---
+
+## Transparency Note
+
+This project includes **growth and outreach tools** (in `tools/` and `outreach/`) designed to help the repository reach users via GitHub search and Awesome lists. These tools are optional, dry-run-by-default, and separate from the core skills. If you're installing skills for your own workflow, you don't need them.
+
+The skill frameworks and philosophy are genuine. Use what works for you; ignore what doesn't.
