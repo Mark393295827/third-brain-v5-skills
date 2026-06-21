@@ -44,42 +44,6 @@ operations-quality
 property-management
 ```
 
-## Awesome List Targets
-
-Submit only after the README, examples, and install path are stable.
-
-Run the target finder:
-
-```powershell
-$env:GITHUB_TOKEN="ghp_your_token_here"
-python tools\configure-github-repo.py --apply
-python tools\find-awesome-pr-targets.py
-python tools\submit-awesome-prs.py --limit 3
-python tools\growth-loop.py
-```
-
-Current high-priority targets:
-
-| Priority | Repository | Fit |
-|---:|---|---|
-| 1 | `Prat011/awesome-llm-skills` | Direct fit: LLM and AI Agent Skills. |
-| 2 | `PatrickJS/awesome-cursorrules` | Very high-star Cursor audience; adapter-rule angle. |
-| 3 | `sanjeed5/awesome-cursor-rules-mdc` | Cursor `.mdc` rules audience. |
-| 4 | `hyp1231/awesome-llm-powered-agent` | Broad LLM agent ecosystem. |
-| 5 | `IAAR-Shanghai/Awesome-AI-Memory` | Memory / persistent knowledge angle. |
-| 6 | `kaushikb11/awesome-llm-agents` | Agent frameworks and resources. |
-
-Use generated files:
-
-- `outreach/awesome-lists/awesome-pr-targets.md`
-- `outreach/awesome-lists/awesome-pr-template.md`
-- `outreach/awesome-lists/awesome-candidates.json`
-- `outreach/awesome-lists/awesome-pr-runbook.md`
-- `outreach/growth-reports/YYYY-MM-DD.md`
-
-The Awesome submitter defaults to dry-run and marks ambiguous section placement
-as `needs-review`; review those manually before using `--allow-new-section`.
-
 ## Submission Blurb
 
 ```text

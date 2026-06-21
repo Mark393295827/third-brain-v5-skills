@@ -13,7 +13,7 @@ Suggested entry:
 ### PatrickJS/awesome-cursorrules
 
 - URL: https://github.com/PatrickJS/awesome-cursorrules
-- Stars: 39907
+- Stars: 39989
 - Matched keyword: `Awesome-Cursor`
 - Suggested section: `Awesome Cursor Rules [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)`
 - Default branch: `main`
@@ -22,7 +22,7 @@ Suggested entry:
 ### langgptai/awesome-claude-prompts
 
 - URL: https://github.com/langgptai/awesome-claude-prompts
-- Stars: 5210
+- Stars: 5236
 - Matched keyword: `Awesome-Claude-Prompt`
 - Suggested section: `Claude official prompt resource:`
 - Default branch: `main`
@@ -31,7 +31,7 @@ Suggested entry:
 ### sanjeed5/awesome-cursor-rules-mdc
 
 - URL: https://github.com/sanjeed5/awesome-cursor-rules-mdc
-- Stars: 3522
+- Stars: 3530
 - Matched keyword: `Awesome-Cursor`
 - Suggested section: `AI Agent Tools`
 - Default branch: `main`
@@ -40,7 +40,7 @@ Suggested entry:
 ### hyp1231/awesome-llm-powered-agent
 
 - URL: https://github.com/hyp1231/awesome-llm-powered-agent
-- Stars: 2239
+- Stars: 2243
 - Matched keyword: `Awesome-LLM-Agents`
 - Suggested section: `Awesome LLM-Powered Agent`
 - Default branch: `main`
@@ -49,7 +49,7 @@ Suggested entry:
 ### kaushikb11/awesome-llm-agents
 
 - URL: https://github.com/kaushikb11/awesome-llm-agents
-- Stars: 1506
+- Stars: 1509
 - Matched keyword: `Awesome-LLM-Agents`
 - Suggested section: `Awesome LLM Agent Frameworks [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)`
 - Default branch: `main`
@@ -58,7 +58,7 @@ Suggested entry:
 ### Prat011/awesome-llm-skills
 
 - URL: https://github.com/Prat011/awesome-llm-skills
-- Stars: 1301
+- Stars: 1323
 - Matched keyword: `Awesome-LLM-Agents`
 - Suggested section: `Claude Code (Anthropic)`
 - Default branch: `master`
@@ -67,7 +67,7 @@ Suggested entry:
 ### bergside/awesome-design-skills
 
 - URL: https://github.com/bergside/awesome-design-skills
-- Stars: 1162
+- Stars: 1258
 - Matched keyword: `Awesome-Cursor`
 - Suggested section: `AI Agent Tools`
 - Default branch: `main`
@@ -76,7 +76,7 @@ Suggested entry:
 ### IAAR-Shanghai/Awesome-AI-Memory
 
 - URL: https://github.com/IAAR-Shanghai/Awesome-AI-Memory
-- Stars: 961
+- Stars: 980
 - Matched keyword: `Awesome-LLM-Agents`
 - Suggested section: `AI Agent Tools`
 - Default branch: `main`
@@ -85,7 +85,7 @@ Suggested entry:
 ### rohitg00/awesome-ai-apps
 
 - URL: https://github.com/rohitg00/awesome-ai-apps
-- Stars: 779
+- Stars: 784
 - Matched keyword: `Awesome-LLM-Agents`
 - Suggested section: `🎯 [Starter Agents](./starter-agents/)`
 - Default branch: `main`

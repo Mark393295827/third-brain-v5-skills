@@ -31,6 +31,7 @@ This repository contains Agent Skills for the Codex CLI environment. Place skill
 
 ### 🏗️ Engineering
 - **agentic-engineering** — Agent-as-process workflow refactoring with autonomy defaults, delegated-action boundaries, state checkpoints, write-back, and verification gates.
+- **loop-engineering** — Bounded agent-loop design with admission checks, durable contracts, independent verification, hard budgets, stop/recovery rules, and topology selection.
 - **harness-engineering** — Agent runtime kernel design: permissions, tools as system calls, provenance ledgers, delegated-action gates, observability, and recovery.
 - **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, async budget envelopes, integration, cleanup, and evidence gates.
 

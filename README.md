@@ -6,7 +6,7 @@
 
 **Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf.** Build a persistent knowledge system with verification-first workflows, context management, and multi-agent orchestration.
 
-Install 18 reusable agent skills for ingesting sources, building interlinked wikis, running daily review loops, verifying claims before shipping, managing token costs, and orchestrating multi-agent teams.
+Install 19 reusable agent skills for ingesting sources, building interlinked wikis, running daily review loops, verifying claims before shipping, managing token costs, engineering bounded agent loops, and orchestrating multi-agent teams.
 
 **Use this if:**
 - Your AI agent keeps forgetting context between sessions
@@ -94,6 +94,7 @@ Full guide: **[GUIDE.md](GUIDE.md)**
 | Skill | What it does |
 |-------|-------------|
 | **[context-manager](skills/context-manager/SKILL.md)** | Manage LLM context window — token budgeting, prompt assembly, truncation strategies using Concrete Ideas framework (Andrew Ng) + Tokenmax techniques. |
+| **[loop-engineering](skills/loop-engineering/SKILL.md)** | Turn repeatable tasks into bounded agent loops with a durable contract, independent verifier, hard budgets, explicit stop/recovery rules, and conservative topology selection. |
 | **[agentic-engineering](skills/agentic-engineering/SKILL.md)** | Design agent workflows as spec-driven macro actions with quality ceilings, verification gates, delegated-action boundaries, and state checkpoints. |
 | **[agent-teams-command](skills/agent-teams-command/SKILL.md)** | Orchestrate multi-agent fleets — ownership, IPC, async budget envelopes, integration joins, evidence gates. |
 
@@ -134,6 +135,7 @@ Full guide: **[GUIDE.md](GUIDE.md)**
 
 ### 🏗️ Engineering
 
+- `loop-engineering` — Bounded loop contracts, independent verification, finite budgets, stop/recovery rules, and topology selection
 - `agentic-engineering` — Spec-driven macro actions, quality ceilings, verification gates, state checks
 - `harness-engineering` — Runtime infrastructure: permissions, system-call tools, delegated gates, provenance, observability
 - `agent-teams-command` — Multi-agent orchestration: ownership, IPC, async budgets, evidence gates
@@ -150,7 +152,7 @@ Full guide: **[GUIDE.md](GUIDE.md)**
 
 ```
                         LLM (CPU) + Context (RAM) + Wiki (Disk)
-                        
+
 External Sources ──→ wiki-ingest + knowledge-ops ──→ Knowledge Layers
                             ↓
                     Daily Loop (daily-okr)
@@ -191,7 +193,7 @@ The system is a **closed loop**: ingest sources → process daily → extract le
 | **🔬 Research & Quality** | Verify before claiming, research with rigor | deep-research, verify-before-claim |
 | **🔄 Continuous Learning** | Extract patterns from every session | session-learn, project-flow-ops |
 | **📊 Context & Cost** | Manage the LLM's scarcest resource | context-manager, token-cost-tracker |
-| **🏗️ Engineering** | Design agent workflows and multi-agent systems | agentic-engineering, harness-engineering, agent-teams-command |
+| **🏗️ Engineering** | Design bounded loops, agent workflows, and multi-agent systems | loop-engineering, agentic-engineering, harness-engineering, agent-teams-command |
 | **💼 Strategy & Operations** | Evaluate startups, design AI quality systems | startup-evaluation, anthropic-os, ai-six-sigma-property-os |
 
 ---
@@ -205,7 +207,7 @@ Start small. Add skills as you need them.
 | **Week 1** | `wiki-ingest` + `verify-before-claim` | You can ingest 1 source/day + every claim has fresh evidence |
 | **Weeks 2-4** | + `daily-okr` + `session-learn` | Daily OKR score >70% for a week, learnings feed back to wiki |
 | **Month 2+** | + `cognitive-compile` + `behavior-design` + `creativity-engine` | Wiki has 50+ pages or repeated decisions need synthesis |
-| **Month 3+** | + `knowledge-ops` + `harness-engineering` + `agentic-engineering` | Retrieval, permissions, delegated actions become bottlenecks |
+| **Month 3+** | + `knowledge-ops` + `loop-engineering` + `harness-engineering` + `agentic-engineering` | Retrieval, looping reliability, permissions, or delegated actions become bottlenecks |
 | **Multi-agent** | + `agent-teams-command` + `project-flow-ops` | Work splits into separate owners with clear integration gates |
 | **Strategy** | + `startup-evaluation` + `anthropic-os` + `deep-research` | Need startup health, market, operating-system decisions |
 | **Operations** | + `ai-six-sigma-property-os` | Need measurable service quality, dispatch, evidence loops |

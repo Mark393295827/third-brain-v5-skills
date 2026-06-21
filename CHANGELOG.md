@@ -16,9 +16,6 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - Startup health framework digest translating Obsidian startup, VC, efficiency, and primary-investor maps into skill rules.
 - Google I/O '26 agentic stack digest translating the latest Obsidian wiki ingest into full-stack agent design rules.
 - Agent understanding framework wiki concept mapping Karpathy LLM OS ideas to Third Brain agent workflow, harness, and team design.
-- GitHub star growth sprint playbook, launch copy pack, and Awesome-list target finder for legitimate open-source distribution.
-- Continuous growth-loop script that tests repository metrics, verifies launch assets, evaluates readiness, and writes dated improvement reports.
-- GitHub repository metadata configurator and Awesome-list PR submitter scripts with dry-run defaults and explicit token-gated apply mode.
 - Agent Skills open-format standard document and linter for validating skill folder shape, metadata, trigger descriptions, and quality gate sections.
 - Agentic Engineering principles document translating spec-driven development, macro actions, security-aware integration, and AutoResearch boundaries into repo standards.
 - Skill-level `assumes`, `conflicts_with`, and `## Success Metrics` contracts across all 18 skills.
