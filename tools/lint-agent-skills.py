@@ -37,12 +37,25 @@ def parse_frontmatter(text: str) -> tuple[dict[str, str], str]:
     raw = text[4:end]
     body = text[end + 5 :]
     data: dict[str, str] = {}
+    in_metadata = False
     for line in raw.splitlines():
+        if line.strip() == "metadata:":
+            in_metadata = True
+            continue
+        if line and not line[0].isspace():
+            in_metadata = False
         if ":" not in line:
             continue
         key, value = line.split(":", 1)
-        data[key.strip()] = value.strip().strip('"').strip("'")
+        normalized_key = key.strip()
+        if in_metadata and line[0].isspace():
+            normalized_key = f"metadata.{normalized_key}"
+        data[normalized_key] = value.strip().strip('"').strip("'")
     return data, body
+
+
+def frontmatter_value(frontmatter: dict[str, str], key: str) -> str:
+    return frontmatter.get(key) or frontmatter.get(f"metadata.{key}", "")
 
 
 def check_skill(skill_dir: Path) -> list[Issue]:
@@ -64,7 +77,7 @@ def check_skill(skill_dir: Path) -> list[Issue]:
         )
 
     for key in REQUIRED_FRONTMATTER:
-        if not frontmatter.get(key):
+        if not frontmatter_value(frontmatter, key):
             issues.append(Issue(skill_file, f"frontmatter missing {key}"))
 
     name = frontmatter.get("name")

@@ -4,9 +4,9 @@
   <img src="assets/third-brain-v5-system-architecture.png" alt="Third Brain V5 system architecture: LLM, Skills, Obsidian, behavior design, creativity engine, governance, and compounding loops" width="100%">
 </p>
 
-**Third Brain V5 — 18 production-ready Agent Skills for Claude, Codex, Gemini, Cursor, and Windsurf. Build a persistent Knowledge OS with Obsidian, behavior design, creativity loops, verification, full-stack agent harnesses, multi-agent workflows, and AI operations quality systems.**
+**Third Brain V5 — 19 production-ready Agent Skills for Claude, Codex, Gemini, Cursor, and Windsurf. Build a persistent Knowledge OS with Obsidian, behavior design, creativity loops, verification, full-stack agent harnesses, multi-agent workflows, and AI operations quality systems.**
 
-Install 18 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, improving agent workflows, orchestrating agent teams, and designing AI Six Sigma operations.
+Install 19 ready-to-use Agent Skills for ingesting sources, building an interlinked wiki, running daily review loops, verifying claims, managing context cost, engineering bounded agent loops, improving agent workflows, orchestrating agent teams, and designing AI Six Sigma operations.
 
 **Use this if your AI coding agent keeps forgetting context, making unverifiable "done" claims, or scattering useful knowledge across chats. Star it if you want a reusable, verification-first skill stack for long-running AI work.**
 
@@ -22,7 +22,7 @@ Install 18 ready-to-use Agent Skills for ingesting sources, building an interlin
 [![Supported Models](https://img.shields.io/badge/models-Claude%20%7C%20GPT%20%7C%20Gemini-22C55E)](GUIDE.md)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Format-2ea44f)](https://agentskills.io)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
-![Skills](https://img.shields.io/badge/skills-18-FF6B6B)
+![Skills](https://img.shields.io/badge/skills-19-FF6B6B)
 ![Karpathy LLM OS](https://img.shields.io/badge/Karpathy%20LLM%20OS-Compatible-8A2BE2)
 ![Token Tracking](https://img.shields.io/badge/token--tracking-00D1B2)
 ![Ender's Game](https://img.shields.io/badge/Ender's%20Game-Command-8A2BE2)
@@ -159,8 +159,7 @@ Full copyable workflow: [examples/3-minute-quickstart.md](examples/3-minute-quic
 | [GUIDE.md](GUIDE.md) | Full installation, workflow, and troubleshooting guide |
 | [examples/](examples/) | Copyable workflows and Obsidian entry note |
 | [docs/compatibility.md](docs/compatibility.md) | Cursor, Windsurf, and other AI IDE setup |
-| [docs/community-discovery.md](docs/community-discovery.md) | GitHub description, topics, and Awesome-list submission notes |
-| [docs/github-star-growth-sprint.md](docs/github-star-growth-sprint.md) | 48-hour launch and Awesome-list growth sprint |
+| [docs/community-discovery.md](docs/community-discovery.md) | GitHub description and topic recommendations |
 
 If this saves you time, consider starring the repo so others can discover it through GitHub search.
 
@@ -186,7 +185,7 @@ The latest engineering update adds a full-stack agent lens: agent workflows now 
 | **🔬 Research & Quality** | Verify before claiming, research with rigor | deep-research, verify-before-claim |
 | **🔄 Continuous Learning** | Extract patterns from every session | session-learn, project-flow-ops |
 | **📊 Context & Cost** | Manage the LLM's scarcest resource | context-manager, token-cost-tracker |
-| **🏗️ Engineering** | Design agent workflows, infrastructure, and multi-agent teams | agentic-engineering, harness-engineering, agent-teams-command |
+| **🏗️ Engineering** | Design bounded loops, agent workflows, infrastructure, and multi-agent teams | loop-engineering, agentic-engineering, harness-engineering, agent-teams-command |
 | **💼 Strategy & Operations** | Evaluate startups, adopt Anthropic-level methods, and design AI quality systems | startup-evaluation, anthropic-os, ai-six-sigma-property-os |
 
 ---
@@ -241,6 +240,7 @@ The latest engineering update adds a full-stack agent lens: agent workflows now 
 | Skill | Description |
 |-------|-------------|
 | [agentic-engineering](skills/agentic-engineering/SKILL.md) | Refactor workflows into spec-driven macro actions with quality ceilings, delegated-action boundaries, verification gates, state checkpoints, and write-back. |
+| [loop-engineering](skills/loop-engineering/SKILL.md) | Turn repeatable tasks into bounded agent loops with explicit contracts, independent verifiers, hard budgets, stop/recovery rules, and conservative topology selection. |
 | [harness-engineering](skills/harness-engineering/SKILL.md) | Design runtime infrastructure around AI agents — permissions, system-call tools, delegated-action gates, provenance, observability, recovery, and adversarial review. |
 | [agent-teams-command](skills/agent-teams-command/SKILL.md) | Command multi-agent macro actions with ownership, IPC, async budget envelopes, integration joins, cleanup, evidence gates, and red-team review for high-risk work. |
 

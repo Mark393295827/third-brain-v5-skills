@@ -1,0 +1,4 @@
+interface:
+  display_name: "Loop Engineering"
+  short_description: "Design bounded, verified agent loops."
+  default_prompt: "Use $loop-engineering to turn this task into a bounded, verified agent loop."
