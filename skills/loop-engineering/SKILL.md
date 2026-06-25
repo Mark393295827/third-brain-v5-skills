@@ -23,6 +23,8 @@ plan -> act -> observe -> independently verify -> decide
 
 Use `scripts/validate_loop_contract.py` before starting a loop. Do not bypass a failed contract.
 
+For a concrete pattern, see `references/ci-repair-loop-example.md`.
+
 ## Usage Template
 
 ```text
@@ -89,6 +91,19 @@ python scripts/validate_loop_contract.py .agent-state/loop-contract.md --strict
 
 Treat a budget cap or stall condition as a controlled stop, not success.
 
+## 2A. Calibrate The Verification Tier
+
+Choose the cheapest verifier that still exercises the failure mode the loop could create. An LLM checker may interpret evidence, but for code, infrastructure, external systems, or durable wiki changes it cannot replace deterministic evidence.
+
+| Loop risk | Minimum verifier |
+|---|---|
+| Draft, plan, rubric, or contract work | Fixture, checklist, schema, or reviewer inspection. |
+| Local code or document transformation | Real local command, parser, linter, render, diff, or targeted test. |
+| Concurrent repository writes | Isolated branch/worktree plus integration diff and tests. |
+| External connector, scheduled, staging, or production-like loop | Explicit approval, rollback path, audit log, and telemetry or dry-run evidence. |
+
+If no telemetry can reveal whether the loop helped, reject the loop or convert it into a one-shot draft with human review.
+
 ## 3. Run The Thin Loop
 
 For each iteration:
@@ -109,7 +124,7 @@ Keep context lean. Persist state and evidence in files rather than replaying a l
 |---|---|---|
 | Single-agent | One owner and an objective check exist. | External test/linter/fixture; finite budget. |
 | Maker-checker | Generation and evaluation need separate judgment. | Checker has a separate prompt or tool evidence and cannot edit before reporting. |
-| Manager-workers | Work decomposes into independent territories. | Per-worker ownership, integration order, shared-state rule, and final evaluator. |
+| Manager-workers | Work decomposes into independent territories. | Per-worker ownership, branch/worktree isolation for concurrent repo writes, integration order, shared-state rule, and final evaluator. |
 
 Do not use manager-workers merely to make a task feel more autonomous. Escalate to `agent-teams-command` when real multi-agent ownership, IPC, or integration work is required. Escalate to `harness-engineering` when permissions, credentials, scheduling, or production observability are the primary problem.
 
@@ -124,6 +139,7 @@ Stop successfully only when the declared verifier accepts the declared evidence.
 | No measurable progress for three iterations | Stop and request a human decision or redefine the metric. |
 | Time, tool, token, or request cap reached | Preserve evidence and state; report budget stop. |
 | Regression, permission denial, or shared-state conflict | Revert or isolate the last action; escalate with the receipt. |
+| Change volume outpaces human comprehension | Stop for review, shrink scope, or add an architecture summary before continuing. |
 | Need to push, merge, deploy, publish, pay, message, or mutate shared production state | Stop for explicit approval. |
 
 ## 6. Close The Memory Loop
@@ -156,6 +172,7 @@ Promote reusable constraints to a project `AGENTS.md`, SOP, or related skill. Do
 ## Anti-Patterns
 
 - Letting the builder score itself and treating that score as proof.
+- Treating maker-checker agreement as proof when no deterministic evidence was run.
 - Adding more agents before the task, metric, or ownership is clear.
 - Treating “no errors observed” as success without a declared check.
 - Carrying state only in chat memory.

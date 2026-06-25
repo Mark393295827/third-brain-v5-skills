@@ -1,5 +1,18 @@
 # System Log
 
+## 2026-06-25 - Google Doc Import: Loop Engineering Overview
+
+- Source ingested: [[src-20260625-loop-engineering-overview]]
+- Concept created: [[closed-loop-agent-control|Closed-Loop Agent Control]]
+- Skill updated: `skills/loop-engineering/SKILL.md` now includes verifier-tier calibration, deterministic-evidence guardrails, branch/worktree isolation for concurrent repo writes, and a comprehension-debt stop signal.
+- Companion doc created: `skills/loop-engineering/references/ci-repair-loop-example.md`
+- Navigation updated: [[index|Wiki Index]]
+- Behavior conversion: skipped; source improves agent workflow design rather than a personal habit loop.
+- Creativity conversion: skipped; source improves an existing skill instead of suggesting a separate experiment.
+- Governance risks: imported Google Doc is `single-source`; cited vendor/product/control-system claims require `verify-before-claim` before public or operational reuse.
+- Clipping lifecycle: not applicable; input came from Google Drive, no `Clippings/` queue exists in this repository snapshot.
+- Targeted post-ingest lint: source block refs, concept frontmatter, index links, skill lint, and worked-example loop contract were checked on 2026-06-25.
+
 ## 2026-06-08 - Wiki Ingest: 极简投资、军事理论与 Agent 时代抗脆弱系统设计
 
 - Source ingested: [[src-20260608-agent-era-antifragile-system-design-playbook]], [[src-20260608-bernstein-military-antifragile-synthesis]], [[src-20260608-minimal-investing-military-theory-research]]
