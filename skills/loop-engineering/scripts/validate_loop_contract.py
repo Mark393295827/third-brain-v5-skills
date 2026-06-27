@@ -11,11 +11,15 @@ from pathlib import Path
 
 REQUIRED = {
     "objective",
+    "mode",
+    "trigger",
     "scope",
     "non-goals",
     "owner",
     "inputs",
+    "artifacts path",
     "state path",
+    "work clock",
     "success metric",
     "evidence",
     "verifier",
@@ -23,14 +27,26 @@ REQUIRED = {
     "max iterations",
     "time limit",
     "budget",
+    "review budget",
     "stop condition",
     "write-back",
     "permission boundary",
     "recovery",
 }
+VALID_MODES = {"goal", "loop", "automation", "autoresearch"}
 VALID_TOPOLOGIES = {"single-agent", "maker-checker", "manager-workers"}
 EMPTY_MARKERS = {"", "-", "n/a", "na", "none", "tbd", "todo", "unknown"}
 FIELD_RE = re.compile(r"^\s*(?:[-*+]\s+)?(?:\*\*)?([^:*]+?)(?:\*\*)?\s*:\s*(.+?)\s*$")
+FIELD_ALIASES = {
+    "global work clock": "work clock",
+    "change budget": "review budget",
+    "review bandwidth": "review budget",
+}
+MODE_ALIASES = {
+    "goal-oriented agent": "goal",
+    "interval loop": "loop",
+    "scheduled loop": "automation",
+}
 
 
 def normalize(field: str) -> str:
@@ -42,7 +58,10 @@ def parse_contract(path: Path) -> dict[str, str]:
     for line in path.read_text(encoding="utf-8").splitlines():
         match = FIELD_RE.match(line)
         if match:
-            fields[normalize(match.group(1))] = match.group(2).strip()
+            key = normalize(match.group(1))
+            key = FIELD_ALIASES.get(key, key)
+            value = match.group(2).strip()
+            fields[key] = f"{fields[key]}; {value}" if key in fields else value
     return fields
 
 
@@ -53,14 +72,26 @@ def validate(fields: dict[str, str], strict: bool) -> list[str]:
         if normalize(value) in EMPTY_MARKERS:
             errors.append(f"missing or empty field: {field}")
 
+    mode = normalize(fields.get("mode", "")).rstrip(".")
+    mode = MODE_ALIASES.get(mode, mode)
+    if mode and mode not in VALID_MODES:
+        errors.append("mode must be Goal, Loop, Automation, or AutoResearch")
+
     topology = normalize(fields.get("topology", "")).rstrip(".")
     if topology and topology not in VALID_TOPOLOGIES:
         errors.append("topology must be single-agent, maker-checker, or manager-workers")
 
-    for field in ("max iterations", "time limit", "budget"):
+    for field in ("max iterations", "time limit", "budget", "review budget"):
         value = normalize(fields.get(field, ""))
         if value and not re.search(r"\d", value):
             errors.append(f"{field} must contain a finite numeric cap")
+
+    review_budget = normalize(fields.get("review budget", ""))
+    if strict:
+        numbers = [int(match) for match in re.findall(r"\d+", review_budget)]
+        mentions_lines = "line" in review_budget or "changed" in review_budget or "diff" in review_budget
+        if mentions_lines and numbers and max(numbers) > 1000:
+            errors.append("review budget should cap changed lines at 1000 or less")
 
     stop = normalize(fields.get("stop condition", ""))
     if any(phrase in stop for phrase in ("until satisfied", "keep improving", "run forever", "infinite")):
@@ -84,7 +115,17 @@ def validate(fields: dict[str, str], strict: bool) -> list[str]:
         if "integration" not in normalize(fields.get("recovery", "")) and "integration" not in boundary:
             errors.append("manager-workers requires an integration rule in recovery or permission boundary")
 
+    if strict and mode == "automation":
+        trigger = normalize(fields.get("trigger", ""))
+        if not re.search(r"\b(cron|schedule|scheduled|webhook|event|queue|timer|ci|pr)\b", trigger):
+            errors.append("automation mode requires a schedule, webhook, event, queue, CI, PR, or timer trigger")
+
     return errors
+
+
+def canonical_mode(value: str) -> str:
+    mode = normalize(value).rstrip(".")
+    return MODE_ALIASES.get(mode, mode)
 
 
 def main() -> int:
@@ -110,6 +151,7 @@ def main() -> int:
     else:
         print("PASS loop contract")
         print(f"- fields: {len(fields)}")
+        print(f"- mode: {canonical_mode(fields['mode'])}")
         print(f"- topology: {normalize(fields['topology']).rstrip('.')}")
         print(f"- stop condition: {fields['stop condition']}")
 

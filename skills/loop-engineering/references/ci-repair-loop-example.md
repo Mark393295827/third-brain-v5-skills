@@ -18,11 +18,15 @@ Use this as a copyable companion when a repository has a repeatable CI failure a
 # Loop Contract
 
 - Objective: Make `packages/billing` CI pass for the failing checkout.
+- Mode: Goal.
+- Trigger: Manual start from failing CI evidence.
 - Scope: `packages/billing/**`, `packages/billing/package.json`, and directly related tests only.
 - Non-goals: No dependency upgrades, API redesign, formatting churn, or production deployment.
 - Owner: Primary agent; checker may review evidence but cannot edit before reporting.
 - Inputs: CI failure log, repository guidance files, and current failing test output.
+- Artifacts path: `.agent-state/billing-artifacts/`.
 - State path: `.agent-state/billing-ci-loop.md`.
+- Work clock: Read and update `.agent-state/work-clock.md` before and after each iteration.
 - Success metric: `pnpm --filter billing test` and `pnpm --filter billing lint` both exit 0.
 - Evidence: Fresh command output plus changed-file diff after each iteration.
 - Verifier: Deterministic local commands; checker agent may inspect the output and diff.
@@ -30,6 +34,7 @@ Use this as a copyable companion when a repository has a repeatable CI failure a
 - Max iterations: 4.
 - Time limit: 35 minutes.
 - Budget: 18 tool calls.
+- Review budget: Stop if the diff exceeds 800 changed lines, 8 files, or the human review cap.
 - Stop condition: Both verifier commands pass, or an iteration/time/tool cap fires, or the same failure appears twice without a new diagnosis.
 - Write-back: Update `.agent-state/billing-ci-loop.md` with diagnosis, action, metric delta, and next decision.
 - Permission boundary: Local branch writes only; no push, merge, deploy, external issue update, or shared-state mutation.
@@ -88,5 +93,6 @@ Next action: request approval before pushing or opening a PR
 | Same failure twice | `Result: stalled`; include both logs and the abandoned hypothesis. |
 | Local pass but full CI unknown | `Result: locally verified`; do not claim CI is fixed until CI evidence exists. |
 | Diff grows beyond review budget | `Result: stopped for review`; include the changed-file count and risky areas. |
+| Diff approaches 1000 changed lines | Split the loop into smaller goals before the agent loses local comprehension. |
 | Need to push or rerun hosted CI | Stop and ask for explicit approval with the local evidence attached. |
 
