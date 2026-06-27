@@ -1,25 +1,15 @@
 ---
 name: agent-teams-command
-description: Command multi-agent work with bounded roles, ownership, integration gates, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, or multi-agent orchestration.
-version: "1.5"
-updated: "2026-06-08"
+description: Command V6 multi-agent work with bounded roles, ownership, worktree isolation, IPC, integration gates, cleanup, attention budgets, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, dynamic workflow tradeoffs, or multi-agent orchestration grounded in Obsidian wiki operating rules.
+version: "6.0"
+updated: "2026-06-27"
 assumes: "Multi-agent work has separable ownership, clear integration points, risk budgets, and a configured agent runtime."
 conflicts_with: "Do not use for tasks with a single obvious next step or no separable write scopes; prefer agentic-engineering or project-flow-ops."
 ---
 
-# Ender's Game: Agent Teams Command System
+# Agent Teams Command System
 
-> "Ender knew, even as he gave the order, that this was the way victory would come — not through strength, but through understanding." — Orson Scott Card
-
-> This is not a "feature" — this is a **command system**. You are not "using" Agent Teams. You are **commanding a fleet**. Based on Karpathy's Agentic Engineering framework, transforming Claude Code Agent Teams into a complete operational architecture.
-
-## Command Philosophy: Ender's Three Principles
-
-| Principle | Meaning | Agent Teams |
-|-----------|---------|-------------|
-| **Trust Your Commander** | Ender commands through squad leaders, not every soldier | Let Team Lead coordinate; you don't micromanage each agent |
-| **Understanding Over Strength** | Study the enemy's thinking | Know each agent's capability; choose Opus vs Sonnet deliberately |
-| **Asymmetric Tactics** | Solve problems in unexpected ways | Let agents QA each other; parallel multi-directional exploration |
+Command agent teams as bounded processes with ownership, IPC, integration gates, and proof. Use parallelism only when it reduces wall-clock time or improves review quality after accounting for coordination cost.
 
 ## Usage Template
 
@@ -48,6 +38,7 @@ Use agent-teams-command for this project. Split work into roles, define ownershi
 - Team plan names each role, owner, write scope, IPC channel, integration point, and stop condition.
 - Every delegated workstream has at least one verification gate before integration.
 - Final report states integrated status, unresolved risks, and which agents can be closed.
+- V6 plan states human review bandwidth, kill/downweight signals, and durable write-back target before scaling agent count.
 
 ---
 
@@ -81,6 +72,20 @@ Use agent teams only when parallel processes reduce wall-clock time or increase 
 | Cleanup | Close agents and write lessons to wiki/logs. |
 
 Avoid parallelism when the next step depends on a single blocking decision. Do that work locally, then delegate independent slices.
+
+## V6 Attention and Ownership Gate
+
+Execution can become cheap while review stays scarce. Before adding agents, define:
+
+| Gate | Required answer |
+|---|---|
+| Review bandwidth | How many outputs, PRs, diffs, or reports can the human/lead actually inspect? |
+| Worktree / state isolation | Which branch, worktree, folder, database, or sandbox belongs to each agent? |
+| Join gate | What evidence must exist before integration? |
+| Quiet-success risk | How will the lead keep understanding if agents make many correct-but-large changes? |
+| Cleanup | Who closes agents, archives state, and writes lessons back? |
+
+If the answer is unclear, reduce agent count or use a single thin loop.
 
 ## Antifragile Swarm Gate
 
@@ -296,6 +301,7 @@ QUALITY GATES:
 - [ ] Each teammate reports changed files, evidence, and open risks
 - [ ] High-risk outputs reviewed by a separate critic or red team
 - [ ] Lessons, decisions, and risk adjustments written back
+- [ ] Human review bandwidth and quiet-success risk stayed inside the declared cap
 ```
 
 ### Three Engineering Laws
@@ -305,21 +311,6 @@ QUALITY GATES:
 | 1 | **Own Territory** | Each module has a clear owner | File overwrites, logic conflicts |
 | 2 | **Direct Messaging** | Inter-process IPC communication | Dependency blocking, serialization |
 | 3 | **Wait-for-Dependencies** | Synchronization point management | Data inconsistency, race conditions |
-
-### Command Interface
-
-```
-In-process mode:
-  Shift+Down = Switch process context
-  Escape     = Send interrupt signal (SIGINT)
-  Ctrl+T     = View process table (task list)
-
-Split-panes mode (tmux):
-  Each process in its own terminal
-  Color coding: Red(BE)/Green(FE)/Blue(QA)/Yellow(Research)
-```
-
----
 
 ## L4: Commander — Advanced Systems Engineering
 
@@ -471,6 +462,7 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 □ Risk budget and rebalancing lessons written back
 □ Applicable to future campaigns
 □ Teammates closed or explicitly handed off
+□ Human review bandwidth and quiet-success risk recorded
 ```
 
 ### Diagnostic Matrix
@@ -486,6 +478,8 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 | Swarm gets noisy | No shared OODA frame | Reduce signals, freeze plan, route updates through lead |
 | One agent becomes hero node | Too much authority in one process | Split planner/builder/evaluator/write-back roles |
 | Agent spends without proof | No mechanical rebalancing | Downweight, narrow scope, or kill based on predeclared signal |
+| Human cannot review the output queue | Attention bottleneck ignored | Lower parallelism, batch by risk, or add evaluator summaries with proof links |
+| Agents converge on the same hidden assumption | Cognitive monoculture | Add diverse reviewer prompts, perturb assumptions, or require external evidence |
 
 ---
 
@@ -493,3 +487,4 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 
 - **2026-05-10**: Created. Agent Teams command system based on Karpathy Agentic Engineering framework. L1-L5 commander progression path. 3 classic engineering campaigns.
 - **2026-06-08**: Added antifragile swarm gate from same-day Obsidian ingest: risk budgets, blast radius, no-hero-node decomposition, mechanical rebalancing, and low-friction OODA write-back.
+- **2026-06-27**: V6 update: added attention/ownership gate, quiet-success risk, review bandwidth caps, worktree/state isolation, and cognitive-monoculture mitigation.

@@ -1,8 +1,8 @@
 ---
 name: wiki-lint
-description: Health-check the knowledge wiki — find orphans, broken links, missing frontmatter, contradictions, stale content, and statistical drift. Use when the user says "lint the wiki", "health check", or periodically for maintenance.
-version: "1.3"
-updated: "2026-05-27"
+description: Health-check the V6 knowledge wiki — find orphans, broken links, missing frontmatter, contradictions, stale content, statistical drift, source/provenance debt, daily-loop health, and rule-promotion readiness. Use when the user says "lint the wiki", "health check", "check Obsidian system", "verify the knowledge loop", or periodically for maintenance.
+version: "6.0"
+updated: "2026-06-27"
 assumes: "Vault paths are resolved from system/config.md when present; otherwise default STOW paths are used."
 conflicts_with: "Do not silently repair high-risk or source-file issues; report them or ask before modifying durable records."
 ---
@@ -42,6 +42,7 @@ Use wiki-lint on my vault. Check frontmatter, broken links, orphans, stale pages
 - No source files are modified during linting.
 - P0/P1 checks can prove main graph health after an ingest: no empty files, missing wiki frontmatter, broken source refs, zero-inlink wiki pages, or wiki pages with fewer than two outbound links.
 - Concept-page quality checks separate real understanding from raw summaries: thesis, mechanism, source boundary, uncertainty, and connections.
+- V6 checks report daily-loop health, Agent/Wiki flywheel candidates, and whether proposed skill/schema promotions have enough evidence.
 
 ## When to Use
 
@@ -125,6 +126,27 @@ Flag pages that violate LLM Wiki intent:
 - [ ] No unintended modifications to `sources/` files
 - [ ] Review-queue items addressed
 
+## Check 11: V6 Daily Loop and Flywheel Health
+
+- [ ] `system/daily-knowledge-loop.md` exists when a scheduled loop is expected
+- [ ] Latest `system/daily/YYYY-MM-DD-daily-knowledge-loop.md` exists or absence is reported
+- [ ] `system/auto-update-report.md`, `system/agent-wiki-flywheel-report.md`, and `system/system-evolution-backlog.md` are present when referenced
+- [ ] Automated report blocks do not overwrite manual KR, review, or timeline sections
+- [ ] Candidate rules stay in backlog until evidence and objective checks support promotion
+
+## Check 12: V6 Promotion Readiness
+
+For any proposed change to a skill, SOP, schema rule, or automation, report:
+
+| Field | Required |
+|---|---|
+| Evidence | at least two durable wiki/source pages, or one high-quality source plus local verification |
+| Macro action | Trigger, Execute, Verify, State, budget, stop condition, recovery |
+| Boundary | no provenance, permission, source, or review relaxation |
+| Cheap check | lint, test, link check, script receipt, dashboard metric, or review receipt |
+
+If any field is missing, leave the proposal in review queue.
+
 ## Output
 
 Write results to `LINT_REPORT_FILE`:
@@ -162,3 +184,4 @@ updated: "[date]"
 - [ ] Log updated
 - [ ] Historical V5 structure debt is reported separately from current ingest failures
 - [ ] Understanding-integrity failures are reported separately from formatting debt
+- [ ] V6 daily-loop and promotion-readiness findings are separated from ordinary graph lint

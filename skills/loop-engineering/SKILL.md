@@ -2,8 +2,8 @@
 name: loop-engineering
 description: Turn a repeatable task into a bounded, evidence-driven agent loop. Use when Codex needs to decide whether a task merits looping, define a loop contract, choose single-agent versus maker-checker versus manager-workers topology, prevent runaway iteration, or repair a loop that stalls, self-grades, exceeds budget, or writes without verified evidence.
 metadata:
-  version: "1.0"
-  updated: "2026-06-21"
+  version: "6.0"
+  updated: "2026-06-27"
   assumes: "The proposed task has a reachable local state, an inspectable output, and a feasible evidence source."
   conflicts_with: "Do not bypass explicit approval, sandbox, permission, or production controls imposed by harness-engineering, agentic-engineering, or agent-teams-command."
 ---
@@ -20,6 +20,8 @@ plan -> act -> observe -> independently verify -> decide
   ^                                               |
   |---------------- continue / stop / escalate ---|
 ```
+
+V6 shorthand: every loop must state `Trigger -> Execute -> Verify -> State`. If any field is vague, do a one-shot task or write a review item instead of starting a loop.
 
 Use `scripts/validate_loop_contract.py` before starting a loop. Do not bypass a failed contract.
 
@@ -42,6 +44,7 @@ Permission boundary: [allowed writes and approval gates]
 - A valid contract names the metric, independent verifier, finite caps, recovery path, and durable write-back.
 - The selected topology is the lowest-complexity topology that can produce independent evidence.
 - The final receipt distinguishes verified success, budget stop, stall, and blocked state.
+- Scheduled knowledge loops distinguish unattended objective scans from supervised semantic writes.
 
 ## 1. Admit Or Reject The Loop
 
@@ -81,6 +84,16 @@ Create `.agent-state/loop-contract.md` or an equivalent durable state file befor
 - Write-back: Update `.agent-state/payments-loop.md` and the task log.
 - Permission boundary: Local branch writes only; no push, merge, or production action.
 - Recovery: Revert the last iteration if tests regress; escalate with evidence after two repeated failures.
+```
+
+For scheduled knowledge-management loops, add:
+
+```markdown
+- Trigger: Cron, automation, webhook, or daily note refresh.
+- Execute: Objective scans, queue generation, dashboard refresh, or one supervised KR.
+- Verify: Script receipt, lint report, link check, diff, or review receipt.
+- State: Daily note, governance dashboard, backlog, log, or skill/SOP candidate.
+- Automation boundary: No source-body mutation, concept merge/delete/rename, provenance invention, or semantic rule promotion without review.
 ```
 
 Run:
@@ -141,6 +154,7 @@ Stop successfully only when the declared verifier accepts the declared evidence.
 | Regression, permission denial, or shared-state conflict | Revert or isolate the last action; escalate with the receipt. |
 | Change volume outpaces human comprehension | Stop for review, shrink scope, or add an architecture summary before continuing. |
 | Need to push, merge, deploy, publish, pay, message, or mutate shared production state | Stop for explicit approval. |
+| Scheduled loop wants to rewrite meaning from signal heat alone | Write a candidate to review queue; do not promote. |
 
 ## 6. Close The Memory Loop
 
@@ -168,6 +182,7 @@ Promote reusable constraints to a project `AGENTS.md`, SOP, or related skill. Do
 - [ ] Production or external mutations have approval, rollback, and audit boundaries.
 - [ ] Multi-agent use has independent ownership and an integration gate.
 - [ ] Completion claim cites fresh verifier evidence; budget stop never masquerades as success.
+- [ ] V6 loop form states Trigger, Execute, Verify, and State, with unattended vs supervised actions separated.
 
 ## Anti-Patterns
 

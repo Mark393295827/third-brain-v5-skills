@@ -1,16 +1,18 @@
-# Third Brain V5 Skills — Codex CLI
+# Third Brain V6 Skills — Codex CLI
 
 This repository contains Agent Skills for the Codex CLI environment. Place skills in `~/.agents/skills/`.
+
+V6 treats Obsidian as the agent's durable disk and governance layer. Do not turn wiki signals into skill or schema rules until they pass the promotion gate: repeated source support or local verification, bounded macro action, no provenance relaxation, and a cheap objective check.
 
 ## Skills
 
 ### 📥 Knowledge Pipeline
-- **wiki-ingest** — STOW pipeline with source-risk classification, macro-action scope, block refs, clipping archive, Karpathy understanding gate, governance notes, and post-ingest lint.
-- **knowledge-ops** — Multi-layer knowledge management with Markdown-first retrieval, optional vector storage, evidence hierarchy, deduplication, and knowledge debt queues.
-- **wiki-lint** — Wiki health check for P0/P1 graph health, source refs, frontmatter, links, provenance debt, clipping lifecycle, and understanding integrity.
+- **wiki-ingest** — V6 STOW pipeline with source-risk classification, Trigger-Context-Steering scope, block refs, clipping archive, understanding gate, governance notes, and post-ingest lint.
+- **knowledge-ops** — Multi-layer knowledge management with Markdown-first retrieval, optional vector storage, evidence hierarchy, deduplication, Agent/Wiki flywheel, and knowledge debt queues.
+- **wiki-lint** — Wiki health check for P0/P1 graph health, source refs, frontmatter, links, provenance debt, clipping lifecycle, understanding integrity, and V6 promotion readiness.
 
 ### 🔄 Daily Loop
-- **daily-okr** — 7 Key Results daily knowledge compound cycle.
+- **daily-okr** — 7 Key Results daily knowledge compound cycle; may consume the scheduled daily knowledge-loop note when present.
 - **cognitive-compile** — 8-section deep learning compile framework.
 
 ### 🎨 Behavior & Creativity
@@ -31,9 +33,9 @@ This repository contains Agent Skills for the Codex CLI environment. Place skill
 
 ### 🏗️ Engineering
 - **agentic-engineering** — Agent-as-process workflow refactoring with autonomy defaults, delegated-action boundaries, state checkpoints, write-back, and verification gates.
-- **loop-engineering** — Bounded agent-loop design with admission checks, durable contracts, independent verification, hard budgets, stop/recovery rules, and topology selection.
-- **harness-engineering** — Agent runtime kernel design: permissions, tools as system calls, provenance ledgers, delegated-action gates, observability, and recovery.
-- **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, async budget envelopes, integration, cleanup, and evidence gates.
+- **loop-engineering** — Bounded Trigger -> Execute -> Verify -> State loop design with durable contracts, independent verification, hard budgets, stop/recovery rules, and topology selection.
+- **harness-engineering** — Agent runtime kernel design: permissions, tools as system calls, MCP/Skills/Hooks selection, provenance ledgers, delegated-action gates, observability, and recovery.
+- **agent-teams-command** — Multi-agent process orchestration with ownership, IPC, worktree isolation, async budget envelopes, integration, cleanup, and evidence gates.
 
 ### 💼 Strategy & Operations
 - **startup-evaluation** — Startup health diagnosis with entrepreneurship, VC 5T, PMF, runway, team, and next-test frameworks.
@@ -54,6 +56,15 @@ When selecting a skill, read its frontmatter before executing:
 - `## Quality Gates` — checks that must pass before claiming completion.
 
 For wiki-writing skills, resolve paths from `system/config.md` when available. Defaults include `SOURCES_DIR=sources/`, `CONCEPTS_DIR=wiki/concepts/`, `ENTITIES_DIR=wiki/entities/`, and `LOG_FILE=system/log.md`.
+
+## V6 Promotion Gate
+
+Promote wiki knowledge into a skill, SOP, schema rule, or automation only when:
+
+- At least two durable wiki/source pages support it, or one high-quality source plus local verification supports it.
+- The rule can be expressed as Trigger -> Execute -> Verify -> State with owner, budget, stop condition, recovery, and write-back.
+- Source immutability, block refs, clipping lifecycle, review queues, permissions, and human approval boundaries are preserved.
+- The change has a cheap check: skill lint, wiki lint, link check, script receipt, test output, dashboard metric, or review receipt.
 
 ## Adoption Ladder
 

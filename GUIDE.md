@@ -1,4 +1,4 @@
-# Third Brain V5 Skills — Installation & Usage Guide
+# Third Brain V6 Skills — Installation & Usage Guide
 
 > **18 skills** transforming AI coding agents into a persistent knowledge compounding system. Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, Windsurf, and other rule/context-based AI IDEs.
 

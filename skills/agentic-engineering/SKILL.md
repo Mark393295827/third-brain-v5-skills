@@ -1,8 +1,8 @@
 ---
 name: agentic-engineering
-description: Design or refactor agent skills, workflows, and operating loops for model-native Agentic Engineering. Use when making skills more autonomous, concise, verifiable, long-horizon capable, token-efficient, and lower-friction for human-LLM collaboration.
-version: "1.4"
-updated: "2026-06-01"
+description: Design or refactor agent skills, workflows, operating loops, and V6 knowledge-OS upgrades for model-native Agentic Engineering. Use when making skills more autonomous, concise, verifiable, long-horizon capable, token-efficient, lower-friction for human-LLM collaboration, or ready to promote Obsidian wiki learning into reusable agent behavior.
+version: "6.0"
+updated: "2026-06-27"
 assumes: "The workflow can be expressed as a bounded agent loop with observable verification evidence."
 conflicts_with: "Do not override harness-engineering safety boundaries or verify-before-claim evidence requirements."
 ---
@@ -57,6 +57,20 @@ Before adding orchestration, classify the work at the lowest sufficient level:
 
 Default to the lower level when value, independence, or verification is unclear. Higher orchestration increases token cost, permission surface, and audit burden.
 
+## V6 Knowledge-OS Upgrade Gate
+
+When updating skills from Obsidian wiki knowledge, classify the rule before editing:
+
+| Rule type | Default destination | Promotion bar |
+|---|---|---|
+| Source-specific claim | concept/entity/source page | block ref and single-source warning |
+| Reusable human/agent procedure | existing skill or SOP | Trigger -> Execute -> Verify -> State |
+| Runtime safety boundary | harness or schema | approval, rollback, receipt, objective check |
+| Repeated system debt | lint report or governance dashboard | countable metric and queue owner |
+| Taste, strategy, or uncertain judgment | review queue | human decision before promotion |
+
+Do not turn a vivid interview, demo, or single wiki page into a universal rule. V6 promotes only rules with repeated durable support or a local verification result.
+
 ## Usage Template
 
 **Prompt**
@@ -84,6 +98,7 @@ Use agentic-engineering to revise this skill/workflow. Make it model-native, con
 - Revised workflow has one trigger, one bounded macro action, one state checkpoint, one verification gate, and one write-back target.
 - The skill or workflow can be executed without extra clarification for its primary use case.
 - Residual human judgment points are explicit rather than hidden in vague prose.
+- Obsidian-derived rules pass the V6 promotion gate before entering skills, SOPs, schema, or automation.
 
 ## Model Meta-Properties
 
@@ -99,6 +114,7 @@ Design around the model as it is, not as a human assistant metaphor.
 | The model is strong at synthesis | Do not over-explain generic concepts; specify local constraints and unusual rules. |
 | The model can over-ask | Provide safe defaults and ask only for irreversible, high-risk, or genuinely ambiguous decisions. |
 | Cost and latency matter | Route simple work to thin loops; reserve deep context for high-uncertainty decisions. |
+| Models absorb scaffolding over time | Keep skills small, delete deadweight rules, and prefer intent plus verifier over brittle workaround prompts. |
 
 ## Workflow
 
@@ -246,7 +262,18 @@ Every completion claim needs fresh evidence:
 
 For vendor-keynote, launch, or product-roadmap claims, mark single-source status until checked against public docs, changelogs, or independent usage evidence.
 
-### 11. Close the Memory Loop
+### 11. Shrink the Scaffolding
+
+Before adding a rule, ask what model failure it prevents and how to verify it still matters. If a rule only patches an old model weakness, move it to a reference, lint warning, or review queue rather than the hot path.
+
+Prefer:
+- problem definition over prompt ceremony
+- task-local retrieval over context stuffing
+- procedure skills over broad ability claims
+- hooks, lints, and tests outside context when the check is deterministic
+- half-life review for stale project instructions, skills, and system cards
+
+### 12. Close the Memory Loop
 
 After significant output, decide where the result belongs:
 
@@ -273,6 +300,7 @@ After significant output, decide where the result belongs:
 - [ ] Significant outputs have a write-back destination.
 - [ ] Anti-patterns name the most likely model failure modes.
 - [ ] Output format is concrete enough for another agent to follow.
+- [ ] V6 promotion gate checked for Obsidian-derived skill, SOP, schema, or automation changes.
 
 ## Anti-patterns
 

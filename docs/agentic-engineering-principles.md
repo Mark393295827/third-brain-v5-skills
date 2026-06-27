@@ -1,7 +1,7 @@
 # Agentic Engineering Principles
 
 This standard translates the Obsidian note `wiki/concepts/Agentic Engineering`
-into operating rules for Third Brain V5 Skills.
+into operating rules for Third Brain V6 Skills.
 
 ## Doctrine
 
