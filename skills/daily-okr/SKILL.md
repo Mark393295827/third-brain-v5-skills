@@ -1,8 +1,8 @@
 ---
 name: daily-okr
-description: Execute a daily knowledge compound closed loop — 7 Key Results from input to feedback with scoring. Use when the user wants to do a daily review, plan their day, or run a knowledge workflow.
-version: "1.1"
-updated: "2026-05-22"
+description: Execute a V6 daily knowledge compound closed loop — 7 Key Results from input to feedback with scoring, evidence, wiki write-back, and optional scheduled Obsidian daily-loop note. Use when the user wants to do a daily review, plan their day, run a knowledge workflow, or complete the generated daily knowledge-management loop.
+version: "6.0"
+updated: "2026-06-27"
 assumes: "The user wants a daily loop that connects knowledge capture, action, output, and review."
 conflicts_with: "Do not let daily scoring replace verify-before-claim for completion claims or wiki-lint for vault health."
 ---
@@ -38,6 +38,7 @@ Run daily-okr in compact mode. Produce one insight, one wiki update, one action 
 - All 7 KRs have an explicit result, score, or skipped-with-reason status.
 - KR3 names the wiki update, KR4 names a concrete action, and KR7 states evidence for any completion claim.
 - Daily artifact includes a final score and one improvement for tomorrow.
+- When a scheduled daily-loop note exists, the final score references its queue, health snapshot, or evidence section.
 
 ## When to Use
 
@@ -58,6 +59,16 @@ KR7 反馈    → 3 行复盘 + 验证证据              [3 min]
 ```
 
 > Minimum bar: **1 input + 1 insight + 1 action + 1 review.**
+
+## V6 Scheduled Daily Loop
+
+If `system/daily/YYYY-MM-DD-daily-knowledge-loop.md` exists, use it as the starting artifact:
+
+1. Read the automated snapshot for clipping queue, P0/P1 debt, changed files, and rule candidates.
+2. Pick one focused KR3 wiki update or one P0/P1 repair.
+3. Keep automated blocks intact; write only in manual KR sections or append a log entry.
+4. Do not promote system rules from daily signals alone. Queue candidates for supervised review.
+5. End with evidence: changed files, diff, command output, dashboard metric, or skipped-with-reason.
 
 ### The Stop Doing List (Warren Buffett & Charlie Munger)
 
@@ -130,3 +141,4 @@ During KR7, in addition to reviewing what was done, ask:
 - [ ] KR6: output is reusable
 - [ ] KR7: every done-claim has evidence
 - [ ] Score calculated
+- [ ] Scheduled daily-loop note respected when present; automated snapshot not overwritten

@@ -1,18 +1,19 @@
-# Third Brain V5 Skills
+# Third Brain V6 Skills
 
 <p align="center">
-  <img src="assets/third-brain-v5-system-architecture.png" alt="Third Brain V5 system architecture: LLM, Skills, Obsidian, behavior design, creativity engine, governance, and compounding loops" width="600">
+  <img src="assets/third-brain-v5-system-architecture.png" alt="Third Brain V6 knowledge OS architecture: LLM, Skills, Obsidian, behavior design, creativity engine, governance, and compounding loops" width="600">
 </p>
 
-**Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf.** Build a persistent knowledge system with verification-first workflows, context management, and multi-agent orchestration.
+**Production-ready Agent Skills for Claude Code, Codex, Gemini, Cursor, and Windsurf.** Build a persistent knowledge operating system with verification-first workflows, Obsidian provenance, scheduled loops, context management, and multi-agent orchestration.
 
-Install 19 reusable agent skills for ingesting sources, building interlinked wikis, running daily review loops, verifying claims before shipping, managing token costs, engineering bounded agent loops, and orchestrating multi-agent teams.
+Install 19 reusable agent skills for ingesting sources, compiling interlinked wikis, running daily knowledge loops, verifying claims before shipping, managing token costs, engineering bounded agent loops, and orchestrating multi-agent teams.
 
 **Use this if:**
 - Your AI agent keeps forgetting context between sessions
 - You want to enforce verification gates before "done" claims
 - You need to structure knowledge as linked pages (like Obsidian) instead of scattered chat history
 - You're building agent workflows that should learn and compound over time
+- You want Obsidian wiki knowledge to update skills, SOPs, schemas, and automation through supervised promotion gates
 
 [![GitHub stars](https://img.shields.io/github/stars/Mark393295827/third-brain-v5-skills?style=social)](https://github.com/Mark393295827/third-brain-v5-skills/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -60,13 +61,34 @@ Full guide: **[GUIDE.md](GUIDE.md)**
 
 ---
 
+## V6 Operating Model
+
+V6 treats the wiki as the agent's durable disk and governance layer:
+
+```text
+Input -> Source -> Wiki compile -> Daily loop -> Agent/Wiki flywheel -> Skill/SOP upgrade -> Verification
+```
+
+The upgrade adds six hard defaults:
+
+- **Source provenance stays immutable**: raw source notes and block refs remain the audit layer.
+- **Loops have contracts**: Trigger -> Execute -> Verify -> State, with budgets and recovery.
+- **Context is zero-overhead by default**: hot paths load only what the task needs.
+- **Automation is bounded**: scans and queues can run unattended; semantic writes stay supervised.
+- **Teams need ownership**: multi-agent work requires write scopes, IPC, join gates, cleanup, and evidence.
+- **Rules promote through evidence**: wiki insights become schema or skill rules only after repeated support and a cheap check.
+
+See [V6 release notes](docs/release-notes-v6.md).
+
+---
+
 ## Core Skills (Start Here)
 
 ### 🧠 **Knowledge & Verification**
 
 | Skill | What it does |
 |-------|-------------|
-| **[wiki-ingest](skills/wiki-ingest/SKILL.md)** | Capture sources (articles, PDFs, transcripts) into an interlinked wiki with source references, concept pages, and entity pages. Enforces "Karpathy understanding gate" so pages explain *why* something matters, not just summarizing it. |
+| **[wiki-ingest](skills/wiki-ingest/SKILL.md)** | Capture sources (articles, PDFs, transcripts) into an interlinked wiki with source references, concept pages, and entity pages. Enforces the V6 source-to-skill promotion gate so pages explain *why* something matters and when it can change future agent behavior. |
 | **[verify-before-claim](skills/verify-before-claim/SKILL.md)** | **Iron rule**: No completion claims without fresh verification evidence. Run the proof command, show the output, then claim. Prevents "should work" hallucinations. Uses poker psychology (expected value thinking) to distinguish process from outcomes. |
 
 ### 📅 **Daily Loop**
@@ -168,13 +190,13 @@ External Sources ──→ wiki-ingest + knowledge-ops ──→ Knowledge Layer
                 Multi-agent teams (agentic-engineering)
 ```
 
-The system is a **closed loop**: ingest sources → process daily → extract learning → verify claims → scale to teams.
+The system is a **closed loop**: ingest sources → process daily → extract learning → verify claims → promote rules → scale to teams.
 
 ---
 
 ## Architecture & Design
 
-**Third Brain treats agents as LLM OS processes:**
+**Third Brain V6 treats agents as LLM OS processes:**
 - LLM = CPU
 - Context = RAM
 - Wiki/Obsidian = Disk
@@ -187,13 +209,13 @@ The system is a **closed loop**: ingest sources → process daily → extract le
 
 | Layer | Principle | Skills |
 |-------|-----------|--------|
-| **🧠 Knowledge** | Capture, structure, and compound knowledge over time | wiki-ingest, knowledge-ops, wiki-lint |
+| **🧠 Knowledge OS** | Capture, structure, lint, and promote knowledge over time | wiki-ingest, knowledge-ops, wiki-lint |
 | **⚡ Daily Loop** | Close the knowledge-to-action cycle every day | daily-okr, cognitive-compile |
 | **🎯 Behavior & Creativity** | Turn knowledge into habits and novel ideas | behavior-design, creativity-engine |
 | **🔬 Research & Quality** | Verify before claiming, research with rigor | deep-research, verify-before-claim |
 | **🔄 Continuous Learning** | Extract patterns from every session | session-learn, project-flow-ops |
 | **📊 Context & Cost** | Manage the LLM's scarcest resource | context-manager, token-cost-tracker |
-| **🏗️ Engineering** | Design bounded loops, agent workflows, and multi-agent systems | loop-engineering, agentic-engineering, harness-engineering, agent-teams-command |
+| **🏗️ Engineering** | Design bounded loops, harnesses, agent workflows, and multi-agent systems | loop-engineering, agentic-engineering, harness-engineering, agent-teams-command |
 | **💼 Strategy & Operations** | Evaluate startups, design AI quality systems | startup-evaluation, anthropic-os, ai-six-sigma-property-os |
 
 ---

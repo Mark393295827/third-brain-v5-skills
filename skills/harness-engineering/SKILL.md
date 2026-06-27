@@ -1,8 +1,8 @@
 ---
 name: harness-engineering
-description: Design runtime infrastructure around AI agents — permissions, tools, feedback loops, observability. Use when deploying agents to production or designing multi-agent systems.
-version: "1.4"
-updated: "2026-06-01"
+description: Design V6 runtime infrastructure around AI agents — permissions, tools, MCP/Skills/Hooks, feedback loops, observability, scheduled routines, and governance. Use when deploying agents to production, designing multi-agent systems, building agent harnesses, or turning Obsidian wiki rules into bounded runtime controls.
+version: "6.0"
+updated: "2026-06-27"
 assumes: "The agent workflow will use tools, permissions, logs, or production-like reliability boundaries."
 conflicts_with: "Do not relax approval, sandbox, or observability constraints introduced by agentic-engineering or agent-teams-command."
 ---
@@ -95,6 +95,7 @@ Use harness-engineering for this agent workflow. Design permissions, tools, feed
 - Design specifies permissions, tool contracts, observability, failure handling, and recovery path.
 - High-risk actions have approval or sandbox boundaries.
 - Verification evidence is defined before deployment or automation.
+- Harness design separates context-hot-path rules from cold-path reports, dashboards, backlogs, and wiki maps.
 
 ## When to Use
 
@@ -240,6 +241,33 @@ Define every tool like a system call:
 
 Prefer narrow tools with explicit inputs over broad shell/API access. If broad access is unavoidable, wrap it with approval gates and post-action verification.
 
+## V6 Extension Primitive Selector
+
+Choose the lowest-context primitive that can do the job:
+
+| Primitive | Use for | Avoid when |
+|---|---|---|
+| Skill | Reusable procedure, local convention, task policy, source-to-output workflow | Deterministic check can run outside context |
+| Hook | LSP/lint/test/secret scan, tool-call guard, CI or PR signal, post-action receipt | The result needs human judgment or broad context |
+| MCP / Connector | Public or cross-product integration, external API, authenticated system access | A local file/script or narrow hook is enough |
+| Dynamic workflow | Many independent shards with script review, cost cap, and observable workers | Roles need frequent IPC or shared judgment |
+| Agent team | Distinct roles, ownership, critique, integration, or debate | One thin loop plus test can solve it |
+
+Default to zero-overhead context: do not inject a tool, rule, report, or map into the prompt unless the current task uses it.
+
+## V6 Trigger-Context-Steering Harness
+
+For scheduled routines and proactive agents, define:
+
+```text
+Trigger: schedule, event, webhook, human request, or queue threshold
+Context: exact files, tools, credentials, memory, and wiki pages visible to the agent
+Steering: live observation, approval gate, verifier, rollback, anomaly alert
+Receipt: durable log, diff, dashboard, daily note, or external system status
+```
+
+No routine should run indefinitely. Every routine needs a hard budget, stop condition, stale-context half-life review, and recovery path.
+
 ---
 
 ## Security-Aware Integration
@@ -299,3 +327,5 @@ Data Lake → Risk Engine → Optimizer → Stress Test → OMS → Compliance �
 - [ ] High-risk outputs receive adversarial or red-team review
 - [ ] Reusable outputs have durable write-back outside chat history
 - [ ] Tool contracts include bounds, failure path, evidence, and audit trail
+- [ ] V6 extension primitive selected with MCP/Skills/Hooks/workflow/team tradeoff and zero-overhead context checked
+- [ ] Scheduled or proactive harness has Trigger, Context, Steering, Receipt, budget, stop condition, and recovery path

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Third Brain V5 Skills are documented here.
+All notable changes to Third Brain V6 Skills are documented here.
 
 This project follows a small-release rhythm: ship one focused release every 1-2 weeks when there are meaningful fixes, docs improvements, or skill updates.
 
@@ -39,6 +39,21 @@ This project follows a small-release rhythm: ship one focused release every 1-2 
 - Cursor, Windsurf, Codex, Claude, and Gemini routing docs now enforce assumptions, conflicts, success metrics, and path config before completion claims.
 - Wiki examples and commands now refer to configurable path variables instead of hard-coded vault directories.
 - The skill linter now requires `assumes`, `conflicts_with`, and `## Success Metrics`.
+
+## v6.0 - 2026-06-27
+
+### Added
+- V6 knowledge operating system release notes translating Obsidian Agent/Wiki flywheel evidence into skill, SOP, schema, and automation promotion gates.
+- Daily-loop aware operating model: input -> source -> wiki compile -> daily loop -> Agent/Wiki flywheel -> skill/SOP upgrade -> verification.
+- V6 promotion gate for wiki insights: repeated durable support, bounded macro action, no provenance relaxation, and cheap objective check before rule promotion.
+
+### Changed
+- Core wiki skills now treat `input-skills-obsidian` as the front door of the V6 knowledge OS rather than a one-off importer.
+- Core engineering skills now standardize Trigger -> Execute -> Verify -> State loops with hard budgets, recovery paths, independent evidence, and durable write-back.
+- Harness and team skills now use zero-overhead context, MCP/Skills/Hooks selection, ownership, IPC, join gates, cleanup, and attention-budget controls as default constraints.
+
+### Notes
+- V6 does not rewrite historical V5 vault pages. Existing source notes remain immutable; historical structure debt stays in lint reports or review queues.
 
 ## v5.1 - 2026-05-14
 

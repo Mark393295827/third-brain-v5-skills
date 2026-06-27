@@ -1,8 +1,8 @@
 ---
 name: knowledge-ops
-description: Manage a multi-layered knowledge system — ingest, organize, deduplicate, vectorize, sync, and retrieve across wiki files, vector DB, memory, and external stores. Use when the user wants to save, organize, sync, search, or scale their knowledge base.
-version: "1.3"
-updated: "2026-05-27"
+description: Manage a multi-layered V6 knowledge operating system — organize, deduplicate, retrieve, lint, queue, sync, and operate wiki files, vector DB, memory, daily loops, Agent/Wiki flywheel reports, and external stores. Use when the user wants to save, organize, search, scale, audit, or turn Obsidian wiki knowledge into supervised skill/SOP/schema improvement candidates.
+version: "6.0"
+updated: "2026-06-27"
 assumes: "A wiki or knowledge base already exists and needs organization, sync, retrieval, or scale."
 conflicts_with: "Do not modify immutable sources; use wiki-ingest for new source capture and wiki-lint for health reports."
 ---
@@ -40,6 +40,7 @@ Use knowledge-ops to organize this knowledge base. Deduplicate, classify, sync, 
 - No immutable source file is modified during organization.
 - Duplicate sources, weak links, provenance debt, and stale metadata are separated into reviewable queues instead of silently merged or invented.
 - Retrieval preserves the LLM Wiki pattern: Markdown source/concept pages are primary, vector search is optional acceleration.
+- Agent/Wiki flywheel candidates are queued with evidence, target, and cheap verification rather than silently promoted.
 
 ## When to Use
 
@@ -77,6 +78,15 @@ Resolve wiki and system paths from `system/config.md` when available. If no conf
 - Automatic sync with wiki on every ingest
 
 Karpathy-style rule: do not let vector search become the knowledge base. Use vectors to find pages; use Markdown to hold understanding, provenance, connections, and review queues.
+
+### Layer 5: V6 Governance and Flywheel State
+- `system/governance-dashboard.md`: latest health, daily-loop, and rule-candidate snapshots.
+- `system/auto-update-report.md`: objective KPI scan output.
+- `system/agent-wiki-flywheel-report.md`: recent agent/wiki signal scan.
+- `system/system-evolution-backlog.md`: supervised system-rule candidates.
+- `system/daily/YYYY-MM-DD-daily-knowledge-loop.md`: daily queue, KR, and evidence artifact.
+
+These files may guide prioritization, but they are not source evidence by themselves. Promote from them only when linked durable sources or local checks support the rule.
 
 ---
 
@@ -208,6 +218,8 @@ Use explicit queues for knowledge debt:
 | Fast-changing product/finance claim | schedule primary-source or current-doc verification |
 | V5 structure debt | batch by MOC priority rather than rewriting the whole vault |
 | Reusable agent workflow | extract to existing skill/SOP if it has objective, constraints, failure modes, verification, and write-back |
+| Agent/Wiki flywheel candidate | promote only after repeated source support or local verification plus a cheap check |
+| Daily loop queue item | complete one focused KR or P0/P1 repair; leave semantic rewrites supervised |
 
 ## AutoResearch Boundary
 
@@ -219,6 +231,26 @@ Allow autonomous knowledge improvement loops only when:
 - every auto-fix is reviewable in git or a lint report
 
 If the target is interpretive quality, strategy, taste, or claim confidence, use a supervised review queue instead.
+
+## V6 Operating Loop
+
+Run knowledge operations as a bounded loop:
+
+```text
+Trigger -> scan state -> classify debt -> choose one smallest queue -> act or report -> verify -> write back
+```
+
+Allowed unattended:
+- Count files, broken source refs, broken links, missing frontmatter, clipping queue, low-outbound pages, and stale metadata.
+- Refresh dashboards, daily-loop automated blocks, reports, and review queues.
+- Produce candidate rules from recent wiki signals.
+
+Requires supervision:
+- Mutating `sources/` body content.
+- Merging, deleting, renaming, or inventing concept/entity pages.
+- Upgrading evidence levels, trust levels, hashes, source IDs, or provenance.
+- Promoting semantic rules into skills, schema, SOPs, or automations.
+- Treating vendor demos, product launches, or single-source summaries as operational guarantees.
 
 ---
 
@@ -232,3 +264,4 @@ If the target is interpretive quality, strategy, taste, or claim confidence, use
 - [ ] Verification: knowledge is retrievable (file + vector)
 - [ ] Knowledge debt queued with clear next action
 - [ ] Markdown-first retrieval path tested before vector-only retrieval
+- [ ] V6 automation boundary respected: objective scans may run unattended; semantic writes and rule promotion are supervised

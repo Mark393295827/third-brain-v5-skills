@@ -1,8 +1,8 @@
 ---
 name: wiki-ingest
-description: Ingest articles, PDFs, videos, transcripts, and notes into a persistent interlinked knowledge wiki. Use when the user wants source notes, entity pages, concept pages, navigation updates, or STOW processing.
-version: "1.4"
-updated: "2026-05-27"
+description: Ingest articles, PDFs, videos, transcripts, and notes into a persistent interlinked knowledge wiki and V6 knowledge operating system. Use when the user wants source notes, entity pages, concept pages, navigation updates, STOW processing, Obsidian provenance, clipping lifecycle handling, or supervised promotion of source-derived insights into skills, SOPs, schemas, daily loops, or governance queues.
+version: "6.0"
+updated: "2026-06-27"
 assumes: "Vault paths are resolved from system/config.md when present; otherwise default STOW paths are used."
 conflicts_with: "Do not run bulk deduplication or vector sync here; use knowledge-ops after source capture."
 ---
@@ -41,11 +41,22 @@ Use wiki-ingest on this source. Create source notes, concept pages, entity pages
 - Targeted post-ingest lint confirms no missing frontmatter, broken source refs, zero-inlink pages, or pages with fewer than two outbound wikilinks.
 - Clippings are archived after successful ingest and the clipping queue is updated when applicable.
 - Each concept page passes the Karpathy understanding gate: one-line thesis, source boundary, mechanism, connections, and what remains uncertain.
+- V6 receipt states Trigger, Context, Steering/verification, State/write-back, and whether any rule was queued rather than promoted.
 
 **V5.2 Closure Add-on**
 - Classify every input as `external-fact`, `human-experience`, `internal-state`, or `environment-signal`.
 - For high-value ingests, decide whether to create one behavior experiment and one creativity experiment.
 - Record governance risks: single-source claims, missing provenance, stale-page risk, and review queue items.
+
+**V6 Knowledge OS Add-on**
+- Treat `input-skills-obsidian` as the fast front door and this skill as the durable compiler.
+- Use Trigger -> Context -> Steering -> State before writing:
+  - Trigger: user request, clipping queue, file drop, scheduled daily note, or research handoff.
+  - Context: source boundary, existing wiki pages, relevant maps, and only the rules needed now.
+  - Steering: source-risk label, human review boundary, independent verification, and stop condition.
+  - State: source note, wiki pages, maps, log, dashboard queue, or skill/SOP promotion candidate.
+- Promote an insight into a skill, SOP, schema rule, or automation only after repeated support or local verification, bounded macro-action shape, no provenance relaxation, and a cheap check.
+- Prefer zero-overhead context: do not preload broad maps, whole reports, or historical summaries unless the current ingest needs them.
 
 ## When to Use
 
@@ -66,11 +77,13 @@ Treat each ingest as an agentic macro action:
 
 ```text
 Objective:
+Trigger:
 Source boundary:
 Owned vault paths:
 Expected source note:
 Expected wiki updates:
 Verification evidence:
+State / write-back:
 Non-goals:
 Stop condition:
 ```
@@ -215,6 +228,7 @@ The page should compile understanding for humans and agents. Do not store a long
 3. Update relevant MOC (map of content) pages
 4. Update source batch index when the source starts or extends a topic batch
 5. For Web Clipper inputs, move the processed clipping to `Clippings/archive/` and update `Clippings/README.md` if that queue exists
+6. If ingest came from the daily knowledge loop, update only the supervised KR evidence section or log entry; do not rewrite the automated snapshot block.
 
 ### Step 5: Convert to Behavior / Creativity When Warranted
 
@@ -247,6 +261,7 @@ Skill / SOP conversion check:
 - If the source teaches a repeatable agent workflow, mark it as a candidate for `skills/`, `commands/`, or `wiki/sops/`.
 - Extract only the few "human bits" that matter: objective, constraints, failure modes, verification, and write-back target.
 - Do not create a new skill when an existing skill can absorb the rule.
+- V6 promotion requires evidence support plus objective check; otherwise write the candidate to governance/review queue instead of changing a skill.
 
 ### Step 6: Append Timeline
 
@@ -281,7 +296,8 @@ Append to `LOG_FILE` with:
 Before final reporting, run a targeted health check over the files touched:
 
 - source file exists and block refs resolve
-- every new/updated wiki page has V5 frontmatter
+- every new/updated wiki page has V6-compatible frontmatter
+- every new/updated wiki page has V6-compatible provenance fields when the local schema requires them
 - every new/updated wiki page has at least two outbound wikilinks
 - every source reference points to an existing source
 - every new concept/entity is linked from at least one relevant MOC or page
@@ -305,6 +321,7 @@ For large batches, write or update `system/lint-report.md` with P0/P1 results an
 - [ ] Targeted post-ingest lint completed
 - [ ] Clipping archived or left in queue with reason
 - [ ] Understanding gate passed for new/updated concepts
+- [ ] V6 receipt includes Trigger, Context, Steering/verification, State/write-back, and rule-promotion decision
 
 ## Page Format
 
