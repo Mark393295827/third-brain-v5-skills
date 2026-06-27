@@ -91,3 +91,43 @@ TEAMMATE 2 (FIXER)
   BLAST RADIUS: src/auth/ only unless commander approves broader change
   DEPENDENCY: Wait for AUDITOR's issue list
 ```
+
+## FDE Ontology Workflow Automation
+
+```text
+GOAL: Turn one messy operator workflow into a verified agent-assisted workflow.
+
+ORDERS: Create a team of 4 teammates using Sonnet.
+
+RISK BUDGET:
+  Max blast radius: discovery artifacts and sandbox branch only; no production mutation.
+  Kill/downweight signals: unverified operator claim, missing permission boundary, vague feedback, or demo without eval.
+  Command board: .agent-state/command-board.md
+  Rebalance: add feedback-quality reviewer if operator corrections are vague.
+
+TEAMMATE 1 (FDE RECON)
+  TASK: Observe the real workflow, roles, systems, permissions, exceptions, and hidden manual steps.
+  OWNERSHIP: research/workflow/
+  OUTPUT: FDE recon note plus gravel-road artifact proposal
+
+TEAMMATE 2 (ONTOLOGY MODELER)
+  TASK: Define mission, workstream, evidence, feedback, decision, and action objects.
+  OWNERSHIP: .agent-state/command-board.md
+  DEPENDENCY: Wait for FDE RECON
+
+TEAMMATE 3 (BUILDER)
+  TASK: Build the smallest sandboxed workflow slice.
+  OWNERSHIP: sandbox/ or feature branch only
+  DEPENDENCY: Wait for ONTOLOGY MODELER
+
+TEAMMATE 4 (EDD QA)
+  TASK: Build eval cases, grader, and feedback-to-eval path; reject eyeballing-only demos.
+  OWNERSHIP: tests/ or evals/
+  DEPENDENCY: Wait for BUILDER
+
+QUALITY GATES:
+- Command board has Data, Logic, Action, and Feedback objects
+- Workflow has permission and audit boundary
+- Eval gate passes before integration
+- Operator feedback is converted into review items or eval cases
+```

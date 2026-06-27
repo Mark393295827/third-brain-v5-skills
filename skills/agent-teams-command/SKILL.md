@@ -1,7 +1,7 @@
 ---
 name: agent-teams-command
-description: Command V6 multi-agent work with bounded roles, ownership, worktree isolation, IPC, integration gates, cleanup, attention budgets, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, dynamic workflow tradeoffs, or multi-agent orchestration grounded in Obsidian wiki operating rules.
-version: "6.0"
+description: Command V6 multi-agent work with bounded roles, ownership, worktree isolation, IPC, integration gates, cleanup, attention budgets, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, Ender-style commander training, Palantir-style ontology command boards, FDE field discovery, EDD integration gates, dynamic workflow tradeoffs, or multi-agent orchestration grounded in Obsidian wiki operating rules.
+version: "6.1"
 updated: "2026-06-27"
 assumes: "Multi-agent work has separable ownership, clear integration points, risk budgets, and a configured agent runtime."
 conflicts_with: "Do not use for tasks with a single obvious next step or no separable write scopes; prefer agentic-engineering or project-flow-ops."
@@ -39,6 +39,8 @@ Use agent-teams-command for this project. Split work into roles, define ownershi
 - Every delegated workstream has at least one verification gate before integration.
 - Final report states integrated status, unresolved risks, and which agents can be closed.
 - V6 plan states human review bandwidth, kill/downweight signals, and durable write-back target before scaling agent count.
+- Team state is represented as durable objects, actions, evidence, feedback, and decisions, not chat-only coordination.
+- Human operators keep visibility into real stakes, permissions, and review burden; hidden-real-world consequences are forbidden.
 
 ---
 
@@ -86,6 +88,23 @@ Execution can become cheap while review stays scarce. Before adding agents, defi
 | Cleanup | Who closes agents, archives state, and writes lessons back? |
 
 If the answer is unclear, reduce agent count or use a single thin loop.
+
+## Ender-Palantir Command Gate
+
+Use Ender as a command metaphor, not a stress-design recipe. Reuse empowered squad leaders, own territory, direct messaging, asymmetric problem solving, and after-action learning. Do not copy manipulation, hidden real-world stakes, no-rest pressure, or isolation without support.
+
+Use Palantir's ontology pattern when team outputs must become a durable operating system:
+
+| Layer | Team artifact |
+|---|---|
+| Data | Mission, workstream, territory, dependency, risk, evidence, feedback, and decision objects. |
+| Logic | Ownership rules, dependency graph, verifier, eval/grader, and integration policy. |
+| Action | Allowed tools plus handoff, verify, reject, integrate, rollback, and close verbs. |
+| Feedback | Operator correction becomes a review item, eval case, or contract update. |
+
+When the domain is messy or user workflows are implicit, run FDE reconnaissance before building: observe real workflow, permissions, exceptions, and current friction; ship a narrow gravel-road artifact; only then abstract a paved path. Long-running teams need orchestrator state: checkpoint, await condition, resume trigger, and trace path.
+
+For concrete templates, read `references/ender-palantir-command-patterns.md`.
 
 ## Antifragile Swarm Gate
 
@@ -146,6 +165,9 @@ Risk budget / blast radius:
 Allowed tools / denied actions:
 Expected output:
 Verification evidence:
+Ontology object / action:
+Feedback capture:
+Eval or grader:
 Risk review:
 Handoff target:
 Stop condition:
@@ -157,27 +179,11 @@ If two teammates need the same files, split by phase instead of parallel ownersh
 
 ## Command Architecture
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                   Fleet Command System                         │
-├──────────────────────────────────────────────────────────────┤
-│  Phase 0: Plan     — Task decomposition + resource allocation │
-│  Phase 1: Act      — Parallel multi-directional exploration   │
-│  Phase 2: Observe  — Cross-validation + QA loop               │
-│  Phase 3: Iterate  — Refine until quality threshold met       │
-│  Phase 4: Learn    — Post-mission review + knowledge capture  │
-└──────────────────────────────────────────────────────────────┘
-```
-
----
+Run phases as `Plan -> Act -> Observe -> Iterate -> Learn`: decompose, launch bounded workers, cross-validate, repair until the threshold or cap fires, then close and write lessons.
 
 ## Chain of Command
 
-```
-You ──→ Team Lead ──→ Teammates
-  ↓         ↓            ↓
-Strategic  Tactical     Execution
-```
+Chain: `You / strategic scheduler -> Team Lead / tactical loop -> Teammates / worker processes`.
 
 ### Three-Layer Decision Model
 
@@ -191,34 +197,16 @@ Strategic  Tactical     Execution
 
 ## L1: Recruit — System Activation
 
-### Initial Setup
-```json
-// .claude/settings.local.json — Activate fleet command
-{
-  "experimental.agentTeams": true,
-  "teammateMode": "auto"
-}
-```
+Verify the runtime before launch: Agent Teams enabled, current CLI supports teammates, a simple 2-3 agent smoke task runs, and the lead can view or interrupt each teammate. If activation fails, fix config and version before assigning real work.
 
-```bash
-claude --version  # Require ≥ v2.1.32
-```
+First deployment order:
 
-### System Verification (Plan→Act→Observe)
-```
-Plan:    Verify Agent Teams are available
-Act:     Create a 3-agent team for a simple task
-Observe: Check multi-color panels are active
-Iterate: If failed, check config and version
-```
-
-### First Deployment
-```
-Create a team of 3 teammates using Sonnet.
+```text
+Create a team of 3 teammates using Sonnet:
 1. Front-end developer
 2. Back-end developer
 3. QA agent
-Build me a landing page.
+Build a small localhost app and return changed files plus QA evidence.
 ```
 
 ---
@@ -266,6 +254,8 @@ RISK BUDGET:
   Kill/downweight signals: [cost spike | repeated error | blocked | unsafe action]
   Rebalance options: [replace | add critic | narrow scope | switch sequential]
   Write-back target: [wiki/log/state file]
+  Command board: [mission/workstream/evidence/feedback/decision object path]
+  EDD gate: [eval suite, grader, review fixture, or deterministic command]
 
 ─── TEAMMATE 1 ─── Codename: [NAME] — Role: [ROLE]
   TASK: [Specific task description]
@@ -434,6 +424,8 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 □ Each macro action has non-goals, proof, and stop condition
 □ Dependencies modeled
 □ Team vs dynamic workflow vs long-running goal choice is justified
+□ Ender safety boundary stated: no hidden real stakes, manipulation, or unsupported pressure
+□ Command board defines Data, Logic, Action, and Feedback objects
 
 [Phase 1: Act]
 □ Agents launched in parallel per plan
@@ -442,10 +434,13 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 □ Permission and blast-radius limits held
 □ Agent count, wall-clock, request count, and token budget inside cap
 □ Generated workflow scripts reviewed before execution when used
+□ Messy workflow tasks run FDE reconnaissance before abstraction
 
 [Phase 2: Observe]
 □ QA loop executed
 □ High-risk outputs passed adversarial review
+□ EDD gate uses an eval suite, grader, fixture, or deterministic command; eyeballing is not enough
+□ Operator feedback is codified into review items, eval cases, or contract updates
 □ Rebalancing decisions applied when agents drifted, stalled, or exceeded budget
 □ Issues fed back to corresponding agent
 □ Re-verified after fixes
@@ -480,6 +475,9 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 | Agent spends without proof | No mechanical rebalancing | Downweight, narrow scope, or kill based on predeclared signal |
 | Human cannot review the output queue | Attention bottleneck ignored | Lower parallelism, batch by risk, or add evaluator summaries with proof links |
 | Agents converge on the same hidden assumption | Cognitive monoculture | Add diverse reviewer prompts, perturb assumptions, or require external evidence |
+| Team talks but state is unrecoverable | No ontology command board | Convert mission, workstreams, evidence, feedback, and decisions into durable objects |
+| Polished demo fails in real workflow | No FDE reconnaissance | Observe operators, permissions, exceptions, and friction before abstracting product rules |
+| User feedback stays vague | No feedback quality gate | Add an interceptor/reviewer that asks for concrete correction and turns it into eval cases |
 
 ---
 
@@ -488,3 +486,4 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 - **2026-05-10**: Created. Agent Teams command system based on Karpathy Agentic Engineering framework. L1-L5 commander progression path. 3 classic engineering campaigns.
 - **2026-06-08**: Added antifragile swarm gate from same-day Obsidian ingest: risk budgets, blast radius, no-hero-node decomposition, mechanical rebalancing, and low-friction OODA write-back.
 - **2026-06-27**: V6 update: added attention/ownership gate, quiet-success risk, review bandwidth caps, worktree/state isolation, and cognitive-monoculture mitigation.
+- **2026-06-27**: V6.1 update: added Ender safety boundary, Palantir ontology command board, FDE reconnaissance, EDD gates, feedback codification, and orchestrator checkpoints.
