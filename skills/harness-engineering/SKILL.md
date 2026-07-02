@@ -1,8 +1,8 @@
 ---
 name: harness-engineering
-description: Design V6 runtime infrastructure around AI agents — permissions, tools, MCP/Skills/Hooks, feedback loops, observability, scheduled routines, and governance. Use when deploying agents to production, designing multi-agent systems, building agent harnesses, or turning Obsidian wiki rules into bounded runtime controls.
-version: "6.0"
-updated: "2026-06-27"
+description: Design V6 runtime infrastructure around AI agents — permissions, tools, MCP/Skills/Hooks, feedback loops, observability, scheduled routines, von Neumann-style runtime architecture, and governance. Use when deploying agents to production, designing multi-agent systems, building agent harnesses, or turning Obsidian wiki rules into bounded runtime controls.
+version: "6.1"
+updated: "2026-07-02"
 assumes: "The agent workflow will use tools, permissions, logs, or production-like reliability boundaries."
 conflicts_with: "Do not relax approval, sandbox, or observability constraints introduced by agentic-engineering or agent-teams-command."
 ---
@@ -26,6 +26,27 @@ Treat the agent harness as the kernel around an LLM OS:
 | Interrupts | Stop, ask approval, rollback, or route to a safer action. |
 | Observability | Log tool calls, decisions, outputs, costs, and verification evidence. |
 | Garbage collection | Close idle agents, remove stale tasks, compact context, and record risks. |
+
+## Von Neumann Harness Frame
+
+Use this frame to turn an agent workflow into an inspectable runtime. The value is not the metaphor; the value is forcing every delegated action to name its program, memory, control path, tools, disk, verifier, and recovery boundary.
+
+| Runtime part | Harness responsibility |
+|---|---|
+| Stored program | Skills, prompts, SOPs, routines, and command boards are executable instructions with versions and owners. |
+| Processor / control unit | One auditable scheduler decides the next action, interrupt, rollback, or escalation. |
+| RAM | Context is hot working memory; load only task-local state and prune stale context. |
+| Disk | Wiki, logs, state files, sessions, traces, and receipts hold durable memory outside chat. |
+| Bus | Tool calls, event streams, task lists, and handoff schemas move state between components. |
+| I/O devices | MCP servers, shell commands, browsers, APIs, filesystems, and external connectors are system calls. |
+| Verifier | Tests, lint, evals, receipts, telemetry, reviewers, or red teams check state transitions. |
+| Garbage collector | Cleanup idle agents, stale tasks, outdated context, obsolete rules, and unreconciled artifacts. |
+
+Serial-control rule: keep high-risk intent, permission escalation, and final join decisions on one inspectable control path. Parallelize only owned workstreams whose memory, bus, tools, and verifier are already defined.
+
+Automata rule: local rules create global behavior. For each routine, hook, or agent worker, define `state + trigger -> action -> evidence -> next state | stop | escalate`.
+
+Self-reproduction rule: an agent may propose new skills, hooks, schemas, or automations, but installation requires the V6 promotion gate, provenance, human approval when required, and a cheap objective check.
 
 ## Productized Agent Harness
 
@@ -96,6 +117,7 @@ Use harness-engineering for this agent workflow. Design permissions, tools, feed
 - High-risk actions have approval or sandbox boundaries.
 - Verification evidence is defined before deployment or automation.
 - Harness design separates context-hot-path rules from cold-path reports, dashboards, backlogs, and wiki maps.
+- Runtime design maps stored program, control path, memory, disk, bus, I/O tools, verifier, and garbage collection before delegated execution.
 
 ## When to Use
 
@@ -329,3 +351,6 @@ Data Lake → Risk Engine → Optimizer → Stress Test → OMS → Compliance �
 - [ ] Tool contracts include bounds, failure path, evidence, and audit trail
 - [ ] V6 extension primitive selected with MCP/Skills/Hooks/workflow/team tradeoff and zero-overhead context checked
 - [ ] Scheduled or proactive harness has Trigger, Context, Steering, Receipt, budget, stop condition, and recovery path
+- [ ] Von Neumann runtime frame names stored program, control path, RAM, disk, bus, I/O tools, verifier, and garbage collector
+- [ ] High-risk decisions stay on an auditable serial control path; only owned/verifiable workstreams run in parallel
+- [ ] Self-improving skills, hooks, schemas, and automations pass the V6 promotion gate before installation

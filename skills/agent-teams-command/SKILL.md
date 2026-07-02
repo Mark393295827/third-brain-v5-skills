@@ -1,8 +1,8 @@
 ---
 name: agent-teams-command
-description: Command V6 multi-agent work with bounded roles, ownership, worktree isolation, IPC, integration gates, cleanup, attention budgets, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, Ender-style commander training, Palantir-style ontology command boards, FDE field discovery, EDD integration gates, dynamic workflow tradeoffs, or multi-agent orchestration grounded in Obsidian wiki operating rules.
-version: "6.1"
-updated: "2026-06-27"
+description: Command V6 multi-agent work with bounded roles, ownership, worktree isolation, IPC, integration gates, cleanup, attention budgets, and verification loops. Use when the user needs Claude Code Agent Teams, parallel agents, delegation strategy, Ender-style commander training, von Neumann-style command architecture, Palantir-style ontology command boards, FDE field discovery, EDD integration gates, dynamic workflow tradeoffs, or multi-agent orchestration grounded in Obsidian wiki operating rules.
+version: "6.2"
+updated: "2026-07-02"
 assumes: "Multi-agent work has separable ownership, clear integration points, risk budgets, and a configured agent runtime."
 conflicts_with: "Do not use for tasks with a single obvious next step or no separable write scopes; prefer agentic-engineering or project-flow-ops."
 ---
@@ -41,6 +41,7 @@ Use agent-teams-command for this project. Split work into roles, define ownershi
 - V6 plan states human review bandwidth, kill/downweight signals, and durable write-back target before scaling agent count.
 - Team state is represented as durable objects, actions, evidence, feedback, and decisions, not chat-only coordination.
 - Human operators keep visibility into real stakes, permissions, and review burden; hidden-real-world consequences are forbidden.
+- Team plan maps command program, control path, memory, IPC bus, tools, disk, verifier, and self-improvement boundary before launch.
 
 ---
 
@@ -105,6 +106,12 @@ Use Palantir's ontology pattern when team outputs must become a durable operatin
 When the domain is messy or user workflows are implicit, run FDE reconnaissance before building: observe real workflow, permissions, exceptions, and current friction; ship a narrow gravel-road artifact; only then abstract a paved path. Long-running teams need orchestrator state: checkpoint, await condition, resume trigger, and trace path.
 
 For concrete templates, read `references/ender-palantir-command-patterns.md`.
+
+## Von Neumann Command Frame
+
+Use this frame when agent-team work needs architecture, not more teammates. Convert the commander's intent into a stored program: explicit order, serial control path, small per-agent RAM, durable disk, typed IPC bus, permissioned tools, independent verifier, and V6 promotion boundary.
+
+Parallelize only after intent, ownership, and join gate are fixed. Each workstream needs a local automata rule: `state + evidence -> next action -> verifier -> next state | stop | escalate`. For the fuller template, read `references/ender-palantir-command-patterns.md`.
 
 ## Antifragile Swarm Gate
 
@@ -256,6 +263,7 @@ RISK BUDGET:
   Write-back target: [wiki/log/state file]
   Command board: [mission/workstream/evidence/feedback/decision object path]
   EDD gate: [eval suite, grader, review fixture, or deterministic command]
+  Von Neumann frame: [program | control | memory | IPC bus | tools | disk | verifier | promotion boundary]
 
 ─── TEAMMATE 1 ─── Codename: [NAME] — Role: [ROLE]
   TASK: [Specific task description]
@@ -426,6 +434,7 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 □ Team vs dynamic workflow vs long-running goal choice is justified
 □ Ender safety boundary stated: no hidden real stakes, manipulation, or unsupported pressure
 □ Command board defines Data, Logic, Action, and Feedback objects
+□ Von Neumann command frame defines program, control path, memory, IPC bus, tools, disk, verifier, and promotion boundary
 
 [Phase 1: Act]
 □ Agents launched in parallel per plan
@@ -458,6 +467,7 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 □ Applicable to future campaigns
 □ Teammates closed or explicitly handed off
 □ Human review bandwidth and quiet-success risk recorded
+□ Reusable skill/SOP/hook candidates were queued through the V6 promotion gate, not self-promoted from a single run
 ```
 
 ### Diagnostic Matrix
@@ -487,3 +497,4 @@ Detailed campaign templates live in `references/classic-campaigns.md` to keep th
 - **2026-06-08**: Added antifragile swarm gate from same-day Obsidian ingest: risk budgets, blast radius, no-hero-node decomposition, mechanical rebalancing, and low-friction OODA write-back.
 - **2026-06-27**: V6 update: added attention/ownership gate, quiet-success risk, review bandwidth caps, worktree/state isolation, and cognitive-monoculture mitigation.
 - **2026-06-27**: V6.1 update: added Ender safety boundary, Palantir ontology command board, FDE reconnaissance, EDD gates, feedback codification, and orchestrator checkpoints.
+- **2026-07-02**: V6.2 update: added von Neumann command frame from Obsidian wiki to structure agent teams as stored-program systems with explicit control, memory, IPC, tools, verifiers, and promotion boundaries.

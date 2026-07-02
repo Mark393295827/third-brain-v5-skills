@@ -1,5 +1,15 @@
 # System Log
 
+## 2026-06-28 - Primary-Source Verification: Loop Engineering Overview
+
+- Source reviewed: [[src-20260625-loop-engineering-overview]]
+- Primary-source subset checked: Addy Osmani, Sonar, TrueFoundry, Ansys, and MathWorks pages cited by the imported source.
+- Governance result: cited sources support the loop-primitives, deterministic-verifier, governed-runtime, and MIL/SIL/HIL analogy boundaries now recorded in [[closed-loop-agent-control|Closed-Loop Agent Control]].
+- Boundary preserved: source evidence level remains `single-source`; the imported Google Doc was not reauthored into a verified research bundle.
+- Unsupported claims made explicit: AI-agent loops do not inherit HIL safety properties by analogy, and the formal control-system mapping still needs separate control-system sources before promotion.
+- Skill update: `skills/loop-engineering/SKILL.md` now states that control-system and MIL/SIL/HIL vocabulary is an operating analogy, not a safety proof.
+- Follow-up review queue: broad thermodynamic, biochemical, corporate, historical, and formal control-theory claims remain unverified and must not be reused operationally without a separate source/claim ledger.
+
 ## 2026-06-25 - Google Doc Import: Loop Engineering Overview
 
 - Source ingested: [[src-20260625-loop-engineering-overview]]

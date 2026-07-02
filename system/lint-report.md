@@ -1,10 +1,23 @@
 ---
 title: "Lint Report"
 type: system
-updated: "2026-06-25"
+updated: "2026-06-28"
 ---
 
-# Lint Report - 2026-06-25
+# Lint Report - 2026-06-28
+
+## Targeted Check: Loop Engineering Overview Primary-Source Verification
+
+| Check | Result | Evidence |
+|---|---|---|
+| Addy Osmani source checked | Pass | Primary page supports loop anatomy, external state, maker/checker split, and human verification/comprehension warnings |
+| Sonar source checked | Pass | Primary page supports two-tier verification and deterministic checks as the hard stop for code loops |
+| TrueFoundry source checked | Pass | Primary page supports governed runtime concerns: scoped identity, human gates, budgets, guardrails, durable state, and traces |
+| Ansys source checked | Pass | Primary page supports HIL as real control software/hardware connected to simulated sensors, actuators, or plant behavior |
+| MathWorks source checked | Pass | Primary page supports MIL/SIL/PIL/HIL as distinct embedded-system verification techniques with different fidelity |
+| Source boundary preserved | Pass | Source body remains an immutable capture; governance notes record verification scope and remaining unsupported boundaries |
+| Concept evidence level | Pass | `wiki/concepts/closed-loop-agent-control.md` remains `single-source`; unsupported control-theory and safety inheritance claims are explicit |
+| Skill wording | Pass | `skills/loop-engineering/SKILL.md` now states the control-system and MIL/SIL/HIL vocabulary is an analogy, not a safety proof |
 
 ## Targeted Check: Loop Engineering Overview Import
 
@@ -32,6 +45,7 @@ updated: "2026-06-25"
 
 | Page | Issue | Suggested Action |
 |---|---|---|
-| `sources/src-20260625-loop-engineering-overview.md` | Imported Google Doc remains single-source synthesis | Verify cited Addy Osmani, Sonar, TrueFoundry, Ansys, and MathWorks sources before public or operational reuse |
+| `sources/src-20260625-loop-engineering-overview.md` | Imported Google Doc remains single-source synthesis despite cited primary-source spot check | Ingest separate control-system sources before promoting the closed-loop-control analogy as anything stronger than a practical agent-loop frame |
+| `sources/src-20260625-loop-engineering-overview.md` | Broad thermodynamic, biochemical, corporate, and historical claims remain outside the verified subset | Do not reuse those claims operationally without a separate source/claim ledger |
 
 Historical wiki health outside this ingest was not re-audited in this targeted pass.

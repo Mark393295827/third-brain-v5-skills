@@ -2,15 +2,15 @@
 name: loop-engineering
 description: Turn a repeatable task into a bounded, evidence-driven agent loop. Use when Codex needs to decide whether a task merits a Goal, Loop, Automation, or AutoResearch pattern; define a loop contract; check trigger/state/tools/codebase readiness; choose single-agent versus maker-checker versus manager-workers topology; prevent runaway iteration; or repair a loop that stalls, self-grades, exceeds review budget, or writes without verified evidence.
 metadata:
-  version: "6.1"
-  updated: "2026-06-27"
+  version: "6.2"
+  updated: "2026-06-28"
   assumes: "The proposed task has a reachable local state, an inspectable output, and a feasible evidence source."
   conflicts_with: "Do not bypass explicit approval, sandbox, permission, or production controls imposed by harness-engineering, agentic-engineering, or agent-teams-command."
 ---
 
 # Loop Engineering
 
-Design a loop as a control system, not a repeated prompt. Its only valid form is:
+Design a loop with a control-system frame, not as a repeated prompt. This is an operating analogy for measurement, bounded action, verification, and state; it is not a safety proof. Its only valid form is:
 
 ```text
 goal + state + tools + budget
@@ -149,6 +149,8 @@ Treat a budget cap or stall condition as a controlled stop, not success.
 ## 5. Calibrate The Verification Tier
 
 Choose the cheapest verifier that still exercises the failure mode the loop could create. An LLM checker may interpret evidence, but for code, infrastructure, external systems, or durable wiki changes it cannot replace deterministic evidence.
+
+Treat the Model-in-the-Loop / Software-in-the-Loop / Hardware-in-the-Loop vocabulary below as a verifier-fidelity analogy borrowed from embedded-system validation. It does not certify agent-loop safety.
 
 | Loop risk | Minimum verifier |
 |---|---|

@@ -80,7 +80,8 @@ Passing tests can outpace human understanding. A loop that changes many files, a
 
 ## Governance Notes
 
-- Evidence level remains `single-source`.
+- Evidence level remains `single-source` for the imported Google Doc and the promoted local synthesis. The cited primary-source subset was checked on 2026-06-28, but the source note itself is still an immutable capture rather than a reauthored research brief.
 - No source-file mutation should happen after this ingest unless the user requests a source correction.
-- Review queue: independently verify the cited Addy Osmani, Sonar, TrueFoundry, Ansys, and MathWorks pieces before turning their claims into general public-facing documentation.
+- Primary-source check: Addy Osmani supports the loop-engineering anatomy of automations, worktrees, skills, connectors, sub-agents, and external state, plus the warnings that verification and comprehension remain human responsibilities. Sonar supports the two-tier verification claim: LLM review is advisory/probabilistic, while deterministic checks are the hard gate for code loops. TrueFoundry supports the governed-runtime translation: scoped identities, human approval gates, budgets, guardrails, durable state, and run traces. Ansys and MathWorks support HIL and MIL/SIL/PIL/HIL definitions for embedded-system validation.
+- Remaining boundary: these sources do not prove that AI-agent loops inherit safety properties from HIL, and they do not independently validate the Google Doc's broader thermodynamic, biochemical, corporate, or formal control-theory claims. Treat the closed-loop-control mapping as a practical agent-loop analogy until separate control-system sources are ingested.
 

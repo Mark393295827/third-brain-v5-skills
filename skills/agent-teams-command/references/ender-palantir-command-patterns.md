@@ -1,6 +1,6 @@
-# Ender-Palantir Command Patterns
+# Ender-Palantir-Von Neumann Command Patterns
 
-Use this reference when a multi-agent project needs durable state, messy workflow discovery, long-running coordination, or feedback-driven improvement.
+Use this reference when a multi-agent project needs durable state, messy workflow discovery, long-running coordination, feedback-driven improvement, or a structured command architecture.
 
 ## Source Boundary
 
@@ -9,6 +9,11 @@ This pattern is promoted from durable Obsidian pages, not from a single clipping
 - `wiki/concepts/Claude Code Agent Teams 操作指南.md`
 - `wiki/outputs/enders-game-commander-training-framework.md`
 - `sources/2026-05-09-enders-game-trilogy.md`
+- `sources/2026-04-11-the-man-from-the-future.md`
+- `wiki/entities/约翰·冯·诺依曼.md`
+- `wiki/concepts/冯·诺依曼体系结构.md`
+- `wiki/concepts/自复制自动机.md`
+- `wiki/concepts/元胞自动机.md`
 - `wiki/entities/Palantir.md`
 - `wiki/concepts/数据本体论 Data Ontology.md`
 - `wiki/concepts/智能体前线部署工程师.md`
@@ -16,6 +21,18 @@ This pattern is promoted from durable Obsidian pages, not from a single clipping
 - `wiki/concepts/评估驱动开发.md`
 
 Do not promote source-specific military, investment, or vendor claims into a project rule unless independently verified.
+
+## Structured Framework
+
+Use the three lenses together:
+
+| Lens | Question | Output |
+|---|---|---|
+| Ender | What does the commander need to understand before acting? | Intent, squad autonomy, asymmetric plan, after-action learning. |
+| Palantir | What objects and actions make the work operationally legible? | Mission, workstream, evidence, feedback, decision, allowed verbs. |
+| Von Neumann | What executable architecture makes the team inspectable and recoverable? | Program, control path, memory, IPC bus, I/O tools, disk, verifier, promotion boundary. |
+
+Reject the launch if any lens is blank. A team without Ender becomes brute-force delegation; a team without Palantir becomes chat-only coordination; a team without von Neumann becomes an uninspectable process.
 
 ## Ender Safety Translation
 
@@ -34,6 +51,64 @@ Forbidden:
 - "Win at any cost" goals.
 - Psychological stress as a management tool.
 - Treating victory as correctness without moral or operational review.
+
+## Von Neumann Command Architecture
+
+Convert the mission into a stored program before launching workers:
+
+```markdown
+# Command Program
+
+Program:
+  objective:
+  non_goals:
+  finite_actions:
+  stop_condition:
+
+Control:
+  commander:
+  lead:
+  checkpoint_cadence:
+  interrupt_policy:
+
+Memory:
+  hot_context:
+  cold_context:
+  state_path:
+  artifact_path:
+
+Bus:
+  message_schema:
+  dependency_states:
+  handoff_required_fields:
+
+I/O:
+  allowed_tools:
+  denied_tools:
+  receipt_format:
+  rollback_path:
+
+Verifier:
+  command_or_fixture:
+  reviewer:
+  pass_threshold:
+  regression_check:
+
+Self-improvement:
+  candidate_destination:
+  required_evidence:
+  human_review:
+```
+
+Design rule: strategic control is usually serial, while execution can be parallel. If the commander has not fixed intent, ownership, and verifier, adding agents only amplifies ambiguity.
+
+Automata rule: local worker rules create global behavior. Every worker must know its state transition:
+
+```text
+current state + evidence -> next action -> verifier -> next state | stop | escalate
+```
+
+Self-reproduction rule: a team may generate reusable process artifacts, but it cannot install them as skills, hooks, schemas, or automations without the V6 promotion gate and a cheap check.
 
 ## Ontology Command Board
 

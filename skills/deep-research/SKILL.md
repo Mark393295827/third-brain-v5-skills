@@ -1,8 +1,8 @@
 ---
 name: deep-research
-description: Multi-source deep research — search, synthesize, and deliver cited reports. Use when the user wants thorough research on any topic with evidence and citations.
-version: "1.3"
-updated: "2026-06-01"
+description: Multi-source deep research — search, synthesize, and deliver cited reports. Use when the user wants thorough research on any topic with evidence, citations, AI-era scientific-method boundaries, AutoResearch feasibility checks, source/claim ledgers, uncertainty handling, and STOW wiki handoff.
+version: "1.4"
+updated: "2026-07-02"
 assumes: "The question benefits from multiple sources, citations, and explicit uncertainty."
 conflicts_with: "Do not use as a substitute for wiki-ingest when the task is to preserve a provided source in the vault."
 ---
@@ -44,6 +44,7 @@ Use deep-research on this question. Define scope, gather multiple sources, compa
 - High-stakes or high-uncertainty topics use a gap-fill and contradiction pass before final synthesis.
 - Standard and deep reports include a visible activity trace and source-access boundary.
 - Durable outputs include a STOW handoff packet for `wiki-ingest` or `wiki/outputs/`.
+- Scientific or AI-assisted research states the problem, data/simulator, objective metric, uncertainty/reproducibility check, and human judgment boundary before recommending autonomous experimentation.
 
 ## When to Use
 
@@ -62,6 +63,7 @@ Select the lowest sufficient mode before searching:
 | Knowledge curation | User needs a durable wiki/article-style synthesis | Outline, sections, citations, reusable concepts |
 | Recency pulse | Topic changed recently or depends on social signal | Date window, timeline, signal ranking, caveats |
 | Domain intelligence | User needs market, technical, policy, or competitor analysis | Source matrix, implication map, recommended actions |
+| Scientific method audit | Research depends on experiments, benchmarks, simulations, or AI-for-science claims | Problem/data/eval loop, uncertainty, reproducibility, human judgment boundary |
 | Heavy research | High-stakes, ambiguous, or long-horizon question | Multi-pass research loop, gap fill, adversarial review |
 
 Use Heavy research only when the value justifies more search, tool calls, and verification. Otherwise use standard mode and clearly list open gaps.
@@ -108,6 +110,19 @@ Tool-call budget:
 Trace storage:
 Private-data separation:
 ```
+
+For scientific, AI-for-science, or AutoResearch-like work, also add:
+
+```text
+Problem statement:
+Data or simulator:
+Objective / eval:
+Uncertainty and reproducibility check:
+Human judgment boundary:
+Autonomy level: assistant | peer | tutor | autonomous researcher
+```
+
+Reject autonomous research when the objective, data/simulator, or evaluator is vague. Use a human-reviewed evidence brief instead.
 
 ### Phase 2: Multi-Source Collection
 
@@ -167,6 +182,21 @@ Source quality:
 Freshness:
 Decision implication:
 ```
+
+### Phase 3B: AI-Era Science Gate
+
+When the research concerns science, benchmarks, models, simulations, or AI-generated hypotheses, pass this gate before final synthesis:
+
+| Gate | Required check |
+|---|---|
+| Problem clarity | The research question is stated concretely enough to test or refute. |
+| Data / simulator | The report names the dataset, experiment, benchmark, simulator, or explains why none exists. |
+| Objective | The eval, metric, grader, acceptance criterion, or falsification path is explicit. |
+| Reproducibility | The report records source dates, methods, missing artifacts, and what another researcher would need to repeat the claim. |
+| Understanding | The synthesis explains mechanism and uncertainty, not only model output, data volume, or popularity. |
+| Human boundary | The report states where expert judgment, ethics, safety, or review is still required. |
+
+For "AI did science" claims, separate prediction speed, experimental validation, open distribution, and downstream scientific reuse. Do not treat model accuracy, benchmark rank, or a polished demo as scientific understanding.
 
 ### Phase 3A: STOW Mapping
 
@@ -249,6 +279,16 @@ This skill adopts five patterns from high-star GitHub deep-research projects:
 | Recency and social signal | Use date windows and engagement signals for fast-moving topics, then verify against primary sources. |
 | Heavy iterative mode | Add gap-fill and adversarial passes when stakes or uncertainty are high. |
 
+## Obsidian Promotion Notes
+
+This skill incorporates the wiki concepts `AI时代科学方法`, `AI科学发现飞轮`, and `AutoResearch` as operating constraints:
+
+- Scientific AI needs a closed loop: problem -> data/simulator -> hypothesis -> experiment/eval -> uncertainty/reproducibility -> public or reviewable write-back.
+- AutoResearch is allowed only when the task has cheap objective verification.
+- AlphaFold-style success requires more than model performance: public or inspectable data, external benchmark, downstream use, and clear limits on transferability.
+- Academic or civil-society research can be high-value without frontier-scale compute when it studies black boxes, stress tests, benchmarks, monitoring, uncertainty, and alignment.
+- "More data" is not a research conclusion; preserve the distinction between data accumulation, prediction, explanation, and understanding.
+
 ## ChatGPT Deep Research Comparison Gates
 
 Use these gates when testing against ChatGPT-style deep research:
@@ -268,6 +308,7 @@ Use these gates when testing against ChatGPT-style deep research:
 - [ ] Research scope defined before collection
 - [ ] ChatGPT-style preflight records outcome, source boundary, budget, and plan-review status
 - [ ] Research mode and depth budget selected
+- [ ] Scientific/AI-assisted research passes the problem, data/simulator, objective, uncertainty, reproducibility, and human-boundary gate
 - [ ] ≥3 sources collected (or specified depth)
 - [ ] Source ledger records type, date, reliability, and evidence contribution for standard/deep work
 - [ ] Claim ledger separates evidence, counterevidence, confidence, and implication
